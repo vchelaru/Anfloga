@@ -1,0 +1,10 @@
+*.user
+*.aeproperties
+.vs/
+*.tmp
+*.Generated.cs
+*.cachefile
+*.csvSettings
+Anfloga/Anfloga/bin/
+Anfloga/Anfloga/obj/
+Anfloga/AnflogaContent/obj/
