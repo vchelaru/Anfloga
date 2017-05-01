@@ -523,8 +523,8 @@
   <DisplaySettings>
     <Is2D>true</Is2D>
     <GenerateDisplayCode>true</GenerateDisplayCode>
-    <ResolutionWidth>1920</ResolutionWidth>
-    <ResolutionHeight>1080</ResolutionHeight>
+    <ResolutionWidth>960</ResolutionWidth>
+    <ResolutionHeight>540</ResolutionHeight>
     <FixedAspectRatio>false</FixedAspectRatio>
     <AspectRatioWidth>16</AspectRatioWidth>
     <AspectRatioHeight>9</AspectRatioHeight>
