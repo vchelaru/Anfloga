@@ -145,10 +145,6 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>Text</Name>
     </None>
-    <None Include="Screens\GameScreen\anflogasprites.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>anflogasprites</Name>
-    </None>
     <None Include="Screens\GameScreen\Levels\anflogaSprites.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>anflogaSprites</Name>
