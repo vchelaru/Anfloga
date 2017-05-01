@@ -10,5 +10,40 @@
       <SourceFileArgumentPrefix>-c</SourceFileArgumentPrefix>
       <DestinationFileArgumentPrefix>-o</DestinationFileArgumentPrefix>
     </BuildToolAssociation>
+    <BuildToolAssociation>
+      <BuildTool>Libraries/Tmx/TmxToScnx.exe</BuildTool>
+      <IsBuildToolAbsolute>false</IsBuildToolAbsolute>
+      <SourceFileType>tmx</SourceFileType>
+      <DestinationFileType>scnx</DestinationFileType>
+      <IncludeDestination>true</IncludeDestination>
+    </BuildToolAssociation>
+    <BuildToolAssociation>
+      <BuildTool>Libraries/Tmx/TmxToCSV.exe</BuildTool>
+      <IsBuildToolAbsolute>false</IsBuildToolAbsolute>
+      <SourceFileType>tmx</SourceFileType>
+      <DestinationFileType>csv</DestinationFileType>
+      <IncludeDestination>true</IncludeDestination>
+    </BuildToolAssociation>
+    <BuildToolAssociation>
+      <BuildTool>Libraries/Tmx/TmxToShcx.exe</BuildTool>
+      <IsBuildToolAbsolute>false</IsBuildToolAbsolute>
+      <SourceFileType>tmx</SourceFileType>
+      <DestinationFileType>shcx</DestinationFileType>
+      <IncludeDestination>true</IncludeDestination>
+    </BuildToolAssociation>
+    <BuildToolAssociation>
+      <BuildTool>Libraries/Tmx/TmxToScnx.exe</BuildTool>
+      <IsBuildToolAbsolute>false</IsBuildToolAbsolute>
+      <SourceFileType>tmx</SourceFileType>
+      <DestinationFileType>tilb</DestinationFileType>
+      <IncludeDestination>true</IncludeDestination>
+    </BuildToolAssociation>
+    <BuildToolAssociation>
+      <BuildTool>Libraries/Tmx/TmxToNntx.exe</BuildTool>
+      <IsBuildToolAbsolute>false</IsBuildToolAbsolute>
+      <SourceFileType>tmx</SourceFileType>
+      <DestinationFileType>nntx</DestinationFileType>
+      <IncludeDestination>true</IncludeDestination>
+    </BuildToolAssociation>
   </BuildToolList>
 </BuildToolAssociationList>
