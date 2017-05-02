@@ -48,9 +48,10 @@ namespace Anfloga.Screens
 
         private void InitializeHud()
         {
-            if(PlayerList.Count > 0)
+            if(PlayerList?.Count > 0)
             {
                 //Get the first player for now to attatch the hud instance to.
+                PlayerList[0].PlayerHud = this.PlayerHudInstance;
             }
             
         }

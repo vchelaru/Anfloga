@@ -14,12 +14,13 @@ namespace Anfloga.Entities
 {
 	public partial class Player
 	{
-        private PlayerHudRuntime PlayerHud { get; set; }
+        public PlayerHudRuntime PlayerHud { get; set; }
         public I2DInput MovementInput { get; set; }
         public IPressableInput DashInput { get; set; }
         public IPressableInput DialogInput { get; set; }
 
         private float currentOxygenSupply;
+        private float currentHealth;
 
         /// <summary>
         /// Initialization logic which is execute only one time for this Entity (unless the Entity is pooled).
@@ -38,6 +39,7 @@ namespace Anfloga.Entities
         private void InitializeHudVariables()
         {
             currentOxygenSupply = MaxOxygenSupply;
+            currentHealth = MaxHealth;
         }
 
         private void AssignInput()
@@ -74,12 +76,22 @@ namespace Anfloga.Entities
 
         private void ConsumeOxygenActivity()
         {
-            currentOxygenSupply -= OxygenConsumptionRate;
+#if DEBUG
+            if(InputManager.Keyboard.KeyPushed(Microsoft.Xna.Framework.Input.Keys.O))
+            {
+                currentOxygenSupply = MaxOxygenSupply;
+            }
+#endif
+            currentOxygenSupply -= OxygenConsumptionRate * TimeManager.SecondDifference;
         }
 
         private void UpdateHudActivity()
         {
-            
+            //We are not worried about 
+            var currentOxygenPercentage = currentOxygenSupply / MaxOxygenSupply;
+            var currentHealthPercentage = currentHealth / MaxHealth;
+
+            PlayerHud.UpdateHud(new HudUpdateData() { OxygenFill =  currentOxygenPercentage, HealthFill = currentHealthPercentage});
         }
 
         private void PerformMovementInput()
