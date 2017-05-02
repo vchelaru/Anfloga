@@ -12,6 +12,10 @@ namespace Anfloga.GumRuntimes
         private int MaxFillTextureTop;
         partial void CustomInitialize()
         {
+            //To account for texture sampling bugs in render libraries, we will adjust the Y by a small amount.
+            //We may need to do this on a case by case basis.
+            StatusBarFill.Y -= .05f;
+
             MaxFillTextureHeight = StatusBarFill.TextureHeight;
             MaxFillTextureTop = StatusBarFill.TextureTop;
         }

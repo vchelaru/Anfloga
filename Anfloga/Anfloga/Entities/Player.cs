@@ -19,7 +19,7 @@ namespace Anfloga.Entities
         public IPressableInput DashInput { get; set; }
         public IPressableInput DialogInput { get; set; }
 
-        private float currentOxygenSupply;
+        private float explorationDurationLeft;
         private float currentHealth;
 
         /// <summary>
@@ -38,7 +38,7 @@ namespace Anfloga.Entities
 
         private void InitializeHudVariables()
         {
-            currentOxygenSupply = MaxOxygenSupply;
+            explorationDurationLeft = MaxExplorationTime;
             currentHealth = MaxHealth;
         }
 
@@ -92,19 +92,19 @@ namespace Anfloga.Entities
 #if DEBUG
             if(InputManager.Keyboard.KeyPushed(Microsoft.Xna.Framework.Input.Keys.O))
             {
-                currentOxygenSupply = MaxOxygenSupply;
+                explorationDurationLeft = MaxExplorationTime;
             }
 #endif
-            currentOxygenSupply -= OxygenConsumptionRate * TimeManager.SecondDifference;
+            explorationDurationLeft -= ExplorationConsumptionRate * TimeManager.SecondDifference;
         }
 
         private void UpdateHudActivity()
         {
             //We are not worried about 
-            var currentOxygenPercentage = currentOxygenSupply / MaxOxygenSupply;
+            var currentOxygenPercentage = explorationDurationLeft / MaxExplorationTime;
             var currentHealthPercentage = currentHealth / MaxHealth;
 
-            PlayerHud.UpdateHud(new HudUpdateData() { OxygenFill =  currentOxygenPercentage, HealthFill = currentHealthPercentage});
+            PlayerHud.UpdateHud(new HudUpdateData() { ExplorationLimitFill =  currentOxygenPercentage, HealthFill = currentHealthPercentage});
         }
 
         private void PerformMovementInput()

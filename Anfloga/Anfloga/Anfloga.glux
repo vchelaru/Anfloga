@@ -241,7 +241,7 @@
               <ValueAsString>float</ValueAsString>
             </PropertySave>
           </Properties>
-          <Name>MaxOxygenSupply</Name>
+          <Name>MaxExplorationTime</Name>
           <Type>float</Type>
           <DefaultValue xsi:type="xsd:float">100</DefaultValue>
         </CustomVariable>
@@ -252,7 +252,7 @@
               <ValueAsString>float</ValueAsString>
             </PropertySave>
           </Properties>
-          <Name>OxygenConsumptionRate</Name>
+          <Name>ExplorationConsumptionRate</Name>
           <Type>float</Type>
           <DefaultValue xsi:type="xsd:float">1</DefaultValue>
         </CustomVariable>

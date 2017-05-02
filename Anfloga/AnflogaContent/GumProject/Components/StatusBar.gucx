@@ -416,9 +416,10 @@
       <SetsValue>false</SetsValue>
     </Variable>
     <Variable>
-      <Type>StatusBarTypeState</Type>
-      <Name>StatusBarTypeState</Name>
-      <SetsValue>false</SetsValue>
+      <Type>int</Type>
+      <Name>Texture Top</Name>
+      <Value xsi:type="xsd:int">3</Value>
+      <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>bool</Type>
@@ -514,7 +515,7 @@
       </Variable>
     </State>
     <State>
-      <Name>Oxygen</Name>
+      <Name>ExplorationLimit</Name>
       <Variable>
         <Type>int</Type>
         <Name>StatusBarFill.Texture Left</Name>

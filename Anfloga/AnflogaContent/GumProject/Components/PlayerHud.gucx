@@ -17,6 +17,24 @@
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
+      <Type>StatusBarTypeState</Type>
+      <Name>ExplorationLimitStatusBar.StatusBarTypeState</Name>
+      <Value xsi:type="xsd:string">ExplorationLimit</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>ExplorationLimitStatusBar.X</Name>
+      <Value xsi:type="xsd:float">8</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>ExplorationLimitStatusBar.Y</Name>
+      <Value xsi:type="xsd:float">8</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
       <Type>bool</Type>
       <Name>ExposeChildrenEvents</Name>
       <Value xsi:type="xsd:boolean">true</Value>
@@ -66,24 +84,6 @@
       <Name>Height Units</Name>
       <Value xsi:type="xsd:int">1</Value>
       <Category>Dimensions</Category>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>StatusBarTypeState</Type>
-      <Name>OxygenStatusBar.StatusBarTypeState</Name>
-      <Value xsi:type="xsd:string">Oxygen</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>float</Type>
-      <Name>OxygenStatusBar.X</Name>
-      <Value xsi:type="xsd:float">8</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>float</Type>
-      <Name>OxygenStatusBar.Y</Name>
-      <Value xsi:type="xsd:float">8</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -164,7 +164,7 @@
     </Variable>
   </State>
   <Instance>
-    <Name>OxygenStatusBar</Name>
+    <Name>ExplorationLimitStatusBar</Name>
     <BaseType>StatusBar</BaseType>
   </Instance>
   <Instance>
