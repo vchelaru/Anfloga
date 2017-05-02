@@ -21,7 +21,7 @@ namespace Anfloga.Screens
 {
 	public partial class GameScreen
 	{
-        static string LevelNameToLoad = nameof(anflogaTest);
+        static string LevelNameToLoad = nameof(theMap);
 
         LayeredTileMap currentLevel;
 
