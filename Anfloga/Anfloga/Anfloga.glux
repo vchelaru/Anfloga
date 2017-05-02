@@ -212,7 +212,18 @@
           </Properties>
           <Name>MaxSpeed</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">300</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">250</DefaultValue>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>AccelerationTime</Name>
+          <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">3</DefaultValue>
         </CustomVariable>
       </CustomVariables>
       <ImplementsIVisible>true</ImplementsIVisible>
@@ -223,32 +234,22 @@
           <CustomProperty>
             <Type>Texture2D</Type>
             <Member>Texture</Member>
-            <ValueAsString>anflogaSprites</ValueAsString>
-          </CustomProperty>
-          <CustomProperty>
-            <Type>float</Type>
-            <Member>LeftTexturePixel</Member>
-            <ValueAsFloat>1</ValueAsFloat>
-          </CustomProperty>
-          <CustomProperty>
-            <Type>float</Type>
-            <Member>RightTexturePixel</Member>
-            <ValueAsFloat>16</ValueAsFloat>
-          </CustomProperty>
-          <CustomProperty>
-            <Type>float</Type>
-            <Member>TopTexturePixel</Member>
-            <ValueAsFloat>833</ValueAsFloat>
-          </CustomProperty>
-          <CustomProperty>
-            <Type>float</Type>
-            <Member>BottomTexturePixel</Member>
-            <ValueAsFloat>845</ValueAsFloat>
+            <ValueAsString>&lt;NONE&gt;</ValueAsString>
           </CustomProperty>
           <CustomProperty>
             <Type>float</Type>
             <Member>TextureScale</Member>
             <ValueAsFloat>1</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>AnimationChainList</Type>
+            <Member>AnimationChains</Member>
+            <ValueAsString>AnimationChainListFile</ValueAsString>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>string</Type>
+            <Member>CurrentChainName</Member>
+            <ValueAsString>FaceRight</ValueAsString>
           </CustomProperty>
           <SourceType>FlatRedBallType</SourceType>
           <SourceClassType>Sprite</SourceClassType>
@@ -282,6 +283,12 @@
           <Name>Screens/GameScreen/Levels/anflogaSprites.png</Name>
           <IsSharedStatic>true</IsSharedStatic>
           <RuntimeType>Microsoft.Xna.Framework.Graphics.Texture2D</RuntimeType>
+          <ProjectsToExcludeFrom />
+        </ReferencedFileSave>
+        <ReferencedFileSave>
+          <Name>Entities/Player/AnimationChainListFile.achx</Name>
+          <IsSharedStatic>true</IsSharedStatic>
+          <RuntimeType>FlatRedBall.Graphics.Animation.AnimationChainList</RuntimeType>
           <ProjectsToExcludeFrom />
         </ReferencedFileSave>
       </ReferencedFiles>
@@ -532,7 +539,7 @@
     <SupportPortrait>false</SupportPortrait>
     <RunInFullScreen>false</RunInFullScreen>
     <AllowWindowResizing>true</AllowWindowResizing>
-    <Scale>200</Scale>
+    <Scale>150</Scale>
     <ResizeBehavior>StretchVisibleArea</ResizeBehavior>
   </DisplaySettings>
 </GlueProjectSave>

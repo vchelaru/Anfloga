@@ -45,6 +45,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Entities\Player\AnimationChainListFile.achx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>AnimationChainListFile</Name>
+    </None>
     <None Include="Entities\WorldObjectEntity\AnimationChainListFile.achx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>AnimationChainListFile</Name>

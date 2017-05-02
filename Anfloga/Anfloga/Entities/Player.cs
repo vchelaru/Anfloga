@@ -56,13 +56,40 @@ namespace Anfloga.Entities
 		{
             PerformMovementInput();
 
+            PerformAnimationMovement();
 		}
+
+        private void PerformAnimationMovement()
+        {
+            if(XVelocity < 0)
+            {
+                this.SpriteInstance.CurrentChainName = "FaceLeft";
+            }
+            else if(XVelocity > 0)
+            {
+                this.SpriteInstance.CurrentChainName = "FaceRight";
+            }
+        }
 
         private void PerformMovementInput()
         {
-            // todo : make this accelerate up instead of be immediate
-            this.XVelocity = MovementInput.X * MaxSpeed;
-            this.YVelocity = MovementInput.Y * MaxSpeed;
+            float desiredXVelocity = MovementInput.X * MaxSpeed;
+            float desiredYVelocity = MovementInput.Y * MaxSpeed;
+
+            var xSign = Math.Sign( desiredXVelocity - XVelocity);
+            XVelocity += xSign * MaxSpeed * TimeManager.SecondDifference / AccelerationTime;
+            if(xSign != Math.Sign(desiredXVelocity - XVelocity))
+            {
+                XVelocity = desiredXVelocity;
+            }
+
+            var ySign = Math.Sign(desiredYVelocity - YVelocity);
+            YVelocity += ySign * MaxSpeed * TimeManager.SecondDifference / AccelerationTime;
+            if(ySign != Math.Sign(desiredYVelocity - YVelocity))
+            {
+                YVelocity = desiredYVelocity;
+            }
+
         }
 
         private void CustomDestroy()
