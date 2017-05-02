@@ -8,15 +8,18 @@ using FlatRedBall.AI.Pathfinding;
 using FlatRedBall.Graphics.Animation;
 using FlatRedBall.Graphics.Particle;
 using FlatRedBall.Math.Geometry;
+using Anfloga.GumRuntimes;
 
 namespace Anfloga.Entities
 {
 	public partial class Player
 	{
-
+        private PlayerHudRuntime PlayerHud { get; set; }
         public I2DInput MovementInput { get; set; }
         public IPressableInput DashInput { get; set; }
         public IPressableInput DialogInput { get; set; }
+
+        private float currentOxygenSupply;
 
         /// <summary>
         /// Initialization logic which is execute only one time for this Entity (unless the Entity is pooled).
@@ -28,7 +31,14 @@ namespace Anfloga.Entities
             // We may end up calling this in a screen in case we want the screen to control this assignment
             AssignInput();
 
+            //If we end up having player data move this to the event.
+            InitializeHudVariables();
 		}
+
+        private void InitializeHudVariables()
+        {
+            currentOxygenSupply = MaxOxygenSupply;
+        }
 
         private void AssignInput()
         {
@@ -55,8 +65,22 @@ namespace Anfloga.Entities
         private void CustomActivity()
 		{
             PerformMovementInput();
+            ConsumeOxygenActivity();
+
+            //Perform hud update at the end. Incase we have abilities that consume oxygen.
+            UpdateHudActivity();
 
 		}
+
+        private void ConsumeOxygenActivity()
+        {
+            currentOxygenSupply -= OxygenConsumptionRate;
+        }
+
+        private void UpdateHudActivity()
+        {
+            
+        }
 
         private void PerformMovementInput()
         {

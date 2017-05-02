@@ -42,7 +42,18 @@ namespace Anfloga.Screens
             InitializeCollision();
 
             InitializeDialogBoxLogic();
+
+            InitializeHud();
 		}
+
+        private void InitializeHud()
+        {
+            if(PlayerList.Count > 0)
+            {
+                //Get the first player for now to attatch the hud instance to.
+            }
+            
+        }
 
         private void InitializeDialogBoxLogic()
         {
