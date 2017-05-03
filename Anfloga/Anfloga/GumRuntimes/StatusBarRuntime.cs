@@ -21,8 +21,8 @@ namespace Anfloga.GumRuntimes
         }
 
         public void UpdateFillHeight(float percentage)
-        {
-            int newTextureHeight = (int)(MaxFillTextureHeight * percentage);
+        { 
+            int newTextureHeight = FlatRedBall.Math.MathFunctions.RoundToInt(MaxFillTextureHeight * percentage);
             int topOffset = MaxFillTextureHeight - newTextureHeight;
 
             StatusBarFill.TextureTop = MaxFillTextureTop + topOffset;

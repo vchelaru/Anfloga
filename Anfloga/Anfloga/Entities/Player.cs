@@ -12,6 +12,12 @@ using Anfloga.GumRuntimes;
 
 namespace Anfloga.Entities
 {
+    public enum ExplorationState
+    {
+        Idle,
+        Consume,
+        Replenish
+    }
 	public partial class Player
 	{
         public PlayerHudRuntime PlayerHud { get; set; }
@@ -20,7 +26,8 @@ namespace Anfloga.Entities
         public IPressableInput DialogInput { get; set; }
 
         private float explorationDurationLeft;
-        private float currentHealth;
+
+        private ExplorationState currentExplorationState;
 
         /// <summary>
         /// Initialization logic which is execute only one time for this Entity (unless the Entity is pooled).
@@ -33,13 +40,13 @@ namespace Anfloga.Entities
             AssignInput();
 
             //If we end up having player data move this to the event.
-            InitializeHudVariables();
+            InitializeExplorationVariables();
 		}
 
-        private void InitializeHudVariables()
+        private void InitializeExplorationVariables()
         {
             explorationDurationLeft = MaxExplorationTime;
-            currentHealth = MaxHealth;
+            currentExplorationState = ExplorationState.Idle;
         }
 
         private void AssignInput()
@@ -67,12 +74,11 @@ namespace Anfloga.Entities
         private void CustomActivity()
 		{
             PerformMovementInput();
-            ConsumeOxygenActivity();
+            UpdateExplorationDurtionActivity();
 
             PerformAnimationMovement();
             //Perform hud update at the end. Incase we have abilities that consume oxygen.
             UpdateHudActivity();
-
 		}
 
         private void PerformAnimationMovement()
@@ -87,7 +93,7 @@ namespace Anfloga.Entities
             }
         }
 
-        private void ConsumeOxygenActivity()
+        private void UpdateExplorationDurtionActivity()
         {
 #if DEBUG
             if(InputManager.Keyboard.KeyPushed(Microsoft.Xna.Framework.Input.Keys.O))
@@ -95,16 +101,33 @@ namespace Anfloga.Entities
                 explorationDurationLeft = MaxExplorationTime;
             }
 #endif
-            explorationDurationLeft -= ExplorationConsumptionRate * TimeManager.SecondDifference;
+
+            if (currentExplorationState == ExplorationState.Consume)
+            {
+                explorationDurationLeft -= ExplorationConsumptionRate * TimeManager.SecondDifference;
+                
+                if(explorationDurationLeft < 0)
+                {
+                    explorationDurationLeft = 0;
+                }
+            }
+            else if (currentExplorationState == ExplorationState.Replenish)
+            {
+                explorationDurationLeft += ExplorationReplenishRate * TimeManager.SecondDifference;
+
+                if(explorationDurationLeft > MaxExplorationTime)
+                {
+                    explorationDurationLeft = MaxExplorationTime;
+                }
+            }
         }
 
         private void UpdateHudActivity()
         {
             //We are not worried about 
             var currentOxygenPercentage = explorationDurationLeft / MaxExplorationTime;
-            var currentHealthPercentage = currentHealth / MaxHealth;
 
-            PlayerHud.UpdateHud(new HudUpdateData() { ExplorationLimitFill =  currentOxygenPercentage, HealthFill = currentHealthPercentage});
+            PlayerHud.UpdateHud(new HudUpdateData() { ExplorationLimitFill =  currentOxygenPercentage});
         }
 
         private void PerformMovementInput()
@@ -133,6 +156,11 @@ namespace Anfloga.Entities
 
 
 		}
+
+        public void SetExplorationState(ExplorationState state)
+        {
+            currentExplorationState = state;
+        }
 
         private static void CustomLoadStaticContent(string contentManagerName)
         {

@@ -16,11 +16,14 @@ using FlatRedBall.TileEntities;
 using FlatRedBall.TileCollisions;
 using Anfloga.Entities;
 using Anfloga.Logic;
+using Microsoft.Xna.Framework.Graphics;
 
 namespace Anfloga.Screens
 {
 	public partial class GameScreen
 	{
+        #region Fields
+
         static string LevelNameToLoad = nameof(theMap);
 
         LayeredTileMap currentLevel;
@@ -30,6 +33,10 @@ namespace Anfloga.Screens
         DialogLogic dialogLogic;
 
         WorldObjectEntity objectCollidingWith;
+
+        RenderTarget2D darknessRenderTarget;
+
+        #endregion
 
         #region Initialize Methods
 
@@ -44,16 +51,33 @@ namespace Anfloga.Screens
             InitializeDialogBoxLogic();
 
             InitializeHud();
+
+            InitializeRenderTargets();
 		}
+
+        private void InitializeRenderTargets()
+        {
+            this.darknessRenderTarget = new RenderTarget2D(FlatRedBallServices.GraphicsDevice, (int)Camera.Main.OrthogonalWidth, (int)Camera.Main.OrthogonalHeight);
+
+            this.DarknessRenderTargetLayer.RenderTarget = darknessRenderTarget;
+
+            this.DarknessSprite.Texture = darknessRenderTarget;
+
+#if DEBUG
+            if(DebuggingVariables.HideDarknessOverlay)
+            {
+                this.DarknessSprite.Visible = false;
+            }
+#endif
+        }
 
         private void InitializeHud()
         {
-            if(PlayerList?.Count > 0)
+            if(PlayerList.Count > 0)
             {
                 //Get the first player for now to attatch the hud instance to.
                 PlayerList[0].PlayerHud = this.PlayerHudInstance;
             }
-            
         }
 
         private void InitializeDialogBoxLogic()
@@ -61,7 +85,7 @@ namespace Anfloga.Screens
             dialogLogic = new Logic.DialogLogic();
             dialogLogic.DialogBox = this.DialogBoxInstance;
             // todo: assign the action prompt:
-            dialogLogic.CheckActionPrompt = null;
+            //dialogLogic.CheckActionPrompt = null;
         }
 
         private void InitializeCollision()
@@ -77,7 +101,10 @@ namespace Anfloga.Screens
 
         private void InitializeCamera()
         {
-            CameraControllerInstance.ObjectFollowing = PlayerInstance;
+            if (PlayerList.Count > 0)
+            {
+                CameraControllerInstance.ObjectFollowing = PlayerList[0];
+            }
         }
 
         private void LoadLevel(string levelNameToLoad)
@@ -97,7 +124,15 @@ namespace Anfloga.Screens
                 }
             }
 #endif
-
+#if DEBUG
+            if (DebuggingVariables.ShowReplenishZoneCollision)
+            {
+                foreach (var item in ExplorationDurationReplenishZoneList)
+                {
+                    item.Collision.Visible = true;
+                }
+            }
+#endif
             // todo: create collision:
 
             // todo: set camera bounds:
@@ -113,7 +148,10 @@ namespace Anfloga.Screens
             // This needs to happen before dialog box activity:
             PerformCollision();
 
-            dialogLogic.Update(PlayerInstance.DialogInput.WasJustPressed, objectCollidingWith);
+            if (PlayerList.Count > 0)
+            {
+                dialogLogic.Update(PlayerList[0].DialogInput.WasJustPressed, objectCollidingWith);
+            }
 
             ReloadScreenActivity();
 		}
@@ -144,6 +182,15 @@ namespace Anfloga.Screens
                     }
                 }
 
+                // We will assume the player is not in a replenish zone, then set to replenish if they are colliding with one.
+                player.SetExplorationState(ExplorationState.Consume);
+                foreach(var replenishZone in ExplorationDurationReplenishZoneList)
+                {
+                    if(player.CollideAgainst(replenishZone))
+                    {
+                        player.SetExplorationState(ExplorationState.Replenish);
+                    }
+                }
             }
         }
 
@@ -155,6 +202,7 @@ namespace Anfloga.Screens
 		{
             solidCollision.RemoveFromManagers();
 
+            darknessRenderTarget?.Dispose();
 		}
 
         #endregion
