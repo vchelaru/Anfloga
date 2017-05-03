@@ -8,15 +8,18 @@ using FlatRedBall.AI.Pathfinding;
 using FlatRedBall.Graphics.Animation;
 using FlatRedBall.Graphics.Particle;
 using FlatRedBall.Math.Geometry;
+using Anfloga.GumRuntimes;
 
 namespace Anfloga.Entities
 {
 	public partial class Player
 	{
-
+        public PlayerHudRuntime PlayerHud { get; set; }
         public I2DInput MovementInput { get; set; }
         public IPressableInput DashInput { get; set; }
         public IPressableInput DialogInput { get; set; }
+
+        private float explorationDurationLeft;
 
         /// <summary>
         /// Initialization logic which is execute only one time for this Entity (unless the Entity is pooled).
@@ -28,7 +31,14 @@ namespace Anfloga.Entities
             // We may end up calling this in a screen in case we want the screen to control this assignment
             AssignInput();
 
+            //If we end up having player data move this to the event.
+            InitializeHudVariables();
 		}
+
+        private void InitializeHudVariables()
+        {
+            explorationDurationLeft = MaxExplorationTime;
+        }
 
         private void AssignInput()
         {
@@ -55,8 +65,12 @@ namespace Anfloga.Entities
         private void CustomActivity()
 		{
             PerformMovementInput();
+            ConsumeOxygenActivity();
 
             PerformAnimationMovement();
+            //Perform hud update at the end. Incase we have abilities that consume oxygen.
+            UpdateHudActivity();
+
 		}
 
         private void PerformAnimationMovement()
@@ -71,6 +85,25 @@ namespace Anfloga.Entities
             }
         }
 
+        private void ConsumeOxygenActivity()
+        {
+#if DEBUG
+            if(InputManager.Keyboard.KeyPushed(Microsoft.Xna.Framework.Input.Keys.O))
+            {
+                explorationDurationLeft = MaxExplorationTime;
+            }
+#endif
+            explorationDurationLeft -= ExplorationConsumptionRate * TimeManager.SecondDifference;
+        }
+
+        private void UpdateHudActivity()
+        {
+            //We are not worried about 
+            var currentOxygenPercentage = explorationDurationLeft / MaxExplorationTime;
+
+            PlayerHud.UpdateHud(new HudUpdateData() { ExplorationLimitFill =  currentOxygenPercentage});
+        }
+
         private void PerformMovementInput()
         {
             float desiredXVelocity = MovementInput.X * MaxSpeed;
@@ -81,7 +114,7 @@ namespace Anfloga.Entities
             if(xSign != Math.Sign(desiredXVelocity - XVelocity))
             {
                 XVelocity = desiredXVelocity;
-            }
+        }
 
             var ySign = Math.Sign(desiredYVelocity - YVelocity);
             YVelocity += ySign * MaxSpeed * TimeManager.SecondDifference / AccelerationTime;

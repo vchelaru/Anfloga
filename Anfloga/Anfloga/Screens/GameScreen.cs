@@ -24,7 +24,7 @@ namespace Anfloga.Screens
 	{
         #region Fields
 
-        static string LevelNameToLoad = nameof(anflogaTest);
+        static string LevelNameToLoad = nameof(theMap);
 
         LayeredTileMap currentLevel;
 
@@ -50,6 +50,8 @@ namespace Anfloga.Screens
 
             InitializeDialogBoxLogic();
 
+            InitializeHud();
+
             InitializeRenderTargets();
 		}
 
@@ -59,6 +61,15 @@ namespace Anfloga.Screens
             this.DarknessRenderTargetLayer.RenderTarget = darknessRenderTarget;
 
             this.DarknessSprite.Texture = darknessRenderTarget;
+		}
+
+        private void InitializeHud()
+        {
+            if(PlayerList?.Count > 0)
+            {
+                //Get the first player for now to attatch the hud instance to.
+                PlayerList[0].PlayerHud = this.PlayerHudInstance;
+            }
         }
 
         private void InitializeDialogBoxLogic()
