@@ -529,7 +529,7 @@
           </Properties>
           <Name>MaxSpeed</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">250</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">125</DefaultValue>
         </CustomVariable>
         <CustomVariable>
           <Properties>
