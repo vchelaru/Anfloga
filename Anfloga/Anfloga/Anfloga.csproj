@@ -61,6 +61,10 @@
     <XnaCompressContent>true</XnaCompressContent>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="FlatRedBall, Version=2017.4.27.1280, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Libraries\Xna4Pc\Debug\FlatRedBall.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Xna.Framework, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86">
       <Private>False</Private>
     </Reference>
@@ -343,10 +347,6 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\FlatRedBall\Engines\FlatRedBallXNA\FlatRedBall\FlatRedBallXna4.csproj">
-      <Project>{e1cb7d7b-e2ec-4deb-92e2-6ef0b76f40f0}</Project>
-      <Name>FlatRedBallXna4</Name>
-    </ProjectReference>
     <ProjectReference Include="..\AnflogaContent\AnflogaContent.contentproj">
       <Project>{64B23BEF-DD26-4B81-AAA6-D9F46B0140B4}</Project>
       <Name>FlatRedBallXna4TemplateContent %28Content%29</Name>
