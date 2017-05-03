@@ -73,7 +73,7 @@ namespace Anfloga.Screens
 
         private void InitializeHud()
         {
-            if(PlayerList?.Count > 0)
+            if(PlayerList.Count > 0)
             {
                 //Get the first player for now to attatch the hud instance to.
                 PlayerList[0].PlayerHud = this.PlayerHudInstance;
@@ -101,7 +101,10 @@ namespace Anfloga.Screens
 
         private void InitializeCamera()
         {
-            CameraControllerInstance.ObjectFollowing = PlayerInstance;
+            if (PlayerList.Count > 0)
+            {
+                CameraControllerInstance.ObjectFollowing = PlayerList[0];
+            }
         }
 
         private void LoadLevel(string levelNameToLoad)
@@ -130,7 +133,6 @@ namespace Anfloga.Screens
                 }
             }
 #endif
-
             // todo: create collision:
 
             // todo: set camera bounds:
@@ -146,7 +148,10 @@ namespace Anfloga.Screens
             // This needs to happen before dialog box activity:
             PerformCollision();
 
-            dialogLogic.Update(PlayerInstance.DialogInput.WasJustPressed, objectCollidingWith);
+            if (PlayerList.Count > 0)
+            {
+                dialogLogic.Update(PlayerList[0].DialogInput.WasJustPressed, objectCollidingWith);
+            }
 
             ReloadScreenActivity();
 		}

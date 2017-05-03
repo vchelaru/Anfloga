@@ -146,6 +146,7 @@
       <DependentUpon>WorldObjectEntity.cs</DependentUpon>
     </Compile>
     <Compile Include="Factories\ExplorationDurationReplenishZoneFactory.Generated.cs" />
+    <Compile Include="Factories\PlayerFactory.Generated.cs" />
     <Compile Include="Factories\WorldObjectEntityFactory.Generated.cs" />
     <Compile Include="GlobalContent.Generated.cs" />
     <Compile Include="GumCore\AnimationFrame.cs" />
