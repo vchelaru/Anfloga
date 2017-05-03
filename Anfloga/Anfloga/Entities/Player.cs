@@ -20,7 +20,6 @@ namespace Anfloga.Entities
         public IPressableInput DialogInput { get; set; }
 
         private float explorationDurationLeft;
-        private float currentHealth;
 
         /// <summary>
         /// Initialization logic which is execute only one time for this Entity (unless the Entity is pooled).
@@ -39,7 +38,6 @@ namespace Anfloga.Entities
         private void InitializeHudVariables()
         {
             explorationDurationLeft = MaxExplorationTime;
-            currentHealth = MaxHealth;
         }
 
         private void AssignInput()
@@ -102,9 +100,8 @@ namespace Anfloga.Entities
         {
             //We are not worried about 
             var currentOxygenPercentage = explorationDurationLeft / MaxExplorationTime;
-            var currentHealthPercentage = currentHealth / MaxHealth;
 
-            PlayerHud.UpdateHud(new HudUpdateData() { ExplorationLimitFill =  currentOxygenPercentage, HealthFill = currentHealthPercentage});
+            PlayerHud.UpdateHud(new HudUpdateData() { ExplorationLimitFill =  currentOxygenPercentage});
         }
 
         private void PerformMovementInput()

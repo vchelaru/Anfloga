@@ -55,24 +55,6 @@
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
-      <Type>StatusBarTypeState</Type>
-      <Name>HealthStatusBar.StatusBarTypeState</Name>
-      <Value xsi:type="xsd:string">Health</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>float</Type>
-      <Name>HealthStatusBar.X</Name>
-      <Value xsi:type="xsd:float">22</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>float</Type>
-      <Name>HealthStatusBar.Y</Name>
-      <Value xsi:type="xsd:float">8</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
       <Type>float</Type>
       <Name>Height</Name>
       <Value xsi:type="xsd:float">100</Value>
@@ -165,10 +147,6 @@
   </State>
   <Instance>
     <Name>ExplorationLimitStatusBar</Name>
-    <BaseType>StatusBar</BaseType>
-  </Instance>
-  <Instance>
-    <Name>HealthStatusBar</Name>
     <BaseType>StatusBar</BaseType>
   </Instance>
   <Behaviors />
