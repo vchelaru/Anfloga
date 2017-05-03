@@ -16,11 +16,14 @@ using FlatRedBall.TileEntities;
 using FlatRedBall.TileCollisions;
 using Anfloga.Entities;
 using Anfloga.Logic;
+using Microsoft.Xna.Framework.Graphics;
 
 namespace Anfloga.Screens
 {
 	public partial class GameScreen
 	{
+        #region Fields
+
         static string LevelNameToLoad = nameof(theMap);
 
         LayeredTileMap currentLevel;
@@ -30,6 +33,10 @@ namespace Anfloga.Screens
         DialogLogic dialogLogic;
 
         WorldObjectEntity objectCollidingWith;
+
+        RenderTarget2D darknessRenderTarget;
+
+        #endregion
 
         #region Initialize Methods
 
@@ -44,6 +51,16 @@ namespace Anfloga.Screens
             InitializeDialogBoxLogic();
 
             InitializeHud();
+
+            InitializeRenderTargets();
+		}
+
+        private void InitializeRenderTargets()
+        {
+            this.darknessRenderTarget = new RenderTarget2D(FlatRedBallServices.GraphicsDevice, (int)Camera.Main.OrthogonalWidth, (int)Camera.Main.OrthogonalHeight);
+            this.DarknessRenderTargetLayer.RenderTarget = darknessRenderTarget;
+
+            this.DarknessSprite.Texture = darknessRenderTarget;
 		}
 
         private void InitializeHud()
@@ -53,7 +70,6 @@ namespace Anfloga.Screens
                 //Get the first player for now to attatch the hud instance to.
                 PlayerList[0].PlayerHud = this.PlayerHudInstance;
             }
-            
         }
 
         private void InitializeDialogBoxLogic()
@@ -61,7 +77,7 @@ namespace Anfloga.Screens
             dialogLogic = new Logic.DialogLogic();
             dialogLogic.DialogBox = this.DialogBoxInstance;
             // todo: assign the action prompt:
-            dialogLogic.CheckActionPrompt = null;
+            //dialogLogic.CheckActionPrompt = null;
         }
 
         private void InitializeCollision()
