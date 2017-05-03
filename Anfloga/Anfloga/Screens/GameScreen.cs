@@ -113,6 +113,15 @@ namespace Anfloga.Screens
                 }
             }
 #endif
+#if DEBUG
+            if (DebuggingVariables.ShowReplenishZoneCollision)
+            {
+                foreach (var item in ExplorationDurationReplenishZoneList)
+                {
+                    item.Collision.Visible = true;
+                }
+            }
+#endif
 
             // todo: create collision:
 
