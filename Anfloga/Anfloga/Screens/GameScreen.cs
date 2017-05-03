@@ -144,6 +144,15 @@ namespace Anfloga.Screens
                     }
                 }
 
+                // We will assume the player is not in a replenish zone, then set to replenish if they are colliding with one.
+                player.SetExplorationState(ExplorationState.Consume);
+                foreach(var replenishZone in ExplorationDurationReplenishZoneList)
+                {
+                    if(player.CollideAgainst(replenishZone))
+                    {
+                        player.SetExplorationState(ExplorationState.Replenish);
+                    }
+                }
             }
         }
 

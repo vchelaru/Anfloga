@@ -123,6 +123,10 @@
     <Compile Include="Entities\DebuggingVariables.Generated.cs">
       <DependentUpon>DebuggingVariables.cs</DependentUpon>
     </Compile>
+    <Compile Include="Entities\ExplorationDurationReplenishZone.cs" />
+    <Compile Include="Entities\ExplorationDurationReplenishZone.Generated.cs">
+      <DependentUpon>ExplorationDurationReplenishZone.cs</DependentUpon>
+    </Compile>
     <Compile Include="Entities\Player.cs" />
     <Compile Include="Entities\Player.Generated.cs">
       <DependentUpon>Player.cs</DependentUpon>
@@ -137,6 +141,7 @@
     <Compile Include="Entities\WorldObjectEntity.Generated.Event.cs">
       <DependentUpon>WorldObjectEntity.cs</DependentUpon>
     </Compile>
+    <Compile Include="Factories\ExplorationDurationReplenishZoneFactory.Generated.cs" />
     <Compile Include="Factories\WorldObjectEntityFactory.Generated.cs" />
     <Compile Include="GlobalContent.Generated.cs" />
     <Compile Include="GumCore\AnimationFrame.cs" />
