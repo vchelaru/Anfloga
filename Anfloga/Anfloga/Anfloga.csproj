@@ -61,7 +61,7 @@
     <XnaCompressContent>true</XnaCompressContent>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="FlatRedBall, Version=2017.4.27.1280, Culture=neutral, processorArchitecture=x86">
+    <Reference Include="FlatRedBall, Version=2017.5.2.1279, Culture=neutral, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>Libraries\Xna4Pc\Debug\FlatRedBall.dll</HintPath>
     </Reference>
