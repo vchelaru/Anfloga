@@ -58,10 +58,18 @@ namespace Anfloga.Screens
         private void InitializeRenderTargets()
         {
             this.darknessRenderTarget = new RenderTarget2D(FlatRedBallServices.GraphicsDevice, (int)Camera.Main.OrthogonalWidth, (int)Camera.Main.OrthogonalHeight);
+
             this.DarknessRenderTargetLayer.RenderTarget = darknessRenderTarget;
 
             this.DarknessSprite.Texture = darknessRenderTarget;
-		}
+
+#if DEBUG
+            if(DebuggingVariables.HideDarknessOverlay)
+            {
+                this.DarknessSprite.Visible = false;
+            }
+#endif
+        }
 
         private void InitializeHud()
         {
@@ -171,6 +179,7 @@ namespace Anfloga.Screens
 		{
             solidCollision.RemoveFromManagers();
 
+            darknessRenderTarget?.Dispose();
 		}
 
         #endregion
