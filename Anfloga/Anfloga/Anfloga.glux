@@ -443,8 +443,20 @@
               <ValueAsString>float</ValueAsString>
             </PropertySave>
           </Properties>
-          <Name>CameraInterpolateSpeed</Name>
+          <Name>MinMaxXOffset</Name>
           <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">200</DefaultValue>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>MinMaxYOffset</Name>
+          <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">150</DefaultValue>
         </CustomVariable>
       </CustomVariables>
       <ImplementsIDrawableBatch>false</ImplementsIDrawableBatch>
