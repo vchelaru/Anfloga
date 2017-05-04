@@ -136,16 +136,6 @@
             <ValueAsFloat>0</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
-            <Type>BlendOperation</Type>
-            <Member>BlendOperation</Member>
-            <ValueAsInt>2</ValueAsInt>
-          </CustomProperty>
-          <CustomProperty>
-            <Type>float</Type>
-            <Member>Alpha</Member>
-            <ValueAsFloat>0.8</ValueAsFloat>
-          </CustomProperty>
-          <CustomProperty>
             <Type>float</Type>
             <Member>Width</Member>
             <ValueAsFloat>300</ValueAsFloat>
@@ -154,6 +144,16 @@
             <Type>float</Type>
             <Member>Height</Member>
             <ValueAsFloat>300</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>BlendOperation</Type>
+            <Member>BlendOperation</Member>
+            <ValueAsInt>2</ValueAsInt>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Alpha</Member>
+            <ValueAsFloat>0.9</ValueAsFloat>
           </CustomProperty>
           <SourceType>FlatRedBallType</SourceType>
           <SourceFile />

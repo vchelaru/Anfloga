@@ -26,6 +26,7 @@ namespace Anfloga.Entities
 
         public PlayerHudRuntime PlayerHud { get; set; }
         public I2DInput MovementInput { get; set; }
+        public LightInput LightInput { get; set; }
         public IPressableInput DashInput { get; set; }
         public IPressableInput DialogInput { get; set; }
 
@@ -80,17 +81,34 @@ namespace Anfloga.Entities
             dialogInput.Inputs.Add(InputManager.Keyboard.GetKey(Microsoft.Xna.Framework.Input.Keys.Enter));
             dashInput.Inputs.Add(InputManager.Xbox360GamePads[0].GetButton(Xbox360GamePad.Button.X));
             DialogInput = dialogInput;
+
+            LightInput = new LightInput(this);
         }
 
         private void CustomActivity()
 		{
             PerformMovementInput();
+
+            PerformLightLogic();
+
             UpdateExplorationDurtionActivity();
 
             PerformAnimationMovement();
             //Perform hud update at the end. Incase we have abilities that consume oxygen.
             UpdateHudActivity();
 		}
+
+        private void PerformLightLogic()
+        {
+            LightInput.Activity();
+
+            var angle = LightInput.GetAngle();
+
+            if(angle != null)
+            {
+                this.LightBeamInstance.RelativeRotationZ = angle.Value;
+            }
+        }
 
         private void PerformAnimationMovement()
         {
