@@ -119,6 +119,8 @@ namespace Anfloga.Screens
             {
                 CameraControllerInstance.ObjectFollowing = PlayerList[0];
             }
+
+            CameraControllerInstance.SetCameraBoundsFromTiledMap(currentLevel);
         }
 
         private void LoadLevel(string levelNameToLoad)

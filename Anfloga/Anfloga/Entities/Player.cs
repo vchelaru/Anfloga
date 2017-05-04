@@ -19,6 +19,7 @@ namespace Anfloga.Entities
         Consume,
         Replenish
     }
+
 	public partial class Player
 	{
         #region Fields
