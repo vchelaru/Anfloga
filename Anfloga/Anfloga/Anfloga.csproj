@@ -127,6 +127,9 @@
     <Compile Include="Entities\DebuggingVariables.Generated.cs">
       <DependentUpon>DebuggingVariables.cs</DependentUpon>
     </Compile>
+    <Compile Include="Entities\LightBeam.cs" />
+    <Compile Include="Entities\LightBeam.Generated.cs">
+      <DependentUpon>LightBeam.cs</DependentUpon>
     <Compile Include="Entities\ExplorationDurationReplenishZone.cs" />
     <Compile Include="Entities\ExplorationDurationReplenishZone.Generated.cs">
       <DependentUpon>ExplorationDurationReplenishZone.cs</DependentUpon>

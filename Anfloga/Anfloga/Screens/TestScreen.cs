@@ -22,14 +22,8 @@ namespace Anfloga.Screens
 
 		void CustomInitialize()
 		{
-            renderTarget = new RenderTarget2D(FlatRedBallServices.GraphicsDevice, 100, 100);
-            DarknessRenderTargetLayer.RenderTarget = renderTarget;
-
-
             Camera.Main.BackgroundColor = Color.Orange;
-            Camera.Main.XVelocity = 8;
 
-            ShapeManager.AddCircle().Radius = 32;
 		}
 
 		void CustomActivity(bool firstTimeCalled)
