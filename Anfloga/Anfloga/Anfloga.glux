@@ -136,16 +136,6 @@
             <ValueAsFloat>0</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
-            <Type>BlendOperation</Type>
-            <Member>BlendOperation</Member>
-            <ValueAsInt>2</ValueAsInt>
-          </CustomProperty>
-          <CustomProperty>
-            <Type>float</Type>
-            <Member>Alpha</Member>
-            <ValueAsFloat>0.8</ValueAsFloat>
-          </CustomProperty>
-          <CustomProperty>
             <Type>float</Type>
             <Member>Width</Member>
             <ValueAsFloat>300</ValueAsFloat>
@@ -154,6 +144,16 @@
             <Type>float</Type>
             <Member>Height</Member>
             <ValueAsFloat>300</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>BlendOperation</Type>
+            <Member>BlendOperation</Member>
+            <ValueAsInt>2</ValueAsInt>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Alpha</Member>
+            <ValueAsFloat>0.8</ValueAsFloat>
           </CustomProperty>
           <SourceType>FlatRedBallType</SourceType>
           <SourceFile />
@@ -445,6 +445,29 @@
           </Properties>
           <Name>CameraInterpolateSpeed</Name>
           <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">20</DefaultValue>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>MinMaxXOffset</Name>
+          <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">200</DefaultValue>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>MinMaxYOffset</Name>
+          <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">150</DefaultValue>
         </CustomVariable>
       </CustomVariables>
       <ImplementsIDrawableBatch>false</ImplementsIDrawableBatch>
@@ -605,8 +628,18 @@
         <NamedObjectSave>
           <CustomProperty>
             <Type>float</Type>
+            <Member>X</Member>
+            <ValueAsFloat>96</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
             <Member>TextureScale</Member>
             <ValueAsFloat>1</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>bool</Type>
+            <Member>UseAnimationRelativePosition</Member>
+            <ValueAsBool>false</ValueAsBool>
           </CustomProperty>
           <CustomProperty>
             <Type>AnimationChainList</Type>
@@ -622,16 +655,6 @@
             <Type>BlendOperation</Type>
             <Member>BlendOperation</Member>
             <ValueAsInt>1</ValueAsInt>
-          </CustomProperty>
-          <CustomProperty>
-            <Type>float</Type>
-            <Member>X</Member>
-            <ValueAsFloat>96</ValueAsFloat>
-          </CustomProperty>
-          <CustomProperty>
-            <Type>bool</Type>
-            <Member>UseAnimationRelativePosition</Member>
-            <ValueAsBool>false</ValueAsBool>
           </CustomProperty>
           <SourceType>FlatRedBallType</SourceType>
           <SourceFile />

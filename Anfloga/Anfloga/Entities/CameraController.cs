@@ -21,6 +21,9 @@ namespace Anfloga.Entities
         private float cameraTopYBound;
         private float cameraBottomYBound;
 
+        private float currentXOffset;
+        private float currentYOffest;
+
         private Camera mainCamera;
 
         /// <summary>
@@ -39,6 +42,36 @@ namespace Anfloga.Entities
 		private void CustomActivity()
 		{
             // Most (all?) logic will be in UpdateDependencies
+            InterpolateOffsetsActivity();
+        }
+
+        private void InterpolateOffsetsActivity()
+        {
+            if(ObjectFollowing?.XVelocity != 0)
+            {
+                currentXOffset += ObjectFollowing.XVelocity * TimeManager.SecondDifference;
+                if(currentXOffset > MinMaxXOffset)
+                {
+                    currentXOffset = MinMaxXOffset;
+                }
+                else if (currentXOffset < -MinMaxXOffset)
+                {
+                    currentXOffset = -MinMaxXOffset;
+                }
+            }
+
+            if(ObjectFollowing?.YVelocity != 0)
+            {
+                currentYOffest += ObjectFollowing.YVelocity * TimeManager.SecondDifference;
+                if(currentYOffest > MinMaxYOffset)
+                {
+                    currentYOffest = MinMaxYOffset;
+                }
+                else if(currentYOffest < -MinMaxYOffset)
+                {
+                    currentYOffest = -MinMaxYOffset;
+                }
+            }
         }
 
         private void PerformClampCameraActivity()
@@ -66,15 +99,16 @@ namespace Anfloga.Entities
             {
                 this.Y -= cameraBottomYBound - cameraBottom;
             }
-             
+
         }
 
         private void PerformFollowingActivity()
         {
+            //The Camera Interpolation offsets are always applied. They will be overridden by the clamping if necessary.
             if(ObjectFollowing != null)
             {
-                this.X = ObjectFollowing.X;
-                this.Y = ObjectFollowing.Y;
+                this.X = ObjectFollowing.X + currentXOffset;
+                this.Y = ObjectFollowing.Y + currentYOffest;
             }
         }
 
