@@ -88,7 +88,7 @@ namespace Anfloga.Entities
             }
             else if(cameraRight > cameraRightXBound)
             {
-                this.X -= cameraRightXBound - cameraRight;
+                this.X += cameraRightXBound - cameraRight;
             }
 
             if (cameraTop > cameraTopYBound)
@@ -97,7 +97,7 @@ namespace Anfloga.Entities
             }
             else if(cameraBottom < cameraBottomYBound)
             {
-                this.Y -= cameraBottomYBound - cameraBottom;
+                this.Y += cameraBottomYBound - cameraBottom;
             }
 
         }
