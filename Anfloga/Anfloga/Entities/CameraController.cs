@@ -38,10 +38,7 @@ namespace Anfloga.Entities
 
 		private void CustomActivity()
 		{
-            PerformFollowingActivity();
-
-            if(InputManager.Keyboard.KeyDown(Microsoft.Xna.Framework.Input.Keys.P))
-            PerformClampCameraActivity();
+            // Most (all?) logic will be in UpdateDependencies
         }
 
         private void PerformClampCameraActivity()
@@ -78,6 +75,28 @@ namespace Anfloga.Entities
             {
                 this.X = ObjectFollowing.X;
                 this.Y = ObjectFollowing.Y;
+            }
+        }
+
+
+        public override void UpdateDependencies(double currentTime)
+        {
+            if(LastDependencyUpdate != currentTime)
+            {
+                // first we follow the target...
+                PerformFollowingActivity();
+
+                // Then we update the camera so it matches our position...
+                Camera.Main.ForceUpdateDependencies();
+
+                // then we check for bounds issues. This uses the camera's position, so
+                // the camera has to be updated before calling PerformClampCameraActivity.
+                PerformClampCameraActivity();
+
+                // finally, we force the camera to update again:
+                Camera.Main.ForceUpdateDependencies();
+
+                base.UpdateDependencies(currentTime);
             }
         }
 
