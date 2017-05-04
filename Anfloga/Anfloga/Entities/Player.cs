@@ -18,6 +18,7 @@ namespace Anfloga.Entities
         Consume,
         Replenish
     }
+
 	public partial class Player
 	{
         public PlayerHudRuntime PlayerHud { get; set; }
