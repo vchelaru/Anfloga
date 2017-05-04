@@ -53,18 +53,32 @@ namespace Anfloga.Screens
             InitializeHud();
 
             InitializeRenderTargets();
+
+            MoveLightObjectsToRenderTargetLayer();
 		}
+
+        private void MoveLightObjectsToRenderTargetLayer()
+        {
+            foreach(var item in PlayerList)
+            {
+                item.InitializeLightLayer(DarknessRenderTargetLayer);
+            }
+        }
 
         private void InitializeRenderTargets()
         {
-            this.darknessRenderTarget = new RenderTarget2D(FlatRedBallServices.GraphicsDevice, (int)Camera.Main.OrthogonalWidth, (int)Camera.Main.OrthogonalHeight);
+            this.darknessRenderTarget = new RenderTarget2D(FlatRedBallServices.GraphicsDevice, (int)Camera.Main.OrthogonalWidth/2, (int)Camera.Main.OrthogonalHeight/2);
 
             this.DarknessRenderTargetLayer.RenderTarget = darknessRenderTarget;
 
             this.DarknessSprite.Texture = darknessRenderTarget;
+            // makes the sprite the same size regardless of the render target resolution;
+            this.DarknessSprite.TextureScale = -1;
+            this.DarknessSprite.Width = Camera.Main.OrthogonalWidth;
+            this.DarknessSprite.Height = Camera.Main.OrthogonalHeight;
 
 #if DEBUG
-            if(DebuggingVariables.HideDarknessOverlay)
+            if (DebuggingVariables.HideDarknessOverlay)
             {
                 this.DarknessSprite.Visible = false;
             }

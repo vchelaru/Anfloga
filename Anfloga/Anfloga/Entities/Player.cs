@@ -9,11 +9,14 @@ using FlatRedBall.Graphics.Animation;
 using FlatRedBall.Graphics.Particle;
 using FlatRedBall.Math.Geometry;
 using Anfloga.GumRuntimes;
+using FlatRedBall.Graphics;
 
 namespace Anfloga.Entities
 {
 	public partial class Player
 	{
+        #region Fields
+
         public PlayerHudRuntime PlayerHud { get; set; }
         public I2DInput MovementInput { get; set; }
         public IPressableInput DashInput { get; set; }
@@ -21,12 +24,14 @@ namespace Anfloga.Entities
 
         private float explorationDurationLeft;
 
+        #endregion
+
         /// <summary>
         /// Initialization logic which is execute only one time for this Entity (unless the Entity is pooled).
         /// This method is called when the Entity is added to managers. Entities which are instantiated but not
         /// added to managers will not have this method called.
         /// </summary>
-		private void CustomInitialize()
+        private void CustomInitialize()
 		{
             // We may end up calling this in a screen in case we want the screen to control this assignment
             AssignInput();
@@ -38,6 +43,11 @@ namespace Anfloga.Entities
         private void InitializeHudVariables()
         {
             explorationDurationLeft = MaxExplorationTime;
+        }
+
+        public void InitializeLightLayer(Layer lightLayer)
+        {
+            this.LightBeamInstance.MoveToLayer(lightLayer);
         }
 
         private void AssignInput()
