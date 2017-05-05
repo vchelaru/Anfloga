@@ -20,7 +20,7 @@ namespace Anfloga.Entities
         /// </summary>
 		private void CustomInitialize()
 		{
-
+            this.SpriteInstance.TextureFilter = Microsoft.Xna.Framework.Graphics.TextureFilter.Anisotropic;
 
 		}
 

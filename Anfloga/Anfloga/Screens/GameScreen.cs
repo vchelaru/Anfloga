@@ -81,6 +81,7 @@ namespace Anfloga.Screens
             this.DarknessSprite.TextureScale = -1;
             this.DarknessSprite.Width = Camera.Main.OrthogonalWidth;
             this.DarknessSprite.Height = Camera.Main.OrthogonalHeight;
+            this.DarknessSprite.TextureFilter = TextureFilter.Anisotropic;
 
 #if DEBUG
             if (DebuggingVariables.HideDarknessOverlay)

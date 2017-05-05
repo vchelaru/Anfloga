@@ -1235,7 +1235,7 @@
     <GenerateDisplayCode>true</GenerateDisplayCode>
     <ResolutionWidth>960</ResolutionWidth>
     <ResolutionHeight>540</ResolutionHeight>
-    <FixedAspectRatio>false</FixedAspectRatio>
+    <FixedAspectRatio>true</FixedAspectRatio>
     <AspectRatioWidth>16</AspectRatioWidth>
     <AspectRatioHeight>9</AspectRatioHeight>
     <SupportLandscape>true</SupportLandscape>
