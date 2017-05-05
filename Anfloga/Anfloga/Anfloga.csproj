@@ -135,6 +135,10 @@
     <Compile Include="Entities\ExplorationDurationReplenishZone.Generated.cs">
       <DependentUpon>ExplorationDurationReplenishZone.cs</DependentUpon>
     </Compile>
+    <Compile Include="Entities\LightEntity.cs" />
+    <Compile Include="Entities\LightEntity.Generated.cs">
+      <DependentUpon>LightEntity.cs</DependentUpon>
+    </Compile>
     <Compile Include="Entities\LightInput.cs" />
     <Compile Include="Entities\Player.cs" />
     <Compile Include="Entities\Player.Generated.cs">
@@ -151,6 +155,7 @@
       <DependentUpon>WorldObjectEntity.cs</DependentUpon>
     </Compile>
     <Compile Include="Factories\ExplorationDurationReplenishZoneFactory.Generated.cs" />
+    <Compile Include="Factories\LightEntityFactory.Generated.cs" />
     <Compile Include="Factories\PlayerFactory.Generated.cs" />
     <Compile Include="Factories\WorldObjectEntityFactory.Generated.cs" />
     <Compile Include="GlobalContent.Generated.cs" />
