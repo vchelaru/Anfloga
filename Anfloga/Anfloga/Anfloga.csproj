@@ -61,7 +61,7 @@
     <XnaCompressContent>true</XnaCompressContent>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="FlatRedBall, Version=2017.5.2.1279, Culture=neutral, processorArchitecture=x86">
+    <Reference Include="FlatRedBall, Version=2017.5.3.1289, Culture=neutral, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>Libraries\Xna4Pc\Debug\FlatRedBall.dll</HintPath>
     </Reference>
@@ -131,10 +131,20 @@
     <Compile Include="Entities\LightBeam.Generated.cs">
       <DependentUpon>LightBeam.cs</DependentUpon>
     </Compile>
+    <Compile Include="Entities\LightEntity.Event.cs">
+      <DependentUpon>LightEntity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\LightEntity.Generated.Event.cs">
+      <DependentUpon>LightEntity.cs</DependentUpon>
+    </Compile>
     <Compile Include="Entities\LightInput.cs" />
     <Compile Include="Entities\MineralDeposit.cs" />
     <Compile Include="Entities\MineralDeposit.Event.cs">
       <DependentUpon>MineralDeposit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\LightEntity.cs" />
+    <Compile Include="Entities\LightEntity.Generated.cs">
+      <DependentUpon>LightEntity.cs</DependentUpon>
     </Compile>
     <Compile Include="Entities\MineralDeposit.Generated.cs">
       <DependentUpon>MineralDeposit.cs</DependentUpon>
@@ -167,6 +177,7 @@
       <DependentUpon>WorldObjectEntity.cs</DependentUpon>
     </Compile>
     <Compile Include="Factories\MineralDepositFactory.Generated.cs" />
+    <Compile Include="Factories\LightEntityFactory.Generated.cs" />
     <Compile Include="Factories\PlayerFactory.Generated.cs" />
     <Compile Include="Factories\SafeZoneFactory.Generated.cs" />
     <Compile Include="Factories\WorldObjectEntityFactory.Generated.cs" />

@@ -12,6 +12,7 @@
 				FlatRedBall.Camera.Main.OrthogonalHeight = 540;
 				FlatRedBall.Camera.Main.OrthogonalWidth = 960;
 				FlatRedBall.Camera.Main.FixAspectRatioYConstant();
+				SetAspectRatioTo(16 / 9m);
 			}
 			internal static void SetupCamera (Camera cameraToSetUp, Microsoft.Xna.Framework.GraphicsDeviceManager graphicsDeviceManager, int width = 960, int height = 540)
 			{
@@ -23,6 +24,7 @@
 				#elif UWP
 				#endif
 				ResetCamera(cameraToSetUp);
+				FlatRedBall.FlatRedBallServices.GraphicsOptions.SizeOrOrientationChanged += HandleResolutionChange;
 			}
 			private static void HandleResolutionChange (object sender, System.EventArgs args)
 			{

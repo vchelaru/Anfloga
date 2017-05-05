@@ -11,7 +11,7 @@ using FlatRedBall.Math.Geometry;
 
 namespace Anfloga.Entities
 {
-	public partial class LightBeam
+	public partial class LightEntity
 	{
         /// <summary>
         /// Initialization logic which is execute only one time for this Entity (unless the Entity is pooled).
@@ -20,7 +20,7 @@ namespace Anfloga.Entities
         /// </summary>
 		private void CustomInitialize()
 		{
-            this.SpriteInstance.TextureFilter = Microsoft.Xna.Framework.Graphics.TextureFilter.Anisotropic;
+
 
 		}
 

@@ -63,6 +63,11 @@ namespace Anfloga.Screens
             {
                 item.InitializeLightLayer(DarknessRenderTargetLayer);
             }
+
+            foreach(var item in this.LightEntityList)
+            {
+                item.MoveToLayer(DarknessRenderTargetLayer);
+            }
         }
 
         private void InitializeRenderTargets()
@@ -76,6 +81,7 @@ namespace Anfloga.Screens
             this.DarknessSprite.TextureScale = -1;
             this.DarknessSprite.Width = Camera.Main.OrthogonalWidth;
             this.DarknessSprite.Height = Camera.Main.OrthogonalHeight;
+            this.DarknessSprite.TextureFilter = TextureFilter.Anisotropic;
 
 #if DEBUG
             if (DebuggingVariables.HideDarknessOverlay)
@@ -118,6 +124,10 @@ namespace Anfloga.Screens
             if (PlayerList.Count > 0)
             {
                 CameraControllerInstance.ObjectFollowing = PlayerList[0];
+            }
+            else
+            {
+                throw new Exception("The map must contain a tile or object with EntityToCreate set to Player");
             }
 
             CameraControllerInstance.SetCameraBoundsFromTiledMap(currentLevel);

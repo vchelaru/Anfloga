@@ -4,10 +4,10 @@
   <TimeMeasurementUnit>Undefined</TimeMeasurementUnit>
   <CoordinateType>Pixel</CoordinateType>
   <AnimationChain>
-    <Name>LightAnimation</Name>
+    <Name>TestAnimation</Name>
     <ColorKey>0</ColorKey>
     <Frame>
-      <TextureName>../../Screens/GameScreen/Levels/anflogaSprites.png</TextureName>
+      <TextureName>..\..\screens\gamescreen\levels\anflogasprites.png</TextureName>
       <FrameLength>0.1</FrameLength>
       <LeftCoordinate>47</LeftCoordinate>
       <RightCoordinate>350</RightCoordinate>
