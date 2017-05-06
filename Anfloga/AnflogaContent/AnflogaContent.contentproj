@@ -57,6 +57,10 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>AnimationChainListFile</Name>
     </None>
+    <None Include="Entities\MineralDeposit\AnimationChainListFile.achx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>AnimationChainListFile</Name>
+    </None>
     <None Include="Entities\Player\AnimationChainListFile.achx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>AnimationChainListFile</Name>

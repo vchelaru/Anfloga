@@ -135,18 +135,40 @@
     <Compile Include="Entities\LightBeam.Generated.cs">
       <DependentUpon>LightBeam.cs</DependentUpon>
     </Compile>
-    <Compile Include="Entities\ExplorationDurationReplenishZone.cs" />
-    <Compile Include="Entities\ExplorationDurationReplenishZone.Generated.cs">
-      <DependentUpon>ExplorationDurationReplenishZone.cs</DependentUpon>
+    <Compile Include="Entities\LightEntity.Event.cs">
+      <DependentUpon>LightEntity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\LightEntity.Generated.Event.cs">
+      <DependentUpon>LightEntity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\LightInput.cs" />
+    <Compile Include="Entities\MineralDeposit.cs" />
+    <Compile Include="Entities\MineralDeposit.Event.cs">
+      <DependentUpon>MineralDeposit.cs</DependentUpon>
     </Compile>
     <Compile Include="Entities\LightEntity.cs" />
     <Compile Include="Entities\LightEntity.Generated.cs">
       <DependentUpon>LightEntity.cs</DependentUpon>
     </Compile>
-    <Compile Include="Entities\LightInput.cs" />
+    <Compile Include="Entities\MineralDeposit.Generated.cs">
+      <DependentUpon>MineralDeposit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\MineralDeposit.Generated.Event.cs">
+      <DependentUpon>MineralDeposit.cs</DependentUpon>
+    </Compile>
     <Compile Include="Entities\Player.cs" />
     <Compile Include="Entities\Player.Generated.cs">
       <DependentUpon>Player.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\SafeZone.cs" />
+    <Compile Include="Entities\SafeZone.Event.cs">
+      <DependentUpon>SafeZone.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\SafeZone.Generated.cs">
+      <DependentUpon>SafeZone.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\SafeZone.Generated.Event.cs">
+      <DependentUpon>SafeZone.cs</DependentUpon>
     </Compile>
     <Compile Include="Entities\WorldObjectEntity.cs" />
     <Compile Include="Entities\WorldObjectEntity.Event.cs">
@@ -158,9 +180,10 @@
     <Compile Include="Entities\WorldObjectEntity.Generated.Event.cs">
       <DependentUpon>WorldObjectEntity.cs</DependentUpon>
     </Compile>
-    <Compile Include="Factories\ExplorationDurationReplenishZoneFactory.Generated.cs" />
+    <Compile Include="Factories\MineralDepositFactory.Generated.cs" />
     <Compile Include="Factories\LightEntityFactory.Generated.cs" />
     <Compile Include="Factories\PlayerFactory.Generated.cs" />
+    <Compile Include="Factories\SafeZoneFactory.Generated.cs" />
     <Compile Include="Factories\WorldObjectEntityFactory.Generated.cs" />
     <Compile Include="GlobalContent.Generated.cs" />
     <Compile Include="GumCore\AnimationFrame.cs" />
@@ -273,6 +296,8 @@
       <DependentUpon>StatusBarRuntime.cs</DependentUpon>
     </Compile>
     <Compile Include="GumRuntimes\TextRuntime.Generated.cs" />
+    <Compile Include="Interfaces\IPerformCurrencyTransactionOn.cs" />
+    <Compile Include="Interfaces\IPerformsCurrencyTransaction.cs" />
     <Compile Include="Logic\DialogLogic.cs" />
     <Compile Include="Performance\IEntityFactory.Generated.cs" />
     <Compile Include="Performance\PoolList.Generated.cs" />

@@ -153,7 +153,16 @@ namespace Anfloga.Screens
 #if DEBUG
             if (DebuggingVariables.ShowReplenishZoneCollision)
             {
-                foreach (var item in ExplorationDurationReplenishZoneList)
+                foreach (var item in SafeZoneList)
+                {
+                    item.Collision.Visible = true;
+                }
+            }
+#endif
+#if DEBUG
+            if(DebuggingVariables.ShowMineralDepositCollision)
+            {
+                foreach(var item in MineralDepositList)
                 {
                     item.Collision.Visible = true;
                 }
@@ -198,6 +207,7 @@ namespace Anfloga.Screens
                 solidCollision.CollideAgainstSolid(player);
 
                 objectCollidingWith = null;
+                player.ObjectsToPerformCurrencyTransactionOn.Clear();
 
                 foreach(var worldObject in WorldObjectEntityList)
                 {
@@ -210,11 +220,26 @@ namespace Anfloga.Screens
 
                 // We will assume the player is not in a replenish zone, then set to replenish if they are colliding with one.
                 player.SetExplorationState(ExplorationState.Consume);
-                foreach(var replenishZone in ExplorationDurationReplenishZoneList)
+                foreach(var safeZone in SafeZoneList)
                 {
-                    if(player.CollideAgainst(replenishZone))
+                    if(player.CollideAgainst(safeZone))
                     {
-                        player.SetExplorationState(ExplorationState.Replenish);
+                        if (safeZone.IsActive)
+                        {
+                            player.SetExplorationState(ExplorationState.Replenish);
+                        }
+                        else
+                        {
+                            //Let the playe know they can activate the safe zone?
+                            player.ObjectsToPerformCurrencyTransactionOn.Add(safeZone);
+                        }
+                    }
+                }
+                foreach (var mineral in MineralDepositList)
+                {
+                    if (player.CollideAgainst(mineral))
+                    {
+                        player.ObjectsToPerformCurrencyTransactionOn.Add(mineral);
                     }
                 }
             }
