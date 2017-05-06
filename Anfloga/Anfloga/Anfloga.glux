@@ -144,7 +144,7 @@
           <CustomProperty>
             <Type>float</Type>
             <Member>Alpha</Member>
-            <ValueAsFloat>0.9</ValueAsFloat>
+            <ValueAsFloat>0</ValueAsFloat>
           </CustomProperty>
           <SourceType>FlatRedBallType</SourceType>
           <SourceFile />
@@ -472,7 +472,7 @@
           </Properties>
           <Name>MinMaxXOffset</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">200</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">50</DefaultValue>
         </CustomVariable>
         <CustomVariable>
           <Properties>
@@ -483,7 +483,7 @@
           </Properties>
           <Name>MinMaxYOffset</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">150</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">50</DefaultValue>
         </CustomVariable>
       </CustomVariables>
       <ImplementsIDrawableBatch>false</ImplementsIDrawableBatch>
@@ -615,7 +615,7 @@
           </Properties>
           <Name>DarknessInterpolationTime</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">5</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">2</DefaultValue>
         </CustomVariable>
       </CustomVariables>
       <ImplementsIDrawableBatch>false</ImplementsIDrawableBatch>
