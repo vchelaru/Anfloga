@@ -123,6 +123,10 @@
     <Compile Include="Entities\DarknessOverlay.Generated.cs">
       <DependentUpon>DarknessOverlay.cs</DependentUpon>
     </Compile>
+    <Compile Include="Entities\DarknessTrigger.cs" />
+    <Compile Include="Entities\DarknessTrigger.Generated.cs">
+      <DependentUpon>DarknessTrigger.cs</DependentUpon>
+    </Compile>
     <Compile Include="Entities\DebuggingVariables.cs" />
     <Compile Include="Entities\DebuggingVariables.Generated.cs">
       <DependentUpon>DebuggingVariables.cs</DependentUpon>
