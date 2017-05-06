@@ -17,6 +17,8 @@ using FlatRedBall.TileCollisions;
 using Anfloga.Entities;
 using Anfloga.Logic;
 using Microsoft.Xna.Framework.Graphics;
+using FlatRedBall.Glue.StateInterpolation;
+using StateInterpolationPlugin;
 
 namespace Anfloga.Screens
 {
@@ -24,7 +26,8 @@ namespace Anfloga.Screens
 	{
         #region Fields
 
-        static string LevelNameToLoad = nameof(theMap);
+        //static string LevelNameToLoad = nameof(theMap);
+        static string LevelNameToLoad = nameof(anflogaTest);
 
         LayeredTileMap currentLevel;
 
@@ -35,6 +38,9 @@ namespace Anfloga.Screens
         WorldObjectEntity objectCollidingWith;
 
         RenderTarget2D darknessRenderTarget;
+
+        DarknessTrigger lastDarknessTriggerCollidedAgainst;
+        Tweener lastDarknessTweener;
 
         #endregion
 
@@ -149,8 +155,7 @@ namespace Anfloga.Screens
                     item.Collision.Visible = true;
                 }
             }
-#endif
-#if DEBUG
+
             if (DebuggingVariables.ShowReplenishZoneCollision)
             {
                 foreach (var item in SafeZoneList)
@@ -158,15 +163,24 @@ namespace Anfloga.Screens
                     item.Collision.Visible = true;
                 }
             }
-#endif
-#if DEBUG
-            if(DebuggingVariables.ShowMineralDepositCollision)
+
+            if (DebuggingVariables.ShowMineralDepositCollision)
             {
                 foreach(var item in MineralDepositList)
                 {
                     item.Collision.Visible = true;
                 }
             }
+
+
+            if(DebuggingVariables.ShowDarknessTriggerCollision)
+            {
+                foreach(var item in DarknessTriggerList)
+                {
+                    item.Collision.Visible = true;
+                }
+            }
+
 #endif
             // todo: create collision:
 
@@ -176,7 +190,6 @@ namespace Anfloga.Screens
         #endregion
 
         #region Activity Methods
-
 
         void CustomActivity(bool firstTimeCalled)
 		{
@@ -242,7 +255,41 @@ namespace Anfloga.Screens
                         player.ObjectsToPerformCurrencyTransactionOn.Add(mineral);
                     }
                 }
+
+                foreach (var darknessTrigger in DarknessTriggerList)
+                {
+                    if(player.CollideAgainst(darknessTrigger) && lastDarknessTriggerCollidedAgainst != darknessTrigger)
+                    {
+                        lastDarknessTriggerCollidedAgainst = darknessTrigger;
+                        RespondToDarknessTriggerCollision(darknessTrigger);
+                    }
+                }
             }
+        }
+
+        private void RespondToDarknessTriggerCollision(DarknessTrigger darknessTrigger)
+        {
+            if(lastDarknessTweener != null && lastDarknessTweener.Running)
+            {
+                lastDarknessTweener.Stop();
+                lastDarknessTweener = null;
+            }
+
+            float currentValue = (float)DarknessSprite.Alpha;
+
+            Tweener tweener = new Tweener(currentValue, darknessTrigger.DarknessValue, darknessTrigger.DarknessInterpolationTime, InterpolationType.Linear, Easing.In);
+
+            tweener.PositionChanged = HandlePositionSet;
+
+            tweener.Owner = this;
+
+            TweenerManager.Self.Add(tweener);
+            tweener.Start();
+        }
+
+        private void HandlePositionSet(float value)
+        {
+            DarknessSprite.Alpha = value;
         }
 
         #endregion

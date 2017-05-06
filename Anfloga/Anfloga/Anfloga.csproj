@@ -180,6 +180,7 @@
     <Compile Include="Entities\WorldObjectEntity.Generated.Event.cs">
       <DependentUpon>WorldObjectEntity.cs</DependentUpon>
     </Compile>
+    <Compile Include="Factories\DarknessTriggerFactory.Generated.cs" />
     <Compile Include="Factories\MineralDepositFactory.Generated.cs" />
     <Compile Include="Factories\LightEntityFactory.Generated.cs" />
     <Compile Include="Factories\PlayerFactory.Generated.cs" />
