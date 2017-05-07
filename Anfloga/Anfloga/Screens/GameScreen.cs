@@ -183,7 +183,11 @@ namespace Anfloga.Screens
 
 #endif
             // todo: create collision:
-
+            
+            foreach(var item in SafeZoneList)
+            {
+                item.SetupCollision();
+            }
             // todo: set camera bounds:
         }
 

@@ -161,13 +161,7 @@
       <DependentUpon>Player.cs</DependentUpon>
     </Compile>
     <Compile Include="Entities\SafeZone.cs" />
-    <Compile Include="Entities\SafeZone.Event.cs">
-      <DependentUpon>SafeZone.cs</DependentUpon>
-    </Compile>
     <Compile Include="Entities\SafeZone.Generated.cs">
-      <DependentUpon>SafeZone.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Entities\SafeZone.Generated.Event.cs">
       <DependentUpon>SafeZone.cs</DependentUpon>
     </Compile>
     <Compile Include="Entities\WorldObjectEntity.cs" />
