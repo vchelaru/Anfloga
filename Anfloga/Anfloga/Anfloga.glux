@@ -947,6 +947,7 @@
           </Properties>
           <Name>CollisionRadius</Name>
           <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">8</DefaultValue>
           <CreatesEvent>true</CreatesEvent>
         </CustomVariable>
         <CustomVariable>
