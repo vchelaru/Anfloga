@@ -206,11 +206,12 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="SafeZone" visible="0">
+ <objectgroup name="SafeZone">
   <object id="12" x="0" y="0" width="19184" height="688">
    <properties>
     <property name="ActivationCost" type="int" value="0"/>
     <property name="EntityToCreate" value="SafeZone"/>
+    <property name="IsVisible" type="bool" value="false"/>
    </properties>
   </object>
  </objectgroup>
