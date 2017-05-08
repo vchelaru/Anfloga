@@ -1060,14 +1060,14 @@ namespace TMXGlueLib
             return property.GetStrippedName(key).ToLower() == "name";
         }
 
-        public void CalculateWorldCoordinates(int layercount, int count, int tileWidth, int tileHeight, int layerWidth, out float x, out float y, out float z)
+        public void CalculateWorldCoordinates(int layerIndex, int tileIndex, int tileWidth, int tileHeight, int layerWidth, out float x, out float y, out float z)
         {
-            int normalizedX = count % this.Width;
-            int normalizedY = count / this.Width;
-            CalculateWorldCoordinates(layercount, normalizedX, normalizedY, tileWidth, tileHeight, layerWidth, out x, out y, out z);
+            int normalizedX = tileIndex % this.Width;
+            int normalizedY = tileIndex / this.Width;
+            CalculateWorldCoordinates(layerIndex, normalizedX, normalizedY, tileWidth, tileHeight, layerWidth, out x, out y, out z);
         }
 
-        public void CalculateWorldCoordinates(int layercount, float normalizedX, float normalizedY, int tileWidth, int tileHeight, int layerWidth, out float x, out float y, out float z)
+        public void CalculateWorldCoordinates(int layerIndex, float normalizedX, float normalizedY, int tileWidth, int tileHeight, int layerWidth, out float x, out float y, out float z)
         {
             if (this.orientation == null || this.orientation.Equals("orthogonal"))
             {
@@ -1075,7 +1075,7 @@ namespace TMXGlueLib
                 x += (tileWidth - this.tilewidth) / 2.0f;
                 y = -(normalizedY * this.tileheight) - (this.tileheight / 2.0f);
                 y += (tileHeight - this.tileheight) / 2.0f;
-                z = layercount;
+                z = layerIndex;
             }
             else if (this.orientation != null && this.orientation.Equals("isometric"))
             {
@@ -1083,7 +1083,7 @@ namespace TMXGlueLib
                 y += tileHeight / 2.0f;
                 x = -((normalizedY * this.tilewidth / 2.0f) - (normalizedX * this.tileheight / 2.0f) * 2);
                 x += tileWidth / 2.0f;
-                z = ((normalizedY * layerWidth + normalizedX) * .000001f) + layercount;
+                z = ((normalizedY * layerWidth + normalizedX) * .000001f) + layerIndex;
             }
             else
             {
