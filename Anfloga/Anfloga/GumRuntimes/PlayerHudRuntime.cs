@@ -9,6 +9,7 @@ namespace Anfloga.GumRuntimes
     public struct HudUpdateData
     {
         public float ExplorationLimitFill;
+        public int MineralText;
     }
     public partial class PlayerHudRuntime
     {
@@ -16,6 +17,8 @@ namespace Anfloga.GumRuntimes
         {
             //Update status bars
             ExplorationLimitStatusBar.UpdateFillHeight(data.ExplorationLimitFill);
+            //Update currency display
+            ResourceDisplayInstance.ResourceDisplayText = data.MineralText.ToString();
         }
     }
 }

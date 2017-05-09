@@ -200,7 +200,7 @@ namespace Anfloga.Entities
             //We are not worried about 
             var currentOxygenPercentage = explorationDurationLeft / MaxExplorationTime;
 
-            PlayerHud.UpdateHud(new HudUpdateData() { ExplorationLimitFill =  currentOxygenPercentage});
+            PlayerHud.UpdateHud(new HudUpdateData() { ExplorationLimitFill =  currentOxygenPercentage, MineralText = CurrentCurrencyBalance});
         }
 
         private void PerformMovementInput()

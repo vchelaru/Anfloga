@@ -284,6 +284,7 @@
       <DependentUpon>PlayerHudRuntime.cs</DependentUpon>
     </Compile>
     <Compile Include="GumRuntimes\RectangleRuntime.Generated.cs" />
+    <Compile Include="GumRuntimes\ResourceDisplayRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\SpriteRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\TestScreenGumRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\StatusBarRuntime.cs" />
