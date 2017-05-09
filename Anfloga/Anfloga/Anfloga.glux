@@ -1502,7 +1502,7 @@
     <SupportPortrait>false</SupportPortrait>
     <RunInFullScreen>false</RunInFullScreen>
     <AllowWindowResizing>true</AllowWindowResizing>
-    <Scale>150</Scale>
+    <Scale>130</Scale>
     <ResizeBehavior>StretchVisibleArea</ResizeBehavior>
   </DisplaySettings>
 </GlueProjectSave>

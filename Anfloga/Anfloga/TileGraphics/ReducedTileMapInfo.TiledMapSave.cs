@@ -217,6 +217,8 @@ namespace TMXGlueLib.DataTypes
 
                     var valueWithoutFlip = gid & 0x0fffffff;
 
+                    spriteSaveForConversion.RotationZ = 0;
+                    spriteSaveForConversion.FlipHorizontal = false;
                     TiledMapSave.SetSpriteTextureCoordinates(gid, spriteSaveForConversion, tileSet, tiledMapSave.orientation);
 
 

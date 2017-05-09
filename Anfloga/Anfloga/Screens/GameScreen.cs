@@ -26,8 +26,8 @@ namespace Anfloga.Screens
 	{
         #region Fields
 
-        //static string LevelNameToLoad = nameof(theMap);
         static string LevelNameToLoad = nameof(theMap);
+        //static string LevelNameToLoad = nameof(anflogaTest);
 
         LayeredTileMap currentLevel;
 
@@ -61,7 +61,19 @@ namespace Anfloga.Screens
             InitializeRenderTargets();
 
             MoveLightObjectsToRenderTargetLayer();
+
+            InitializeRestartVariables();
 		}
+
+        private void InitializeRestartVariables()
+        {
+            RestartVariables.Add("this.DarknessSprite.Alpha");
+            
+            RestartVariables.Add("this.PlayerList[0].X");
+            RestartVariables.Add("this.PlayerList[0].XVelocity");
+            RestartVariables.Add("this.PlayerList[0].Y");
+            RestartVariables.Add("this.PlayerList[0].YVelocity");
+        }
 
         private void MoveLightObjectsToRenderTargetLayer()
         {
@@ -141,6 +153,8 @@ namespace Anfloga.Screens
 
         private void LoadLevel(string levelNameToLoad)
         {
+            TMXGlueLib.DataTypes.ReducedTileMapInfo.FastCreateFromTmx = true;
+
             currentLevel = (LayeredTileMap)GetFile(levelNameToLoad);
 
             currentLevel.AddToManagers();

@@ -9165,6 +9165,13 @@
             Sets the absolute rotation values according to the object's RotationMatrix.
             </summary>
         </member>
+        <member name="P:FlatRedBall.Screens.Screen.RestartVariableValues">
+            <summary>
+            Stores the names and values of variables which should be preserved on the next
+            restart. These values are recorded prior to the screen being destroyed, then applied
+            after the construction of the next screen.
+            </summary>
+        </member>
         <member name="P:FlatRedBall.Screens.Screen.Instructions">
             <summary>
             The list of instructions owned 
