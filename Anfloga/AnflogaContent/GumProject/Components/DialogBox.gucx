@@ -5,6 +5,91 @@
   <State>
     <Name>Default</Name>
     <Variable>
+      <IsFile>true</IsFile>
+      <Type>string</Type>
+      <Name>Center.SourceFile</Name>
+      <Value xsi:type="xsd:string">..\Screens\GameScreen\Levels\anflogaSprites.png</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>TextureAddress</Type>
+      <Name>Center.Texture Address</Name>
+      <Value xsi:type="xsd:int">1</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>int</Type>
+      <Name>Center.Texture Height</Name>
+      <Value xsi:type="xsd:int">135</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>Center.Texture Height Scale</Name>
+      <Value xsi:type="xsd:float">135</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>int</Type>
+      <Name>Center.Texture Left</Name>
+      <Value xsi:type="xsd:int">1952</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>int</Type>
+      <Name>Center.Texture Top</Name>
+      <Value xsi:type="xsd:int">16</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>int</Type>
+      <Name>Center.Texture Width</Name>
+      <Value xsi:type="xsd:int">1</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>Center.Texture Width Scale</Name>
+      <Value xsi:type="xsd:float">15</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>Center.Width</Name>
+      <Value xsi:type="xsd:float">87.43666</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>DimensionUnitType</Type>
+      <Name>Center.Width Units</Name>
+      <Value xsi:type="xsd:int">1</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>Center.X</Name>
+      <Value xsi:type="xsd:float">0</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>HorizontalAlignment</Type>
+      <Name>Center.X Origin</Name>
+      <Value xsi:type="xsd:int">1</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>PositionUnitType</Type>
+      <Name>Center.X Units</Name>
+      <Value xsi:type="xsd:int">6</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>Center.Y</Name>
+      <Value xsi:type="xsd:float">0</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
       <Type>ChildrenLayout</Type>
       <Name>Children Layout</Name>
       <Value xsi:type="xsd:int">0</Value>
@@ -14,144 +99,6 @@
       <Type>bool</Type>
       <Name>Clips Children</Name>
       <Value xsi:type="xsd:boolean">false</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>float</Type>
-      <Name>ColoredRectangleInstance.Height</Name>
-      <Value xsi:type="xsd:float">0</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>DimensionUnitType</Type>
-      <Name>ColoredRectangleInstance.Height Units</Name>
-      <Value xsi:type="xsd:int">2</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>float</Type>
-      <Name>ColoredRectangleInstance.Width</Name>
-      <Value xsi:type="xsd:float">0</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>DimensionUnitType</Type>
-      <Name>ColoredRectangleInstance.Width Units</Name>
-      <Value xsi:type="xsd:int">2</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>float</Type>
-      <Name>ColoredRectangleInstance.X</Name>
-      <Value xsi:type="xsd:float">0</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>HorizontalAlignment</Type>
-      <Name>ColoredRectangleInstance.X Origin</Name>
-      <Value xsi:type="xsd:int">1</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>PositionUnitType</Type>
-      <Name>ColoredRectangleInstance.X Units</Name>
-      <Value xsi:type="xsd:int">6</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>float</Type>
-      <Name>ColoredRectangleInstance.Y</Name>
-      <Value xsi:type="xsd:float">0</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>VerticalAlignment</Type>
-      <Name>ColoredRectangleInstance.Y Origin</Name>
-      <Value xsi:type="xsd:int">1</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>PositionUnitType</Type>
-      <Name>ColoredRectangleInstance.Y Units</Name>
-      <Value xsi:type="xsd:int">7</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>int</Type>
-      <Name>ColoredRectangleInstance1.Blue</Name>
-      <Value xsi:type="xsd:int">112</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>int</Type>
-      <Name>ColoredRectangleInstance1.Green</Name>
-      <Value xsi:type="xsd:int">25</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>float</Type>
-      <Name>ColoredRectangleInstance1.Height</Name>
-      <Value xsi:type="xsd:float">-14</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>DimensionUnitType</Type>
-      <Name>ColoredRectangleInstance1.Height Units</Name>
-      <Value xsi:type="xsd:int">2</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>int</Type>
-      <Name>ColoredRectangleInstance1.Red</Name>
-      <Value xsi:type="xsd:int">25</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>float</Type>
-      <Name>ColoredRectangleInstance1.Width</Name>
-      <Value xsi:type="xsd:float">-14</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>DimensionUnitType</Type>
-      <Name>ColoredRectangleInstance1.Width Units</Name>
-      <Value xsi:type="xsd:int">2</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>float</Type>
-      <Name>ColoredRectangleInstance1.X</Name>
-      <Value xsi:type="xsd:float">0</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>HorizontalAlignment</Type>
-      <Name>ColoredRectangleInstance1.X Origin</Name>
-      <Value xsi:type="xsd:int">1</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>PositionUnitType</Type>
-      <Name>ColoredRectangleInstance1.X Units</Name>
-      <Value xsi:type="xsd:int">6</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>float</Type>
-      <Name>ColoredRectangleInstance1.Y</Name>
-      <Value xsi:type="xsd:float">0</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>VerticalAlignment</Type>
-      <Name>ColoredRectangleInstance1.Y Origin</Name>
-      <Value xsi:type="xsd:int">1</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>PositionUnitType</Type>
-      <Name>ColoredRectangleInstance1.Y Units</Name>
-      <Value xsi:type="xsd:int">7</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -177,15 +124,64 @@
     <Variable>
       <Type>float</Type>
       <Name>Height</Name>
-      <Value xsi:type="xsd:float">111</Value>
+      <Value xsi:type="xsd:float">0</Value>
       <Category>Dimensions</Category>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>DimensionUnitType</Type>
       <Name>Height Units</Name>
-      <Value xsi:type="xsd:int">0</Value>
+      <Value xsi:type="xsd:int">4</Value>
       <Category>Dimensions</Category>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <IsFile>true</IsFile>
+      <Type>string</Type>
+      <Name>LeftBorder.SourceFile</Name>
+      <Value xsi:type="xsd:string">..\Screens\GameScreen\Levels\anflogaSprites.png</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>TextureAddress</Type>
+      <Name>LeftBorder.Texture Address</Name>
+      <Value xsi:type="xsd:int">1</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>int</Type>
+      <Name>LeftBorder.Texture Height</Name>
+      <Value xsi:type="xsd:int">135</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>LeftBorder.Texture Height Scale</Name>
+      <Value xsi:type="xsd:float">135</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>int</Type>
+      <Name>LeftBorder.Texture Left</Name>
+      <Value xsi:type="xsd:int">1936</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>int</Type>
+      <Name>LeftBorder.Texture Top</Name>
+      <Value xsi:type="xsd:int">16</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>int</Type>
+      <Name>LeftBorder.Texture Width</Name>
+      <Value xsi:type="xsd:int">15</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>LeftBorder.Texture Width Scale</Name>
+      <Value xsi:type="xsd:float">15</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -194,14 +190,148 @@
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
+      <IsFile>true</IsFile>
+      <Type>string</Type>
+      <Name>RightBorder.SourceFile</Name>
+      <Value xsi:type="xsd:string">..\Screens\GameScreen\Levels\anflogaSprites.png</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>TextureAddress</Type>
+      <Name>RightBorder.Texture Address</Name>
+      <Value xsi:type="xsd:int">1</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>int</Type>
+      <Name>RightBorder.Texture Height</Name>
+      <Value xsi:type="xsd:int">135</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>RightBorder.Texture Height Scale</Name>
+      <Value xsi:type="xsd:float">135</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>int</Type>
+      <Name>RightBorder.Texture Left</Name>
+      <Value xsi:type="xsd:int">1969</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>int</Type>
+      <Name>RightBorder.Texture Top</Name>
+      <Value xsi:type="xsd:int">16</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>int</Type>
+      <Name>RightBorder.Texture Width</Name>
+      <Value xsi:type="xsd:int">15</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>RightBorder.Texture Width Scale</Name>
+      <Value xsi:type="xsd:float">15</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>RightBorder.X</Name>
+      <Value xsi:type="xsd:float">220</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
       <Type>State</Type>
       <Name>State</Name>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
+      <IsFile>true</IsFile>
+      <Type>string</Type>
+      <Name>Tab.SourceFile</Name>
+      <Value xsi:type="xsd:string">..\Screens\GameScreen\Levels\anflogaSprites.png</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>TextureAddress</Type>
+      <Name>Tab.Texture Address</Name>
+      <Value xsi:type="xsd:int">1</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>int</Type>
+      <Name>Tab.Texture Height</Name>
+      <Value xsi:type="xsd:int">6</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>Tab.Texture Height Scale</Name>
+      <Value xsi:type="xsd:float">135</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>int</Type>
+      <Name>Tab.Texture Left</Name>
+      <Value xsi:type="xsd:int">1942</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>int</Type>
+      <Name>Tab.Texture Top</Name>
+      <Value xsi:type="xsd:int">10</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>int</Type>
+      <Name>Tab.Texture Width</Name>
+      <Value xsi:type="xsd:int">36</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>Tab.Texture Width Scale</Name>
+      <Value xsi:type="xsd:float">15</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>Tab.X</Name>
+      <Value xsi:type="xsd:float">-29</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>HorizontalAlignment</Type>
+      <Name>Tab.X Origin</Name>
+      <Value xsi:type="xsd:int">2</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>PositionUnitType</Type>
+      <Name>Tab.X Units</Name>
+      <Value xsi:type="xsd:int">4</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>Tab.Y</Name>
+      <Value xsi:type="xsd:float">0</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>VerticalAlignment</Type>
+      <Name>Tab.Y Origin</Name>
+      <Value xsi:type="xsd:int">2</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
       <Type>float</Type>
       <Name>TextInstance.Height</Name>
-      <Value xsi:type="xsd:float">-20</Value>
+      <Value xsi:type="xsd:float">-16</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -233,7 +363,7 @@
     <Variable>
       <Type>float</Type>
       <Name>TextInstance.Width</Name>
-      <Value xsi:type="xsd:float">-28</Value>
+      <Value xsi:type="xsd:float">-37</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -263,7 +393,7 @@
     <Variable>
       <Type>float</Type>
       <Name>TextInstance.Y</Name>
-      <Value xsi:type="xsd:float">0</Value>
+      <Value xsi:type="xsd:float">-1</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -279,6 +409,12 @@
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
+      <Type>int</Type>
+      <Name>Texture Width</Name>
+      <Value xsi:type="xsd:int">1</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
       <Type>bool</Type>
       <Name>Visible</Name>
       <Value xsi:type="xsd:boolean">true</Value>
@@ -287,14 +423,14 @@
     <Variable>
       <Type>float</Type>
       <Name>Width</Name>
-      <Value xsi:type="xsd:float">284</Value>
+      <Value xsi:type="xsd:float">0</Value>
       <Category>Dimensions</Category>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>DimensionUnitType</Type>
       <Name>Width Units</Name>
-      <Value xsi:type="xsd:int">0</Value>
+      <Value xsi:type="xsd:int">4</Value>
       <Category>Dimensions</Category>
       <SetsValue>true</SetsValue>
     </Variable>
@@ -346,18 +482,33 @@
       <Category>Position</Category>
       <SetsValue>true</SetsValue>
     </Variable>
+    <VariableList xsi:type="VariableListSaveOfString">
+      <Type>string</Type>
+      <Name>AnimationFrames</Name>
+      <IsFile>false</IsFile>
+      <IsHiddenInPropertyGrid>false</IsHiddenInPropertyGrid>
+      <Value />
+    </VariableList>
   </State>
   <Instance>
-    <Name>ColoredRectangleInstance</Name>
-    <BaseType>ColoredRectangle</BaseType>
+    <Name>LeftBorder</Name>
+    <BaseType>Sprite</BaseType>
   </Instance>
   <Instance>
-    <Name>ColoredRectangleInstance1</Name>
-    <BaseType>ColoredRectangle</BaseType>
+    <Name>RightBorder</Name>
+    <BaseType>Sprite</BaseType>
+  </Instance>
+  <Instance>
+    <Name>Center</Name>
+    <BaseType>Sprite</BaseType>
   </Instance>
   <Instance>
     <Name>TextInstance</Name>
     <BaseType>Text</BaseType>
+  </Instance>
+  <Instance>
+    <Name>Tab</Name>
+    <BaseType>Sprite</BaseType>
   </Instance>
   <Behaviors />
 </ComponentSave>

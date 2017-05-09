@@ -8,11 +8,12 @@ using FlatRedBall.AI.Pathfinding;
 using FlatRedBall.Graphics.Animation;
 using FlatRedBall.Graphics.Particle;
 using FlatRedBall.Math.Geometry;
+using Anfloga.Interfaces;
 
 namespace Anfloga.Entities
 {
-	public partial class LightBeam
-	{
+	public partial class MineralDeposit: IPerformCurrencyTransactionOn
+    {
         /// <summary>
         /// Initialization logic which is execute only one time for this Entity (unless the Entity is pooled).
         /// This method is called when the Entity is added to managers. Entities which are instantiated but not
@@ -20,7 +21,7 @@ namespace Anfloga.Entities
         /// </summary>
 		private void CustomInitialize()
 		{
-            this.SpriteInstance.TextureFilter = Microsoft.Xna.Framework.Graphics.TextureFilter.Anisotropic;
+
 
 		}
 
@@ -41,5 +42,15 @@ namespace Anfloga.Entities
 
 
         }
-	}
+        public bool PerformCurrencyTransaction(IPerformsCurrencyTransaction player)
+        {
+            //For now we do not have a max limit to how much currency we can have.
+            //So this will always return true.
+
+            player.CollectCurrency(CurrencyValue);
+            Destroy();
+
+            return true;
+        }
+    }
 }

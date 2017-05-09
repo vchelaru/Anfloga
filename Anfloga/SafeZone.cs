@@ -8,11 +8,13 @@ using FlatRedBall.AI.Pathfinding;
 using FlatRedBall.Graphics.Animation;
 using FlatRedBall.Graphics.Particle;
 using FlatRedBall.Math.Geometry;
+using Anfloga.Interfaces;
 
 namespace Anfloga.Entities
 {
-	public partial class ExplorationDurationReplenishZone
-	{
+	public partial class SafeZone: IPerformCurrencyTransactionOn
+    {
+        public bool IsActive { get; private set; }
         /// <summary>
         /// Initialization logic which is execute only one time for this Entity (unless the Entity is pooled).
         /// This method is called when the Entity is added to managers. Entities which are instantiated but not
@@ -36,10 +38,31 @@ namespace Anfloga.Entities
 
 		}
 
+        
+
         private static void CustomLoadStaticContent(string contentManagerName)
         {
 
 
         }
-	}
+        public bool PerformCurrencyTransaction(IPerformsCurrencyTransaction player)
+        {
+            bool toReturn = false;
+            //If the player has enough currency, then we will activate this safe zone.
+            if(player.CurrentCurrencyBalance >= ActivationCost)
+            {
+                toReturn = true;
+                PerformActivation();
+                player.SpendCurrency(ActivationCost);
+            }
+
+            return toReturn;
+        }
+
+        private void PerformActivation()
+        {
+            IsActive = true;
+            //Activation animation?
+        }
+    }
 }

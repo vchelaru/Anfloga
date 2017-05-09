@@ -10,6 +10,7 @@ using FlatRedBall.Graphics.Particle;
 using FlatRedBall.Math.Geometry;
 using Anfloga.GumRuntimes;
 using FlatRedBall.Graphics;
+using Anfloga.Interfaces;
 
 namespace Anfloga.Entities
 {
@@ -20,7 +21,7 @@ namespace Anfloga.Entities
         Replenish
     }
 
-	public partial class Player
+	public partial class Player: IPerformsCurrencyTransaction
 	{
         #region Fields
 
@@ -30,11 +31,18 @@ namespace Anfloga.Entities
         public IPressableInput DashInput { get; set; }
         public IPressableInput DialogInput { get; set; }
 
+        public IPressableInput ActionInput { get; set; }
+        public List<IPerformCurrencyTransactionOn> ObjectsToPerformCurrencyTransactionOn { get; private set; }
+
+        public int CurrentCurrencyBalance { get; private set; }
+
         private float explorationDurationLeft;
+
+        private ExplorationState currentExplorationState;
 
         #endregion
        
-        private ExplorationState currentExplorationState;
+
 
         /// <summary>
         /// Initialization logic which is execute only one time for this Entity (unless the Entity is pooled).
@@ -48,7 +56,15 @@ namespace Anfloga.Entities
 
             //If we end up having player data move this to the event.
             InitializeExplorationVariables();
+
+            //
+            InitializeCollidingObjectList();
 		}
+
+        private void InitializeCollidingObjectList()
+        {
+            ObjectsToPerformCurrencyTransactionOn = new List<IPerformCurrencyTransactionOn>();
+        }
 
         private void InitializeExplorationVariables()
         {
@@ -73,8 +89,8 @@ namespace Anfloga.Entities
             MovementInput = movementInput;
 
             var dashInput = new MultiplePressableInputs();
-            dashInput.Inputs.Add(InputManager.Keyboard.GetKey(Microsoft.Xna.Framework.Input.Keys.Space));
-            dashInput.Inputs.Add(InputManager.Xbox360GamePads[0].GetButton(Xbox360GamePad.Button.A));
+            dashInput.Inputs.Add(InputManager.Keyboard.GetKey(Microsoft.Xna.Framework.Input.Keys.E));
+            dashInput.Inputs.Add(InputManager.Xbox360GamePads[0].GetButton(Xbox360GamePad.Button.B));
             DashInput = dashInput;
 
             var dialogInput = new MultiplePressableInputs();
@@ -82,12 +98,19 @@ namespace Anfloga.Entities
             dashInput.Inputs.Add(InputManager.Xbox360GamePads[0].GetButton(Xbox360GamePad.Button.X));
             DialogInput = dialogInput;
 
+            var actionInput = new MultiplePressableInputs();
+            actionInput.Inputs.Add(InputManager.Keyboard.GetKey(Microsoft.Xna.Framework.Input.Keys.Space));
+            actionInput.Inputs.Add(InputManager.Xbox360GamePads[0].GetButton(Xbox360GamePad.Button.A));
+            ActionInput = actionInput;
+
             LightInput = new LightInput(this);
         }
 
         private void CustomActivity()
 		{
             PerformMovementInput();
+
+            PerformActionInput();
 
             PerformLightLogic();
 
@@ -97,6 +120,27 @@ namespace Anfloga.Entities
             //Perform hud update at the end. Incase we have abilities that consume oxygen.
             UpdateHudActivity();
 		}
+
+        private void PerformActionInput()
+        {
+            //Only perform command action on one object per frame.
+            //These objects should not be added back to
+            if(ActionInput.WasJustPressed && ObjectsToPerformCurrencyTransactionOn.Count > 0)
+            {
+                foreach (var item in ObjectsToPerformCurrencyTransactionOn)
+                {
+                    //If the command is successful break out of the loop.
+                    //Else we will try on the next object. 
+                    //We do this so that the player will still collect minerals if they are colliding
+                    //with a mineral and a geyser at the same time, but the player does not hae enough
+                    //currency to purchase the safe zone.
+                    if (item.PerformCurrencyTransaction(this))
+                    {
+                        break;
+                    }
+                }
+            }
+        }
 
         private void PerformLightLogic()
         {
@@ -196,5 +240,15 @@ namespace Anfloga.Entities
 
 
         }
-	}
+
+        public void CollectCurrency(int increase)
+        {
+            CurrentCurrencyBalance += increase;
+        }
+
+        public void SpendCurrency(int cost)
+        {
+            CurrentCurrencyBalance -= cost;
+        }
+    }
 }

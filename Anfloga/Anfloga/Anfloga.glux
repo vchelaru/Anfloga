@@ -97,15 +97,6 @@
           <IndependentOfCamera>true</IndependentOfCamera>
         </NamedObjectSave>
         <NamedObjectSave>
-          <SourceType>FlatRedBallType</SourceType>
-          <SourceClassType>PositionedObjectList&lt;T&gt;</SourceClassType>
-          <SourceClassGenericType>Entities\ExplorationDurationReplenishZone</SourceClassGenericType>
-          <InstanceName>ExplorationDurationReplenishZoneList</InstanceName>
-          <AttachToContainer>true</AttachToContainer>
-          <GenerateTimedEmit>true</GenerateTimedEmit>
-          <IndependentOfCamera>true</IndependentOfCamera>
-        </NamedObjectSave>
-        <NamedObjectSave>
           <CustomProperty>
             <Type>float</Type>
             <Member>Z</Member>
@@ -153,7 +144,7 @@
           <CustomProperty>
             <Type>float</Type>
             <Member>Alpha</Member>
-            <ValueAsFloat>0.9</ValueAsFloat>
+            <ValueAsFloat>0</ValueAsFloat>
           </CustomProperty>
           <SourceType>FlatRedBallType</SourceType>
           <SourceFile />
@@ -193,6 +184,33 @@
           <SourceClassType>PositionedObjectList&lt;T&gt;</SourceClassType>
           <SourceClassGenericType>Entities\LightEntity</SourceClassGenericType>
           <InstanceName>LightEntityList</InstanceName>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
+        <NamedObjectSave>
+          <SourceType>FlatRedBallType</SourceType>
+          <SourceClassType>PositionedObjectList&lt;T&gt;</SourceClassType>
+          <SourceClassGenericType>Entities\SafeZone</SourceClassGenericType>
+          <InstanceName>SafeZoneList</InstanceName>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
+        <NamedObjectSave>
+          <SourceType>FlatRedBallType</SourceType>
+          <SourceClassType>PositionedObjectList&lt;T&gt;</SourceClassType>
+          <SourceClassGenericType>Entities\MineralDeposit</SourceClassGenericType>
+          <InstanceName>MineralDepositList</InstanceName>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
+        <NamedObjectSave>
+          <SourceType>FlatRedBallType</SourceType>
+          <SourceClassType>PositionedObjectList&lt;T&gt;</SourceClassType>
+          <SourceClassGenericType>Entities\DarknessTrigger</SourceClassGenericType>
+          <InstanceName>DarknessTriggerList</InstanceName>
           <AttachToContainer>true</AttachToContainer>
           <GenerateTimedEmit>true</GenerateTimedEmit>
           <IndependentOfCamera>true</IndependentOfCamera>
@@ -454,7 +472,7 @@
           </Properties>
           <Name>MinMaxXOffset</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">200</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">50</DefaultValue>
         </CustomVariable>
         <CustomVariable>
           <Properties>
@@ -465,7 +483,7 @@
           </Properties>
           <Name>MinMaxYOffset</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">150</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">50</DefaultValue>
         </CustomVariable>
       </CustomVariables>
       <ImplementsIDrawableBatch>false</ImplementsIDrawableBatch>
@@ -536,53 +554,6 @@
       <Is2D>true</Is2D>
     </EntitySave>
     <EntitySave>
-      <Tags>
-        <string>GLUE</string>
-      </Tags>
-      <Source>GLUE</Source>
-      <CustomVariables>
-        <CustomVariable>
-          <Properties>
-            <PropertySave>
-              <Name>Type</Name>
-              <ValueAsString>bool</ValueAsString>
-            </PropertySave>
-          </Properties>
-          <Name>ShowWorldObjectCollision</Name>
-          <Type>bool</Type>
-          <DefaultValue xsi:type="xsd:boolean">true</DefaultValue>
-          <IsShared>true</IsShared>
-        </CustomVariable>
-        <CustomVariable>
-          <Properties>
-            <PropertySave>
-              <Name>Type</Name>
-              <ValueAsString>bool</ValueAsString>
-            </PropertySave>
-          </Properties>
-          <Name>ShowReplenishZoneCollision</Name>
-          <Type>bool</Type>
-          <DefaultValue xsi:type="xsd:boolean">true</DefaultValue>
-          <IsShared>true</IsShared>
-        </CustomVariable>
-        <CustomVariable>
-          <Properties>
-            <PropertySave>
-              <Name>Type</Name>
-              <ValueAsString>bool</ValueAsString>
-            </PropertySave>
-          </Properties>
-          <Name>HideDarknessOverlay</Name>
-          <Type>bool</Type>
-          <DefaultValue xsi:type="xsd:boolean">false</DefaultValue>
-          <IsShared>true</IsShared>
-        </CustomVariable>
-      </CustomVariables>
-      <ImplementsIDrawableBatch>false</ImplementsIDrawableBatch>
-      <Name>Entities\DebuggingVariables</Name>
-      <Is2D>true</Is2D>
-    </EntitySave>
-    <EntitySave>
       <Properties>
         <PropertySave>
           <Name>ImplementsICollidable</Name>
@@ -624,10 +595,103 @@
           <Name>Z</Name>
           <Type>float</Type>
         </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>DarknessValue</Name>
+          <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">0.5</DefaultValue>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>DarknessInterpolationTime</Name>
+          <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">2.5</DefaultValue>
+        </CustomVariable>
       </CustomVariables>
       <ImplementsIDrawableBatch>false</ImplementsIDrawableBatch>
-      <Name>Entities\ExplorationDurationReplenishZone</Name>
+      <Name>Entities\DarknessTrigger</Name>
       <CreatedByOtherEntities>true</CreatedByOtherEntities>
+      <Is2D>true</Is2D>
+    </EntitySave>
+    <EntitySave>
+      <Tags>
+        <string>GLUE</string>
+      </Tags>
+      <Source>GLUE</Source>
+      <CustomVariables>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>bool</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>ShowWorldObjectCollision</Name>
+          <Type>bool</Type>
+          <DefaultValue xsi:type="xsd:boolean">false</DefaultValue>
+          <IsShared>true</IsShared>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>bool</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>ShowReplenishZoneCollision</Name>
+          <Type>bool</Type>
+          <DefaultValue xsi:type="xsd:boolean">false</DefaultValue>
+          <IsShared>true</IsShared>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>bool</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>HideDarknessOverlay</Name>
+          <Type>bool</Type>
+          <DefaultValue xsi:type="xsd:boolean">false</DefaultValue>
+          <IsShared>true</IsShared>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>bool</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>ShowMineralDepositCollision</Name>
+          <Type>bool</Type>
+          <DefaultValue xsi:type="xsd:boolean">false</DefaultValue>
+          <IsShared>true</IsShared>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>bool</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>ShowDarknessTriggerCollision</Name>
+          <Type>bool</Type>
+          <DefaultValue xsi:type="xsd:boolean">false</DefaultValue>
+          <IsShared>true</IsShared>
+        </CustomVariable>
+      </CustomVariables>
+      <ImplementsIDrawableBatch>false</ImplementsIDrawableBatch>
+      <Name>Entities\DebuggingVariables</Name>
       <Is2D>true</Is2D>
     </EntitySave>
     <EntitySave>
@@ -868,12 +932,129 @@
           <Properties>
             <PropertySave>
               <Name>Type</Name>
+              <ValueAsString>int</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>CurrencyValue</Name>
+          <Type>int</Type>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>CollisionRadius</Name>
+          <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">8</DefaultValue>
+          <CreatesEvent>true</CreatesEvent>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>string</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>VisualName</Name>
+          <Type>string</Type>
+          <SourceObject>SpriteInstance</SourceObject>
+          <SourceObjectProperty>CurrentChainName</SourceObjectProperty>
+        </CustomVariable>
+      </CustomVariables>
+      <ImplementsIDrawableBatch>false</ImplementsIDrawableBatch>
+      <Name>Entities\MineralDeposit</Name>
+      <NamedObjects>
+        <NamedObjectSave>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>TextureScale</Member>
+            <ValueAsFloat>1</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>AnimationChainList</Type>
+            <Member>AnimationChains</Member>
+            <ValueAsString>AnimationChainListFile</ValueAsString>
+          </CustomProperty>
+          <SourceType>FlatRedBallType</SourceType>
+          <SourceClassType>Sprite</SourceClassType>
+          <InstanceName>SpriteInstance</InstanceName>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
+      </NamedObjects>
+      <ReferencedFiles>
+        <ReferencedFileSave>
+          <Name>Entities/MineralDeposit/AnimationChainListFile.achx</Name>
+          <IsSharedStatic>true</IsSharedStatic>
+          <RuntimeType>FlatRedBall.Graphics.Animation.AnimationChainList</RuntimeType>
+          <ProjectsToExcludeFrom />
+        </ReferencedFileSave>
+      </ReferencedFiles>
+      <CreatedByOtherEntities>true</CreatedByOtherEntities>
+      <Events>
+        <EventResponseSave>
+          <EventName>AfterCollisionRadiusSet</EventName>
+          <SourceVariable>CollisionRadius</SourceVariable>
+          <BeforeOrAfter>After</BeforeOrAfter>
+        </EventResponseSave>
+      </Events>
+      <Is2D>true</Is2D>
+    </EntitySave>
+    <EntitySave>
+      <Properties>
+        <PropertySave>
+          <Name>ImplementsICollidable</Name>
+          <ValueAsBool>true</ValueAsBool>
+        </PropertySave>
+      </Properties>
+      <Tags>
+        <string>GLUE</string>
+      </Tags>
+      <Source>GLUE</Source>
+      <CustomVariables>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>X</Name>
+          <Type>float</Type>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>Y</Name>
+          <Type>float</Type>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>Z</Name>
+          <Type>float</Type>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
               <ValueAsString>float</ValueAsString>
             </PropertySave>
           </Properties>
           <Name>MaxSpeed</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">125</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">85</DefaultValue>
         </CustomVariable>
         <CustomVariable>
           <Properties>
@@ -989,6 +1170,123 @@
         </ReferencedFileSave>
         <ReferencedFileSave>
           <Name>Entities/Player/AnimationChainListFile.achx</Name>
+          <IsSharedStatic>true</IsSharedStatic>
+          <RuntimeType>FlatRedBall.Graphics.Animation.AnimationChainList</RuntimeType>
+          <ProjectsToExcludeFrom />
+        </ReferencedFileSave>
+      </ReferencedFiles>
+      <CreatedByOtherEntities>true</CreatedByOtherEntities>
+      <Is2D>true</Is2D>
+    </EntitySave>
+    <EntitySave>
+      <Properties>
+        <PropertySave>
+          <Name>ImplementsICollidable</Name>
+          <ValueAsBool>true</ValueAsBool>
+        </PropertySave>
+      </Properties>
+      <Tags>
+        <string>GLUE</string>
+      </Tags>
+      <Source>GLUE</Source>
+      <CustomVariables>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>X</Name>
+          <Type>float</Type>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>Y</Name>
+          <Type>float</Type>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>Z</Name>
+          <Type>float</Type>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>int</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>ActivationCost</Name>
+          <Type>int</Type>
+          <CreatesEvent>true</CreatesEvent>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>GeyserCollisionRadius</Name>
+          <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">8</DefaultValue>
+          <CreatesEvent>true</CreatesEvent>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>bool</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>IsVisible</Name>
+          <Type>bool</Type>
+          <DefaultValue xsi:type="xsd:boolean">true</DefaultValue>
+          <SourceObject>SpriteInstance</SourceObject>
+          <SourceObjectProperty>Visible</SourceObjectProperty>
+        </CustomVariable>
+      </CustomVariables>
+      <ImplementsIDrawableBatch>false</ImplementsIDrawableBatch>
+      <Name>Entities\SafeZone</Name>
+      <NamedObjects>
+        <NamedObjectSave>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>TextureScale</Member>
+            <ValueAsFloat>1</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>AnimationChainList</Type>
+            <Member>AnimationChains</Member>
+            <ValueAsString>AnimationChainListFile</ValueAsString>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>string</Type>
+            <Member>CurrentChainName</Member>
+            <ValueAsString>Geyser</ValueAsString>
+          </CustomProperty>
+          <SourceType>FlatRedBallType</SourceType>
+          <SourceClassType>Sprite</SourceClassType>
+          <InstanceName>SpriteInstance</InstanceName>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
+      </NamedObjects>
+      <ReferencedFiles>
+        <ReferencedFileSave>
+          <Name>Entities/SafeZone/AnimationChainListFile.achx</Name>
           <IsSharedStatic>true</IsSharedStatic>
           <RuntimeType>FlatRedBall.Graphics.Animation.AnimationChainList</RuntimeType>
           <ProjectsToExcludeFrom />
@@ -1235,7 +1533,7 @@
     <GenerateDisplayCode>true</GenerateDisplayCode>
     <ResolutionWidth>960</ResolutionWidth>
     <ResolutionHeight>540</ResolutionHeight>
-    <FixedAspectRatio>false</FixedAspectRatio>
+    <FixedAspectRatio>true</FixedAspectRatio>
     <AspectRatioWidth>16</AspectRatioWidth>
     <AspectRatioHeight>9</AspectRatioHeight>
     <SupportLandscape>true</SupportLandscape>

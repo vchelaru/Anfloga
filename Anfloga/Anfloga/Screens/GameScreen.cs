@@ -17,6 +17,8 @@ using FlatRedBall.TileCollisions;
 using Anfloga.Entities;
 using Anfloga.Logic;
 using Microsoft.Xna.Framework.Graphics;
+using FlatRedBall.Glue.StateInterpolation;
+using StateInterpolationPlugin;
 
 namespace Anfloga.Screens
 {
@@ -24,6 +26,7 @@ namespace Anfloga.Screens
 	{
         #region Fields
 
+        //static string LevelNameToLoad = nameof(theMap);
         static string LevelNameToLoad = nameof(theMap);
 
         LayeredTileMap currentLevel;
@@ -35,6 +38,9 @@ namespace Anfloga.Screens
         WorldObjectEntity objectCollidingWith;
 
         RenderTarget2D darknessRenderTarget;
+
+        DarknessTrigger lastDarknessTriggerCollidedAgainst;
+        Tweener lastDarknessTweener;
 
         #endregion
 
@@ -81,6 +87,7 @@ namespace Anfloga.Screens
             this.DarknessSprite.TextureScale = -1;
             this.DarknessSprite.Width = Camera.Main.OrthogonalWidth;
             this.DarknessSprite.Height = Camera.Main.OrthogonalHeight;
+            this.DarknessSprite.TextureFilter = TextureFilter.Anisotropic;
 
 #if DEBUG
             if (DebuggingVariables.HideDarknessOverlay)
@@ -148,25 +155,45 @@ namespace Anfloga.Screens
                     item.Collision.Visible = true;
                 }
             }
-#endif
-#if DEBUG
+
             if (DebuggingVariables.ShowReplenishZoneCollision)
             {
-                foreach (var item in ExplorationDurationReplenishZoneList)
+                foreach (var item in SafeZoneList)
                 {
                     item.Collision.Visible = true;
                 }
             }
+
+            if (DebuggingVariables.ShowMineralDepositCollision)
+            {
+                foreach(var item in MineralDepositList)
+                {
+                    item.Collision.Visible = true;
+                }
+            }
+
+
+            if(DebuggingVariables.ShowDarknessTriggerCollision)
+            {
+                foreach(var item in DarknessTriggerList)
+                {
+                    item.Collision.Visible = true;
+                }
+            }
+
 #endif
             // todo: create collision:
-
+            
+            foreach(var item in SafeZoneList)
+            {
+                item.SetupCollision();
+            }
             // todo: set camera bounds:
         }
 
         #endregion
 
         #region Activity Methods
-
 
         void CustomActivity(bool firstTimeCalled)
 		{
@@ -197,6 +224,7 @@ namespace Anfloga.Screens
                 solidCollision.CollideAgainstSolid(player);
 
                 objectCollidingWith = null;
+                player.ObjectsToPerformCurrencyTransactionOn.Clear();
 
                 foreach(var worldObject in WorldObjectEntityList)
                 {
@@ -209,14 +237,63 @@ namespace Anfloga.Screens
 
                 // We will assume the player is not in a replenish zone, then set to replenish if they are colliding with one.
                 player.SetExplorationState(ExplorationState.Consume);
-                foreach(var replenishZone in ExplorationDurationReplenishZoneList)
+                foreach(var safeZone in SafeZoneList)
                 {
-                    if(player.CollideAgainst(replenishZone))
+                    if(player.CollideAgainst(safeZone))
                     {
-                        player.SetExplorationState(ExplorationState.Replenish);
+                        if (safeZone.IsActive)
+                        {
+                            player.SetExplorationState(ExplorationState.Replenish);
+                        }
+                        else
+                        {
+                            //Let the playe know they can activate the safe zone?
+                            player.ObjectsToPerformCurrencyTransactionOn.Add(safeZone);
+                        }
+                    }
+                }
+                foreach (var mineral in MineralDepositList)
+                {
+                    if (player.CollideAgainst(mineral))
+                    {
+                        player.ObjectsToPerformCurrencyTransactionOn.Add(mineral);
+                    }
+                }
+
+                foreach (var darknessTrigger in DarknessTriggerList)
+                {
+                    if(player.CollideAgainst(darknessTrigger) && lastDarknessTriggerCollidedAgainst != darknessTrigger)
+                    {
+                        lastDarknessTriggerCollidedAgainst = darknessTrigger;
+                        RespondToDarknessTriggerCollision(darknessTrigger);
                     }
                 }
             }
+        }
+
+        private void RespondToDarknessTriggerCollision(DarknessTrigger darknessTrigger)
+        {
+            if(lastDarknessTweener != null && lastDarknessTweener.Running)
+            {
+                lastDarknessTweener.Stop();
+                lastDarknessTweener = null;
+            }
+
+            float currentValue = (float)DarknessSprite.Alpha;
+
+            Tweener tweener = new Tweener(currentValue, darknessTrigger.DarknessValue, darknessTrigger.DarknessInterpolationTime, InterpolationType.Linear, Easing.In);
+
+            tweener.PositionChanged = HandlePositionSet;
+
+            tweener.Owner = this;
+
+            TweenerManager.Self.Add(tweener);
+            tweener.Start();
+        }
+
+        private void HandlePositionSet(float value)
+        {
+            DarknessSprite.Alpha = value;
         }
 
         #endregion
