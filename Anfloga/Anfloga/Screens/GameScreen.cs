@@ -136,12 +136,10 @@ namespace Anfloga.Screens
             });
 
 #if DEBUG
-
             if(DebuggingVariables.ShowTerrainCollision)
             {
                 solidCollision.Visible = true;
             }
-
 #endif
         }
 
