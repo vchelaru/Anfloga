@@ -284,6 +284,12 @@
       <DependentUpon>TestScreen.cs</DependentUpon>
     </Compile>
     <Compile Include="Setup\CameraSetup.cs" />
+    <Compile Include="Rendering\BloomExtractRenderer.cs" />
+    <Compile Include="Rendering\BloomRenderer.cs" />
+    <Compile Include="Rendering\BlurRenderer.cs" />
+    <Compile Include="Rendering\DesaturateRenderer.cs" />
+    <Compile Include="Rendering\IEffectsRenderer.cs" />
+    <Compile Include="Rendering\PassThroughRenderer.cs" />
     <Compile Include="StateInterpolation\Back.cs" />
     <Compile Include="StateInterpolation\Bounce.cs" />
     <Compile Include="StateInterpolation\Circular.cs" />
