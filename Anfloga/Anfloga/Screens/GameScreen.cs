@@ -228,9 +228,12 @@ namespace Anfloga.Screens
 
                 foreach(var worldObject in WorldObjectEntityList)
                 {
+
+                    worldObject.SetIsVisible(true);
                     if(player.CollideAgainst(worldObject))
                     {
                         objectCollidingWith = worldObject;
+                        worldObject.SetIsVisible(false);
                         break;
                     }
                 }

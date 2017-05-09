@@ -15,4 +15,16 @@
       <BottomCoordinate>826</BottomCoordinate>
     </Frame>
   </AnimationChain>
+  <AnimationChain>
+    <Name>PlaceOfInterest</Name>
+    <ColorKey>0</ColorKey>
+    <Frame>
+      <TextureName>..\..\screens\gamescreen\levels\anflogasprites.png</TextureName>
+      <FrameLength>0.1</FrameLength>
+      <LeftCoordinate>1991</LeftCoordinate>
+      <RightCoordinate>2041</RightCoordinate>
+      <TopCoordinate>80</TopCoordinate>
+      <BottomCoordinate>112</BottomCoordinate>
+    </Frame>
+  </AnimationChain>
 </AnimationChainArraySave>
