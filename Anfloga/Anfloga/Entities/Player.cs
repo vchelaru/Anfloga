@@ -197,6 +197,11 @@ namespace Anfloga.Entities
             {
                 explorationDurationLeft -= ExplorationConsumptionRate * TimeManager.SecondDifference;
                 
+                if(this.LightBeamInstance.Visible)
+                {
+                    explorationDurationLeft -= AdditionalLightConsumption * TimeManager.SecondDifference;
+                }
+
                 if(explorationDurationLeft < 0)
                 {
                     explorationDurationLeft = 0;
