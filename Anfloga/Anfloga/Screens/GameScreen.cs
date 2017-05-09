@@ -197,7 +197,11 @@ namespace Anfloga.Screens
 
 #endif
             // todo: create collision:
-
+            
+            foreach(var item in SafeZoneList)
+            {
+                item.SetupCollision();
+            }
             // todo: set camera bounds:
         }
 
@@ -238,9 +242,12 @@ namespace Anfloga.Screens
 
                 foreach(var worldObject in WorldObjectEntityList)
                 {
+
+                    worldObject.SetIsVisible(true);
                     if(player.CollideAgainst(worldObject))
                     {
                         objectCollidingWith = worldObject;
+                        worldObject.SetIsVisible(false);
                         break;
                     }
                 }

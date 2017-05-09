@@ -33,6 +33,13 @@ namespace Anfloga.Entities
 
             circle.Radius = this.CircleCollisionRadius;
         }
-		
+        void OnAfterShouldSetVisibilitySet (object sender, EventArgs e)
+        {
+            if(ShouldSetVisibility)
+            {
+                SpriteInstance.Visible = true;
+            }
+        }
+
 	}
 }

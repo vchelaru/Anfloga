@@ -4,27 +4,27 @@
   <TimeMeasurementUnit>Undefined</TimeMeasurementUnit>
   <CoordinateType>Pixel</CoordinateType>
   <AnimationChain>
-    <Name>RedFish</Name>
+    <Name>Geyser</Name>
     <ColorKey>0</ColorKey>
     <Frame>
-      <TextureName>..\..\screens\gamescreen\levels\anflogasprites.png</TextureName>
+      <TextureName>../../Screens/GameScreen/Levels/anflogaSprites.png</TextureName>
       <FrameLength>0.1</FrameLength>
-      <LeftCoordinate>2</LeftCoordinate>
-      <RightCoordinate>13</RightCoordinate>
-      <TopCoordinate>822</TopCoordinate>
-      <BottomCoordinate>826</BottomCoordinate>
+      <LeftCoordinate>18</LeftCoordinate>
+      <RightCoordinate>30</RightCoordinate>
+      <TopCoordinate>819</TopCoordinate>
+      <BottomCoordinate>827</BottomCoordinate>
     </Frame>
   </AnimationChain>
   <AnimationChain>
-    <Name>PlaceOfInterest</Name>
+    <Name>Battery</Name>
     <ColorKey>0</ColorKey>
     <Frame>
-      <TextureName>..\..\screens\gamescreen\levels\anflogasprites.png</TextureName>
+      <TextureName>../../Screens/GameScreen/Levels/anflogaSprites.png</TextureName>
       <FrameLength>0.1</FrameLength>
-      <LeftCoordinate>1991</LeftCoordinate>
-      <RightCoordinate>2041</RightCoordinate>
-      <TopCoordinate>80</TopCoordinate>
-      <BottomCoordinate>112</BottomCoordinate>
+      <LeftCoordinate>36</LeftCoordinate>
+      <RightCoordinate>45</RightCoordinate>
+      <TopCoordinate>822</TopCoordinate>
+      <BottomCoordinate>826</BottomCoordinate>
     </Frame>
   </AnimationChain>
 </AnimationChainArraySave>

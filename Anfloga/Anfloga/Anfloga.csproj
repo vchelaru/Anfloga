@@ -114,6 +114,7 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataTypes\DialogDatabase.Generated.cs" />
     <Compile Include="DataTypes\TileMapInfo.Generated.cs" />
     <Compile Include="Entities\CameraController.cs" />
     <Compile Include="Entities\CameraController.Generated.cs">
@@ -161,13 +162,7 @@
       <DependentUpon>Player.cs</DependentUpon>
     </Compile>
     <Compile Include="Entities\SafeZone.cs" />
-    <Compile Include="Entities\SafeZone.Event.cs">
-      <DependentUpon>SafeZone.cs</DependentUpon>
-    </Compile>
     <Compile Include="Entities\SafeZone.Generated.cs">
-      <DependentUpon>SafeZone.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Entities\SafeZone.Generated.Event.cs">
       <DependentUpon>SafeZone.cs</DependentUpon>
     </Compile>
     <Compile Include="Entities\WorldObjectEntity.cs" />
@@ -314,6 +309,12 @@
       <DependentUpon>TestScreen.cs</DependentUpon>
     </Compile>
     <Compile Include="Setup\CameraSetup.cs" />
+    <Compile Include="Rendering\BloomExtractRenderer.cs" />
+    <Compile Include="Rendering\BloomRenderer.cs" />
+    <Compile Include="Rendering\BlurRenderer.cs" />
+    <Compile Include="Rendering\DesaturateRenderer.cs" />
+    <Compile Include="Rendering\IEffectsRenderer.cs" />
+    <Compile Include="Rendering\PassThroughRenderer.cs" />
     <Compile Include="StateInterpolation\Back.cs" />
     <Compile Include="StateInterpolation\Bounce.cs" />
     <Compile Include="StateInterpolation\Circular.cs" />

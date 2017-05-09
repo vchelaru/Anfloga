@@ -127,10 +127,17 @@ namespace Anfloga.Entities
             //These objects should not be added back to
             if(ActionInput.WasJustPressed && ObjectsToPerformCurrencyTransactionOn.Count > 0)
             {
-                //If the command is successful we will remove it from the 
-                if (ObjectsToPerformCurrencyTransactionOn[0].PerformCurrencyTransaction(this))
+                foreach (var item in ObjectsToPerformCurrencyTransactionOn)
                 {
-                    ObjectsToPerformCurrencyTransactionOn.RemoveAt(0);
+                    //If the command is successful break out of the loop.
+                    //Else we will try on the next object. 
+                    //We do this so that the player will still collect minerals if they are colliding
+                    //with a mineral and a geyser at the same time, but the player does not hae enough
+                    //currency to purchase the safe zone.
+                    if (item.PerformCurrencyTransaction(this))
+                    {
+                        break;
+                    }
                 }
             }
         }

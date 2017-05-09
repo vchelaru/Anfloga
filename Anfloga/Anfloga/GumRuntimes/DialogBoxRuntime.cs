@@ -9,6 +9,9 @@ namespace Anfloga.GumRuntimes
     
     public partial class DialogBoxRuntime
     {
-
+        partial void CustomInitialize()
+        {
+            this.Y -= .05f;
+        }
     }
 }
