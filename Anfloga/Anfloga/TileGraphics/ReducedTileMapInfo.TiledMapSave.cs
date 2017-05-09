@@ -187,6 +187,7 @@ namespace TMXGlueLib.DataTypes
             }
         }
 
+        static SpriteSave spriteSaveForConversion = new SpriteSave();
         private static void AddTileLayerTiles(TiledMapSave tiledMapSave, ReducedLayerInfo reducedLayerInfo, int i, AbstractMapLayer tiledLayer, Tileset tileSet, int tileWidth, int tileHeight)
         {
             var asMapLayer = tiledLayer as MapLayer;
@@ -212,25 +213,35 @@ namespace TMXGlueLib.DataTypes
 
                     var gid = dataAtIndex;
 
-                    quad.FlipFlags = (byte)((gid & 0xf0000000) >> 28);
+                    //quad.FlipFlags = (byte)((gid & 0xf0000000) >> 28);
 
                     var valueWithoutFlip = gid & 0x0fffffff;
 
-                    //int leftPixelCoord;
-                    //int topPixelCoord;
-                    //int rightPixelCoord;
-                    //int bottomPixelCoord;
-                    //TiledMapSave.GetPixelCoordinatesFromGid(gid, tileSet,
-                    //    out leftPixelCoord, out topPixelCoord, out rightPixelCoord, out bottomPixelCoord);
-
-                    //quad.LeftTexturePixel = (ushort)Math.Min(leftPixelCoord, rightPixelCoord);
-                    //quad.TopTexturePixel = (ushort)Math.Min(topPixelCoord, bottomPixelCoord);
-                    quad.LeftTexturePixel = (ushort)TiledMapSave.CalculateXCoordinate(valueWithoutFlip - tileSet.Firstgid, tileSet.Images[0].width, tileWidth, tileSet.Spacing, tileSet.Margin);
-                    quad.TopTexturePixel = (ushort)TiledMapSave.CalculateYCoordinate(valueWithoutFlip - tileSet.Firstgid, tileSet.Images[0].width, tileWidth, tileHeight, tileSet.Spacing, tileSet.Margin);
+                    TiledMapSave.SetSpriteTextureCoordinates(gid, spriteSaveForConversion, tileSet, tiledMapSave.orientation);
 
 
-                    //quad.LeftTexturePixel = (ushort)leftPixelCoord;
-                    //quad.TopTexturePixel = (ushort)topPixelCoord;
+                    bool isRotated = spriteSaveForConversion.RotationZ != 0;
+                    if (isRotated)
+                    {
+                        quad.FlipFlags = (byte)(quad.FlipFlags | ReducedQuadInfo.FlippedDiagonallyFlag);
+                    }
+
+                    var leftTextureCoordinate = System.Math.Min(spriteSaveForConversion.LeftTextureCoordinate, spriteSaveForConversion.RightTextureCoordinate);
+                    var topTextureCoordinate = System.Math.Min(spriteSaveForConversion.TopTextureCoordinate, spriteSaveForConversion.BottomTextureCoordinate);
+
+                    if (spriteSaveForConversion.LeftTextureCoordinate > spriteSaveForConversion.RightTextureCoordinate)
+                    {
+                        quad.FlipFlags = (byte)(quad.FlipFlags | ReducedQuadInfo.FlippedHorizontallyFlag);
+                    }
+
+                    if (spriteSaveForConversion.TopTextureCoordinate > spriteSaveForConversion.BottomTextureCoordinate)
+                    {
+                        quad.FlipFlags = (byte)(quad.FlipFlags | ReducedQuadInfo.FlippedVerticallyFlag);
+                    }
+
+                    quad.LeftTexturePixel = (ushort)FlatRedBall.Math.MathFunctions.RoundToInt(leftTextureCoordinate * tileSet.Images[0].width);
+                    quad.TopTexturePixel = (ushort)FlatRedBall.Math.MathFunctions.RoundToInt(topTextureCoordinate * tileSet.Images[0].height);
+
 
                     if (tileSet.TileDictionary.ContainsKey(valueWithoutFlip))
                     {
