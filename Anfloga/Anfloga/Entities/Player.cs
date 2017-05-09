@@ -32,6 +32,9 @@ namespace Anfloga.Entities
         public IPressableInput DialogInput { get; set; }
 
         public IPressableInput ActionInput { get; set; }
+        public IPressableInput LightToggleInput { get; set; }
+
+
         public List<IPerformCurrencyTransactionOn> ObjectsToPerformCurrencyTransactionOn { get; private set; }
 
         public int CurrentCurrencyBalance { get; private set; }
@@ -41,8 +44,8 @@ namespace Anfloga.Entities
         private ExplorationState currentExplorationState;
 
         #endregion
-       
 
+        #region Initialize
 
         /// <summary>
         /// Initialization logic which is execute only one time for this Entity (unless the Entity is pooled).
@@ -103,8 +106,15 @@ namespace Anfloga.Entities
             actionInput.Inputs.Add(InputManager.Xbox360GamePads[0].GetButton(Xbox360GamePad.Button.A));
             ActionInput = actionInput;
 
+            var lightToggleInput = new MultiplePressableInputs();
+            lightToggleInput.Inputs.Add(InputManager.Mouse.GetButton(Mouse.MouseButtons.RightButton));
+            lightToggleInput.Inputs.Add(InputManager.Xbox360GamePads[0].GetButton(Xbox360GamePad.Button.RightShoulder));
+            LightToggleInput = lightToggleInput;
+
             LightInput = new LightInput(this);
         }
+
+        #endregion
 
         private void CustomActivity()
 		{
@@ -144,13 +154,21 @@ namespace Anfloga.Entities
 
         private void PerformLightLogic()
         {
-            LightInput.Activity();
-
-            var angle = LightInput.GetAngle();
-
-            if(angle != null)
+            if(this.LightToggleInput.WasJustPressed)
             {
-                this.LightBeamInstance.RelativeRotationZ = angle.Value;
+                this.LightBeamInstance.Visible = !this.LightBeamInstance.Visible;
+            }
+
+            if(this.LightBeamInstance.Visible)
+            {
+                LightInput.Activity();
+
+                var angle = LightInput.GetAngle();
+
+                if(angle != null)
+                {
+                    this.LightBeamInstance.RelativeRotationZ = angle.Value;
+                }
             }
         }
 
@@ -179,6 +197,11 @@ namespace Anfloga.Entities
             {
                 explorationDurationLeft -= ExplorationConsumptionRate * TimeManager.SecondDifference;
                 
+                if(this.LightBeamInstance.Visible)
+                {
+                    explorationDurationLeft -= AdditionalLightConsumption * TimeManager.SecondDifference;
+                }
+
                 if(explorationDurationLeft < 0)
                 {
                     explorationDurationLeft = 0;
@@ -200,7 +223,7 @@ namespace Anfloga.Entities
             //We are not worried about 
             var currentOxygenPercentage = explorationDurationLeft / MaxExplorationTime;
 
-            PlayerHud.UpdateHud(new HudUpdateData() { ExplorationLimitFill =  currentOxygenPercentage});
+            PlayerHud.UpdateHud(new HudUpdateData() { ExplorationLimitFill =  currentOxygenPercentage, MineralText = CurrentCurrencyBalance});
         }
 
         private void PerformMovementInput()

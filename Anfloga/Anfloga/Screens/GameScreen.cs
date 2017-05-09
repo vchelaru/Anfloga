@@ -26,8 +26,8 @@ namespace Anfloga.Screens
 	{
         #region Fields
 
-        //static string LevelNameToLoad = nameof(theMap);
         static string LevelNameToLoad = nameof(theMap);
+        //static string LevelNameToLoad = nameof(anflogaTest);
 
         LayeredTileMap currentLevel;
 
@@ -61,7 +61,19 @@ namespace Anfloga.Screens
             InitializeRenderTargets();
 
             MoveLightObjectsToRenderTargetLayer();
+
+            InitializeRestartVariables();
 		}
+
+        private void InitializeRestartVariables()
+        {
+            RestartVariables.Add("this.DarknessSprite.Alpha");
+            
+            RestartVariables.Add("this.PlayerList[0].X");
+            RestartVariables.Add("this.PlayerList[0].XVelocity");
+            RestartVariables.Add("this.PlayerList[0].Y");
+            RestartVariables.Add("this.PlayerList[0].YVelocity");
+        }
 
         private void MoveLightObjectsToRenderTargetLayer()
         {
@@ -117,13 +129,21 @@ namespace Anfloga.Screens
         private void InitializeCollision()
         {
             solidCollision = new TileShapeCollection();
+            solidCollision.Visible = false;
             solidCollision.AddMergedCollisionFrom(currentLevel, (propertyList) =>
             {
                 return propertyList.Any(item => item.Name == "SolidCollision");
             });
 
-            solidCollision.Visible = true;
+#if DEBUG
+            if(DebuggingVariables.ShowTerrainCollision)
+            {
+                solidCollision.Visible = true;
+            }
+#endif
         }
+
+
 
         private void InitializeCamera()
         {
@@ -141,6 +161,8 @@ namespace Anfloga.Screens
 
         private void LoadLevel(string levelNameToLoad)
         {
+            TMXGlueLib.DataTypes.ReducedTileMapInfo.FastCreateFromTmx = true;
+
             currentLevel = (LayeredTileMap)GetFile(levelNameToLoad);
 
             currentLevel.AddToManagers();
@@ -228,9 +250,12 @@ namespace Anfloga.Screens
 
                 foreach(var worldObject in WorldObjectEntityList)
                 {
+
+                    worldObject.SetIsVisible(true);
                     if(player.CollideAgainst(worldObject))
                     {
                         objectCollidingWith = worldObject;
+                        worldObject.SetIsVisible(false);
                         break;
                     }
                 }
