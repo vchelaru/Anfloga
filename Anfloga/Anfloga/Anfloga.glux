@@ -159,12 +159,12 @@
         <NamedObjectSave>
           <CustomProperty>
             <Type>bool</Type>
-            <Member>Visible</Member>
+            <Member>HasEvents</Member>
             <ValueAsBool>false</ValueAsBool>
           </CustomProperty>
           <CustomProperty>
             <Type>bool</Type>
-            <Member>HasEvents</Member>
+            <Member>Visible</Member>
             <ValueAsBool>false</ValueAsBool>
           </CustomProperty>
           <SourceType>File</SourceType>
@@ -705,6 +705,17 @@
           <Name>ShowDarknessTriggerCollision</Name>
           <Type>bool</Type>
           <DefaultValue xsi:type="xsd:boolean">false</DefaultValue>
+          <IsShared>true</IsShared>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>bool</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>ShowTerrainCollision</Name>
+          <Type>bool</Type>
           <IsShared>true</IsShared>
         </CustomVariable>
       </CustomVariables>

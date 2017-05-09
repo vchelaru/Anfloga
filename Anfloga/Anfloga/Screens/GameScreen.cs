@@ -129,13 +129,23 @@ namespace Anfloga.Screens
         private void InitializeCollision()
         {
             solidCollision = new TileShapeCollection();
+            solidCollision.Visible = false;
             solidCollision.AddMergedCollisionFrom(currentLevel, (propertyList) =>
             {
                 return propertyList.Any(item => item.Name == "SolidCollision");
             });
 
-            solidCollision.Visible = true;
+#if DEBUG
+
+            if(DebuggingVariables.ShowTerrainCollision)
+            {
+                solidCollision.Visible = true;
+            }
+
+#endif
         }
+
+
 
         private void InitializeCamera()
         {
