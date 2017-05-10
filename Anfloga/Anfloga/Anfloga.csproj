@@ -114,7 +114,6 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DataTypes\DialogDatabase.Generated.cs" />
     <Compile Include="DataTypes\TileMapInfo.Generated.cs" />
     <Compile Include="Entities\Bubbles.cs" />
     <Compile Include="Entities\Bubbles.Generated.cs">
