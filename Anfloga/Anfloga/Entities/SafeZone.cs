@@ -17,6 +17,8 @@ namespace Anfloga.Entities
     {
         public bool IsActive { get; private set; }
         private Polygon tilePolygonReference;
+
+        private Bubbles bubbleEmitter;
         /// <summary>
         /// Initialization logic which is execute only one time for this Entity (unless the Entity is pooled).
         /// This method is called when the Entity is added to managers. Entities which are instantiated but not
@@ -24,7 +26,9 @@ namespace Anfloga.Entities
         /// </summary>
 		private void CustomInitialize()
 		{
-
+            bubbleEmitter = Factories.BubblesFactory.CreateNew();
+            bubbleEmitter.AttachTo(this, false);
+            bubbleEmitter.CurrentBubbleEmitterType = BubbleEmitterType.Geyser;
 		}
 
 		private void CustomActivity()
@@ -35,7 +39,8 @@ namespace Anfloga.Entities
 
 		private void CustomDestroy()
 		{
-
+            bubbleEmitter?.Destroy();
+            bubbleEmitter = null;
 		}
 
         
@@ -121,8 +126,10 @@ namespace Anfloga.Entities
             Collision.AddToManagers();
 
             SpriteInstance.CurrentChainName = "Battery";
-            
+
             //Activation animation?
+            bubbleEmitter.Destroy();
+            bubbleEmitter = null;
         }
 
         private void SetupFreeSafeZone()

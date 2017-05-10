@@ -43,6 +43,8 @@ namespace Anfloga.Entities
 
         private ExplorationState currentExplorationState;
 
+        private Bubbles bubbleEmmitter;
+
         #endregion
 
         #region Initialize
@@ -62,7 +64,16 @@ namespace Anfloga.Entities
 
             //
             InitializeCollidingObjectList();
+
+            InitializeEmitter();
 		}
+
+        private void InitializeEmitter()
+        {
+            bubbleEmmitter = Factories.BubblesFactory.CreateNew();
+            bubbleEmmitter.AttachTo(this, false);
+            bubbleEmmitter.CurrentBubbleEmitterType = BubbleEmitterType.Sub;
+        }
 
         private void InitializeCollidingObjectList()
         {
@@ -236,7 +247,7 @@ namespace Anfloga.Entities
             if(xSign != Math.Sign(desiredXVelocity - XVelocity))
             {
                 XVelocity = desiredXVelocity;
-        }
+            }
 
             var ySign = Math.Sign(desiredYVelocity - YVelocity);
             YVelocity += ySign * MaxSpeed * TimeManager.SecondDifference / AccelerationTime;
@@ -244,12 +255,12 @@ namespace Anfloga.Entities
             {
                 YVelocity = desiredYVelocity;
             }
-
         }
 
         private void CustomDestroy()
 		{
-
+            bubbleEmmitter.Destroy();
+            bubbleEmmitter = null;
 
 		}
 
