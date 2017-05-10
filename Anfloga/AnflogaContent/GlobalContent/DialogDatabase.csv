@@ -11,3 +11,5 @@ T_Energy1,The Unwearnum class vessel expends battery power to maintain human lif
 T_Energy2,Remaining near the surface allows battery recharge via solar energy.
 T_Light1,Authorization granted to enable high-output torch. [Torch: Right Click]
 T_Light2,Be aware that torch use requires additional battery drain.
+T_Bubbles1,These bubbles indicate the presence of a possible power source--please investigate.
+T_PurchaseBase1,Use 5 minerals to create a permanent power station on this geothermal vent. [Build Powerstation: Spacebar]
