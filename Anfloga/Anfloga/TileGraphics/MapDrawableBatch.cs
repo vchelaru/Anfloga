@@ -501,8 +501,7 @@ namespace FlatRedBall.TileGraphics
                 //    listToAdd.Add(new NamedValue { Name = "Name", Value = quad.Name });
                 //    owner.Properties.Add(quad.Name, listToAdd);
                 //}
-
-                if(quad.RotationDegrees != 0)
+                if (quad.RotationDegrees != 0)
                 {
                     // Tiled rotates clockwise :(
                     var rotationRadians = -MathHelper.ToRadians(quad.RotationDegrees);
@@ -522,7 +521,6 @@ namespace FlatRedBall.TileGraphics
                     toReturn.Vertices[tileIndex * 4 + 3].Position = vertPos;
 
                 }
-
 
                 toReturn.RegisterName(quad.Name, tileIndex);
             }

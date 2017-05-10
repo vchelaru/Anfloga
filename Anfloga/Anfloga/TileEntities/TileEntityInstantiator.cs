@@ -132,7 +132,7 @@ namespace FlatRedBall.TileEntities
         private static void ApplyPropertiesTo(PositionedObject entity, MapDrawableBatch layer, int tileIndex, List<NamedValue> propertiesToAssign)
         {
             int vertexIndex = tileIndex * 4;
-            var dimension = 
+            var dimension =
                 (layer.Vertices[vertexIndex + 1].Position - layer.Vertices[vertexIndex].Position).Length();
 
             float dimensionHalf = dimension / 2.0f;
@@ -148,14 +148,14 @@ namespace FlatRedBall.TileEntities
             float xDifference = bottomRight.X - left;
             float yDifference = bottomRight.Y - bottom;
 
-            if(yDifference != 0 || xDifference < 0)
+            if (yDifference != 0 || xDifference < 0)
             {
                 float angle = (float)System.Math.Atan2(yDifference, xDifference);
 
                 entity.RotationZ = angle;
 
             }
-            
+
             position += entity.RotationMatrix.Right * dimensionHalf;
             position += entity.RotationMatrix.Up * dimensionHalf;
 

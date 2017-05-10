@@ -9,9 +9,9 @@
     <Frame>
       <TextureName>../../Screens/GameScreen/Levels/anflogaSprites.png</TextureName>
       <FrameLength>0.1</FrameLength>
-      <LeftCoordinate>97</LeftCoordinate>
+      <LeftCoordinate>96</LeftCoordinate>
       <RightCoordinate>112</RightCoordinate>
-      <TopCoordinate>707</TopCoordinate>
+      <TopCoordinate>704</TopCoordinate>
       <BottomCoordinate>720</BottomCoordinate>
     </Frame>
   </AnimationChain>
