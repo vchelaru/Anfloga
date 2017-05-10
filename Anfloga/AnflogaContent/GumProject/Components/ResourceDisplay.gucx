@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ComponentSave xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <Name>PlayerHud</Name>
+  <Name>ResourceDisplay</Name>
   <BaseType>Container</BaseType>
   <State>
     <Name>Default</Name>
@@ -14,24 +14,6 @@
       <Type>bool</Type>
       <Name>Clips Children</Name>
       <Value xsi:type="xsd:boolean">false</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>StatusBarTypeState</Type>
-      <Name>ExplorationLimitStatusBar.StatusBarTypeState</Name>
-      <Value xsi:type="xsd:string">ExplorationLimit</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>float</Type>
-      <Name>ExplorationLimitStatusBar.X</Name>
-      <Value xsi:type="xsd:float">8</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>float</Type>
-      <Name>ExplorationLimitStatusBar.Y</Name>
-      <Value xsi:type="xsd:float">8</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -57,15 +39,52 @@
     <Variable>
       <Type>float</Type>
       <Name>Height</Name>
-      <Value xsi:type="xsd:float">100</Value>
+      <Value xsi:type="xsd:float">0</Value>
       <Category>Dimensions</Category>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>DimensionUnitType</Type>
       <Name>Height Units</Name>
-      <Value xsi:type="xsd:int">1</Value>
+      <Value xsi:type="xsd:int">4</Value>
       <Category>Dimensions</Category>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <IsFile>true</IsFile>
+      <Type>string</Type>
+      <Name>Icon.SourceFile</Name>
+      <Value xsi:type="xsd:string">..\Screens\GameScreen\Levels\anflogaSprites.png</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>TextureAddress</Type>
+      <Name>Icon.Texture Address</Name>
+      <Value xsi:type="xsd:int">1</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>int</Type>
+      <Name>Icon.Texture Height</Name>
+      <Value xsi:type="xsd:int">13</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>int</Type>
+      <Name>Icon.Texture Left</Name>
+      <Value xsi:type="xsd:int">97</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>int</Type>
+      <Name>Icon.Texture Top</Name>
+      <Value xsi:type="xsd:int">707</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>int</Type>
+      <Name>Icon.Texture Width</Name>
+      <Value xsi:type="xsd:int">15</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -74,20 +93,57 @@
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
-      <Type>float</Type>
-      <Name>ResourceDisplayInstance.X</Name>
-      <Value xsi:type="xsd:float">8</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>float</Type>
-      <Name>ResourceDisplayInstance.Y</Name>
-      <Value xsi:type="xsd:float">76</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
       <Type>State</Type>
       <Name>State</Name>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>string</Type>
+      <Name>TextInstance.Font</Name>
+      <Value xsi:type="xsd:string">Oxygen</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>int</Type>
+      <Name>TextInstance.FontSize</Name>
+      <Value xsi:type="xsd:int">12</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>TextInstance.Height</Name>
+      <Value xsi:type="xsd:float">15</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>string</Type>
+      <Name>TextInstance.Text</Name>
+      <Value xsi:type="xsd:string">99999</Value>
+      <ExposedAsName>ResourceDisplayText</ExposedAsName>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>VerticalAlignment</Type>
+      <Name>TextInstance.VerticalAlignment</Name>
+      <Value xsi:type="xsd:int">2</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>TextInstance.Width</Name>
+      <Value xsi:type="xsd:float">9</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>TextInstance.X</Name>
+      <Value xsi:type="xsd:float">19</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>TextInstance.Y</Name>
+      <Value xsi:type="xsd:float">0</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -99,14 +155,14 @@
     <Variable>
       <Type>float</Type>
       <Name>Width</Name>
-      <Value xsi:type="xsd:float">100</Value>
+      <Value xsi:type="xsd:float">0</Value>
       <Category>Dimensions</Category>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>DimensionUnitType</Type>
       <Name>Width Units</Name>
-      <Value xsi:type="xsd:int">1</Value>
+      <Value xsi:type="xsd:int">4</Value>
       <Category>Dimensions</Category>
       <SetsValue>true</SetsValue>
     </Variable>
@@ -156,14 +212,21 @@
       <Category>Position</Category>
       <SetsValue>true</SetsValue>
     </Variable>
+    <VariableList xsi:type="VariableListSaveOfString">
+      <Type>string</Type>
+      <Name>AnimationFrames</Name>
+      <IsFile>false</IsFile>
+      <IsHiddenInPropertyGrid>false</IsHiddenInPropertyGrid>
+      <Value />
+    </VariableList>
   </State>
   <Instance>
-    <Name>ExplorationLimitStatusBar</Name>
-    <BaseType>StatusBar</BaseType>
+    <Name>Icon</Name>
+    <BaseType>Sprite</BaseType>
   </Instance>
   <Instance>
-    <Name>ResourceDisplayInstance</Name>
-    <BaseType>ResourceDisplay</BaseType>
+    <Name>TextInstance</Name>
+    <BaseType>Text</BaseType>
   </Instance>
   <Behaviors />
 </ComponentSave>

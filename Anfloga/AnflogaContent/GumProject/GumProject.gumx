@@ -29,6 +29,10 @@
     <ElementType>Component</ElementType>
   </ComponentReference>
   <ComponentReference>
+    <Name>ResourceDisplay</Name>
+    <ElementType>Component</ElementType>
+  </ComponentReference>
+  <ComponentReference>
     <Name>StatusBar</Name>
     <ElementType>Component</ElementType>
   </ComponentReference>

@@ -114,6 +114,7 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataTypes\DialogDatabase.Generated.cs" />
     <Compile Include="DataTypes\TileMapInfo.Generated.cs" />
     <Compile Include="Entities\CameraController.cs" />
     <Compile Include="Entities\CameraController.Generated.cs">
@@ -284,6 +285,7 @@
       <DependentUpon>PlayerHudRuntime.cs</DependentUpon>
     </Compile>
     <Compile Include="GumRuntimes\RectangleRuntime.Generated.cs" />
+    <Compile Include="GumRuntimes\ResourceDisplayRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\SpriteRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\TestScreenGumRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\StatusBarRuntime.cs" />
