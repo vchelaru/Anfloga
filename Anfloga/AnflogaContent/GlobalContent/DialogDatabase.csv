@@ -1,13 +1,15 @@
 "ID (string, required)",English (string)
 T_RedFish1,Hey I'm a red fish!
 T_RedFish2,I'm also a red fish.
-T_Intro1,Please take a moment to familiarize yourself with the Unwearnum class Deep Water Exploration Vessel.
+T_Intro1,Please take a moment to familiarize yourself with the Unwearnum class Deep Water Exploration Vessel. [Move: WASD]
 T_Intro2,You may initially find the quarters confined.
 T_Intro3,We assure you they meet human habitat standards as defined in Senate Statute 731.
 T_Mission1,Recall the primary mission directive:
 T_Mission2,"Chart unexplored quadrant A2 of Anfloga, and recover any minerals you may discover."
-T_Minerals1,Long range scans have indicated mineral richness in this quadrant.
+T_Minerals1,Long range scans have indicated mineral richness in this quadrant. [Mine: Press Spacebar near a crystal]
 T_Energy1,The Unwearnum class vessel expends battery power to maintain human life support functions.
 T_Energy2,Remaining near the surface allows battery recharge via solar energy.
-T_Light1,Authorization granted to enable high-output torch.
+T_Light1,Authorization granted to enable high-output torch. [Torch: Right Click]
 T_Light2,Be aware that torch use requires additional battery drain.
+T_Bubbles1,These bubbles indicate the presence of a possible power source--please investigate.
+T_PurchaseBase1,Use 5 minerals to create a permanent power station on this geothermal vent. [Build Powerstation: Spacebar]
