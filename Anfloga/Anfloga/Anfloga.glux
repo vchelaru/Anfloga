@@ -1127,7 +1127,7 @@
           </Properties>
           <Name>ExplorationConsumptionRate</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">1</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">0.5</DefaultValue>
         </CustomVariable>
         <CustomVariable>
           <Properties>
@@ -1149,7 +1149,7 @@
           </Properties>
           <Name>AdditionalLightConsumption</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">1</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">0.5</DefaultValue>
         </CustomVariable>
       </CustomVariables>
       <ImplementsIVisible>true</ImplementsIVisible>
@@ -1193,7 +1193,17 @@
           <CustomProperty>
             <Type>float</Type>
             <Member>Height</Member>
-            <ValueAsFloat>12</ValueAsFloat>
+            <ValueAsFloat>7</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Y</Member>
+            <ValueAsFloat>-2</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>bool</Type>
+            <Member>Visible</Member>
+            <ValueAsBool>false</ValueAsBool>
           </CustomProperty>
           <SourceType>FlatRedBallType</SourceType>
           <SourceClassType>AxisAlignedRectangle</SourceClassType>
