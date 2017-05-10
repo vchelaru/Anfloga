@@ -543,7 +543,7 @@
           </Properties>
           <Name>BubbleLifeTime</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">3</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">6</DefaultValue>
         </CustomVariable>
         <CustomVariable>
           <Properties>
@@ -554,7 +554,7 @@
           </Properties>
           <Name>BubbleInitialVelocity</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">10</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">50</DefaultValue>
         </CustomVariable>
         <CustomVariable>
           <Properties>
@@ -576,7 +576,7 @@
           </Properties>
           <Name>BubbleAccelleration</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">8</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">-5</DefaultValue>
         </CustomVariable>
         <CustomVariable>
           <Properties>

@@ -136,6 +136,7 @@ namespace Anfloga.Entities
                     case BubbleEmitterType.Geyser:
                         newBubble.X += positionOffset;
                         newBubble.YVelocity = BubbleInitialVelocity;
+                        newBubble.Acceleration.Y = BubbleAccelleration;
                         break;
                     case BubbleEmitterType.Sub:
                         newBubble.Y += positionOffset;
