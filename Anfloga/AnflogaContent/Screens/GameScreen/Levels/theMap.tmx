@@ -500,11 +500,4 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Temp / Testing" visible="0">
-  <object id="90" gid="6657" x="6480" y="1408" width="16" height="16">
-   <properties>
-    <property name="EntityToCreate" value="Player"/>
-   </properties>
-  </object>
- </objectgroup>
 </map>
