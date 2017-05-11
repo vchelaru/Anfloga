@@ -9,10 +9,10 @@
     <Frame>
       <TextureName>../../Screens/GameScreen/Levels/anflogaSprites.png</TextureName>
       <FrameLength>0.1</FrameLength>
-      <LeftCoordinate>18</LeftCoordinate>
-      <RightCoordinate>30</RightCoordinate>
-      <TopCoordinate>819</TopCoordinate>
-      <BottomCoordinate>827</BottomCoordinate>
+      <LeftCoordinate>145</LeftCoordinate>
+      <RightCoordinate>176</RightCoordinate>
+      <TopCoordinate>716</TopCoordinate>
+      <BottomCoordinate>720</BottomCoordinate>
     </Frame>
   </AnimationChain>
   <AnimationChain>
@@ -21,10 +21,10 @@
     <Frame>
       <TextureName>../../Screens/GameScreen/Levels/anflogaSprites.png</TextureName>
       <FrameLength>0.1</FrameLength>
-      <LeftCoordinate>36</LeftCoordinate>
-      <RightCoordinate>45</RightCoordinate>
-      <TopCoordinate>822</TopCoordinate>
-      <BottomCoordinate>826</BottomCoordinate>
+      <LeftCoordinate>176</LeftCoordinate>
+      <RightCoordinate>208</RightCoordinate>
+      <TopCoordinate>781</TopCoordinate>
+      <BottomCoordinate>816</BottomCoordinate>
     </Frame>
   </AnimationChain>
 </AnimationChainArraySave>

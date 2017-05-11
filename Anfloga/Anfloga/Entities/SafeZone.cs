@@ -96,6 +96,8 @@ namespace Anfloga.Entities
 
             SpriteInstance.CurrentChainName = "Geyser";
 
+            AdjustSpriteRelativePosition(polygon);
+
             tilePolygonReference = Collision.Polygons.FirstOrDefault();
 
             Collision.RemoveFromManagers();
@@ -105,6 +107,7 @@ namespace Anfloga.Entities
             Circle circle = new Circle();
 
             circle.AttachTo(this, false);
+            AdjustCircleRelativePosition(circle, polygon);
             Collision.Circles.Add(circle);
 
             Collision.AddToManagers();
@@ -128,6 +131,33 @@ namespace Anfloga.Entities
             }
         }
 
+        private void AdjustCircleRelativePosition(Circle circle, Polygon polygon)
+        {
+            if (polygon != null)
+            {
+                //Another magic number. The 3rd point in the polygon list is the bottom of the collision object.
+                circle.RelativeY = (float)polygon.Points[3].Y;                
+            }
+        }
+
+        private void AdjustSpriteRelativePosition(Polygon polygon)
+        {
+            if (polygon != null)
+            {
+                //Another magic number. The 3rd point in the polygon list is the bottom of the collision object.
+                SpriteInstance.RelativeY = (float)polygon.Points[3].Y; 
+            }
+        }
+
+        private void AdjustSpriteRelativePosition(Polygon polygon, float yOffset)
+        {
+            if (polygon != null)
+            {
+                AdjustSpriteRelativePosition(polygon);
+                SpriteInstance.RelativeY += yOffset;
+            }
+        }
+
         private void PerformActivation()
         {
             //Vic - the other place I had a question on.
@@ -139,6 +169,8 @@ namespace Anfloga.Entities
             Collision.AddToManagers();
 
             SpriteInstance.CurrentChainName = "Battery";
+
+            AdjustSpriteRelativePosition(tilePolygonReference, SpriteInstance.Height/2);
 
             //Activation animation?
             bubbleEmitter.Destroy();

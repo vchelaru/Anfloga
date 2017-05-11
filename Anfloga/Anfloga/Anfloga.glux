@@ -1509,7 +1509,7 @@
           </Properties>
           <Name>GeyserCollisionRadius</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">8</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">16</DefaultValue>
           <CreatesEvent>true</CreatesEvent>
         </CustomVariable>
         <CustomVariable>
