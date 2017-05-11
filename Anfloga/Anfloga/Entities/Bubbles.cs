@@ -9,6 +9,7 @@ using FlatRedBall.Graphics.Animation;
 using FlatRedBall.Graphics.Particle;
 using FlatRedBall.Math.Geometry;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework;
 
 namespace Anfloga.Entities
 {
@@ -45,6 +46,9 @@ namespace Anfloga.Entities
         private Texture2D textureForBubbles;
         private AnimationChainList animations;
 
+        public Vector3 ThrustVector;
+        public float SpawnOffset;
+
         private bool isEmitting
         {
             get
@@ -73,6 +77,8 @@ namespace Anfloga.Entities
             currentScreen = FlatRedBall.Screens.ScreenManager.CurrentScreen;
 
             CurrentBubbleEmitterType = BubbleEmitterType.Geyser;
+
+            SpawnOffset = 0f;
 
             textureForBubbles = (Texture2D)GetFile("anflogaSprites");
             animations = (AnimationChainList)GetFile("AnimationChainListFile");
@@ -125,9 +131,10 @@ namespace Anfloga.Entities
             //Set the position to the parent, and the z so it draws behind the parent.
             if (Parent != null)
             {
-                float positionOffset = FlatRedBallServices.Random.Between(-PositionOffset, PositionOffset);
-                newBubble.Position = Parent.Position;
-                newBubble.Z--;
+                float positionOffset = FlatRedBallServices.Random.Between(-RandomSpawnOffset, RandomSpawnOffset);
+                newBubble.Position = this.Position; 
+                newBubble.Z = 1; //While a magic number, 1 is above the water but below the terrain. So we don't have to do collision checks at this moment.
+
 
                 // Set the positional offsets
                 // and velocity based on the type 
@@ -136,20 +143,25 @@ namespace Anfloga.Entities
                     case BubbleEmitterType.Geyser:
                         newBubble.X += positionOffset;
                         newBubble.YVelocity = BubbleInitialVelocity;
-                        newBubble.Acceleration.Y = BubbleAccelleration;
+                        newBubble.YAcceleration = BubbleAccelleration;
                         break;
                     case BubbleEmitterType.Sub:
-                        newBubble.Y += positionOffset;
-                        newBubble.Velocity = Parent.Velocity;
-                        newBubble.Velocity.Normalize();
-                        newBubble.Velocity *= -BubbleInitialVelocity;
+                        ThrustVector.Normalize();
+                        newBubble.X += positionOffset * ThrustVector.Y;
+                        newBubble.Y += positionOffset * -ThrustVector.X;
+                        newBubble.YAcceleration = BubbleAccelleration;
+
+                        newBubble.Velocity = ThrustVector * -BubbleInitialVelocity;
                         break;
                 }
 
                 
             }
+            float lifeTimeOffset = FlatRedBallServices.Random.Between(-RandomLifeTimeOffset, RandomLifeTimeOffset);
 
-            bubbles.Add(new Tuple<Sprite, double>(newBubble, timeSinceLastSpawn));
+            //Adjusting the timeSinceLastSpawn will increase/decrease the lifetime of the bubble.
+            //We do this so each spawn has a slightly different life time
+            bubbles.Add(new Tuple<Sprite, double>(newBubble, timeSinceLastSpawn + RandomLifeTimeOffset));
         }
         private string GetBubbleAnimationChain()
         {
@@ -163,7 +175,6 @@ namespace Anfloga.Entities
             SpriteManager.RemoveAllParticleSprites();
 
             bubbles.Clear();
-
 		}
 
         private static void CustomLoadStaticContent(string contentManagerName)

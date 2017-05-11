@@ -90,6 +90,9 @@ namespace Anfloga.Entities
             //The second when the safe zone has been purchased. It will use the tiled polygon.
             //I'm able to remove them from managers, but I don't like havinng to call remove from managers
             //on collision. 
+            var polygon = Collision.Polygons.FirstOrDefault();
+
+            AdjustEmitterRelativePosition(polygon);
 
             SpriteInstance.CurrentChainName = "Geyser";
 
@@ -115,6 +118,16 @@ namespace Anfloga.Entities
 
             circle.Radius = this.GeyserCollisionRadius;
         }
+
+        private void AdjustEmitterRelativePosition(Polygon polygon)
+        {
+            if(polygon != null)
+            {
+                //Another magic number. The 3rd point in the polygon list is the bottom of the collision object.
+                bubbleEmitter.RelativeY = (float)polygon.Points[3].Y;
+            }
+        }
+
         private void PerformActivation()
         {
             //Vic - the other place I had a question on.

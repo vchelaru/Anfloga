@@ -287,6 +287,11 @@
             <ValueAsFloat>400</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
+            <Type>bool</Type>
+            <Member>Visible</Member>
+            <ValueAsBool>false</ValueAsBool>
+          </CustomProperty>
+          <CustomProperty>
             <Type>ColorOperation</Type>
             <Member>ColorOperation</Member>
             <ValueAsInt>6</ValueAsInt>
@@ -305,11 +310,6 @@
             <Type>BlendOperation</Type>
             <Member>BlendOperation</Member>
             <ValueAsInt>0</ValueAsInt>
-          </CustomProperty>
-          <CustomProperty>
-            <Type>bool</Type>
-            <Member>Visible</Member>
-            <ValueAsBool>false</ValueAsBool>
           </CustomProperty>
           <SourceType>FlatRedBallType</SourceType>
           <SourceFile />
@@ -337,6 +337,11 @@
             <ValueAsFloat>2</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
+            <Type>bool</Type>
+            <Member>Visible</Member>
+            <ValueAsBool>false</ValueAsBool>
+          </CustomProperty>
+          <CustomProperty>
             <Type>BlendOperation</Type>
             <Member>BlendOperation</Member>
             <ValueAsInt>2</ValueAsInt>
@@ -345,11 +350,6 @@
             <Type>float</Type>
             <Member>Alpha</Member>
             <ValueAsFloat>0.2</ValueAsFloat>
-          </CustomProperty>
-          <CustomProperty>
-            <Type>bool</Type>
-            <Member>Visible</Member>
-            <ValueAsBool>false</ValueAsBool>
           </CustomProperty>
           <SourceType>FlatRedBallType</SourceType>
           <SourceFile />
@@ -377,6 +377,11 @@
             <ValueAsFloat>2</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
+            <Type>bool</Type>
+            <Member>Visible</Member>
+            <ValueAsBool>false</ValueAsBool>
+          </CustomProperty>
+          <CustomProperty>
             <Type>BlendOperation</Type>
             <Member>BlendOperation</Member>
             <ValueAsInt>2</ValueAsInt>
@@ -385,11 +390,6 @@
             <Type>float</Type>
             <Member>Alpha</Member>
             <ValueAsFloat>0.2</ValueAsFloat>
-          </CustomProperty>
-          <CustomProperty>
-            <Type>bool</Type>
-            <Member>Visible</Member>
-            <ValueAsBool>false</ValueAsBool>
           </CustomProperty>
           <SourceType>FlatRedBallType</SourceType>
           <SourceFile />
@@ -417,6 +417,11 @@
             <ValueAsFloat>2</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
+            <Type>bool</Type>
+            <Member>Visible</Member>
+            <ValueAsBool>false</ValueAsBool>
+          </CustomProperty>
+          <CustomProperty>
             <Type>BlendOperation</Type>
             <Member>BlendOperation</Member>
             <ValueAsInt>2</ValueAsInt>
@@ -425,11 +430,6 @@
             <Type>float</Type>
             <Member>Alpha</Member>
             <ValueAsFloat>0.5</ValueAsFloat>
-          </CustomProperty>
-          <CustomProperty>
-            <Type>bool</Type>
-            <Member>Visible</Member>
-            <ValueAsBool>false</ValueAsBool>
           </CustomProperty>
           <SourceType>FlatRedBallType</SourceType>
           <SourceFile />
@@ -457,14 +457,14 @@
             <ValueAsFloat>2</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
-            <Type>BlendOperation</Type>
-            <Member>BlendOperation</Member>
-            <ValueAsInt>2</ValueAsInt>
-          </CustomProperty>
-          <CustomProperty>
             <Type>bool</Type>
             <Member>Visible</Member>
             <ValueAsBool>false</ValueAsBool>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>BlendOperation</Type>
+            <Member>BlendOperation</Member>
+            <ValueAsInt>2</ValueAsInt>
           </CustomProperty>
           <SourceType>FlatRedBallType</SourceType>
           <SourceFile />
@@ -563,9 +563,9 @@
               <ValueAsString>float</ValueAsString>
             </PropertySave>
           </Properties>
-          <Name>BubbleBouyantVelocity</Name>
+          <Name>RandomSpawnOffset</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">1</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">5</DefaultValue>
         </CustomVariable>
         <CustomVariable>
           <Properties>
@@ -585,11 +585,12 @@
               <ValueAsString>float</ValueAsString>
             </PropertySave>
           </Properties>
-          <Name>PositionOffset</Name>
+          <Name>RandomLifeTimeOffset</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">5</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">1</DefaultValue>
         </CustomVariable>
       </CustomVariables>
+      <ImplementsIVisible>true</ImplementsIVisible>
       <ImplementsIDrawableBatch>false</ImplementsIDrawableBatch>
       <Name>Entities\Bubbles</Name>
       <ReferencedFiles>
@@ -1351,6 +1352,11 @@
         <NamedObjectSave>
           <CustomProperty>
             <Type>float</Type>
+            <Member>Y</Member>
+            <ValueAsFloat>-2</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
             <Member>Width</Member>
             <ValueAsFloat>15</ValueAsFloat>
           </CustomProperty>
@@ -1358,11 +1364,6 @@
             <Type>float</Type>
             <Member>Height</Member>
             <ValueAsFloat>7</ValueAsFloat>
-          </CustomProperty>
-          <CustomProperty>
-            <Type>float</Type>
-            <Member>Y</Member>
-            <ValueAsFloat>-2</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
             <Type>bool</Type>
@@ -1386,6 +1387,44 @@
           <SourceType>Entity</SourceType>
           <SourceClassType>Entities\LightBeam</SourceClassType>
           <InstanceName>LightBeamInstance</InstanceName>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
+        <NamedObjectSave>
+          <CustomProperty>
+            <Type>double</Type>
+            <Member>BubbleSpawnFrequency</Member>
+            <ValueAsDouble>0.05</ValueAsDouble>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>BubbleLifeTime</Member>
+            <ValueAsFloat>0.5</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>BubbleInitialVelocity</Member>
+            <ValueAsFloat>50</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>RandomSpawnOffset</Member>
+            <ValueAsFloat>5</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>BubbleAccelleration</Member>
+            <ValueAsFloat>10</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>RandomLifeTimeOffset</Member>
+            <ValueAsFloat>0.25</ValueAsFloat>
+          </CustomProperty>
+          <SourceType>Entity</SourceType>
+          <SourceClassType>Entities\Bubbles</SourceClassType>
+          <InstanceName>BubblesInstance</InstanceName>
           <AttachToContainer>true</AttachToContainer>
           <GenerateTimedEmit>true</GenerateTimedEmit>
           <IndependentOfCamera>true</IndependentOfCamera>
@@ -1485,6 +1524,16 @@
           <DefaultValue xsi:type="xsd:boolean">true</DefaultValue>
           <SourceObject>SpriteInstance</SourceObject>
           <SourceObjectProperty>Visible</SourceObjectProperty>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>EmitterYOffset</Name>
+          <Type>float</Type>
         </CustomVariable>
       </CustomVariables>
       <ImplementsIDrawableBatch>false</ImplementsIDrawableBatch>

@@ -43,8 +43,6 @@ namespace Anfloga.Entities
 
         private ExplorationState currentExplorationState;
 
-        private Bubbles bubbleEmmitter;
-
         #endregion
 
         #region Initialize
@@ -70,9 +68,8 @@ namespace Anfloga.Entities
 
         private void InitializeEmitter()
         {
-            bubbleEmmitter = Factories.BubblesFactory.CreateNew();
-            bubbleEmmitter.AttachTo(this, false);
-            bubbleEmmitter.CurrentBubbleEmitterType = BubbleEmitterType.Sub;
+
+            BubblesInstance.CurrentBubbleEmitterType = BubbleEmitterType.Sub;
         }
 
         private void InitializeCollidingObjectList()
@@ -255,12 +252,15 @@ namespace Anfloga.Entities
             {
                 YVelocity = desiredYVelocity;
             }
+
+            if (desiredYVelocity != 0 || desiredXVelocity != 0)
+            {
+                BubblesInstance.ThrustVector = new Microsoft.Xna.Framework.Vector3(desiredXVelocity, desiredYVelocity, 0);
+            }
         }
 
         private void CustomDestroy()
 		{
-            bubbleEmmitter.Destroy();
-            bubbleEmmitter = null;
 
 		}
 
