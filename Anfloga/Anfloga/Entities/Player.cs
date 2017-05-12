@@ -11,6 +11,7 @@ using FlatRedBall.Math.Geometry;
 using Anfloga.GumRuntimes;
 using FlatRedBall.Graphics;
 using Anfloga.Interfaces;
+using Microsoft.Xna.Framework;
 
 namespace Anfloga.Entities
 {
@@ -42,6 +43,8 @@ namespace Anfloga.Entities
         private float explorationDurationLeft;
 
         private ExplorationState currentExplorationState;
+
+        private Vector2 lastCheckpointPosition;
 
         #endregion
 
@@ -192,6 +195,20 @@ namespace Anfloga.Entities
             }
         }
 
+        public void UpdateLastCheckpointPosition(float x, float y)
+        {
+            lastCheckpointPosition.X = x;
+            lastCheckpointPosition.Y = y;
+        }
+
+        private void RespawnFromLastCheckpointPosition()
+        {
+            this.X = lastCheckpointPosition.X;
+            this.Y = lastCheckpointPosition.Y;
+            InitializeExplorationVariables();
+            this.LightBeamInstance.Visible = false;
+        }
+
         private void UpdateExplorationDurtionActivity()
         {
 #if DEBUG
@@ -213,6 +230,7 @@ namespace Anfloga.Entities
                 if(explorationDurationLeft < 0)
                 {
                     explorationDurationLeft = 0;
+                    RespawnFromLastCheckpointPosition();
                 }
             }
             else if (currentExplorationState == ExplorationState.Replenish)

@@ -55,6 +55,8 @@ namespace Anfloga.Screens
 
             InitializeCamera();
 
+            InitializeLastCheckpoint();
+
             InitializeCollision();
 
             InitializeDialogBoxLogic();
@@ -230,6 +232,16 @@ namespace Anfloga.Screens
             }
 
             CameraControllerInstance.SetCameraBoundsFromTiledMap(currentLevel);
+        }
+
+        private void InitializeLastCheckpoint()
+        {
+            // This is the only spot I could find that was "late" enough to initialize this info.
+            // Feel free to do it somewhere better if there is one.
+            if (PlayerList.Count > 0)
+            {
+               PlayerList[0].UpdateLastCheckpointPosition(PlayerList[0].X, PlayerList[0].Y);
+            }
         }
 
         private void LoadLevel(string levelNameToLoad)

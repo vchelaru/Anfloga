@@ -191,6 +191,11 @@
         <NamedObjectSave>
           <CustomProperty>
             <Type>float</Type>
+            <Member>Z</Member>
+            <ValueAsFloat>-40</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
             <Member>TextureScale</Member>
             <ValueAsFloat>0</ValueAsFloat>
           </CustomProperty>
@@ -213,11 +218,6 @@
             <Type>float</Type>
             <Member>Alpha</Member>
             <ValueAsFloat>1</ValueAsFloat>
-          </CustomProperty>
-          <CustomProperty>
-            <Type>float</Type>
-            <Member>Z</Member>
-            <ValueAsFloat>-40</ValueAsFloat>
           </CustomProperty>
           <SourceType>FlatRedBallType</SourceType>
           <SourceFile />
@@ -1403,7 +1403,7 @@
           </Properties>
           <Name>ExplorationConsumptionRate</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">0.5</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">0.4</DefaultValue>
         </CustomVariable>
         <CustomVariable>
           <Properties>
@@ -1425,7 +1425,7 @@
           </Properties>
           <Name>AdditionalLightConsumption</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">0.5</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">0.3</DefaultValue>
         </CustomVariable>
       </CustomVariables>
       <ImplementsIVisible>true</ImplementsIVisible>

@@ -10,6 +10,7 @@ using FlatRedBall.Graphics.Particle;
 using FlatRedBall.Math.Geometry;
 using Anfloga.Interfaces;
 using System.Linq;
+using Microsoft.Xna.Framework;
 
 namespace Anfloga.Entities
 {
@@ -69,6 +70,8 @@ namespace Anfloga.Entities
                 toReturn = true;
                 PerformActivation();
                 player.SpendCurrency(ActivationCost);
+                var thePlayer = player as Player;
+                thePlayer.UpdateLastCheckpointPosition(this.X, this.Y); 
             }
 
             return toReturn;
