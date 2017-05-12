@@ -100,12 +100,27 @@ namespace Anfloga.Entities
             for(int i = bubbles.Count -1; i > -1; i--)
             {
                 var bubbleTuple = bubbles[i];
-                if(currentScreen.PauseAdjustedSecondsSince(bubbleTuple.Item2) >= BubbleLifeTime)
+                if (currentScreen.PauseAdjustedSecondsSince(bubbleTuple.Item2) >= BubbleLifeTime)
                 {
                     SpriteManager.RemoveSprite(bubbleTuple.Item1);
                     bubbles.Remove(bubbleTuple);
                 }
+                else
+                {
+                    ApplyVelocityAdjustments(bubbleTuple.Item1);
+                }
             }
+        }
+
+        private void ApplyVelocityAdjustments(Sprite bubble)
+        {
+            //Drag calculations
+            var calculatedCoefficient = bubble.Width * DragCoefficient;
+            bubble.Velocity -= bubble.Velocity * calculatedCoefficient * TimeManager.SecondDifference;
+
+            //Random X calculations
+            bubble.XVelocity += FlatRedBallServices.Random.Between(-RandomXVelocityAdjustments, RandomXVelocityAdjustments);
+
         }
 
         private void SpawnNewBubbleActivity()
@@ -128,6 +143,8 @@ namespace Anfloga.Entities
             newBubble.CurrentChainName = CurrentBubbleEmitterType.ToFiendlyName() + bubbleIndex;
             newBubble.TextureScale = 1;
 
+            var bubbleArea = newBubble.Width * newBubble.Height;
+
             //Set the position to the parent, and the z so it draws behind the parent.
             if (Parent != null)
             {
@@ -143,13 +160,13 @@ namespace Anfloga.Entities
                     case BubbleEmitterType.Geyser:
                         newBubble.X += positionOffset;
                         newBubble.YVelocity = BubbleInitialVelocity;
-                        newBubble.YAcceleration = BubbleAccelleration;
+                        newBubble.YAcceleration = bubbleArea * AccellerationCoefficient;
                         break;
                     case BubbleEmitterType.Sub:
                         ThrustVector.Normalize();
                         newBubble.X += positionOffset * ThrustVector.Y;
                         newBubble.Y += positionOffset * -ThrustVector.X;
-                        newBubble.YAcceleration = BubbleAccelleration;
+                        newBubble.YAcceleration = bubbleArea *AccellerationCoefficient;
 
                         newBubble.Velocity = ThrustVector * -BubbleInitialVelocity;
                         break;
