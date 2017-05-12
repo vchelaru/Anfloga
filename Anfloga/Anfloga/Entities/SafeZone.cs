@@ -117,10 +117,11 @@ namespace Anfloga.Entities
 
             Collision.AddToManagers();
 
+            Collision.Visible = false;
 #if DEBUG
-            if(DebuggingVariables.ShowReplenishZoneCollision)
+            if (DebuggingVariables.ShowReplenishZoneCollision)
             {
-                circle.Visible = true;
+                Collision.Visible = true;
             }
 #endif
 
@@ -161,6 +162,14 @@ namespace Anfloga.Entities
             //Activation animation?
             bubbleEmitter.Destroy();
             bubbleEmitter = null;
+
+            Collision.Visible = false;
+#if DEBUG
+            if (DebuggingVariables.ShowReplenishZoneCollision)
+            {
+                Collision.Visible = true;
+            }
+#endif
         }
 
         private void SetupFreeSafeZone()
