@@ -47,7 +47,7 @@ namespace Anfloga.Entities
 
         private void InterpolateOffsetsActivity()
         {
-            if(ObjectFollowing?.XVelocity != 0)
+            if(ObjectFollowing != null && ObjectFollowing.XVelocity != 0)
             {
                 currentXOffset += ObjectFollowing.XVelocity * TimeManager.SecondDifference;
                 if(currentXOffset > MinMaxXOffset)
@@ -60,7 +60,7 @@ namespace Anfloga.Entities
                 }
             }
 
-            if(ObjectFollowing?.YVelocity != 0)
+            if(ObjectFollowing != null && ObjectFollowing.YVelocity != 0)
             {
                 currentYOffest += ObjectFollowing.YVelocity * TimeManager.SecondDifference;
                 if(currentYOffest > MinMaxYOffset)

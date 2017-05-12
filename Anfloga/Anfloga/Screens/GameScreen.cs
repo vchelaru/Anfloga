@@ -37,6 +37,7 @@ namespace Anfloga.Screens
 
         WorldObjectEntity objectCollidingWith;
 
+        RenderTarget2D worldRenderTarget;
         RenderTarget2D darknessRenderTarget;
 
         DarknessTrigger lastDarknessTriggerCollidedAgainst;
@@ -164,6 +165,21 @@ namespace Anfloga.Screens
                 this.DarknessSprite.Visible = false;
             }
 #endif
+
+            worldRenderTarget = new RenderTarget2D(FlatRedBallServices.GraphicsDevice,
+                (int)FlatRedBallServices.GraphicsOptions.ResolutionWidth, (int)FlatRedBallServices.GraphicsOptions.ResolutionHeight);
+            this.WorldLayer.RenderTarget = worldRenderTarget;
+
+            this.WorldSprite.Texture = worldRenderTarget;
+            this.WorldSprite.TextureScale = -1;
+            this.WorldSprite.Y = -.2f;
+            this.WorldSprite.Y = .2f;
+            //this.WorldSprite.ColorOperation = FlatRedBall.Graphics.ColorOperation.Color;
+            this.WorldSprite.Blue = 1;
+
+            this.WorldSprite.Width = Camera.Main.OrthogonalWidth;
+            this.WorldSprite.Height = Camera.Main.OrthogonalHeight;
+
         }
 
         private void InitializeHud()
@@ -285,6 +301,15 @@ namespace Anfloga.Screens
             }
 
             ReloadScreenActivity();
+
+            if(InputManager.Keyboard.KeyPushed(Microsoft.Xna.Framework.Input.Keys.Space))
+            {
+                using (var stream = System.IO.File.OpenWrite("test.png"))
+                {
+                    worldRenderTarget.SaveAsPng(stream, worldRenderTarget.Width, worldRenderTarget.Height);
+                }
+
+            }
 		}
 
         private void ReloadScreenActivity()
@@ -386,7 +411,8 @@ namespace Anfloga.Screens
 		{
             solidCollision.RemoveFromManagers();
 
-            darknessRenderTarget?.Dispose();
+            darknessRenderTarget.Dispose();
+            worldRenderTarget.Dispose();
 		}
 
         #endregion

@@ -136,7 +136,10 @@ namespace Anfloga.Entities
         private void SpawnBubble()
         {
             var newBubble = SpriteManager.AddParticleSprite(textureForBubbles);
-            SpriteManager.AddToLayer(newBubble, this.LayerProvidedByContainer);
+            if(LayerProvidedByContainer != null)
+            {
+                SpriteManager.AddToLayer(newBubble, this.LayerProvidedByContainer);
+            }
             newBubble.AnimationChains = animations;
 
             //Set Random bubble chain.
