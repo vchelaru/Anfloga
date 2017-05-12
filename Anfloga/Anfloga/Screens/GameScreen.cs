@@ -48,6 +48,8 @@ namespace Anfloga.Screens
 
         void CustomInitialize()
 		{
+            InitializeFactoryEvents();
+
             LoadLevel(LevelNameToLoad);
 
             InitializeCamera();
@@ -64,6 +66,61 @@ namespace Anfloga.Screens
 
             InitializeRestartVariables();
 		}
+
+        private void InitializeFactoryEvents()
+        {
+            PlayerList.CollectionChanged += (sender, args) =>
+            {
+                if (args.Action == System.Collections.Specialized.NotifyCollectionChangedAction.Add)
+                {
+                    foreach (Player p in args.NewItems) p.MoveToLayer(WorldLayer);
+                }
+            };
+
+            WorldObjectEntityList.CollectionChanged += (sender, args) =>
+            {
+                if (args.Action == System.Collections.Specialized.NotifyCollectionChangedAction.Add)
+                {
+                    foreach (WorldObjectEntity e in args.NewItems) e.MoveToLayer(WorldLayer);
+                }
+            };
+
+
+            SafeZoneList.CollectionChanged += (sender, args) =>
+            {
+                if (args.Action == System.Collections.Specialized.NotifyCollectionChangedAction.Add)
+                {
+                    foreach (SafeZone s in args.NewItems) s.MoveToLayer(WorldLayer);
+                }
+            };
+
+            MineralDepositList.CollectionChanged += (sender, args) =>
+            {
+                if (args.Action == System.Collections.Specialized.NotifyCollectionChangedAction.Add)
+                {
+                    foreach (MineralDeposit m in args.NewItems) m.MoveToLayer(WorldLayer);
+                }
+            };
+
+            BubblesList.CollectionChanged += (sender, args) =>
+            {
+                if (args.Action == System.Collections.Specialized.NotifyCollectionChangedAction.Add)
+                {
+                    foreach (Bubbles b in args.NewItems) b.MoveToLayer(WorldLayer);
+                }
+            };
+
+
+            DarknessTriggerList.CollectionChanged += (sender, args) =>
+            {
+                if (args.Action == System.Collections.Specialized.NotifyCollectionChangedAction.Add)
+                {
+                    foreach (DarknessTrigger d in args.NewItems) d.MoveToLayer(WorldLayer);
+                }
+            };
+
+
+        }
 
         private void InitializeRestartVariables()
         {
@@ -165,7 +222,7 @@ namespace Anfloga.Screens
 
             currentLevel = (LayeredTileMap)GetFile(levelNameToLoad);
 
-            currentLevel.AddToManagers();
+            currentLevel.AddToManagers(WorldLayer);
 
             TileEntityInstantiator.CreateEntitiesFrom(currentLevel);
 
