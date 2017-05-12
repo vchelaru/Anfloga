@@ -18,6 +18,8 @@ namespace Anfloga.Entities
         public bool IsActive { get; private set; }
         private Polygon tilePolygonReference;
 
+        private LightEntity lightEntity;
+
         private Bubbles bubbleEmitter;
         /// <summary>
         /// Initialization logic which is execute only one time for this Entity (unless the Entity is pooled).
@@ -29,6 +31,11 @@ namespace Anfloga.Entities
             bubbleEmitter = Factories.BubblesFactory.CreateNew();
             bubbleEmitter.AttachTo(this, false);
             bubbleEmitter.CurrentBubbleEmitterType = BubbleEmitterType.Geyser;
+
+            lightEntity = Factories.LightEntityFactory.CreateNew();
+            lightEntity.AttachTo(this, false);
+            lightEntity.VisualName = "HarvesterLight";
+            lightEntity.Visible = false;
 		}
 
 		private void CustomActivity()
@@ -41,6 +48,9 @@ namespace Anfloga.Entities
 		{
             bubbleEmitter?.Destroy();
             bubbleEmitter = null;
+
+            lightEntity?.Destroy();
+            lightEntity = null;
 		}
 
         
@@ -92,11 +102,7 @@ namespace Anfloga.Entities
             //on collision. 
             var polygon = Collision.Polygons.FirstOrDefault();
 
-            AdjustEmitterRelativePosition(polygon);
-
             SpriteInstance.CurrentChainName = "Geyser";
-
-            AdjustSpriteRelativePosition(polygon);
 
             tilePolygonReference = Collision.Polygons.FirstOrDefault();
 
@@ -107,54 +113,34 @@ namespace Anfloga.Entities
             Circle circle = new Circle();
 
             circle.AttachTo(this, false);
-            AdjustCircleRelativePosition(circle, polygon);
             Collision.Circles.Add(circle);
 
             Collision.AddToManagers();
 
+            Collision.Visible = false;
 #if DEBUG
-            if(DebuggingVariables.ShowReplenishZoneCollision)
+            if (DebuggingVariables.ShowReplenishZoneCollision)
             {
-                circle.Visible = true;
+                Collision.Visible = true;
             }
 #endif
 
             circle.Radius = this.GeyserCollisionRadius;
+
+            AdjustRelativePositionsToPolygonBottom(polygon, circle);
         }
 
-        private void AdjustEmitterRelativePosition(Polygon polygon)
+        private void AdjustRelativePositionsToPolygonBottom(Polygon polygon, Circle circle)
         {
             if(polygon != null)
             {
-                //Another magic number. The 3rd point in the polygon list is the bottom of the collision object.
-                bubbleEmitter.RelativeY = (float)polygon.Points[3].Y;
-            }
-        }
+                //Magic number. The 3rd point in the polygon list is the bottom of the collision object.
+                var polygonBottom = (float)polygon.Points[3].Y;
 
-        private void AdjustCircleRelativePosition(Circle circle, Polygon polygon)
-        {
-            if (polygon != null)
-            {
-                //Another magic number. The 3rd point in the polygon list is the bottom of the collision object.
-                circle.RelativeY = (float)polygon.Points[3].Y;                
-            }
-        }
-
-        private void AdjustSpriteRelativePosition(Polygon polygon)
-        {
-            if (polygon != null)
-            {
-                //Another magic number. The 3rd point in the polygon list is the bottom of the collision object.
-                SpriteInstance.RelativeY = (float)polygon.Points[3].Y; 
-            }
-        }
-
-        private void AdjustSpriteRelativePosition(Polygon polygon, float yOffset)
-        {
-            if (polygon != null)
-            {
-                AdjustSpriteRelativePosition(polygon);
-                SpriteInstance.RelativeY += yOffset;
+                bubbleEmitter.RelativeY = polygonBottom;
+                SpriteInstance.RelativeY = polygonBottom;
+                circle.RelativeY = polygonBottom;
+                lightEntity.RelativeY = polygonBottom + (lightEntity.SpriteHeight / 2);
             }
         }
 
@@ -169,12 +155,21 @@ namespace Anfloga.Entities
             Collision.AddToManagers();
 
             SpriteInstance.CurrentChainName = "Battery";
+            SpriteInstance.RelativeY = (float)tilePolygonReference.Points[3].Y + (SpriteInstance.Height / 2);
 
-            AdjustSpriteRelativePosition(tilePolygonReference, SpriteInstance.Height/2);
+            lightEntity.Visible = true;
 
             //Activation animation?
             bubbleEmitter.Destroy();
             bubbleEmitter = null;
+
+            Collision.Visible = false;
+#if DEBUG
+            if (DebuggingVariables.ShowReplenishZoneCollision)
+            {
+                Collision.Visible = true;
+            }
+#endif
         }
 
         private void SetupFreeSafeZone()
