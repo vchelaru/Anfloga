@@ -56,9 +56,9 @@ namespace Anfloga.Entities
                 //We are emitting it the emitter is a geyser or the parent's velocity is not 0.
                 bool toReturn = CurrentBubbleEmitterType == BubbleEmitterType.Geyser;
 
-                if(toReturn == false && Parent != null)
+                if(toReturn == false)
                 {
-                    toReturn = Parent.Velocity.Length() != 0;
+                    toReturn = ThrustVector.Length() != 0;
                 }
 
                 return toReturn;

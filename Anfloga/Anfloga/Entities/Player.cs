@@ -257,6 +257,10 @@ namespace Anfloga.Entities
             {
                 BubblesInstance.ThrustVector = new Microsoft.Xna.Framework.Vector3(desiredXVelocity, desiredYVelocity, 0);
             }
+            else if (BubblesInstance.ThrustVector.Length() != 0)
+            {
+                BubblesInstance.ThrustVector = Microsoft.Xna.Framework.Vector3.Zero;
+            }
         }
 
         private void CustomDestroy()
