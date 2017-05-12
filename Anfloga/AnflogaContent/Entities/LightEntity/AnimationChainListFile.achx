@@ -15,4 +15,16 @@
       <BottomCoordinate>1110</BottomCoordinate>
     </Frame>
   </AnimationChain>
+  <AnimationChain>
+    <Name>HarvesterLight</Name>
+    <ColorKey>0</ColorKey>
+    <Frame>
+      <TextureName>..\..\screens\gamescreen\levels\anflogasprites.png</TextureName>
+      <FrameLength>0.1</FrameLength>
+      <LeftCoordinate>17</LeftCoordinate>
+      <RightCoordinate>207</RightCoordinate>
+      <TopCoordinate>1121</TopCoordinate>
+      <BottomCoordinate>1231</BottomCoordinate>
+    </Frame>
+  </AnimationChain>
 </AnimationChainArraySave>
