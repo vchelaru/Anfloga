@@ -555,7 +555,7 @@
           </Properties>
           <Name>BubbleLifeTime</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">6</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">9</DefaultValue>
         </CustomVariable>
         <CustomVariable>
           <Properties>
@@ -566,7 +566,7 @@
           </Properties>
           <Name>BubbleInitialVelocity</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">50</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">100</DefaultValue>
         </CustomVariable>
         <CustomVariable>
           <Properties>
@@ -586,9 +586,9 @@
               <ValueAsString>float</ValueAsString>
             </PropertySave>
           </Properties>
-          <Name>BubbleAccelleration</Name>
+          <Name>AccellerationCoefficient</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">-5</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">5</DefaultValue>
         </CustomVariable>
         <CustomVariable>
           <Properties>
@@ -600,6 +600,28 @@
           <Name>RandomLifeTimeOffset</Name>
           <Type>float</Type>
           <DefaultValue xsi:type="xsd:float">1</DefaultValue>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>DragCoefficient</Name>
+          <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">1</DefaultValue>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>RandomXVelocityAdjustments</Name>
+          <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">2.5</DefaultValue>
         </CustomVariable>
       </CustomVariables>
       <ImplementsIVisible>true</ImplementsIVisible>
@@ -1422,12 +1444,12 @@
           <CustomProperty>
             <Type>float</Type>
             <Member>RandomSpawnOffset</Member>
-            <ValueAsFloat>5</ValueAsFloat>
+            <ValueAsFloat>2.5</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
             <Type>float</Type>
-            <Member>BubbleAccelleration</Member>
-            <ValueAsFloat>10</ValueAsFloat>
+            <Member>AccellerationCoefficient</Member>
+            <ValueAsFloat>5</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
             <Type>float</Type>
