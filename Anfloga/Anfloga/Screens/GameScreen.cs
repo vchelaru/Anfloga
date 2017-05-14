@@ -37,7 +37,6 @@ namespace Anfloga.Screens
 
         WorldObjectEntity objectCollidingWith;
 
-        RenderTarget2D worldRenderTarget;
         RenderTarget2D darknessRenderTarget;
 
         DarknessTrigger lastDarknessTriggerCollidedAgainst;
@@ -168,11 +167,9 @@ namespace Anfloga.Screens
             }
 #endif
 
-            worldRenderTarget = new RenderTarget2D(FlatRedBallServices.GraphicsDevice,
-                (int)FlatRedBallServices.GraphicsOptions.ResolutionWidth, (int)FlatRedBallServices.GraphicsOptions.ResolutionHeight);
-            this.WorldLayer.RenderTarget = worldRenderTarget;
+            this.WorldLayer.RenderTarget = WorldRenderTarget;
 
-            this.WorldSprite.Texture = worldRenderTarget;
+            this.WorldSprite.Texture = WorldRenderTarget;
             this.WorldSprite.TextureScale = -1;
             this.WorldSprite.Y = -.2f;
             this.WorldSprite.Y = .2f;
@@ -318,7 +315,7 @@ namespace Anfloga.Screens
             {
                 using (var stream = System.IO.File.OpenWrite("test.png"))
                 {
-                    worldRenderTarget.SaveAsPng(stream, worldRenderTarget.Width, worldRenderTarget.Height);
+                    //WorldRenderTarget.SaveAsPng(stream, WorldRenderTarget.Width, WorldRenderTarget.Height);
                 }
 
             }
@@ -424,7 +421,6 @@ namespace Anfloga.Screens
             solidCollision.RemoveFromManagers();
 
             darknessRenderTarget.Dispose();
-            worldRenderTarget.Dispose();
 		}
 
         #endregion
