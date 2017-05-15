@@ -39,6 +39,14 @@
       </ReferencedFiles>
       <NamedObjects>
         <NamedObjectSave>
+          <SourceType>Entity</SourceType>
+          <SourceClassType>Entities\ShaderRenderer</SourceClassType>
+          <InstanceName>ShaderRendererInstance</InstanceName>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
+        <NamedObjectSave>
           <CustomProperty>
             <Type>bool</Type>
             <Member>Visible</Member>
@@ -161,6 +169,26 @@
         </NamedObjectSave>
         <NamedObjectSave>
           <CustomProperty>
+            <Type>int</Type>
+            <Member>Width</Member>
+            <ValueAsInt>960</ValueAsInt>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>int</Type>
+            <Member>Height</Member>
+            <ValueAsInt>540</ValueAsInt>
+          </CustomProperty>
+          <SourceType>FlatRedBallType</SourceType>
+          <SourceFile />
+          <SourceName />
+          <SourceClassType>RenderTarget2D</SourceClassType>
+          <InstanceName>DarknessRenderTarget</InstanceName>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
+        <NamedObjectSave>
+          <CustomProperty>
             <Type>float</Type>
             <Member>Z</Member>
             <ValueAsFloat>0</ValueAsFloat>
@@ -207,88 +235,6 @@
           <GenerateTimedEmit>true</GenerateTimedEmit>
           <IndependentOfCamera>true</IndependentOfCamera>
           <Is2D>true</Is2D>
-        </NamedObjectSave>
-        <NamedObjectSave>
-          <CustomProperty>
-            <Type>float</Type>
-            <Member>Z</Member>
-            <ValueAsFloat>-40</ValueAsFloat>
-          </CustomProperty>
-          <CustomProperty>
-            <Type>float</Type>
-            <Member>TextureScale</Member>
-            <ValueAsFloat>0</ValueAsFloat>
-          </CustomProperty>
-          <CustomProperty>
-            <Type>float</Type>
-            <Member>Width</Member>
-            <ValueAsFloat>300</ValueAsFloat>
-          </CustomProperty>
-          <CustomProperty>
-            <Type>float</Type>
-            <Member>Height</Member>
-            <ValueAsFloat>300</ValueAsFloat>
-          </CustomProperty>
-          <CustomProperty>
-            <Type>BlendOperation</Type>
-            <Member>BlendOperation</Member>
-            <ValueAsInt>0</ValueAsInt>
-          </CustomProperty>
-          <CustomProperty>
-            <Type>float</Type>
-            <Member>Alpha</Member>
-            <ValueAsFloat>1</ValueAsFloat>
-          </CustomProperty>
-          <SourceType>FlatRedBallType</SourceType>
-          <SourceFile />
-          <SourceName />
-          <SourceClassType>Sprite</SourceClassType>
-          <InstanceName>WorldSprite</InstanceName>
-          <AttachToContainer>true</AttachToContainer>
-          <GenerateTimedEmit>true</GenerateTimedEmit>
-          <IndependentOfCamera>true</IndependentOfCamera>
-          <LayerOn>WorldAndDarknessLayer</LayerOn>
-        </NamedObjectSave>
-        <NamedObjectSave>
-          <CustomProperty>
-            <Type>float</Type>
-            <Member>Z</Member>
-            <ValueAsFloat>-40</ValueAsFloat>
-          </CustomProperty>
-          <CustomProperty>
-            <Type>float</Type>
-            <Member>TextureScale</Member>
-            <ValueAsFloat>0</ValueAsFloat>
-          </CustomProperty>
-          <CustomProperty>
-            <Type>float</Type>
-            <Member>Width</Member>
-            <ValueAsFloat>300</ValueAsFloat>
-          </CustomProperty>
-          <CustomProperty>
-            <Type>float</Type>
-            <Member>Height</Member>
-            <ValueAsFloat>300</ValueAsFloat>
-          </CustomProperty>
-          <CustomProperty>
-            <Type>BlendOperation</Type>
-            <Member>BlendOperation</Member>
-            <ValueAsInt>2</ValueAsInt>
-          </CustomProperty>
-          <CustomProperty>
-            <Type>float</Type>
-            <Member>Alpha</Member>
-            <ValueAsFloat>0</ValueAsFloat>
-          </CustomProperty>
-          <SourceType>FlatRedBallType</SourceType>
-          <SourceFile />
-          <SourceName />
-          <SourceClassType>Sprite</SourceClassType>
-          <InstanceName>DarknessSprite</InstanceName>
-          <AttachToContainer>true</AttachToContainer>
-          <GenerateTimedEmit>true</GenerateTimedEmit>
-          <IndependentOfCamera>true</IndependentOfCamera>
-          <LayerOn>WorldAndDarknessLayer</LayerOn>
         </NamedObjectSave>
         <NamedObjectSave>
           <CustomProperty>
@@ -1703,6 +1649,54 @@
         </ReferencedFileSave>
       </ReferencedFiles>
       <CreatedByOtherEntities>true</CreatedByOtherEntities>
+      <Is2D>true</Is2D>
+    </EntitySave>
+    <EntitySave>
+      <Properties>
+        <PropertySave>
+          <Name>ImplementsIDrawableBatch</Name>
+          <ValueAsBool>true</ValueAsBool>
+        </PropertySave>
+      </Properties>
+      <Tags>
+        <string>GLUE</string>
+      </Tags>
+      <Source>GLUE</Source>
+      <CustomVariables>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>X</Name>
+          <Type>float</Type>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>Y</Name>
+          <Type>float</Type>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>Z</Name>
+          <Type>float</Type>
+        </CustomVariable>
+      </CustomVariables>
+      <ImplementsIVisible>true</ImplementsIVisible>
+      <ImplementsIDrawableBatch>true</ImplementsIDrawableBatch>
+      <Name>Entities\ShaderRenderer</Name>
       <Is2D>true</Is2D>
     </EntitySave>
     <EntitySave>

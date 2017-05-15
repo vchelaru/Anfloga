@@ -37,8 +37,6 @@ namespace Anfloga.Screens
 
         WorldObjectEntity objectCollidingWith;
 
-        RenderTarget2D darknessRenderTarget;
-
         DarknessTrigger lastDarknessTriggerCollidedAgainst;
         Tweener lastDarknessTweener;
 
@@ -149,36 +147,11 @@ namespace Anfloga.Screens
 
         private void InitializeRenderTargets()
         {
-            this.darknessRenderTarget = new RenderTarget2D(FlatRedBallServices.GraphicsDevice, (int)Camera.Main.OrthogonalWidth/2, (int)Camera.Main.OrthogonalHeight/2);
-
-            this.DarknessRenderTargetLayer.RenderTarget = darknessRenderTarget;
-
-            this.DarknessSprite.Texture = darknessRenderTarget;
-            // makes the sprite the same size regardless of the render target resolution;
-            this.DarknessSprite.TextureScale = -1;
-            this.DarknessSprite.Width = Camera.Main.OrthogonalWidth;
-            this.DarknessSprite.Height = Camera.Main.OrthogonalHeight;
-            this.DarknessSprite.TextureFilter = TextureFilter.Anisotropic;
-
-#if DEBUG
-            if (DebuggingVariables.HideDarknessOverlay)
-            {
-                this.DarknessSprite.Visible = false;
-            }
-#endif
-
+            this.DarknessRenderTargetLayer.RenderTarget = DarknessRenderTarget;
             this.WorldLayer.RenderTarget = WorldRenderTarget;
 
-            this.WorldSprite.Texture = WorldRenderTarget;
-            this.WorldSprite.TextureScale = -1;
-            this.WorldSprite.Y = -.2f;
-            this.WorldSprite.Y = .2f;
-            //this.WorldSprite.ColorOperation = FlatRedBall.Graphics.ColorOperation.Color;
-            this.WorldSprite.Blue = 1;
-
-            this.WorldSprite.Width = Camera.Main.OrthogonalWidth;
-            this.WorldSprite.Height = Camera.Main.OrthogonalHeight;
-
+            this.ShaderRendererInstance.WorldTexture = WorldRenderTarget;
+            this.ShaderRendererInstance.DarknessTexture = DarknessRenderTarget;
         }
 
         private void InitializeHud()
@@ -395,7 +368,7 @@ namespace Anfloga.Screens
                 lastDarknessTweener = null;
             }
 
-            float currentValue = (float)DarknessSprite.Alpha;
+            float currentValue = (float)ShaderRendererInstance.DarknessAlpha;
 
             Tweener tweener = new Tweener(currentValue, darknessTrigger.DarknessValue, darknessTrigger.DarknessInterpolationTime, InterpolationType.Linear, Easing.In);
 
@@ -409,7 +382,7 @@ namespace Anfloga.Screens
 
         private void HandlePositionSet(float value)
         {
-            DarknessSprite.Alpha = value;
+            this.ShaderRendererInstance.DarknessAlpha = value;
         }
 
         #endregion
@@ -419,8 +392,6 @@ namespace Anfloga.Screens
         void CustomDestroy()
 		{
             solidCollision.RemoveFromManagers();
-
-            darknessRenderTarget.Dispose();
 		}
 
         #endregion

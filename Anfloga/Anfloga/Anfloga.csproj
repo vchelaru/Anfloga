@@ -168,6 +168,10 @@
     <Compile Include="Entities\SafeZone.Generated.cs">
       <DependentUpon>SafeZone.cs</DependentUpon>
     </Compile>
+    <Compile Include="Entities\ShaderRenderer.cs" />
+    <Compile Include="Entities\ShaderRenderer.Generated.cs">
+      <DependentUpon>ShaderRenderer.cs</DependentUpon>
+    </Compile>
     <Compile Include="Entities\WorldObjectEntity.cs" />
     <Compile Include="Entities\WorldObjectEntity.Event.cs">
       <DependentUpon>WorldObjectEntity.cs</DependentUpon>
