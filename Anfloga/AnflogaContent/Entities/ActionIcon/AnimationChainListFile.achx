@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<AnimationChainArraySave xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <FileRelativeTextures>true</FileRelativeTextures>
+  <TimeMeasurementUnit>Undefined</TimeMeasurementUnit>
+  <CoordinateType>Pixel</CoordinateType>
+  <AnimationChain>
+    <Name>CollectMineral</Name>
+    <ColorKey>0</ColorKey>
+    <Frame>
+      <TextureName>../../screens/gamescreen/levels/anflogasprites.png</TextureName>
+      <FrameLength>0.1</FrameLength>
+      <LeftCoordinate>1998</LeftCoordinate>
+      <RightCoordinate>2001</RightCoordinate>
+      <TopCoordinate>136</TopCoordinate>
+      <BottomCoordinate>153</BottomCoordinate>
+    </Frame>
+  </AnimationChain>
+  <AnimationChain>
+    <Name>PurchaseCollector</Name>
+    <ColorKey>0</ColorKey>
+    <Frame>
+      <TextureName>../../screens/gamescreen/levels/anflogasprites.png</TextureName>
+      <FrameLength>0.1</FrameLength>
+      <LeftCoordinate>1998</LeftCoordinate>
+      <RightCoordinate>2001</RightCoordinate>
+      <TopCoordinate>136</TopCoordinate>
+      <BottomCoordinate>153</BottomCoordinate>
+    </Frame>
+  </AnimationChain>
+</AnimationChainArraySave>
