@@ -66,25 +66,37 @@
     <Variable>
       <Type>int</Type>
       <Name>Icon.Texture Height</Name>
-      <Value xsi:type="xsd:int">13</Value>
+      <Value xsi:type="xsd:int">6</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>int</Type>
       <Name>Icon.Texture Left</Name>
-      <Value xsi:type="xsd:int">97</Value>
+      <Value xsi:type="xsd:int">2017</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>int</Type>
       <Name>Icon.Texture Top</Name>
-      <Value xsi:type="xsd:int">707</Value>
+      <Value xsi:type="xsd:int">57</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>int</Type>
       <Name>Icon.Texture Width</Name>
-      <Value xsi:type="xsd:int">15</Value>
+      <Value xsi:type="xsd:int">7</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>Icon.X</Name>
+      <Value xsi:type="xsd:float">0</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>Icon.Y</Name>
+      <Value xsi:type="xsd:float">2</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -98,6 +110,12 @@
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
+      <Type>int</Type>
+      <Name>TextInstance.Blue</Name>
+      <Value xsi:type="xsd:int">254</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
       <Type>string</Type>
       <Name>TextInstance.Font</Name>
       <Value xsi:type="xsd:string">Oxygen</Value>
@@ -106,13 +124,19 @@
     <Variable>
       <Type>int</Type>
       <Name>TextInstance.FontSize</Name>
-      <Value xsi:type="xsd:int">12</Value>
+      <Value xsi:type="xsd:int">10</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>float</Type>
       <Name>TextInstance.Height</Name>
-      <Value xsi:type="xsd:float">15</Value>
+      <Value xsi:type="xsd:float">11</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>int</Type>
+      <Name>TextInstance.Red</Name>
+      <Value xsi:type="xsd:int">198</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -137,7 +161,7 @@
     <Variable>
       <Type>float</Type>
       <Name>TextInstance.X</Name>
-      <Value xsi:type="xsd:float">19</Value>
+      <Value xsi:type="xsd:float">10</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
