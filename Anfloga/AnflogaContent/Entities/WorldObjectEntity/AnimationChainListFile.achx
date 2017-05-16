@@ -21,10 +21,10 @@
     <Frame>
       <TextureName>..\..\screens\gamescreen\levels\anflogasprites.png</TextureName>
       <FrameLength>0.1</FrameLength>
-      <LeftCoordinate>1991</LeftCoordinate>
-      <RightCoordinate>2041</RightCoordinate>
-      <TopCoordinate>80</TopCoordinate>
-      <BottomCoordinate>112</BottomCoordinate>
+      <LeftCoordinate>1992</LeftCoordinate>
+      <RightCoordinate>2042</RightCoordinate>
+      <TopCoordinate>172</TopCoordinate>
+      <BottomCoordinate>204</BottomCoordinate>
     </Frame>
   </AnimationChain>
 </AnimationChainArraySave>
