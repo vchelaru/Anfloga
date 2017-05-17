@@ -62,10 +62,18 @@ namespace Anfloga.Screens
 
             InitializeRenderTargets();
 
+            InitializeShaders();
+
             MoveLightObjectsToRenderTargetLayer();
 
             InitializeRestartVariables();
 		}
+
+        private void InitializeShaders()
+        {
+            ShaderRendererInstance.Effect = TestShader;
+            ShaderRendererInstance.Viewer = PlayerList[0];
+        }
 
         private void InitializeFactoryEvents()
         {

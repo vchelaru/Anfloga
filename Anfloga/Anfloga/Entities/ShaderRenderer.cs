@@ -10,17 +10,21 @@ using FlatRedBall.Graphics.Particle;
 using FlatRedBall.Math.Geometry;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
+using Anfloga.Rendering;
 
 namespace Anfloga.Entities
 {
 	public partial class ShaderRenderer
 	{
+        public Effect Effect { get; set; }
 
         public Texture2D WorldTexture { get; set; }
         public Texture2D DarknessTexture { get; set; }
         public Texture2D BlowoutTexture { get; set; }
 
         public float DarknessAlpha { get; set; }
+
+        public PositionedObject Viewer { get; set; }
 
         SpriteBatch spriteBatch;
 
@@ -35,7 +39,7 @@ namespace Anfloga.Entities
 
 		}
 
-		private void CustomActivity()
+        private void CustomActivity()
 		{
 
 
@@ -57,12 +61,49 @@ namespace Anfloga.Entities
         {
             var destinationRectangle = Camera.Main.DestinationRectangle;
 
-            spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend);
+            FlatRedBallServices.GraphicsDevice.Textures[1] = WavyTexture;
 
+            Effect.CurrentTechnique = Effect.Techniques["BlurTechnique"];
+
+            float rightX = camera.AbsoluteRightXEdgeAt(Viewer.Z);
+            float leftX = camera.AbsoluteLeftXEdgeAt(Viewer.Z);
+
+            float bottomY = camera.AbsoluteBottomYEdgeAt(Viewer.Z);
+            float topY = camera.AbsoluteTopYEdgeAt(Viewer.Z);
+
+            float ratioX = (Viewer.X - leftX) / (rightX - leftX);
+            float ratioY = 1 - (Viewer.Y - bottomY) / (topY - bottomY);
+
+            Effect.Parameters["ViewerX"].SetValue(ratioX);
+            Effect.Parameters["ViewerY"].SetValue(ratioY);
+            Effect.Parameters["BlurStrength"].SetValue(BlurStrength);
+
+            bool blurOn = true;
+            if(blurOn)
+            {
+                spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, 
+                    SamplerState.LinearClamp, DepthStencilState.None, RasterizerState.CullNone,
+                    Effect);
+            }
+            else
+            {
+                spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend);
+            }
             spriteBatch.Draw(WorldTexture, destinationRectangle, Color.White);
             spriteBatch.End();
+            FlatRedBallServices.GraphicsDevice.Textures[1] = null;
 
             var darknessColor = new Color(1, 1, 1, DarknessAlpha);
+            BlendState blendState = GetMultiplyBlendOperation();
+
+            spriteBatch.Begin(SpriteSortMode.Immediate, blendState);
+            spriteBatch.Draw(DarknessTexture, destinationRectangle, darknessColor);
+
+            spriteBatch.End();
+        }
+
+        private static BlendState GetMultiplyBlendOperation()
+        {
             BlendState blendState = new BlendState();
             blendState.AlphaSourceBlend = Blend.DestinationColor;
             blendState.ColorSourceBlend = Blend.DestinationColor;
@@ -70,11 +111,7 @@ namespace Anfloga.Entities
             blendState.AlphaDestinationBlend = Blend.Zero;
             blendState.ColorDestinationBlend = Blend.InverseSourceAlpha;
             blendState.ColorBlendFunction = BlendFunction.Add;
-
-            spriteBatch.Begin(SpriteSortMode.Immediate, blendState);
-            spriteBatch.Draw(DarknessTexture, destinationRectangle, darknessColor);
-
-            spriteBatch.End();
+            return blendState;
         }
-	}
+    }
 }

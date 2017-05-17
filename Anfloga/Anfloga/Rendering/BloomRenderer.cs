@@ -27,6 +27,11 @@ namespace Anfloga.Rendering
         GraphicsDevice device;
         bool initialized = false;
 
+        public BloomRenderer(Effect bloomCombineEffect)
+        {
+            this.bloomEffect = bloomCombineEffect;
+        }
+
         public void Initialize(GraphicsDevice device, Camera camera)
         {
             Height = device.PresentationParameters.BackBufferHeight;
@@ -44,7 +49,6 @@ namespace Anfloga.Rendering
             blurRenderer = new BlurRenderer();
             blurRenderer.Initialize(this.device, camera);
 
-            bloomEffect = FlatRedBallServices.Load<Effect>(@"Content\Shaders\BloomCombine");
             bloomEffect.Parameters["BloomIntensity"].SetValue(BloomIntensity);
             bloomEffect.Parameters["BaseIntensity"].SetValue(BaseIntensity);
             bloomEffect.Parameters["BloomSaturation"].SetValue(BloomSaturation);

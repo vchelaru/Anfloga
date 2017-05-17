@@ -77,6 +77,10 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>AnimationChainListFile</Name>
     </None>
+    <None Include="Entities\ShaderRenderer\WavyTexture.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>WavyTexture</Name>
+    </None>
     <None Include="Entities\WorldObjectEntity\AnimationChainListFile.achx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>AnimationChainListFile</Name>
@@ -227,25 +231,30 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Shaders\BloomCombine.fx">
+    <Compile Include="Screens\GameScreen\Shaders\BloomCombine.fx">
+      <Importer>EffectImporter</Importer>
+      <Processor>EffectProcessor</Processor>
       <Name>BloomCombine</Name>
+    </Compile>
+    <Compile Include="Screens\GameScreen\Shaders\BloomExtract.fx">
       <Importer>EffectImporter</Importer>
       <Processor>EffectProcessor</Processor>
-    </Compile>
-    <Compile Include="Shaders\BloomExtract.fx">
       <Name>BloomExtract</Name>
+    </Compile>
+    <Compile Include="Screens\GameScreen\Shaders\Blur.fx">
       <Importer>EffectImporter</Importer>
       <Processor>EffectProcessor</Processor>
-    </Compile>
-    <Compile Include="Shaders\Blur.fx">
       <Name>Blur</Name>
-      <Importer>EffectImporter</Importer>
-      <Processor>EffectProcessor</Processor>
     </Compile>
-    <Compile Include="Shaders\Desaturation.fx">
-      <Name>Desaturation</Name>
+    <Compile Include="Screens\GameScreen\Shaders\Desaturation.fx">
       <Importer>EffectImporter</Importer>
       <Processor>EffectProcessor</Processor>
+      <Name>Desaturation</Name>
+    </Compile>
+    <Compile Include="Screens\GameScreen\Shaders\TestShader.fx">
+      <Importer>EffectImporter</Importer>
+      <Processor>EffectProcessor</Processor>
+      <Name>TestShader</Name>
     </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\$(XnaFrameworkVersion)\Microsoft.Xna.GameStudio.ContentPipeline.targets" />
