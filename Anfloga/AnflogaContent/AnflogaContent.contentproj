@@ -45,6 +45,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Entities\ActionIcon\AnimationChainListFile.achx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>AnimationChainListFile</Name>
+    </None>
     <None Include="Entities\Bubbles\AnimationChainListFile.achx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>AnimationChainListFile</Name>
@@ -105,13 +109,13 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>StatusBar</Name>
     </None>
-    <None Include="GumProject\FontCache\Font12Oxygen.fnt">
+    <None Include="GumProject\FontCache\Font10Oxygen.fnt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>Font12Oxygen</Name>
+      <Name>Font10Oxygen</Name>
     </None>
-    <None Include="GumProject\FontCache\Font12Oxygen_0.png">
+    <None Include="GumProject\FontCache\Font10Oxygen_0.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>Font12Oxygen_0</Name>
+      <Name>Font10Oxygen_0</Name>
     </None>
     <None Include="GumProject\FontCache\Font18Arial.fnt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

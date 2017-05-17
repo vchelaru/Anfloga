@@ -115,6 +115,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataTypes\TileMapInfo.Generated.cs" />
+    <Compile Include="Entities\ActionIcon.cs" />
+    <Compile Include="Entities\ActionIcon.Generated.cs">
+      <DependentUpon>ActionIcon.cs</DependentUpon>
+    </Compile>
     <Compile Include="Entities\Bubbles.cs" />
     <Compile Include="Entities\Bubbles.Generated.cs">
       <DependentUpon>Bubbles.cs</DependentUpon>

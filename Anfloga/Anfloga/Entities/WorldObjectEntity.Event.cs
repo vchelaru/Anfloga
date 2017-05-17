@@ -35,10 +35,14 @@ namespace Anfloga.Entities
         }
         void OnAfterShouldSetVisibilitySet (object sender, EventArgs e)
         {
-            if(ShouldSetVisibility)
+            if(ShouldToggleVisibility)
             {
                 SpriteInstance.Visible = true;
             }
+        }
+        void OnAfterVisualNameSet (object sender, EventArgs e)
+        {
+            SpriteInstance.Visible = true;
         }
 
 	}

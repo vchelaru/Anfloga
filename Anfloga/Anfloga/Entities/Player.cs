@@ -46,6 +46,8 @@ namespace Anfloga.Entities
 
         private Vector2 lastCheckpointPosition;
 
+        private float actionIconOffset;
+
         #endregion
 
         #region Initialize
@@ -67,7 +69,21 @@ namespace Anfloga.Entities
             InitializeCollidingObjectList();
 
             InitializeEmitter();
+
+            InitializeAcionIcon();
 		}
+
+        private void InitializeAcionIcon()
+        {
+            //Possible bug? The pixel coorinates are not updating on initialize.
+            ActionIconInstance.VisualName = "CollectMineral";
+            ActionIconInstance.VisualName = "PurchaseCollector";
+            
+            actionIconOffset = AxisAlignedRectangleInstance.Height / 2;
+
+            ActionIconInstance.RelativeY = actionIconOffset + ActionIconInstance.SpriteInstanceHeight;
+            ActionIconInstance.Visible = false;
+        }
 
         private void InitializeEmitter()
         {
@@ -108,7 +124,7 @@ namespace Anfloga.Entities
             DashInput = dashInput;
 
             var dialogInput = new MultiplePressableInputs();
-            dialogInput.Inputs.Add(InputManager.Keyboard.GetKey(Microsoft.Xna.Framework.Input.Keys.Enter));
+            dialogInput.Inputs.Add(InputManager.Keyboard.GetKey(Microsoft.Xna.Framework.Input.Keys.Space));
             dashInput.Inputs.Add(InputManager.Xbox360GamePads[0].GetButton(Xbox360GamePad.Button.X));
             DialogInput = dialogInput;
 
@@ -129,6 +145,8 @@ namespace Anfloga.Entities
 
         private void CustomActivity()
 		{
+            UpdateActionIconActivity();
+
             PerformMovementInput();
 
             PerformActionInput();
@@ -141,6 +159,29 @@ namespace Anfloga.Entities
             //Perform hud update at the end. Incase we have abilities that consume oxygen.
             UpdateHudActivity();
 		}
+
+        private void UpdateActionIconActivity()
+        {
+            if(ObjectsToPerformCurrencyTransactionOn.Count > 0)
+            {
+                ActionIconInstance.Visible = true;
+
+                if(ObjectsToPerformCurrencyTransactionOn[0] is MineralDeposit)
+                {
+                    ActionIconInstance.VisualName = "CollectMineral";
+                }
+                else
+                {
+                    ActionIconInstance.VisualName = "PurchaseCollector";
+                }
+
+                ActionIconInstance.RelativeY = actionIconOffset + ActionIconInstance.SpriteInstanceHeight / 2;
+            }
+            else
+            {
+                ActionIconInstance.Visible = false;
+            }
+        }
 
         private void PerformActionInput()
         {

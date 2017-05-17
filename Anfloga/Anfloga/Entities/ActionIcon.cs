@@ -11,7 +11,7 @@ using FlatRedBall.Math.Geometry;
 
 namespace Anfloga.Entities
 {
-	public partial class WorldObjectEntity
+	public partial class ActionIcon
 	{
         /// <summary>
         /// Initialization logic which is execute only one time for this Entity (unless the Entity is pooled).
@@ -41,13 +41,5 @@ namespace Anfloga.Entities
 
 
         }
-
-        internal void SetIsVisible(bool isVisible)
-        {
-            if (ShouldToggleVisibility)
-            {
-                SpriteInstance.Visible = isVisible;
-            }
-        }
-    }
+	}
 }
