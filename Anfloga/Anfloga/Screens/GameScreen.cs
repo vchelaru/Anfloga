@@ -283,15 +283,6 @@ namespace Anfloga.Screens
             }
 
             ReloadScreenActivity();
-
-            if(InputManager.Keyboard.KeyPushed(Microsoft.Xna.Framework.Input.Keys.RightShift))
-            {
-                using (var stream = System.IO.File.OpenWrite("test.png"))
-                {
-                    //WorldRenderTarget.SaveAsPng(stream, WorldRenderTarget.Width, WorldRenderTarget.Height);
-                }
-
-            }
 		}
 
         private void ReloadScreenActivity()
