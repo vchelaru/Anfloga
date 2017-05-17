@@ -16,6 +16,10 @@ namespace Anfloga.Entities
 {
 	public partial class ShaderRenderer
 	{
+        #region Fields/Properties
+
+        SpriteBatch spriteBatch;
+
         public Effect Effect { get; set; }
 
         public Texture2D WorldTexture { get; set; }
@@ -26,14 +30,15 @@ namespace Anfloga.Entities
 
         public PositionedObject Viewer { get; set; }
 
-        SpriteBatch spriteBatch;
+
+        #endregion
 
         /// <summary>
         /// Initialization logic which is execute only one time for this Entity (unless the Entity is pooled).
         /// This method is called when the Entity is added to managers. Entities which are instantiated but not
         /// added to managers will not have this method called.
         /// </summary>
-		private void CustomInitialize()
+        private void CustomInitialize()
 		{
             spriteBatch = new SpriteBatch(FlatRedBallServices.GraphicsDevice);
 
@@ -59,7 +64,14 @@ namespace Anfloga.Entities
 
         public void Draw(Camera camera)
         {
-            var destinationRectangle = Camera.Main.DestinationRectangle;
+            DrawWorld(camera);
+
+            DrawDarkness(camera);
+        }
+        
+        private void DrawWorld(Camera camera)
+        {
+            var destinationRectangle = camera.DestinationRectangle;
 
             FlatRedBallServices.GraphicsDevice.Textures[1] = WavyTexture;
 
@@ -79,9 +91,9 @@ namespace Anfloga.Entities
             Effect.Parameters["BlurStrength"].SetValue(BlurStrength);
 
             bool blurOn = true;
-            if(blurOn)
+            if (blurOn)
             {
-                spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, 
+                spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend,
                     SamplerState.LinearClamp, DepthStencilState.None, RasterizerState.CullNone,
                     Effect);
             }
@@ -92,6 +104,11 @@ namespace Anfloga.Entities
             spriteBatch.Draw(WorldTexture, destinationRectangle, Color.White);
             spriteBatch.End();
             FlatRedBallServices.GraphicsDevice.Textures[1] = null;
+        }
+
+        private void DrawDarkness(Camera camera)
+        {
+            var destinationRectangle = camera.DestinationRectangle;
 
             var darknessColor = new Color(1, 1, 1, DarknessAlpha);
             BlendState blendState = GetMultiplyBlendOperation();
