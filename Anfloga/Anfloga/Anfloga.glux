@@ -1931,7 +1931,6 @@
           </Properties>
           <Name>VisualName</Name>
           <Type>string</Type>
-          <DefaultValue xsi:type="xsd:string">RedFish</DefaultValue>
           <SourceObject>SpriteInstance</SourceObject>
           <SourceObjectProperty>CurrentChainName</SourceObjectProperty>
           <CreatesEvent>true</CreatesEvent>
