@@ -1882,8 +1882,10 @@
           </Properties>
           <Name>VisualName</Name>
           <Type>string</Type>
+          <DefaultValue xsi:type="xsd:string">RedFish</DefaultValue>
           <SourceObject>SpriteInstance</SourceObject>
           <SourceObjectProperty>CurrentChainName</SourceObjectProperty>
+          <CreatesEvent>true</CreatesEvent>
         </CustomVariable>
         <CustomVariable>
           <Properties>
@@ -1933,7 +1935,7 @@
               <ValueAsString>bool</ValueAsString>
             </PropertySave>
           </Properties>
-          <Name>ShouldSetVisibility</Name>
+          <Name>ShouldToggleVisibility</Name>
           <Type>bool</Type>
           <CreatesEvent>true</CreatesEvent>
         </CustomVariable>
@@ -1989,7 +1991,12 @@
         </EventResponseSave>
         <EventResponseSave>
           <EventName>AfterShouldSetVisibilitySet</EventName>
-          <SourceVariable>ShouldSetVisibility</SourceVariable>
+          <SourceVariable>ShouldToggleVisibility</SourceVariable>
+          <BeforeOrAfter>After</BeforeOrAfter>
+        </EventResponseSave>
+        <EventResponseSave>
+          <EventName>AfterVisualNameSet</EventName>
+          <SourceVariable>VisualName</SourceVariable>
           <BeforeOrAfter>After</BeforeOrAfter>
         </EventResponseSave>
       </Events>

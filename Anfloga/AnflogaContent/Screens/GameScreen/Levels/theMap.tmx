@@ -125,8 +125,8 @@
     <property name="DialogKey" value="T_Intro1"/>
     <property name="EntityToCreate" value="WorldObjectEntity"/>
     <property name="IsConsumable" type="bool" value="false"/>
-    <property name="IsVisible" type="bool" value="true"/>
     <property name="QuestAward" value=""/>
+    <property name="ShouldToggleVisibility" type="bool" value="true"/>
     <property name="VisualName" value="PlaceOfInterest"/>
    </properties>
    <ellipse/>

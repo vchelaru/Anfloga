@@ -44,7 +44,7 @@ namespace Anfloga.Entities
 
         internal void SetIsVisible(bool isVisible)
         {
-            if (ShouldSetVisibility)
+            if (ShouldToggleVisibility)
             {
                 SpriteInstance.Visible = isVisible;
             }
