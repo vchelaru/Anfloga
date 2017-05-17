@@ -124,7 +124,7 @@ namespace Anfloga.Entities
             DashInput = dashInput;
 
             var dialogInput = new MultiplePressableInputs();
-            dialogInput.Inputs.Add(InputManager.Keyboard.GetKey(Microsoft.Xna.Framework.Input.Keys.Enter));
+            dialogInput.Inputs.Add(InputManager.Keyboard.GetKey(Microsoft.Xna.Framework.Input.Keys.Space));
             dashInput.Inputs.Add(InputManager.Xbox360GamePads[0].GetButton(Xbox360GamePad.Button.X));
             DialogInput = dialogInput;
 
