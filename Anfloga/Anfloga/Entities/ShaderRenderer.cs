@@ -76,6 +76,7 @@ namespace Anfloga.Entities
 
             Effect.Parameters["ViewerX"].SetValue(ratioX);
             Effect.Parameters["ViewerY"].SetValue(ratioY);
+            Effect.Parameters["BlurStrength"].SetValue(BlurStrength);
 
             bool blurOn = true;
             if(blurOn)

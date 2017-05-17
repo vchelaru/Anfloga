@@ -4,6 +4,7 @@ sampler DisplacementTexture : register(s1);
 
 float ViewerX = .5;
 float ViewerY = .5;
+float BlurStrength = 0.036;
 
 float4 DisplacementFunction(float2 texCoord : TEXCOORD0) : COLOR0
 {
@@ -31,34 +32,26 @@ float4 BlurFunction(float2 texCoord : TEXCOORD0) : COLOR0
 	float ratioX = abs(texCoord.x - ViewerX);
 	float ratioY = abs(texCoord.y - ViewerY);
 
-	// * 2 * .018
-	// * 2 to double the half, .018 is the ratio
-	// for blurryness
-
-	float blurRatio = max(ratioX, ratioY) * .036;
+	float blurRatio = max(ratioX, ratioY) * BlurStrength;
 
 	float4 color = 0;
 
 	int samples = 4;
 	float samplesSquared = 16;
+	float blurOver2 = blurRatio / 2;
+	float blurOverSamples = blurRatio / samples;
 
 	for (int x = 0; x < samples; x++)
 	{
 		for (int y = 0; y < samples; y++)
 		{
 			float2 coord = texCoord;
-			coord.x += -blurRatio / 2 + (blurRatio * x / samples);
-			coord.y += -blurRatio / 2 + (blurRatio * y / samples);
+			coord.x += -blurOver2 + (blurOverSamples * x);
+			coord.y += -blurOver2 + (blurOverSamples * y);
 			color += tex2D(SpriteBatchTexture, coord) / samplesSquared;
 		}
 	}
 	return color;
-}
-
-void SpriteVertexShader(inout float4 color    : COLOR0,
-	inout float2 texCoord : TEXCOORD0,
-	inout float4 position : POSITION0)
-{
 }
 
 technique BlurTechnique
