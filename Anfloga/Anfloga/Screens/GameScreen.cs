@@ -64,7 +64,7 @@ namespace Anfloga.Screens
 
             InitializeShaders();
 
-            MoveLightObjectsToRenderTargetLayer();
+            MoveObjectsToCorrectRenderLayer();
 
             InitializeRestartVariables();
 		}
@@ -84,18 +84,6 @@ namespace Anfloga.Screens
                     foreach (Player p in args.NewItems) p.MoveToLayer(WorldLayer);
                 }
             };
-
-            //World objects will be defaulted to the world layer.
-            //A property with an event could place it on the above everything layer if needed.
-            //The property is set through the tiled loader.
-            WorldObjectEntityList.CollectionChanged += (sender, args) =>
-            {
-                if (args.Action == System.Collections.Specialized.NotifyCollectionChangedAction.Add )
-                {
-                    foreach (WorldObjectEntity e in args.NewItems) e.MoveToLayer(WorldLayer);
-                }
-            };
-
 
             SafeZoneList.CollectionChanged += (sender, args) =>
             {
@@ -143,7 +131,7 @@ namespace Anfloga.Screens
             RestartVariables.Add("this.PlayerList[0].YVelocity");
         }
 
-        private void MoveLightObjectsToRenderTargetLayer()
+        private void MoveObjectsToCorrectRenderLayer()
         {
             foreach(var item in PlayerList)
             {
@@ -153,6 +141,12 @@ namespace Anfloga.Screens
             foreach(var item in this.LightEntityList)
             {
                 item.MoveToLayer(DarknessRenderTargetLayer);
+            }
+
+            foreach(var item in WorldObjectEntityList)
+            {
+                var layerToPlaceOn = item.ShouldPlaceOnUiLayer ? AboveEverythingLayer : WorldLayer;
+                item.MoveToLayer(layerToPlaceOn);
             }
         }
 

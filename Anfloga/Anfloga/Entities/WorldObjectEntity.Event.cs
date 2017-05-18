@@ -44,13 +44,5 @@ namespace Anfloga.Entities
         {
             SpriteInstance.Visible = true;
         }
-        void OnAfterShouldPlaceOnUiLayerSet (object sender, EventArgs e)
-        {
-            if(ShouldPlaceOnUiLayer && ScreenManager.CurrentScreen is GameScreen)
-            {
-                this.MoveToLayer(((GameScreen)ScreenManager.CurrentScreen).AboveEverythingLayer);
-            }
-        }
-
 	}
 }
