@@ -246,6 +246,11 @@
       <Processor>EffectProcessor</Processor>
       <Name>Blur</Name>
     </Compile>
+    <Compile Include="Screens\GameScreen\Shaders\Darkness.fx">
+      <Importer>EffectImporter</Importer>
+      <Processor>EffectProcessor</Processor>
+      <Name>Darkness</Name>
+    </Compile>
     <Compile Include="Screens\GameScreen\Shaders\Desaturation.fx">
       <Importer>EffectImporter</Importer>
       <Processor>EffectProcessor</Processor>

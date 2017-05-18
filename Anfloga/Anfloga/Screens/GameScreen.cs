@@ -73,6 +73,9 @@ namespace Anfloga.Screens
         {
             ShaderRendererInstance.Effect = TestShader;
             ShaderRendererInstance.Viewer = PlayerList[0];
+            ShaderRendererInstance.DarknessEffect = Darkness;
+
+            ShaderRendererInstance.SetShaderParameters();
         }
 
         private void InitializeFactoryEvents()
@@ -347,7 +350,7 @@ namespace Anfloga.Screens
 
                 foreach (var darknessTrigger in DarknessTriggerList)
                 {
-                    if(player.CollideAgainst(darknessTrigger) && lastDarknessTriggerCollidedAgainst != darknessTrigger)
+                    if (player.CollideAgainst(darknessTrigger) && lastDarknessTriggerCollidedAgainst != darknessTrigger)
                     {
                         lastDarknessTriggerCollidedAgainst = darknessTrigger;
                         RespondToDarknessTriggerCollision(darknessTrigger);

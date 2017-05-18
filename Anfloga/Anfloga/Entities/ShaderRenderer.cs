@@ -21,6 +21,7 @@ namespace Anfloga.Entities
         SpriteBatch spriteBatch;
 
         public Effect Effect { get; set; }
+        public Effect DarknessEffect { get; set; }
 
         public Texture2D WorldTexture { get; set; }
         public Texture2D DarknessTexture { get; set; }
@@ -61,6 +62,11 @@ namespace Anfloga.Entities
 
 
         }
+        public void SetShaderParameters()
+        {
+            DarknessEffect.Parameters["textureHeight"].SetValue(DarknessTexture.Height);
+            Effect.Parameters["BlurStrength"].SetValue(BlurStrength);
+        }
 
         public void Draw(Camera camera)
         {
@@ -88,7 +94,6 @@ namespace Anfloga.Entities
 
             Effect.Parameters["ViewerX"].SetValue(ratioX);
             Effect.Parameters["ViewerY"].SetValue(ratioY);
-            Effect.Parameters["BlurStrength"].SetValue(BlurStrength);
 
             bool blurOn = true;
             if (blurOn)
@@ -113,8 +118,23 @@ namespace Anfloga.Entities
             var darknessColor = new Color(1, 1, 1, DarknessAlpha);
             BlendState blendState = GetMultiplyBlendOperation();
 
-            spriteBatch.Begin(SpriteSortMode.Immediate, blendState);
-            spriteBatch.Draw(DarknessTexture, destinationRectangle, darknessColor);
+            DarknessEffect.CurrentTechnique = DarknessEffect.Techniques["DarknessTechnique"];
+            DarknessEffect.Parameters["cameraTop"].SetValue(camera.AbsoluteTopYEdgeAt(Viewer.Z));
+            var ytop = camera.AbsoluteTopYEdgeAt(Viewer.Z);
+
+            bool shaderOn = true;
+            if (shaderOn)
+            {
+                spriteBatch.Begin(SpriteSortMode.Immediate, blendState,
+                    SamplerState.LinearClamp, DepthStencilState.None, RasterizerState.CullNone,
+                        DarknessEffect);
+            }
+            else
+            {
+                spriteBatch.Begin(SpriteSortMode.Immediate, blendState);
+            }
+            var colorToUse = shaderOn ? Color.Black : darknessColor;
+            spriteBatch.Draw(DarknessTexture, destinationRectangle, colorToUse);
 
             spriteBatch.End();
         }
