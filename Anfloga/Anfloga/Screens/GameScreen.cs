@@ -89,7 +89,7 @@ namespace Anfloga.Screens
             {
                 if (args.Action == System.Collections.Specialized.NotifyCollectionChangedAction.Add)
                 {
-                    foreach (WorldObjectEntity e in args.NewItems) e.MoveToLayer(WorldLayer);
+                    foreach (WorldObjectEntity e in args.NewItems) e.MoveToLayer(AboveEverythingLayer);
                 }
             };
 
