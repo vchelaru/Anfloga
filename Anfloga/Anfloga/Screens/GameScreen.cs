@@ -85,11 +85,14 @@ namespace Anfloga.Screens
                 }
             };
 
+            //World objects will be defaulted to the world layer.
+            //A property with an event could place it on the above everything layer if needed.
+            //The property is set through the tiled loader.
             WorldObjectEntityList.CollectionChanged += (sender, args) =>
             {
-                if (args.Action == System.Collections.Specialized.NotifyCollectionChangedAction.Add)
+                if (args.Action == System.Collections.Specialized.NotifyCollectionChangedAction.Add )
                 {
-                    foreach (WorldObjectEntity e in args.NewItems) e.MoveToLayer(AboveEverythingLayer);
+                    foreach (WorldObjectEntity e in args.NewItems) e.MoveToLayer(WorldLayer);
                 }
             };
 

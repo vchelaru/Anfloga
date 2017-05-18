@@ -307,6 +307,7 @@
           <SourceName />
           <SourceClassType>Layer</SourceClassType>
           <InstanceName>AboveEverythingLayer</InstanceName>
+          <HasPublicProperty>true</HasPublicProperty>
           <AttachToContainer>true</AttachToContainer>
           <GenerateTimedEmit>true</GenerateTimedEmit>
           <IndependentOfCamera>true</IndependentOfCamera>
@@ -1987,6 +1988,17 @@
           <Type>bool</Type>
           <CreatesEvent>true</CreatesEvent>
         </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>bool</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>ShouldPlaceOnUiLayer</Name>
+          <Type>bool</Type>
+          <CreatesEvent>true</CreatesEvent>
+        </CustomVariable>
       </CustomVariables>
       <ImplementsIVisible>true</ImplementsIVisible>
       <ImplementsIDrawableBatch>false</ImplementsIDrawableBatch>
@@ -2045,6 +2057,11 @@
         <EventResponseSave>
           <EventName>AfterVisualNameSet</EventName>
           <SourceVariable>VisualName</SourceVariable>
+          <BeforeOrAfter>After</BeforeOrAfter>
+        </EventResponseSave>
+        <EventResponseSave>
+          <EventName>AfterShouldPlaceOnUiLayerSet</EventName>
+          <SourceVariable>ShouldPlaceOnUiLayer</SourceVariable>
           <BeforeOrAfter>After</BeforeOrAfter>
         </EventResponseSave>
       </Events>

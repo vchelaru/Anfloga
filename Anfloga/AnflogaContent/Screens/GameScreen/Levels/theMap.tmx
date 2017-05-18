@@ -223,6 +223,7 @@
     <property name="AutomaticDialogDisplay" type="bool" value="true"/>
     <property name="DialogKey" value="T_Intro1"/>
     <property name="EntityToCreate" value="WorldObjectEntity"/>
+    <property name="ShouldPlaceOnUiLayer" type="bool" value="true"/>
     <property name="ShouldToggleVisibility" type="bool" value="true"/>
     <property name="VisualName" value="PlaceOfInterest"/>
    </properties>
