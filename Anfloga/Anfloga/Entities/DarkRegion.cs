@@ -50,8 +50,9 @@ namespace Anfloga.Entities
 
                 SpriteInstance.Width = width;
                 SpriteInstance.Height = height;
+
+                SpriteInstance.Alpha = DarknessValue;
             }
-            polygon.Visible = true;
         }
 
         private static void CustomLoadStaticContent(string contentManagerName)
