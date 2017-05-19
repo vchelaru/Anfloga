@@ -65,6 +65,8 @@ namespace Anfloga.Entities
         public void SetShaderParameters()
         {
             DarknessEffect.Parameters["textureHeight"].SetValue(DarknessTexture.Height);
+            DarknessEffect.Parameters["darknessStart"].SetValue(DarknessStart);
+            DarknessEffect.Parameters["alphaPerPixel"].SetValue(DarknessIncreaseRate);
             Effect.Parameters["BlurStrength"].SetValue(BlurStrength);
         }
 
@@ -133,7 +135,7 @@ namespace Anfloga.Entities
             {
                 spriteBatch.Begin(SpriteSortMode.Immediate, blendState);
             }
-            var colorToUse = shaderOn ? Color.Black : darknessColor;
+            var colorToUse = shaderOn ? new Color(0,0,0,0) : darknessColor;
             spriteBatch.Draw(DarknessTexture, destinationRectangle, colorToUse);
 
             spriteBatch.End();

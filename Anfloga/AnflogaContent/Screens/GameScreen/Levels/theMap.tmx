@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="1200" height="680" tilewidth="16" tileheight="16" nextobjectid="102">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="1200" height="680" tilewidth="16" tileheight="16" nextobjectid="104">
  <tileset firstgid="1" name="anflogaSprites" tilewidth="16" tileheight="16" tilecount="16384" columns="128">
   <image source="anflogaSprites.png" width="2048" height="2048"/>
   <tile id="5121">
@@ -252,7 +252,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Darkness Triggers" visible="0">
+ <objectgroup name="Darkness Triggers">
   <object id="36" x="-48" y="768" width="19456" height="32">
    <properties>
     <property name="DarknessValue" type="float" value="0.5"/>
@@ -389,6 +389,11 @@
    <properties>
     <property name="DarknessValue" type="float" value="0.8"/>
     <property name="EntityToCreate" value="DarknessTrigger"/>
+   </properties>
+  </object>
+  <object id="102" x="160" y="560" width="624" height="96">
+   <properties>
+    <property name="EntityToCreate" value="DarkRegion"/>
    </properties>
   </object>
  </objectgroup>

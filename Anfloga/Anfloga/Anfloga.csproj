@@ -135,6 +135,10 @@
     <Compile Include="Entities\DarknessTrigger.Generated.cs">
       <DependentUpon>DarknessTrigger.cs</DependentUpon>
     </Compile>
+    <Compile Include="Entities\DarkRegion.cs" />
+    <Compile Include="Entities\DarkRegion.Generated.cs">
+      <DependentUpon>DarkRegion.cs</DependentUpon>
+    </Compile>
     <Compile Include="Entities\DebuggingVariables.cs" />
     <Compile Include="Entities\DebuggingVariables.Generated.cs">
       <DependentUpon>DebuggingVariables.cs</DependentUpon>
@@ -188,6 +192,7 @@
     </Compile>
     <Compile Include="Factories\BubblesFactory.Generated.cs" />
     <Compile Include="Factories\DarknessTriggerFactory.Generated.cs" />
+    <Compile Include="Factories\DarkRegionFactory.Generated.cs" />
     <Compile Include="Factories\MineralDepositFactory.Generated.cs" />
     <Compile Include="Factories\LightEntityFactory.Generated.cs" />
     <Compile Include="Factories\PlayerFactory.Generated.cs" />

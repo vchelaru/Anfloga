@@ -9,9 +9,14 @@ float textureHeight;
 float4 DarknessFunction(float2 texCoord : TEXCOORD0) : COLOR0
 {
 	float4 color = tex2D(DarknessTexture, texCoord);
+	//return color;
 	float alpha = 0;
 	float pixelY = cameraTop - (textureHeight * texCoord.y);
-	if (pixelY < darknessStart)
+	if (length(color.rgb) == 0 && color.a == 1)
+	{
+		alpha = 1;
+	}
+	else if (pixelY < darknessStart)
 	{
 		alpha = abs(darknessStart - pixelY) * alphaPerPixel;
 	}

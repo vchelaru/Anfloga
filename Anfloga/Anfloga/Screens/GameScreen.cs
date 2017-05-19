@@ -126,7 +126,7 @@ namespace Anfloga.Screens
 
         private void InitializeRestartVariables()
         {
-            RestartVariables.Add("this.DarknessSprite.Alpha");
+            //RestartVariables.Add("this.DarknessSprite.Alpha");
             
             RestartVariables.Add("this.PlayerList[0].X");
             RestartVariables.Add("this.PlayerList[0].XVelocity");
@@ -136,6 +136,12 @@ namespace Anfloga.Screens
 
         private void MoveObjectsToCorrectRenderLayer()
         {
+            foreach(var item in DarkRegionList)
+            {
+                item.SetSpriteDimentionsFromCollision();
+                item.MoveToLayer(DarknessRenderTargetLayer);
+                item.Z--;
+            }
             foreach(var item in PlayerList)
             {
                 item.InitializeLightLayer(DarknessRenderTargetLayer);
@@ -151,6 +157,7 @@ namespace Anfloga.Screens
                 var layerToPlaceOn = item.ShouldPlaceOnUiLayer ? AboveEverythingLayer : WorldLayer;
                 item.MoveToLayer(layerToPlaceOn);
             }
+
         }
 
         private void InitializeRenderTargets()
@@ -306,7 +313,7 @@ namespace Anfloga.Screens
         {
             foreach(var player in PlayerList)
             {
-                solidCollision.CollideAgainstSolid(player);
+                //solidCollision.CollideAgainstSolid(player);
 
                 objectCollidingWith = null;
                 player.ObjectsToPerformCurrencyTransactionOn.Clear();
