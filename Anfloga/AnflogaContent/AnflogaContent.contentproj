@@ -221,6 +221,10 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>anflogaTest</Name>
     </None>
+    <None Include="Screens\GameScreen\Levels\smallerMap.tmx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>smallerMap</Name>
+    </None>
     <None Include="Screens\GameScreen\Levels\theMap.tmx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>theMap</Name>

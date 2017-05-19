@@ -7,6 +7,7 @@ T_Intro3,We assure you they meet human habitat standards as defined in Senate St
 T_Mission1,Recall the primary mission directive:
 T_Mission2,"Chart unexplored quadrant A2 of Anfloga, and recover any minerals you may discover."
 T_Minerals1,Long range scans have indicated mineral richness in this quadrant. [Mine: Press Spacebar near a crystal]
+T_Minerals0,Please harvest all mineral deposits in the quadrant. [Mine: Press spacebar near crystal]
 T_Energy1,The Unwearnum class vessel expends battery power to maintain human life support functions.
 T_Energy2,Remaining near the surface allows battery recharge via solar energy.
 T_Light1,Authorization granted to enable high-output torch. [Torch: Right Click]

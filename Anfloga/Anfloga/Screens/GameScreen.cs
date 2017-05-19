@@ -26,7 +26,7 @@ namespace Anfloga.Screens
 	{
         #region Fields
 
-        static string LevelNameToLoad = nameof(theMap);
+        static string LevelNameToLoad = nameof(smallerMap);
         //static string LevelNameToLoad = nameof(anflogaTest);
 
         LayeredTileMap currentLevel;
