@@ -5,7 +5,7 @@
 	{
 		internal static class CameraSetup
 		{
-			const float Scale = 1f;
+			const float Scale = 2f;
 			internal static void ResetCamera (Camera cameraToReset)
 			{
 				FlatRedBall.Camera.Main.Orthogonal = true;
@@ -18,7 +18,7 @@
 			{
 				#if WINDOWS || DESKTOP_GL
 				FlatRedBall.FlatRedBallServices.Game.Window.AllowUserResizing = true;
-				FlatRedBall.FlatRedBallServices.GraphicsOptions.SetResolution(width, height);
+				FlatRedBall.FlatRedBallServices.GraphicsOptions.SetResolution((int)(width * Scale), (int)(height * Scale));
 				#elif IOS || ANDROID
 				FlatRedBall.FlatRedBallServices.GraphicsOptions.SetFullScreen(FlatRedBall.FlatRedBallServices.GraphicsOptions.ResolutionWidth, FlatRedBall.FlatRedBallServices.GraphicsOptions.ResolutionHeight);
 				#elif UWP
