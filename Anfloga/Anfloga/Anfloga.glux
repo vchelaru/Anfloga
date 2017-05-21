@@ -114,6 +114,17 @@
           <IndependentOfCamera>true</IndependentOfCamera>
         </NamedObjectSave>
         <NamedObjectSave>
+          <Properties>
+            <PropertySave>
+              <Name>DestinationRectangle</Name>
+              <ValueAsRectangle>
+                <Y>0</Y>
+                <Height>540</Height>
+                <X>0</X>
+                <Width>960</Width>
+              </ValueAsRectangle>
+            </PropertySave>
+          </Properties>
           <CustomProperty>
             <Type>bool</Type>
             <Member>Visible</Member>
