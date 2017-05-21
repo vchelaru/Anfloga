@@ -132,8 +132,6 @@ namespace Anfloga.Screens
 
         private void InitializeRestartVariables()
         {
-            RestartVariables.Add("this.DarknessSprite.Alpha");
-            
             RestartVariables.Add("this.PlayerList[0].X");
             RestartVariables.Add("this.PlayerList[0].XVelocity");
             RestartVariables.Add("this.PlayerList[0].Y");

@@ -2,6 +2,8 @@
 sampler SpriteBatchTexture : register(s0);
 sampler DisplacementTexture : register(s1);
 
+
+
 float ViewerX = .5;
 float ViewerY = .5;
 float BlurStrength = 0.036;
@@ -14,9 +16,9 @@ float4 DisplacementFunction(float2 texCoord : TEXCOORD0) : COLOR0
 	float range = .02;
 	modifiedTexCoord.y = modifiedTexCoord.y - range/2 + (range * color.r);
 
-
 	return tex2D(SpriteBatchTexture, modifiedTexCoord);
 }
+
 
 technique DisplacementTechnique
 {
@@ -26,7 +28,7 @@ technique DisplacementTechnique
 	}
 }
 
-float4 BlurFunction(float2 texCoord : TEXCOORD0) : COLOR0
+float4 DistanceBlurFunction(float2 texCoord : TEXCOORD0) : COLOR0
 {
 
 	float ratioX = abs(texCoord.x - ViewerX);
@@ -54,11 +56,33 @@ float4 BlurFunction(float2 texCoord : TEXCOORD0) : COLOR0
 	return color;
 }
 
-technique BlurTechnique
+
+float4 HighPassFunction(float2 coord : TEXCOORD0) : COLOR0
+{
+	float4 color = tex2D(SpriteBatchTexture, coord);
+	float brightness = color.r * 0.299f + color.g * 0.587f + color.b * 0.114f;
+	
+	float multiplier = step(.45, brightness);
+	color = color * multiplier;
+
+	return color;
+
+}
+
+technique BloomTechnique
 {
 	pass Pass1
 	{
 		//VertexShader = compile vs_3_0 SpriteVertexShader();
-		PixelShader = compile ps_2_0 BlurFunction();
+		PixelShader = compile ps_2_0 HighPassFunction();
+	}
+}
+
+technique DistanceBlurTechnique
+{
+	pass Pass1
+	{
+		//VertexShader = compile vs_3_0 SpriteVertexShader();
+		PixelShader = compile ps_2_0 DistanceBlurFunction();
 	}
 }
