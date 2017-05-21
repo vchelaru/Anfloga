@@ -97,7 +97,7 @@ namespace Anfloga.Entities
                 Effect.Parameters["ViewerY"].SetValue(ratioY);
                 Effect.Parameters["BlurStrength"].SetValue(BlurStrength);
 
-                bool blurOn = false;
+                bool blurOn = true;
                 if (blurOn)
                 {
                     spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend,
