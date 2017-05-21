@@ -11,6 +11,8 @@ namespace Anfloga.Entities
 {
     public class LightInput : I2DInput
     {
+        #region Fields/Properties
+
         float? lastAnalogStickAngle;
         float lastCursorScreenX;
         float lastCursorScreenY;
@@ -53,6 +55,8 @@ namespace Anfloga.Entities
             }
         }
 
+        #endregion
+
         public LightInput(Player player)
         {
             Player = player;
@@ -70,42 +74,52 @@ namespace Anfloga.Entities
             }
             else
             {
-                bool didCursorChange = false;
+                GetAngleFromCursor();
+            }
+        }
 
-                var cursor = GuiManager.Cursor;
-                if(lastAnalogStickAngle == null)
+        private void GetAngleFromCursor()
+        {
+            bool didCursorChange = false;
+
+            var cursor = GuiManager.Cursor;
+            if (lastAnalogStickAngle == null)
+            {
+                if (lastCursorScreenX != cursor.ScreenX)
                 {
-                    if(lastCursorScreenX != cursor.ScreenX)
-                    {
-                        didCursorChange = true;
-                        lastCursorScreenX = cursor.ScreenX;
-                    }
-
-                    if(lastCursorScreenY != cursor.ScreenY)
-                    {
-                        didCursorChange = true;
-                        lastCursorScreenY = cursor.ScreenY;
-                    }
+                    didCursorChange = true;
+                    lastCursorScreenX = cursor.ScreenX;
                 }
 
-                if(didCursorChange)
+                if (lastCursorScreenY != cursor.ScreenY)
                 {
-                    var worldX = cursor.WorldXAt(0);
-                    var worldY = cursor.WorldYAt(0);
-
-                    if(worldX != Player.X || worldY != Player.Y)
-                    {
-                        var angle = (float)(Math.Atan2(worldY - Player.Y, worldX - Player.X));
-
-                        X = (float)Math.Cos(angle);
-                        Y = (float)Math.Sin(angle);
-                    }
+                    didCursorChange = true;
+                    lastCursorScreenY = cursor.ScreenY;
                 }
-
             }
 
+            if(cursor.PrimaryClick)
+            {
+                int m = 3;
+            }
+            if (didCursorChange)
+            {
+                // Normally we'd use the Cursor's position, but it will return incorrect values if we do because of our render targets:
+                //var worldX = cursor.WorldXAt(0);
+                //var worldY = cursor.WorldYAt(0);
+
+                var worldX = Camera.Main.WorldXAt(cursor.ScreenX, 0, true, FlatRedBallServices.Game.Window.ClientBounds.Width);
+                var worldY = Camera.Main.WorldYAt(cursor.ScreenY, 0, true, FlatRedBallServices.Game.Window.ClientBounds.Height);
 
 
+                if (worldX != Player.X || worldY != Player.Y)
+                {
+                    var angle = (float)(Math.Atan2(worldY - Player.Y, worldX - Player.X));
+
+                    X = (float)Math.Cos(angle);
+                    Y = (float)Math.Sin(angle);
+                }
+            }
         }
     }
 }
