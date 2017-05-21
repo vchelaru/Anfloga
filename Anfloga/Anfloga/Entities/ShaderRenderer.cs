@@ -75,8 +75,8 @@ namespace Anfloga.Entities
 
             FlatRedBallServices.GraphicsDevice.Textures[1] = WavyTexture;
 
-            //Effect.CurrentTechnique = Effect.Techniques["DistanceBlurTechnique"];
-            Effect.CurrentTechnique = Effect.Techniques["BloomTechnique"];
+            Effect.CurrentTechnique = Effect.Techniques["DistanceBlurTechnique"];
+            //Effect.CurrentTechnique = Effect.Techniques["BloomTechnique"];
             
             float rightX = camera.AbsoluteRightXEdgeAt(Viewer.Z);
             float leftX = camera.AbsoluteLeftXEdgeAt(Viewer.Z);

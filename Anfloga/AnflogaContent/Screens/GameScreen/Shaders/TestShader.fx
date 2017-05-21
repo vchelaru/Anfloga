@@ -62,7 +62,12 @@ float4 HighPassFunction(float2 coord : TEXCOORD0) : COLOR0
 	float4 color = tex2D(SpriteBatchTexture, coord);
 	float brightness = color.r * 0.299f + color.g * 0.587f + color.b * 0.114f;
 	
-	float multiplier = step(.45, brightness);
+	// The higher the first number, the less passes through
+	//float multiplier = step(.85, brightness);
+	//float multiplier = step(.65, brightness);
+	//float multiplier = step(.55, brightness);
+	float multiplier = step(.5, brightness);
+		//float multiplier = step(.45, brightness);
 	color = color * multiplier;
 
 	return color;
