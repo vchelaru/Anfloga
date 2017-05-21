@@ -104,13 +104,8 @@ namespace Anfloga.Entities
             }
             if (didCursorChange)
             {
-                // Normally we'd use the Cursor's position, but it will return incorrect values if we do because of our render targets:
-                //var worldX = cursor.WorldXAt(0);
-                //var worldY = cursor.WorldYAt(0);
-
-                var worldX = Camera.Main.WorldXAt(cursor.ScreenX, 0, true, FlatRedBallServices.Game.Window.ClientBounds.Width);
-                var worldY = Camera.Main.WorldYAt(cursor.ScreenY, 0, true, FlatRedBallServices.Game.Window.ClientBounds.Height);
-
+                var worldX = cursor.WorldXAt(0);
+                var worldY = cursor.WorldYAt(0);
 
                 if (worldX != Player.X || worldY != Player.Y)
                 {

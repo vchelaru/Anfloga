@@ -30,13 +30,13 @@ technique DisplacementTechnique
 
 float4 DistanceBlurFunction(float2 texCoord : TEXCOORD0) : COLOR0
 {
-
 	float ratioX = abs(texCoord.x - ViewerX);
 	float ratioY = abs(texCoord.y - ViewerY);
 
 	float blurRatio = max(ratioX, ratioY) * BlurStrength;
 
 	float4 color = 0;
+
 
 	int samples = 4;
 	float samplesSquared = 16;
@@ -56,21 +56,27 @@ float4 DistanceBlurFunction(float2 texCoord : TEXCOORD0) : COLOR0
 	return color;
 }
 
-
-float4 HighPassFunction(float2 coord : TEXCOORD0) : COLOR0
+float4 HighPassFunction(float2 texCoord : TEXCOORD0) : COLOR0
 {
-	float4 color = tex2D(SpriteBatchTexture, coord);
-	float brightness = color.r * 0.299f + color.g * 0.587f + color.b * 0.114f;
-	
-	// The higher the first number, the less passes through
-	//float multiplier = step(.85, brightness);
-	//float multiplier = step(.65, brightness);
-	//float multiplier = step(.55, brightness);
-	float multiplier = step(.5, brightness);
-		//float multiplier = step(.45, brightness);
-	color = color * multiplier;
+	float4 returnColor = (float4)0;
 
-	return color;
+	for (int x = 0; x < 4; x++)
+	{
+		for (int y = 0; y < 4; y++)
+		{
+			float2 coord;
+			coord.x = (texCoord.x - .01) + .02 * (x + .5)/3;
+			coord.y = (texCoord.y - .01) + .02* (y + .5)/3;
+			float4 color = tex2D(SpriteBatchTexture, coord);
+			//float brightness = color.r * 0.299f + color.g * 0.587f + color.b * 0.114f;
+	
+			//returnColor += color * brightness / 1;
+			returnColor += ((color - .45) * 3) / 16;
+		}
+	}
+
+
+	return returnColor;
 
 }
 

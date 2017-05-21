@@ -46,6 +46,8 @@ namespace Anfloga.Screens
 
         void CustomInitialize()
 		{
+            AdjustLayerOrthoValues();
+
             InitializeFactoryEvents();
 
             LoadLevel(LevelNameToLoad);
@@ -68,6 +70,16 @@ namespace Anfloga.Screens
 
             InitializeRestartVariables();
 		}
+
+        private void AdjustLayerOrthoValues()
+        {
+            // Adjust any layer which has its destination rectangle set in glue:
+            WorldLayer.LayerCameraSettings.OrthogonalWidth = Camera.Main.OrthogonalWidth;
+            WorldLayer.LayerCameraSettings.OrthogonalHeight = Camera.Main.OrthogonalHeight;
+
+            DarknessRenderTargetLayer.LayerCameraSettings.OrthogonalWidth = Camera.Main.OrthogonalWidth;
+            DarknessRenderTargetLayer.LayerCameraSettings.OrthogonalHeight = Camera.Main.OrthogonalHeight;
+        }
 
         private void InitializeShaders()
         {
@@ -150,10 +162,17 @@ namespace Anfloga.Screens
 
         private void InitializeRenderTargets()
         {
-            this.DarknessRenderTargetLayer.RenderTarget = DarknessRenderTarget;
-            this.WorldLayer.RenderTarget = WorldRenderTarget;
+            bool shouldExecute = true;
+#if DEBUG
+            shouldExecute = DebuggingVariables.RenderWithNoShaders == false;
+#endif
+            if(shouldExecute)
+            {
+                this.WorldLayer.RenderTarget = WorldRenderTarget;
 
-            this.ShaderRendererInstance.WorldTexture = WorldRenderTarget;
+                this.ShaderRendererInstance.WorldTexture = WorldRenderTarget;
+            }
+            this.DarknessRenderTargetLayer.RenderTarget = DarknessRenderTarget;
             this.ShaderRendererInstance.DarknessTexture = DarknessRenderTarget;
         }
 

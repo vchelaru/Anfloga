@@ -66,58 +66,120 @@ namespace Anfloga.Entities
         {
             DrawWorld(camera);
 
+            //DrawBloom(camera);
+
             DrawDarkness(camera);
         }
-        
         private void DrawWorld(Camera camera)
         {
-            var destinationRectangle = camera.DestinationRectangle;
-
-            FlatRedBallServices.GraphicsDevice.Textures[1] = WavyTexture;
-
-            Effect.CurrentTechnique = Effect.Techniques["DistanceBlurTechnique"];
-            //Effect.CurrentTechnique = Effect.Techniques["BloomTechnique"];
-            
-            float rightX = camera.AbsoluteRightXEdgeAt(Viewer.Z);
-            float leftX = camera.AbsoluteLeftXEdgeAt(Viewer.Z);
-
-            float bottomY = camera.AbsoluteBottomYEdgeAt(Viewer.Z);
-            float topY = camera.AbsoluteTopYEdgeAt(Viewer.Z);
-
-            float ratioX = (Viewer.X - leftX) / (rightX - leftX);
-            float ratioY = 1 - (Viewer.Y - bottomY) / (topY - bottomY);
-
-            Effect.Parameters["ViewerX"].SetValue(ratioX);
-            Effect.Parameters["ViewerY"].SetValue(ratioY);
-            Effect.Parameters["BlurStrength"].SetValue(BlurStrength);
-
-            bool blurOn = true;
-            if (blurOn)
+            bool shouldExecute = true;
+#if DEBUG
+            shouldExecute = DebuggingVariables.RenderWithNoShaders == false;
+#endif
+            if(shouldExecute)
             {
+                var destinationRectangle = camera.DestinationRectangle;
+
+                FlatRedBallServices.GraphicsDevice.Textures[1] = WavyTexture;
+
+                Effect.CurrentTechnique = Effect.Techniques["DistanceBlurTechnique"];
+            
+                float rightX = camera.AbsoluteRightXEdgeAt(Viewer.Z);
+                float leftX = camera.AbsoluteLeftXEdgeAt(Viewer.Z);
+
+                float bottomY = camera.AbsoluteBottomYEdgeAt(Viewer.Z);
+                float topY = camera.AbsoluteTopYEdgeAt(Viewer.Z);
+
+                float ratioX = (Viewer.X - leftX) / (rightX - leftX);
+                float ratioY = 1 - (Viewer.Y - bottomY) / (topY - bottomY);
+
+                Effect.Parameters["ViewerX"].SetValue(ratioX);
+                Effect.Parameters["ViewerY"].SetValue(ratioY);
+                Effect.Parameters["BlurStrength"].SetValue(BlurStrength);
+
+                bool blurOn = false;
+                if (blurOn)
+                {
+                    spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend,
+                        SamplerState.LinearClamp, DepthStencilState.None, RasterizerState.CullNone,
+                        Effect);
+                }
+                else
+                {
+                    spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend);
+                }
+                spriteBatch.Draw(WorldTexture, destinationRectangle, Color.White);
+                spriteBatch.End();
+                FlatRedBallServices.GraphicsDevice.Textures[1] = null;
+            }
+        }
+
+        private void DrawBloom(Camera camera)
+        {
+            FlatRedBallServices.GraphicsDevice.SetRenderTarget(BloomRenderTarget);
+            FlatRedBallServices.GraphicsDevice.Clear(Color.Black);
+            {
+                var destinationRectangle = new Rectangle(0,0, BloomRenderTarget.Width, BloomRenderTarget.Height);
+
+                Effect.CurrentTechnique = Effect.Techniques["BloomTechnique"];
+
                 spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend,
                     SamplerState.LinearClamp, DepthStencilState.None, RasterizerState.CullNone,
                     Effect);
+
+                spriteBatch.Draw(WorldTexture, destinationRectangle, Color.White);
+                spriteBatch.End();
+            }
+
+            if(this.LayerProvidedByContainer != null)
+            {
+                FlatRedBallServices.GraphicsDevice.SetRenderTarget(LayerProvidedByContainer.RenderTarget);
             }
             else
             {
-                spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend);
+                FlatRedBallServices.GraphicsDevice.SetRenderTarget(null);
             }
-            spriteBatch.Draw(WorldTexture, destinationRectangle, Color.White);
-            spriteBatch.End();
-            FlatRedBallServices.GraphicsDevice.Textures[1] = null;
+
+            {
+                var destinationRectangle = camera.DestinationRectangle;
+
+                spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.Additive,
+                    SamplerState.AnisotropicClamp, DepthStencilState.None, RasterizerState.CullNone,
+                    Effect);
+
+                spriteBatch.Draw(WorldTexture, destinationRectangle, Color.White);
+                spriteBatch.End();
+            }
+
+            if (InputManager.Keyboard.KeyPushed(Microsoft.Xna.Framework.Input.Keys.Space))
+            {
+                using (var stream = System.IO.File.OpenWrite("RenderTarget1.png"))
+                {
+                    BloomRenderTarget.SaveAsPng(stream, BloomRenderTarget.Width, BloomRenderTarget.Height);
+                }
+            }
+
         }
+
 
         private void DrawDarkness(Camera camera)
         {
-            var destinationRectangle = camera.DestinationRectangle;
+            bool shouldExecute = true;
+#if DEBUG
+            shouldExecute = DebuggingVariables.RenderWithNoShaders == false;
+#endif
+            if(shouldExecute)
+            {
+                var destinationRectangle = camera.DestinationRectangle;
 
-            var darknessColor = new Color(1, 1, 1, DarknessAlpha);
-            BlendState blendState = GetMultiplyBlendOperation();
+                var darknessColor = new Color(1, 1, 1, DarknessAlpha);
+                BlendState blendState = GetMultiplyBlendOperation();
 
-            spriteBatch.Begin(SpriteSortMode.Immediate, blendState);
-            spriteBatch.Draw(DarknessTexture, destinationRectangle, darknessColor);
+                spriteBatch.Begin(SpriteSortMode.Immediate, blendState);
+                spriteBatch.Draw(DarknessTexture, destinationRectangle, darknessColor);
 
-            spriteBatch.End();
+                spriteBatch.End();
+            }
         }
 
         private static BlendState GetMultiplyBlendOperation()

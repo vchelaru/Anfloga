@@ -139,6 +139,7 @@
           <GenerateTimedEmit>true</GenerateTimedEmit>
           <IndependentOfCamera>true</IndependentOfCamera>
           <Is2D>true</Is2D>
+          <LayerCoordinateType>MatchScreenResolution</LayerCoordinateType>
         </NamedObjectSave>
         <NamedObjectSave>
           <CustomProperty>
@@ -225,6 +226,17 @@
           <IndependentOfCamera>true</IndependentOfCamera>
         </NamedObjectSave>
         <NamedObjectSave>
+          <Properties>
+            <PropertySave>
+              <Name>DestinationRectangle</Name>
+              <ValueAsRectangle>
+                <Y>0</Y>
+                <Height>540</Height>
+                <X>0</X>
+                <Width>960</Width>
+              </ValueAsRectangle>
+            </PropertySave>
+          </Properties>
           <CustomProperty>
             <Type>bool</Type>
             <Member>RelativeToCamera</Member>
@@ -1137,6 +1149,18 @@
           <Type>bool</Type>
           <IsShared>true</IsShared>
         </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>bool</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>RenderWithNoShaders</Name>
+          <Type>bool</Type>
+          <DefaultValue xsi:type="xsd:boolean">false</DefaultValue>
+          <IsShared>true</IsShared>
+        </CustomVariable>
       </CustomVariables>
       <ImplementsIDrawableBatch>false</ImplementsIDrawableBatch>
       <Name>Entities\DebuggingVariables</Name>
@@ -1878,6 +1902,28 @@
       <ImplementsIVisible>true</ImplementsIVisible>
       <ImplementsIDrawableBatch>true</ImplementsIDrawableBatch>
       <Name>Entities\ShaderRenderer</Name>
+      <NamedObjects>
+        <NamedObjectSave>
+          <CustomProperty>
+            <Type>int</Type>
+            <Member>Width</Member>
+            <ValueAsInt>240</ValueAsInt>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>int</Type>
+            <Member>Height</Member>
+            <ValueAsInt>135</ValueAsInt>
+          </CustomProperty>
+          <SourceType>FlatRedBallType</SourceType>
+          <SourceFile />
+          <SourceName />
+          <SourceClassType>RenderTarget2D</SourceClassType>
+          <InstanceName>BloomRenderTarget</InstanceName>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
+      </NamedObjects>
       <ReferencedFiles>
         <ReferencedFileSave>
           <Name>Entities/ShaderRenderer/WavyTexture.png</Name>
