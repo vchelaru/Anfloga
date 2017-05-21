@@ -220,14 +220,16 @@
   <object id="93" gid="1" x="326" y="477" width="16" height="16"/>
   <object id="99" x="731.5" y="776.95" width="31.7965" height="26.4971">
    <properties>
-    <property name="AutomaticDialogDisplay" type="bool" value="false"/>
+    <property name="AutomaticDialogDisplay" type="bool" value="true"/>
     <property name="DialogKey" value="T_Intro1"/>
     <property name="EntityToCreate" value="WorldObjectEntity"/>
+    <property name="ShouldPlaceOnUiLayer" type="bool" value="true"/>
+    <property name="ShouldToggleVisibility" type="bool" value="true"/>
     <property name="VisualName" value="PlaceOfInterest"/>
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="SafeZone">
+ <objectgroup name="SafeZone" visible="0">
   <object id="12" x="0" y="0" width="19184" height="768">
    <properties>
     <property name="ActivationCost" type="int" value="0"/>
@@ -250,7 +252,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Darkness Triggers">
+ <objectgroup name="Darkness Triggers" visible="0">
   <object id="36" x="-48" y="768" width="19456" height="32">
    <properties>
     <property name="DarknessValue" type="float" value="0.5"/>

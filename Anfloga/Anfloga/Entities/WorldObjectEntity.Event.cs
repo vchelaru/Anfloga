@@ -44,6 +44,5 @@ namespace Anfloga.Entities
         {
             SpriteInstance.Visible = true;
         }
-
 	}
 }

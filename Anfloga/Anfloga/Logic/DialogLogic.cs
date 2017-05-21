@@ -51,23 +51,30 @@ namespace Anfloga.Logic
                     
                     if(worldEntityCollidingWith != null)
                     {
-                        bool shouldShow = false;
-                        if(worldEntityCollidingWith.AutomaticDialogDisplay)
-                        {
-                            shouldShow = true;
-                            currentDialogShownState = DialogShownState.AutomaticallyShown;
-                        }
-                        else if(pressedDialogButton)
-                        {
-                            shouldShow = true;
-                            currentDialogShownState = DialogShownState.ExplicitlyShown;
-                        }
+                        bool shouldSkipConsumedDialog = worldEntityCollidingWith.IsConsumable && worldEntityCollidingWith.HasBeenConsumed;
 
-                        if(shouldShow)
+                        bool shouldShow = false;
+
+                        if (!shouldSkipConsumedDialog)
                         {
-                            DialogBox.Visible = true;
-                            DialogBox.Text = LocalizationManager.Translate(worldEntityCollidingWith.DialogKey);
-                            entityShowingDialog = worldEntityCollidingWith;
+                            if (worldEntityCollidingWith.AutomaticDialogDisplay)
+                            {
+                                shouldShow = true;
+                                currentDialogShownState = DialogShownState.AutomaticallyShown;
+                            }
+                            else if (pressedDialogButton)
+                            {
+                                shouldShow = true;
+                                currentDialogShownState = DialogShownState.ExplicitlyShown;
+                            }
+
+                            if (shouldShow)
+                            {
+                                DialogBox.Visible = true;
+                                worldEntityCollidingWith.HasBeenConsumed = true;
+                                DialogBox.Text = LocalizationManager.Translate(worldEntityCollidingWith.DialogKey);
+                                entityShowingDialog = worldEntityCollidingWith;
+                            }
                         }
                     }
 

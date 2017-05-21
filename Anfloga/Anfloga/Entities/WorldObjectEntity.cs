@@ -13,6 +13,9 @@ namespace Anfloga.Entities
 {
 	public partial class WorldObjectEntity
 	{
+
+        public bool HasBeenConsumed { get; set; }
+
         /// <summary>
         /// Initialization logic which is execute only one time for this Entity (unless the Entity is pooled).
         /// This method is called when the Entity is added to managers. Entities which are instantiated but not
@@ -44,7 +47,7 @@ namespace Anfloga.Entities
 
         internal void SetIsVisible(bool isVisible)
         {
-            if (ShouldToggleVisibility)
+            if (ShouldToggleVisibility && !HasBeenConsumed)
             {
                 SpriteInstance.Visible = isVisible;
             }
