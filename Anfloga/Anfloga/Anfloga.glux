@@ -1896,7 +1896,18 @@
           </Properties>
           <Name>BlurStrength</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">0.036</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">0.06</DefaultValue>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>FocusedRatio</Name>
+          <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">0.3</DefaultValue>
         </CustomVariable>
       </CustomVariables>
       <ImplementsIVisible>true</ImplementsIVisible>

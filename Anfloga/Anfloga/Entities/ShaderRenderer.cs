@@ -96,6 +96,8 @@ namespace Anfloga.Entities
                 Effect.Parameters["ViewerX"].SetValue(ratioX);
                 Effect.Parameters["ViewerY"].SetValue(ratioY);
                 Effect.Parameters["BlurStrength"].SetValue(BlurStrength);
+                // divide by 2 to account for the focus being applied center-out
+                Effect.Parameters["FocusArea"].SetValue(FocusedRatio / 2.0f);
 
                 bool blurOn = true;
                 if (blurOn)
