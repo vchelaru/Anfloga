@@ -144,12 +144,12 @@ namespace Anfloga.Screens
             }
             foreach(var item in PlayerList)
             {
-                item.InitializeLightLayer(DarknessRenderTargetLayer);
+                item.InitializeLightLayer(LightLayer);
             }
 
             foreach(var item in this.LightEntityList)
             {
-                item.MoveToLayer(DarknessRenderTargetLayer);
+                item.MoveToLayer(LightLayer);
             }
 
             foreach(var item in WorldObjectEntityList)
@@ -164,9 +164,11 @@ namespace Anfloga.Screens
         {
             this.DarknessRenderTargetLayer.RenderTarget = DarknessRenderTarget;
             this.WorldLayer.RenderTarget = WorldRenderTarget;
+            this.LightLayer.RenderTarget = LightRenderTarget;
 
             this.ShaderRendererInstance.WorldTexture = WorldRenderTarget;
             this.ShaderRendererInstance.DarknessTexture = DarknessRenderTarget;
+            this.ShaderRendererInstance.LightTexture = LightRenderTarget;
         }
 
         private void InitializeHud()

@@ -25,6 +25,7 @@ namespace Anfloga.Entities
 
         public Texture2D WorldTexture { get; set; }
         public Texture2D DarknessTexture { get; set; }
+        public Texture2D LightTexture { get; set; }
         public Texture2D BlowoutTexture { get; set; }
 
         public float DarknessAlpha { get; set; }
@@ -75,8 +76,10 @@ namespace Anfloga.Entities
             DrawWorld(camera);
 
             DrawDarkness(camera);
+            DrawLight(camera);
         }
-        
+
+
         private void DrawWorld(Camera camera)
         {
             var destinationRectangle = camera.DestinationRectangle;
@@ -128,16 +131,22 @@ namespace Anfloga.Entities
             if (shaderOn)
             {
                 spriteBatch.Begin(SpriteSortMode.Immediate, blendState,
-                    SamplerState.LinearClamp, DepthStencilState.None, RasterizerState.CullNone,
+                    SamplerState.PointClamp, DepthStencilState.None, RasterizerState.CullNone,
                         DarknessEffect);
             }
             else
             {
                 spriteBatch.Begin(SpriteSortMode.Immediate, blendState);
             }
-            var colorToUse = shaderOn ? new Color(0,0,0,0) : darknessColor;
+            var colorToUse = shaderOn ? Color.White : darknessColor;
             spriteBatch.Draw(DarknessTexture, destinationRectangle, colorToUse);
 
+            spriteBatch.End();
+        }
+        private void DrawLight(Camera camera)
+        {
+            spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend);
+            spriteBatch.Draw(LightTexture, camera.DestinationRectangle, Color.White);
             spriteBatch.End();
         }
 

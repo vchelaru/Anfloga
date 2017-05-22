@@ -398,7 +398,7 @@
   </object>
   <object id="105" x="320" y="768" width="624" height="96">
    <properties>
-    <property name="DarknessValue" type="float" value="0.95"/>
+    <property name="DarknessValue" type="float" value="0.5"/>
     <property name="EntityToCreate" value="DarkRegion"/>
    </properties>
   </object>

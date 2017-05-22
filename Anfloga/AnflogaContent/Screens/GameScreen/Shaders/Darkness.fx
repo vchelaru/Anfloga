@@ -10,18 +10,13 @@ float4 DarknessFunction(float2 texCoord : TEXCOORD0) : COLOR0
 {
 	float4 color = tex2D(DarknessTexture, texCoord);
 	//return color;
-	float alpha = 0;
 	float pixelY = cameraTop - (textureHeight * texCoord.y);
-	if (length(color.rgb) == 0 && color.a > 0)
+	if (pixelY < darknessStart && color.a == 0)
 	{
-		alpha = color.a;
-	}
-	else if (pixelY < darknessStart)
-	{
-		alpha = abs(darknessStart - pixelY) * alphaPerPixel;
+		color.a = abs(darknessStart - pixelY) * alphaPerPixel;
 	}
 
-	return float4(color.rgb, alpha);
+	return color;
 }
 
 technique DarknessTechnique
