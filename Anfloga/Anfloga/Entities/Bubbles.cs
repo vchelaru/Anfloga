@@ -154,8 +154,6 @@ namespace Anfloga.Entities
             {
                 float positionOffset = FlatRedBallServices.Random.Between(-RandomSpawnOffset, RandomSpawnOffset);
                 newBubble.Position = this.Position; 
-                newBubble.Z = 1; //While a magic number, 1 is above the water but below the terrain. So we don't have to do collision checks at this moment.
-
 
                 // Set the positional offsets
                 // and velocity based on the type 
