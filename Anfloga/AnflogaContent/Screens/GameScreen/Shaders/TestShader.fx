@@ -32,31 +32,26 @@ float4 DistanceBlurFunction(float2 texCoord : TEXCOORD0) : COLOR0
 	float2 displacedCoord = texCoord;
 	float pixelY = CameraTop - (TextureHeight * texCoord.y);
 
-	float4 color = 0;
 	if (pixelY < DisplacementStart)
 	{
 		displacedCoord = DisplacementFunction(texCoord);
-		color = float4(0, 0, 0, 1);
 	}
-	else
+
+	float4 color = 0;
+
+	int samples = 4;
+	float samplesSquared = 16;
+	float blurOver2 = blurRatio / 2;
+	float blurOverSamples = blurRatio / samples;
+
+	for (int x = 0; x < samples; x++)
 	{
-
-
-
-		int samples = 4;
-		float samplesSquared = 16;
-		float blurOver2 = blurRatio / 2;
-		float blurOverSamples = blurRatio / samples;
-
-		for (int x = 0; x < samples; x++)
+		for (int y = 0; y < samples; y++)
 		{
-			for (int y = 0; y < samples; y++)
-			{
-				float2 coord = displacedCoord;
-				coord.x += -blurOver2 + (blurOverSamples * x);
-				coord.y += -blurOver2 + (blurOverSamples * y);
-				color += tex2D(SpriteBatchTexture, coord) / samplesSquared;
-			}
+			float2 coord = displacedCoord;
+			coord.x += -blurOver2 + (blurOverSamples * x);
+			coord.y += -blurOver2 + (blurOverSamples * y);
+			color += tex2D(SpriteBatchTexture, coord) / samplesSquared;
 		}
 	}
 	return color;

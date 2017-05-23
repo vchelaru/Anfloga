@@ -30,7 +30,7 @@ namespace Anfloga.Entities
 
         public PositionedObject Viewer { get; set; }
 
-        private int displacementOffset = 0;
+        private float displacementOffset = 0;
 
         #endregion
 
@@ -42,7 +42,7 @@ namespace Anfloga.Entities
         private void CustomInitialize()
 		{
             spriteBatch = new SpriteBatch(FlatRedBallServices.GraphicsDevice);
-
+            displacementOffset = DisplacementStart;
 		}
 
         private void CustomActivity()
@@ -53,11 +53,6 @@ namespace Anfloga.Entities
             //{
             //    displacementOffset = 0;
             //}
-            if (FlatRedBall.Input.InputManager.Keyboard.KeyPushed(Microsoft.Xna.Framework.Input.Keys.Q))
-                displacementOffset -= 50;
-            if (FlatRedBall.Input.InputManager.Keyboard.KeyPushed(Microsoft.Xna.Framework.Input.Keys.E))
-                displacementOffset += 50;
-            Effect.Parameters["DisplacementStart"].SetValue(displacementOffset);
         }
 
 		private void CustomDestroy()
@@ -74,8 +69,8 @@ namespace Anfloga.Entities
         public void InitializeRenderVariables()
         {
             Effect.Parameters["BlurStrength"].SetValue(BlurStrength);
-            //Effect.Parameters["DisplacementStart"].SetValue(DisplacementStart);
-            Effect.Parameters["TextureHeight"].SetValue(WorldTexture.Height);
+            Effect.Parameters["DisplacementStart"].SetValue(DisplacementStart);
+            Effect.Parameters["TextureHeight"].SetValue(Camera.Main.OrthogonalHeight);
         }
 
         public void Draw(Camera camera)
@@ -132,7 +127,7 @@ namespace Anfloga.Entities
 
                 Effect.Parameters["ViewerX"].SetValue(ratioX);
                 Effect.Parameters["ViewerY"].SetValue(ratioY);
-                Effect.Parameters["CameraTop"].SetValue(camera.AbsoluteTopYEdgeAt(0));
+                Effect.Parameters["CameraTop"].SetValue(topY);
 
                 bool blurOn = true;
                 if (blurOn)

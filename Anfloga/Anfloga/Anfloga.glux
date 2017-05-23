@@ -1907,7 +1907,7 @@
           </Properties>
           <Name>DisplacementStart</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">-600</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">-497</DefaultValue>
         </CustomVariable>
         <CustomVariable>
           <Properties>
