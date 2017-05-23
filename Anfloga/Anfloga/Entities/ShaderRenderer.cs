@@ -10,7 +10,6 @@ using FlatRedBall.Graphics.Particle;
 using FlatRedBall.Math.Geometry;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
-using Anfloga.Rendering;
 
 namespace Anfloga.Entities
 {
@@ -76,8 +75,6 @@ namespace Anfloga.Entities
         public void Draw(Camera camera)
         {
             DrawWorld(camera);
-
-            //DrawBloom(camera);
 
             DrawDarkness(camera);
         }
@@ -148,55 +145,6 @@ namespace Anfloga.Entities
                 FlatRedBallServices.GraphicsDevice.Textures[1] = null;
             }
         }
-
-        private void DrawBloom(Camera camera)
-        {
-            FlatRedBallServices.GraphicsDevice.SetRenderTarget(BloomRenderTarget);
-            FlatRedBallServices.GraphicsDevice.Clear(Color.Black);
-            {
-                var destinationRectangle = new Rectangle(0,0, BloomRenderTarget.Width, BloomRenderTarget.Height);
-
-                Effect.CurrentTechnique = Effect.Techniques["BloomTechnique"];
-
-                spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend,
-                    SamplerState.LinearClamp, DepthStencilState.None, RasterizerState.CullNone,
-                    Effect);
-
-                spriteBatch.Draw(WorldTexture, destinationRectangle, Color.White);
-                spriteBatch.End();
-            }
-
-            if(this.LayerProvidedByContainer != null)
-            {
-                FlatRedBallServices.GraphicsDevice.SetRenderTarget(LayerProvidedByContainer.RenderTarget);
-            }
-            else
-            {
-                FlatRedBallServices.GraphicsDevice.SetRenderTarget(null);
-            }
-
-            {
-                var destinationRectangle = camera.DestinationRectangle;
-
-                spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.Additive,
-                    SamplerState.AnisotropicClamp, DepthStencilState.None, RasterizerState.CullNone,
-                    Effect);
-
-                spriteBatch.Draw(WorldTexture, destinationRectangle, Color.White);
-                spriteBatch.End();
-            }
-
-            if (InputManager.Keyboard.KeyPushed(Microsoft.Xna.Framework.Input.Keys.Space))
-            {
-                using (var stream = System.IO.File.OpenWrite("RenderTarget1.png"))
-                {
-                    BloomRenderTarget.SaveAsPng(stream, BloomRenderTarget.Width, BloomRenderTarget.Height);
-                }
-            }
-
-        }
-
-
         private void DrawDarkness(Camera camera)
         {
             bool shouldExecute = true;

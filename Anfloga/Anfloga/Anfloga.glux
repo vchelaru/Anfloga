@@ -855,6 +855,17 @@
           <Type>float</Type>
           <DefaultValue xsi:type="xsd:float">2.5</DefaultValue>
         </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>SurfaceY</Name>
+          <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">-497</DefaultValue>
+        </CustomVariable>
       </CustomVariables>
       <ImplementsIVisible>true</ImplementsIVisible>
       <ImplementsIDrawableBatch>false</ImplementsIDrawableBatch>

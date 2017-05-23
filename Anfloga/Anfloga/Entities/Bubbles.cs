@@ -13,11 +13,15 @@ using Microsoft.Xna.Framework;
 
 namespace Anfloga.Entities
 {
+    #region Enums
+
     public enum BubbleEmitterType
     {
         Geyser,
         Sub,
     }
+
+    #endregion
 
     public static class BubbleEmitterTypeExtenstion
     {
@@ -102,14 +106,23 @@ namespace Anfloga.Entities
                 var bubbleTuple = bubbles[i];
                 if (currentScreen.PauseAdjustedSecondsSince(bubbleTuple.Item2) >= BubbleLifeTime)
                 {
-                    SpriteManager.RemoveSprite(bubbleTuple.Item1);
-                    bubbles.Remove(bubbleTuple);
+                    DestroyBubble(bubbleTuple);
+                }
+                else if(bubbleTuple.Item1.Y > SurfaceY)
+                {
+                    DestroyBubble(bubbleTuple);
                 }
                 else
                 {
                     ApplyVelocityAdjustments(bubbleTuple.Item1);
                 }
             }
+        }
+
+        private void DestroyBubble(Tuple<Sprite, double> bubbleTuple)
+        {
+            SpriteManager.RemoveSprite(bubbleTuple.Item1);
+            bubbles.Remove(bubbleTuple);
         }
 
         private void ApplyVelocityAdjustments(Sprite bubble)
