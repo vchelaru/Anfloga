@@ -13,6 +13,7 @@ namespace Anfloga.Entities
 {
 	public partial class WorldObjectEntity
 	{
+        public double TimeDialogShown { get; set; }
 
         public bool HasBeenConsumed { get; set; }
 

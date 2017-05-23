@@ -1,6 +1,7 @@
 ﻿using Anfloga.Entities;
 using Anfloga.GumRuntimes;
 using FlatRedBall.Localization;
+using FlatRedBall.Screens;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +12,8 @@ namespace Anfloga.Logic
 {
     public class DialogLogic
     {
+        #region Enums
+
         enum DialogShownState
         {
             /// <summary>
@@ -34,6 +37,10 @@ namespace Anfloga.Logic
             ExplicitlyHidAutomaticZone
         }
 
+        #endregion
+
+        #region Fields/Properties
+
         DialogShownState currentDialogShownState = DialogShownState.Hidden;
 
         WorldObjectEntity entityShowingDialog;
@@ -42,6 +49,7 @@ namespace Anfloga.Logic
 
         public DialogBoxRuntime DialogBox { get; set; }
 
+        #endregion
 
         public void Update(bool pressedDialogButton, WorldObjectEntity worldEntityCollidingWith)
         {
@@ -73,6 +81,7 @@ namespace Anfloga.Logic
                                 DialogBox.Visible = true;
                                 worldEntityCollidingWith.HasBeenConsumed = true;
                                 DialogBox.Text = LocalizationManager.Translate(worldEntityCollidingWith.DialogKey);
+                                worldEntityCollidingWith.TimeDialogShown = ScreenManager.CurrentScreen.PauseAdjustedCurrentTime;
                                 entityShowingDialog = worldEntityCollidingWith;
                             }
                         }
@@ -80,10 +89,20 @@ namespace Anfloga.Logic
 
                     break;
                 case DialogShownState.AutomaticallyShown:
-
+                    bool shouldClose = false;
                     if (worldEntityCollidingWith != entityShowingDialog)
                     {
                         // user moved out of the collision area, so hide it:
+                        shouldClose = true;
+                    }
+                    else if(entityShowingDialog.AutomaticDismissTime > 0)
+                    {
+                        shouldClose = ScreenManager.CurrentScreen.PauseAdjustedSecondsSince(entityShowingDialog.TimeDialogShown) >
+                            entityShowingDialog.AutomaticDismissTime;
+                    }
+
+                    if(shouldClose)
+                    {
                         CloseDialog();
                     }
 
