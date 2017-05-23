@@ -59,6 +59,7 @@ namespace Anfloga.Entities
         /// </summary>
         private void CustomInitialize()
 		{
+            CurrentCurrencyBalance = 1000;
             // We may end up calling this in a screen in case we want the screen to control this assignment
             AssignInput();
 

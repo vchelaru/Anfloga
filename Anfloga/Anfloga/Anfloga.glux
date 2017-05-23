@@ -853,7 +853,7 @@
           </Properties>
           <Name>RandomXVelocityAdjustments</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">2.5</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">4.5</DefaultValue>
         </CustomVariable>
         <CustomVariable>
           <Properties>

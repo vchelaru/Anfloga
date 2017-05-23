@@ -13,15 +13,17 @@ float DisplacementStart = 0;
 float TextureHeight = 0;
 float CameraTop = 0;
 
-float2 DisplacementFunction(float2 texCoord : TEXCOORD0) : COLOR0
+float DisplacementTextureOffset = 0;
+
+float DisplacementFunction(float2 texCoord : TEXCOORD0)
 {
+	texCoord.y -= CameraTop / 270 - DisplacementTextureOffset;
+	
+	texCoord.y -= trunc(texCoord.y);
+	
+
 	float4 color = tex2D(DisplacementTexture, texCoord);
-
-	float2 modifiedTexCoord = texCoord;
-	float range = .02;
-	modifiedTexCoord.y = modifiedTexCoord.y - range/2 + (range * color.r);
-
-	return  modifiedTexCoord;
+	return color.y;
 }
 
 float4 DistanceBlurFunction(float2 texCoord : TEXCOORD0) : COLOR0
@@ -31,12 +33,13 @@ float4 DistanceBlurFunction(float2 texCoord : TEXCOORD0) : COLOR0
 
 	float blurRatio = max(0, max(ratioX, ratioY) - FocusArea) * BlurStrength;
 
-	float2 displacedCoord = texCoord;
+	float yOffset;
+
 	float pixelY = CameraTop - (TextureHeight * texCoord.y);
 
 	if (pixelY < DisplacementStart)
 	{
-		displacedCoord = DisplacementFunction(texCoord);
+		yOffset = DisplacementFunction(texCoord);
 	}
 
 	float4 color = 0;
@@ -46,16 +49,21 @@ float4 DistanceBlurFunction(float2 texCoord : TEXCOORD0) : COLOR0
 	float blurOver2 = blurRatio / 2;
 	float blurOverSamples = blurRatio / samples;
 
-	for (int x = 0; x < samples; x++)
-	{
-		for (int y = 0; y < samples; y++)
-		{
-			float2 coord = displacedCoord;
-			coord.x += -blurOver2 + (blurOverSamples * x);
-			coord.y += -blurOver2 + (blurOverSamples * y);
-			color += tex2D(SpriteBatchTexture, coord) / samplesSquared;
-		}
-	}
+			texCoord.y += -.01 + yOffset * .02;
+			color = tex2D(SpriteBatchTexture, texCoord);
+
+
+	//for (int x = 0; x < samples; x++)
+	//{
+	//	for (int y = 0; y < samples; y++)
+	//	{
+	//		float2 coord = displacedCoord;
+	//		coord.x += -blurOver2 + (blurOverSamples * x);
+	//		coord.y += -blurOver2 + (blurOverSamples * y);
+	//
+	//		color += tex2D(SpriteBatchTexture, coord) / samplesSquared;
+	//	}
+	//}
 	return color;
 }
 

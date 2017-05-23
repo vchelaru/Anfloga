@@ -125,6 +125,7 @@ namespace Anfloga.Entities
                 Effect.Parameters["ViewerX"].SetValue(ratioX);
                 Effect.Parameters["ViewerY"].SetValue(ratioY);
                 Effect.Parameters["CameraTop"].SetValue(topY);
+                Effect.Parameters["DisplacementTextureOffset"].SetValue((float)TimeManager.CurrentTime/30);
                 // divide by 2 to account for the focus being applied center-out
                 Effect.Parameters["FocusArea"].SetValue(FocusedRatio / 2.0f);
 
