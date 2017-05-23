@@ -183,7 +183,6 @@
   <object id="17" x="804.325" y="487.09" width="279.185" height="336">
    <properties>
     <property name="AutomaticDialogDisplay" type="bool" value="true"/>
-    <property name="AutomaticDismissTime" type="float" value="5"/>
     <property name="DialogKey" value="T_Intro2"/>
     <property name="EntityToCreate" value="WorldObjectEntity"/>
     <property name="IsConsumable" type="bool" value="true"/>
