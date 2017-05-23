@@ -98,10 +98,6 @@ namespace Anfloga.Entities
                 }
             }
 
-            if(cursor.PrimaryClick)
-            {
-                int m = 3;
-            }
             if (didCursorChange)
             {
                 var worldX = cursor.WorldXAt(0);

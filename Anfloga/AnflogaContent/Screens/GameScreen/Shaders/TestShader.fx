@@ -7,6 +7,8 @@ sampler DisplacementTexture : register(s1);
 float ViewerX = .5;
 float ViewerY = .5;
 float BlurStrength = 0.036;
+float FocusArea = .25f;
+
 float DisplacementStart = 0;
 float TextureHeight = 0;
 float CameraTop = 0;
@@ -27,7 +29,7 @@ float4 DistanceBlurFunction(float2 texCoord : TEXCOORD0) : COLOR0
 	float ratioX = abs(texCoord.x - ViewerX);
 	float ratioY = abs(texCoord.y - ViewerY);
 
-	float blurRatio = max(ratioX, ratioY) * BlurStrength;
+	float blurRatio = max(0, max(ratioX, ratioY) - FocusArea) * BlurStrength;
 
 	float2 displacedCoord = texCoord;
 	float pixelY = CameraTop - (TextureHeight * texCoord.y);
