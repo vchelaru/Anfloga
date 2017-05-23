@@ -53,8 +53,7 @@ namespace FlatRedBall.TileGraphics
 
                     foreach (int value in indexes)
                     {
-                        mapLayer.PaintTileTextureCoordinates(value, animationFrame.LeftCoordinate, animationFrame.TopCoordinate,
-                            animationFrame.RightCoordinate, animationFrame.BottomCoordinate);
+                        mapLayer.PaintTileTextureCoordinates(value, animationFrame.LeftCoordinate, animationFrame.TopCoordinate);
                     }
                 }
             }

@@ -174,53 +174,39 @@ namespace FlatRedBall.TileEntities
 
             foreach (var property in propertiesToAssign)
             {
-                // If name is EntityToCreate, skip it:
-                string propertyName = property.Name;
-
-                bool shouldSet = propertyName != "EntityToCreate";
-
-                if (shouldSet)
+                var valueToSet = property.Value;
+                valueToSet = SetValueAccordingToType(valueToSet, property.Name, property.Type, entityType);
+                try
                 {
-                    if(propertyName == "name")
+                    lateBinder.SetValue(entity, property.Name, valueToSet);
+                }
+                catch (InvalidCastException e)
+                {
+                    string assignedType = valueToSet.GetType().ToString() ?? "unknown type";
+                    assignedType = GetFriendlyNameForType(assignedType);
+
+                    string expectedType = "unknown type";
+                    object outValue;
+                    if (lateBinder.TryGetValue(entity, property.Name, out outValue) && outValue != null)
                     {
-                        propertyName = "Name";
+                        expectedType = outValue.GetType().ToString();
+                        expectedType = GetFriendlyNameForType(expectedType);
                     }
 
-                    var valueToSet = property.Value;
-                    valueToSet = SetValueAccordingToType(valueToSet, propertyName, property.Type, entityType);
-                    try
-                    {
-                        lateBinder.SetValue(entity, propertyName, valueToSet);
-                    }
-                    catch (InvalidCastException e)
-                    {
-                        string assignedType = valueToSet.GetType().ToString() ?? "unknown type";
-                        assignedType = GetFriendlyNameForType(assignedType);
+                    // This means that the property exists but is of a different type. 
+                    string message = $"Attempted to assign the property {property.Name} " +
+                        $"to a value of type {assignedType} but expected {expectedType}. " +
+                        $"Check the property type in your TMX and make sure it matches the type on the entity.";
+                    throw new Exception(message, e);
+                }
+                catch (Exception e)
+                {
+                    // Since this code indiscriminately tries to set properties, it may set properties which don't
+                    // actually exist. Therefore, we tolerate failures.
 
-                        string expectedType = "unknown type";
-                        object outValue;
-                        if (lateBinder.TryGetValue(entity, propertyName, out outValue) && outValue != null)
-                        {
-                            expectedType = outValue.GetType().ToString();
-                            expectedType = GetFriendlyNameForType(expectedType);
-                        }
-
-                        // This means that the property exists but is of a different type. 
-                        string message = $"Attempted to assign the property {propertyName} " +
-                            $"to a value of type {assignedType} but expected {expectedType}. " +
-                            $"Check the property type in your TMX and make sure it matches the type on the entity.";
-                        throw new Exception(message, e);
-                    }
-                    catch (Exception e)
-                    {
-                        // Since this code indiscriminately tries to set properties, it may set properties which don't
-                        // actually exist. Therefore, we tolerate failures.
-                    }
                 }
             }
         }
-
-
 
 
         private static string GetFriendlyNameForType(string type)

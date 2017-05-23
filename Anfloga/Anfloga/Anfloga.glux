@@ -1898,6 +1898,28 @@
           <Type>float</Type>
           <DefaultValue xsi:type="xsd:float">0.036</DefaultValue>
         </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>DisplacementStart</Name>
+          <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">-600</DefaultValue>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>DisplacementTextureOffsetVelocity</Name>
+          <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">10</DefaultValue>
+        </CustomVariable>
       </CustomVariables>
       <ImplementsIVisible>true</ImplementsIVisible>
       <ImplementsIDrawableBatch>true</ImplementsIDrawableBatch>
@@ -1919,6 +1941,26 @@
           <SourceName />
           <SourceClassType>RenderTarget2D</SourceClassType>
           <InstanceName>BloomRenderTarget</InstanceName>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
+        <NamedObjectSave>
+          <CustomProperty>
+            <Type>int</Type>
+            <Member>Width</Member>
+            <ValueAsInt>400</ValueAsInt>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>int</Type>
+            <Member>Height</Member>
+            <ValueAsInt>400</ValueAsInt>
+          </CustomProperty>
+          <SourceType>FlatRedBallType</SourceType>
+          <SourceFile />
+          <SourceName />
+          <SourceClassType>RenderTarget2D</SourceClassType>
+          <InstanceName>DisplacementRenderTarget</InstanceName>
           <AttachToContainer>true</AttachToContainer>
           <GenerateTimedEmit>true</GenerateTimedEmit>
           <IndependentOfCamera>true</IndependentOfCamera>

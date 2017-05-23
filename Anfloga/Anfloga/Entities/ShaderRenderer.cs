@@ -30,6 +30,7 @@ namespace Anfloga.Entities
 
         public PositionedObject Viewer { get; set; }
 
+        private int displacementOffset = 0;
 
         #endregion
 
@@ -46,9 +47,18 @@ namespace Anfloga.Entities
 
         private void CustomActivity()
 		{
+            //displacementOffset += (int)(DisplacementTextureOffsetVelocity * TimeManager.SecondDifference);
 
-
-		}
+            //if(displacementOffset > DisplacementRenderTarget.Height)
+            //{
+            //    displacementOffset = 0;
+            //}
+            if (FlatRedBall.Input.InputManager.Keyboard.KeyPushed(Microsoft.Xna.Framework.Input.Keys.Q))
+                displacementOffset -= 50;
+            if (FlatRedBall.Input.InputManager.Keyboard.KeyPushed(Microsoft.Xna.Framework.Input.Keys.E))
+                displacementOffset += 50;
+            Effect.Parameters["DisplacementStart"].SetValue(displacementOffset);
+        }
 
 		private void CustomDestroy()
 		{
@@ -60,6 +70,12 @@ namespace Anfloga.Entities
         {
 
 
+        }
+        public void InitializeRenderVariables()
+        {
+            Effect.Parameters["BlurStrength"].SetValue(BlurStrength);
+            //Effect.Parameters["DisplacementStart"].SetValue(DisplacementStart);
+            Effect.Parameters["TextureHeight"].SetValue(WorldTexture.Height);
         }
 
         public void Draw(Camera camera)
@@ -78,6 +94,27 @@ namespace Anfloga.Entities
 #endif
             if(shouldExecute)
             {
+
+                //FlatRedBallServices.GraphicsDevice.SetRenderTarget(DisplacementRenderTarget);
+                //FlatRedBallServices.GraphicsDevice.Clear(Color.Black);
+                //{
+                //    var displacementRect = new Rectangle(0, 0, DisplacementRenderTarget.Width, DisplacementRenderTarget.Height);
+
+                //    spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend);
+
+                //    spriteBatch.Draw(WavyTexture, displacementRect, Color.White);
+                //    spriteBatch.End();
+                //}
+
+                //if (this.LayerProvidedByContainer != null)
+                //{
+                //    FlatRedBallServices.GraphicsDevice.SetRenderTarget(LayerProvidedByContainer.RenderTarget);
+                //}
+                //else
+                //{
+                //    FlatRedBallServices.GraphicsDevice.SetRenderTarget(null);
+                //}
+
                 var destinationRectangle = camera.DestinationRectangle;
 
                 FlatRedBallServices.GraphicsDevice.Textures[1] = WavyTexture;
@@ -95,11 +132,12 @@ namespace Anfloga.Entities
 
                 Effect.Parameters["ViewerX"].SetValue(ratioX);
                 Effect.Parameters["ViewerY"].SetValue(ratioY);
-                Effect.Parameters["BlurStrength"].SetValue(BlurStrength);
+                Effect.Parameters["CameraTop"].SetValue(camera.AbsoluteTopYEdgeAt(0));
 
                 bool blurOn = true;
                 if (blurOn)
                 {
+
                     spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend,
                         SamplerState.LinearClamp, DepthStencilState.None, RasterizerState.CullNone,
                         Effect);

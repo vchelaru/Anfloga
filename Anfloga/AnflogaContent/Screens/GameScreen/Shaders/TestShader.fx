@@ -7,8 +7,11 @@ sampler DisplacementTexture : register(s1);
 float ViewerX = .5;
 float ViewerY = .5;
 float BlurStrength = 0.036;
+float DisplacementStart = 0;
+float TextureHeight = 0;
+float CameraTop = 0;
 
-float4 DisplacementFunction(float2 texCoord : TEXCOORD0) : COLOR0
+float2 DisplacementFunction(float2 texCoord : TEXCOORD0) : COLOR0
 {
 	float4 color = tex2D(DisplacementTexture, texCoord);
 
@@ -16,16 +19,7 @@ float4 DisplacementFunction(float2 texCoord : TEXCOORD0) : COLOR0
 	float range = .02;
 	modifiedTexCoord.y = modifiedTexCoord.y - range/2 + (range * color.r);
 
-	return tex2D(SpriteBatchTexture, modifiedTexCoord);
-}
-
-
-technique DisplacementTechnique
-{
-	pass Pass1
-	{
-		PixelShader = compile ps_2_0 DisplacementFunction();
-	}
+	return  modifiedTexCoord;
 }
 
 float4 DistanceBlurFunction(float2 texCoord : TEXCOORD0) : COLOR0
@@ -35,22 +29,34 @@ float4 DistanceBlurFunction(float2 texCoord : TEXCOORD0) : COLOR0
 
 	float blurRatio = max(ratioX, ratioY) * BlurStrength;
 
+	float2 displacedCoord = texCoord;
+	float pixelY = CameraTop - (TextureHeight * texCoord.y);
+
 	float4 color = 0;
-
-
-	int samples = 4;
-	float samplesSquared = 16;
-	float blurOver2 = blurRatio / 2;
-	float blurOverSamples = blurRatio / samples;
-
-	for (int x = 0; x < samples; x++)
+	if (pixelY < DisplacementStart)
 	{
-		for (int y = 0; y < samples; y++)
+		displacedCoord = DisplacementFunction(texCoord);
+		color = float4(0, 0, 0, 1);
+	}
+	else
+	{
+
+
+
+		int samples = 4;
+		float samplesSquared = 16;
+		float blurOver2 = blurRatio / 2;
+		float blurOverSamples = blurRatio / samples;
+
+		for (int x = 0; x < samples; x++)
 		{
-			float2 coord = texCoord;
-			coord.x += -blurOver2 + (blurOverSamples * x);
-			coord.y += -blurOver2 + (blurOverSamples * y);
-			color += tex2D(SpriteBatchTexture, coord) / samplesSquared;
+			for (int y = 0; y < samples; y++)
+			{
+				float2 coord = displacedCoord;
+				coord.x += -blurOver2 + (blurOverSamples * x);
+				coord.y += -blurOver2 + (blurOverSamples * y);
+				color += tex2D(SpriteBatchTexture, coord) / samplesSquared;
+			}
 		}
 	}
 	return color;

@@ -85,6 +85,8 @@ namespace Anfloga.Screens
         {
             ShaderRendererInstance.Effect = TestShader;
             ShaderRendererInstance.Viewer = PlayerList[0];
+
+            ShaderRendererInstance.InitializeRenderVariables();
         }
 
         private void InitializeFactoryEvents()
