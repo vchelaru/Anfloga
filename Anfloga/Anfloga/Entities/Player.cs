@@ -26,6 +26,8 @@ namespace Anfloga.Entities
 	{
         #region Fields
 
+        float facingLeftLightXOffset;
+
         public PlayerHudRuntime PlayerHud { get; set; }
         public I2DInput MovementInput { get; set; }
         public LightInput LightInput { get; set; }
@@ -59,6 +61,8 @@ namespace Anfloga.Entities
         /// </summary>
         private void CustomInitialize()
 		{
+            facingLeftLightXOffset = AlwaysOnLightSprite.RelativeX;
+
             CurrentCurrencyBalance = 1000;
             // We may end up calling this in a screen in case we want the screen to control this assignment
             AssignInput();
@@ -106,6 +110,8 @@ namespace Anfloga.Entities
         public void InitializeLightLayer(Layer lightLayer)
         {
             this.LightBeamInstance.MoveToLayer(lightLayer);
+
+            SpriteManager.AddToLayer(AlwaysOnLightSprite, lightLayer);
         }
 
         private void AssignInput()
@@ -144,6 +150,8 @@ namespace Anfloga.Entities
 
         #endregion
 
+        #region Activity
+
         private void CustomActivity()
 		{
             UpdateActionIconActivity();
@@ -156,7 +164,7 @@ namespace Anfloga.Entities
 
             UpdateExplorationDurtionActivity();
 
-            PerformAnimationMovement();
+            UpdateFacingDirection();
             //Perform hud update at the end. Incase we have abilities that consume oxygen.
             UpdateHudActivity();
 		}
@@ -225,15 +233,19 @@ namespace Anfloga.Entities
             }
         }
 
-        private void PerformAnimationMovement()
+        private void UpdateFacingDirection()
         {
             if(XVelocity < 0)
             {
                 this.SpriteInstance.CurrentChainName = "FaceLeft";
+                this.AlwaysOnLightSprite.RelativeX = facingLeftLightXOffset;
+                this.AlwaysOnLightSprite.FlipHorizontal = false;
             }
             else if(XVelocity > 0)
             {
                 this.SpriteInstance.CurrentChainName = "FaceRight";
+                this.AlwaysOnLightSprite.RelativeX = -facingLeftLightXOffset;
+                this.AlwaysOnLightSprite.FlipHorizontal = true;
             }
         }
 
@@ -322,6 +334,8 @@ namespace Anfloga.Entities
                 BubblesInstance.ThrustVector = Microsoft.Xna.Framework.Vector3.Zero;
             }
         }
+
+        #endregion
 
         private void CustomDestroy()
 		{
