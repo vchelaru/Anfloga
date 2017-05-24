@@ -109,15 +109,14 @@ namespace Anfloga.Entities
                 // divide by 2 to account for the focus being applied center-out
                 Effect.Parameters["FocusArea"].SetValue(FocusedRatio / 2.0f);
 
-                RenderTarget2D tempTarget = new RenderTarget2D(FlatRedBallServices.GraphicsDevice, destinationRectangle.Width, destinationRectangle.Height);
                 FlatRedBallServices.GraphicsDevice.Textures[1] = WavyTexture;
-                FlatRedBallServices.GraphicsDevice.Textures[2] = tempTarget;
+                FlatRedBallServices.GraphicsDevice.Textures[2] = DisplacementRenderTarget;
 
                 spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend,
                                     SamplerState.LinearClamp, DepthStencilState.None, RasterizerState.CullNone,
                                     Effect);
 
-                FlatRedBallServices.GraphicsDevice.SetRenderTarget(tempTarget);
+                FlatRedBallServices.GraphicsDevice.SetRenderTarget(DisplacementRenderTarget);
 
                 spriteBatch.Draw(WorldTexture, destinationRectangle, Color.White);
                 FlatRedBallServices.GraphicsDevice.SetRenderTarget(null);
@@ -130,7 +129,7 @@ namespace Anfloga.Entities
                 FlatRedBallServices.GraphicsDevice.SetRenderTarget(null);
 
                 spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend);
-                spriteBatch.Draw(tempTarget, destinationRectangle, Color.White);
+                spriteBatch.Draw(DisplacementRenderTarget, destinationRectangle, Color.White);
                 spriteBatch.End();
 
             }

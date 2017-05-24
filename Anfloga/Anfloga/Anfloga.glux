@@ -1975,32 +1975,12 @@
           <CustomProperty>
             <Type>int</Type>
             <Member>Width</Member>
-            <ValueAsInt>240</ValueAsInt>
+            <ValueAsInt>960</ValueAsInt>
           </CustomProperty>
           <CustomProperty>
             <Type>int</Type>
             <Member>Height</Member>
-            <ValueAsInt>135</ValueAsInt>
-          </CustomProperty>
-          <SourceType>FlatRedBallType</SourceType>
-          <SourceFile />
-          <SourceName />
-          <SourceClassType>RenderTarget2D</SourceClassType>
-          <InstanceName>BloomRenderTarget</InstanceName>
-          <AttachToContainer>true</AttachToContainer>
-          <GenerateTimedEmit>true</GenerateTimedEmit>
-          <IndependentOfCamera>true</IndependentOfCamera>
-        </NamedObjectSave>
-        <NamedObjectSave>
-          <CustomProperty>
-            <Type>int</Type>
-            <Member>Width</Member>
-            <ValueAsInt>400</ValueAsInt>
-          </CustomProperty>
-          <CustomProperty>
-            <Type>int</Type>
-            <Member>Height</Member>
-            <ValueAsInt>400</ValueAsInt>
+            <ValueAsInt>540</ValueAsInt>
           </CustomProperty>
           <SourceType>FlatRedBallType</SourceType>
           <SourceFile />
