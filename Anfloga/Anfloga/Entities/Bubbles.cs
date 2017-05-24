@@ -108,7 +108,7 @@ namespace Anfloga.Entities
                 {
                     DestroyBubble(bubble);
                 }
-                else if(bubble.Y > SurfaceY)
+                else if(bubble.Y > YToDestroyAt)
                 {
                     DestroyBubble(bubble);
                 }
