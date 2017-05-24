@@ -46,12 +46,12 @@ namespace Anfloga.Entities
 
         private void CustomActivity()
 		{
-            //displacementOffset += (int)(DisplacementTextureOffsetVelocity * TimeManager.SecondDifference);
-
-            //if(displacementOffset > DisplacementRenderTarget.Height)
-            //{
-            //    displacementOffset = 0;
-            //}
+            
+            //if (InputManager.Keyboard.KeyPushed(Microsoft.Xna.Framework.Input.Keys.Q))
+            //    DisplacementStart--;
+            //if (InputManager.Keyboard.KeyPushed(Microsoft.Xna.Framework.Input.Keys.E))
+            //    DisplacementStart++;
+            //Effect.Parameters["DisplacementStart"].SetValue(DisplacementStart);
         }
 
 		private void CustomDestroy()
@@ -69,7 +69,7 @@ namespace Anfloga.Entities
         {
             Effect.Parameters["BlurStrength"].SetValue(BlurStrength);
             Effect.Parameters["DisplacementStart"].SetValue(DisplacementStart);
-            Effect.Parameters["TextureHeight"].SetValue(Camera.Main.OrthogonalHeight);
+            Effect.Parameters["CameraHeight"].SetValue(Camera.Main.OrthogonalHeight);
         }
 
         public void Draw(Camera camera)
@@ -86,30 +86,9 @@ namespace Anfloga.Entities
 #endif
             if(shouldExecute)
             {
-
-                //FlatRedBallServices.GraphicsDevice.SetRenderTarget(DisplacementRenderTarget);
-                //FlatRedBallServices.GraphicsDevice.Clear(Color.Black);
-                //{
-                //    var displacementRect = new Rectangle(0, 0, DisplacementRenderTarget.Width, DisplacementRenderTarget.Height);
-
-                //    spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend);
-
-                //    spriteBatch.Draw(WavyTexture, displacementRect, Color.White);
-                //    spriteBatch.End();
-                //}
-
-                //if (this.LayerProvidedByContainer != null)
-                //{
-                //    FlatRedBallServices.GraphicsDevice.SetRenderTarget(LayerProvidedByContainer.RenderTarget);
-                //}
-                //else
-                //{
-                //    FlatRedBallServices.GraphicsDevice.SetRenderTarget(null);
-                //}
-
                 var destinationRectangle = camera.DestinationRectangle;
 
-                FlatRedBallServices.GraphicsDevice.Textures[1] = WavyTexture;
+                
 
                 Effect.CurrentTechnique = Effect.Techniques["DistanceBlurTechnique"];
             
@@ -122,28 +101,38 @@ namespace Anfloga.Entities
                 float ratioX = (Viewer.X - leftX) / (rightX - leftX);
                 float ratioY = 1 - (Viewer.Y - bottomY) / (topY - bottomY);
 
+
                 Effect.Parameters["ViewerX"].SetValue(ratioX);
                 Effect.Parameters["ViewerY"].SetValue(ratioY);
                 Effect.Parameters["CameraTop"].SetValue(topY);
-                Effect.Parameters["DisplacementTextureOffset"].SetValue((float)TimeManager.CurrentTime/30);
+                Effect.Parameters["DisplacementTextureOffset"].SetValue((float)TimeManager.CurrentTime / DisplacementVelocity);
                 // divide by 2 to account for the focus being applied center-out
                 Effect.Parameters["FocusArea"].SetValue(FocusedRatio / 2.0f);
 
-                bool blurOn = true;
-                if (blurOn)
-                {
+                RenderTarget2D tempTarget = new RenderTarget2D(FlatRedBallServices.GraphicsDevice, destinationRectangle.Width, destinationRectangle.Height);
+                FlatRedBallServices.GraphicsDevice.Textures[1] = WavyTexture;
+                FlatRedBallServices.GraphicsDevice.Textures[2] = tempTarget;
 
-                    spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend,
-                        SamplerState.LinearClamp, DepthStencilState.None, RasterizerState.CullNone,
-                        Effect);
-                }
-                else
-                {
-                    spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend);
-                }
+                spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend,
+                                    SamplerState.LinearClamp, DepthStencilState.None, RasterizerState.CullNone,
+                                    Effect);
+
+                FlatRedBallServices.GraphicsDevice.SetRenderTarget(tempTarget);
+
                 spriteBatch.Draw(WorldTexture, destinationRectangle, Color.White);
+                FlatRedBallServices.GraphicsDevice.SetRenderTarget(null);
+
                 spriteBatch.End();
+
                 FlatRedBallServices.GraphicsDevice.Textures[1] = null;
+                FlatRedBallServices.GraphicsDevice.Textures[2] = null;
+
+                FlatRedBallServices.GraphicsDevice.SetRenderTarget(null);
+
+                spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend);
+                spriteBatch.Draw(tempTarget, destinationRectangle, Color.White);
+                spriteBatch.End();
+
             }
         }
         private void DrawDarkness(Camera camera)

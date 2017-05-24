@@ -40,7 +40,7 @@ namespace Anfloga.Entities
 
 	public partial class Bubbles
 	{
-        private List<Tuple<Sprite, double>> bubbles;
+        private List<Sprite> bubbles;
         public BubbleEmitterType CurrentBubbleEmitterType;
 
         private FlatRedBall.Screens.Screen currentScreen;
@@ -76,7 +76,7 @@ namespace Anfloga.Entities
         /// </summary>
 		private void CustomInitialize()
 		{
-            bubbles = new List<Tuple<Sprite, double>>();
+            bubbles = new List<Sprite>();
 
             currentScreen = FlatRedBall.Screens.ScreenManager.CurrentScreen;
 
@@ -103,26 +103,26 @@ namespace Anfloga.Entities
         {
             for(int i = bubbles.Count -1; i > -1; i--)
             {
-                var bubbleTuple = bubbles[i];
-                if (currentScreen.PauseAdjustedSecondsSince(bubbleTuple.Item2) >= BubbleLifeTime)
+                var bubble = bubbles[i];
+                if (currentScreen.PauseAdjustedSecondsSince(bubble.TimeCreated) >= BubbleLifeTime)
                 {
-                    DestroyBubble(bubbleTuple);
+                    DestroyBubble(bubble);
                 }
-                else if(bubbleTuple.Item1.Y > SurfaceY)
+                else if(bubble.Y > SurfaceY)
                 {
-                    DestroyBubble(bubbleTuple);
+                    DestroyBubble(bubble);
                 }
                 else
                 {
-                    ApplyVelocityAdjustments(bubbleTuple.Item1);
+                    ApplyVelocityAdjustments(bubble);
                 }
             }
         }
 
-        private void DestroyBubble(Tuple<Sprite, double> bubbleTuple)
+        private void DestroyBubble(Sprite bubble)
         {
-            SpriteManager.RemoveSprite(bubbleTuple.Item1);
-            bubbles.Remove(bubbleTuple);
+            SpriteManager.RemoveSprite(bubble);
+            bubbles.Remove(bubble);
         }
 
         private void ApplyVelocityAdjustments(Sprite bubble)
@@ -193,7 +193,8 @@ namespace Anfloga.Entities
 
             //Adjusting the timeSinceLastSpawn will increase/decrease the lifetime of the bubble.
             //We do this so each spawn has a slightly different life time
-            bubbles.Add(new Tuple<Sprite, double>(newBubble, timeSinceLastSpawn + RandomLifeTimeOffset));
+            newBubble.TimeCreated = timeSinceLastSpawn + RandomLifeTimeOffset;
+            bubbles.Add(newBubble);
         }
         private string GetBubbleAnimationChain()
         {
