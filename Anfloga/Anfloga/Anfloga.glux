@@ -862,7 +862,7 @@
               <ValueAsString>float</ValueAsString>
             </PropertySave>
           </Properties>
-          <Name>SurfaceY</Name>
+          <Name>YToDestroyAt</Name>
           <Type>float</Type>
           <DefaultValue xsi:type="xsd:float">-497</DefaultValue>
         </CustomVariable>
@@ -1856,6 +1856,17 @@
           </Properties>
           <Name>EmitterYOffset</Name>
           <Type>float</Type>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>BubbleYOffsetForDestroy</Name>
+          <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">-76</DefaultValue>
         </CustomVariable>
       </CustomVariables>
       <ImplementsIDrawableBatch>false</ImplementsIDrawableBatch>

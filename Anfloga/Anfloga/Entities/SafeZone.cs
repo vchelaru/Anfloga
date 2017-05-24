@@ -156,9 +156,7 @@ namespace Anfloga.Entities
 
             lightEntity.Visible = true;
 
-            //Activation animation?
-            //bubbleEmitter.Destroy();
-            //bubbleEmitter = null;
+            BubblesInstance.YToDestroyAt = this.Y + BubbleYOffsetForDestroy;
 
             Collision.Visible = false;
 #if DEBUG
