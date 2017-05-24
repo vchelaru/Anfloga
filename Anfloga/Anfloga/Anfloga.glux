@@ -1929,7 +1929,7 @@
           </Properties>
           <Name>DisplacementStart</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">-497</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">-495</DefaultValue>
         </CustomVariable>
         <CustomVariable>
           <Properties>
@@ -1941,6 +1941,17 @@
           <Name>DisplacementTextureOffsetVelocity</Name>
           <Type>float</Type>
           <DefaultValue xsi:type="xsd:float">10</DefaultValue>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>DisplacementVelocity</Name>
+          <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">30</DefaultValue>
         </CustomVariable>
       </CustomVariables>
       <ImplementsIVisible>true</ImplementsIVisible>
