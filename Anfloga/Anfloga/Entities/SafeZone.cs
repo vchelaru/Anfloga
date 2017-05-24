@@ -21,7 +21,6 @@ namespace Anfloga.Entities
 
         private LightEntity lightEntity;
 
-        private Bubbles bubbleEmitter;
         /// <summary>
         /// Initialization logic which is execute only one time for this Entity (unless the Entity is pooled).
         /// This method is called when the Entity is added to managers. Entities which are instantiated but not
@@ -29,9 +28,7 @@ namespace Anfloga.Entities
         /// </summary>
 		private void CustomInitialize()
 		{
-            bubbleEmitter = Factories.BubblesFactory.CreateNew();
-            bubbleEmitter.AttachTo(this, false);
-            bubbleEmitter.CurrentBubbleEmitterType = BubbleEmitterType.Geyser;
+            BubblesInstance.CurrentBubbleEmitterType = BubbleEmitterType.Geyser;
 
             lightEntity = Factories.LightEntityFactory.CreateNew();
             lightEntity.AttachTo(this, false);
@@ -47,9 +44,6 @@ namespace Anfloga.Entities
 
 		private void CustomDestroy()
 		{
-            bubbleEmitter?.Destroy();
-            bubbleEmitter = null;
-
             lightEntity?.Destroy();
             lightEntity = null;
 		}
@@ -140,7 +134,7 @@ namespace Anfloga.Entities
                 //Magic number. The 3rd point in the polygon list is the bottom of the collision object.
                 var polygonBottom = (float)polygon.Points[3].Y;
 
-                bubbleEmitter.RelativeY = polygonBottom;
+                BubblesInstance.RelativeY = polygonBottom;
                 SpriteInstance.RelativeY = polygonBottom;
                 circle.RelativeY = polygonBottom;
                 lightEntity.RelativeY = polygonBottom + (lightEntity.SpriteHeight / 2);
@@ -163,8 +157,8 @@ namespace Anfloga.Entities
             lightEntity.Visible = true;
 
             //Activation animation?
-            bubbleEmitter.Destroy();
-            bubbleEmitter = null;
+            //bubbleEmitter.Destroy();
+            //bubbleEmitter = null;
 
             Collision.Visible = false;
 #if DEBUG
