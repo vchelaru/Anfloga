@@ -1,16 +1,22 @@
 "ID (string, required)",English (string)
 T_RedFish1,Hey I'm a red fish!
 T_RedFish2,I'm also a red fish part 2 3.
-T_Intro1,Please take a moment to familiarize yourself with the Unwearnum class Deep Water Exploration Vessel. [Move: WASD]
-T_Intro2,You may initially find the quarters confined.
-T_Intro3,We assure you they meet human habitat standards as defined in Senate Statute 731.
-T_Mission1,Recall the primary mission directive:
-T_Mission2,"Chart unexplored quadrant A2 of Anfloga, and recover any minerals you may discover."
-T_Minerals1,Long range scans have indicated mineral richness in this quadrant. [Mine: Press Spacebar near a crystal]
-T_Minerals0,Please harvest all mineral deposits in the quadrant. [Mine: Press spacebar near crystal]
-T_Energy1,The Unwearnum class vessel expends battery power to maintain human life support functions.
-T_Energy2,Remaining near the surface allows battery recharge via solar energy.
-T_Light1,Authorization granted to enable high-output torch. [Torch: Right Click]
-T_Light2,Be aware that torch use requires additional battery drain.
-T_Bubbles1,These bubbles indicate the presence of a possible power source--please investigate.
-T_PurchaseBase1,Use 5 minerals to create a permanent power station on this geothermal vent. [Build Powerstation: Spacebar]
+T_Intro1,$> Please take a moment to familiarize yourself with the Unwearnum class Deep Water Exploration Vessel. [Move: WASD]
+T_Intro2,$> You may initially find the quarters confined.
+T_Intro3,$> We assure you they meet human habitat standards as defined in Senate Statute 731.
+T_Mission1,$> Recall the primary mission directive:
+T_Mission2,"$> Chart unexplored sector A2 of Anfloga, and recover any minerals you may discover."
+T_Minerals1,$> Long range scans have indicated mineral richness in this sector. [Mine: Press Spacebar near a crystal]
+T_Minerals0,$> Please harvest all mineral deposits in the sector. [Mine: Press spacebar near crystal]
+T_Energy1,$> The Unwearnum class vessel expends battery power to maintain human life support functions. [Meter on left of screen]
+T_Energy2,$> Remaining near the surface allows battery recharge via solar energy.
+T_Light1,$> Authorization granted to enable high-output torch. [Torch: Right Click]
+T_Light2,$> Be aware that torch use requires additional battery drain.
+T_Bubbles1,$> These bubbles indicate the presence of a possible power source--please investigate.
+T_PurchaseBase1,$> Use 5 minerals to create a permanent power station on this geothermal vent. [Move to source of bubbles and press Spacebar]
+T_SignalDetected1,(The onship instruments detect a feint signal from in this tunnel)
+T_SignalDetected2,"$> Warning, this tunnel is of considerable depth. Immediate turnabout is advised."
+T_SignalDetected3,"(The signal, though still weak, is growing in strength.)"
+T_SignalDetected4,$> Alert! Be assured your current battery does not have sufficient capacity to reach the tunnel's end. Change course now!
+T_SignalDetected5,(Could it be a distress beacon?)
+T_SignalDetected6,"$> This is your final warning, turn back now!"

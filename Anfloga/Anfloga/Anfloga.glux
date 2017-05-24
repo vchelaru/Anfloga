@@ -1584,7 +1584,7 @@
           </Properties>
           <Name>AccelerationTime</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">3</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">2.5</DefaultValue>
         </CustomVariable>
         <CustomVariable>
           <Properties>
@@ -1606,7 +1606,7 @@
           </Properties>
           <Name>ExplorationConsumptionRate</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">0.4</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">0.45</DefaultValue>
         </CustomVariable>
         <CustomVariable>
           <Properties>
@@ -1617,7 +1617,7 @@
           </Properties>
           <Name>ExplorationReplenishRate</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">5</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">6</DefaultValue>
         </CustomVariable>
         <CustomVariable>
           <Properties>
@@ -1628,7 +1628,7 @@
           </Properties>
           <Name>AdditionalLightConsumption</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">0.3</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">0.25</DefaultValue>
         </CustomVariable>
       </CustomVariables>
       <ImplementsIVisible>true</ImplementsIVisible>
@@ -1707,6 +1707,11 @@
         </NamedObjectSave>
         <NamedObjectSave>
           <CustomProperty>
+            <Type>float</Type>
+            <Member>Z</Member>
+            <ValueAsFloat>-0.1</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
             <Type>double</Type>
             <Member>BubbleSpawnFrequency</Member>
             <ValueAsDouble>0.05</ValueAsDouble>
@@ -1736,11 +1741,6 @@
             <Member>RandomLifeTimeOffset</Member>
             <ValueAsFloat>0.25</ValueAsFloat>
           </CustomProperty>
-          <CustomProperty>
-            <Type>float</Type>
-            <Member>Z</Member>
-            <ValueAsFloat>-0.1</ValueAsFloat>
-          </CustomProperty>
           <SourceType>Entity</SourceType>
           <SourceClassType>Entities\Bubbles</SourceClassType>
           <InstanceName>BubblesInstance</InstanceName>
@@ -1759,8 +1759,18 @@
         <NamedObjectSave>
           <CustomProperty>
             <Type>float</Type>
-            <Member>TextureScale</Member>
-            <ValueAsFloat>1</ValueAsFloat>
+            <Member>X</Member>
+            <ValueAsFloat>-4</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Y</Member>
+            <ValueAsFloat>-0.5</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Z</Member>
+            <ValueAsFloat>0.1</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
             <Type>Texture2D</Type>
@@ -1789,18 +1799,8 @@
           </CustomProperty>
           <CustomProperty>
             <Type>float</Type>
-            <Member>Z</Member>
-            <ValueAsFloat>0.1</ValueAsFloat>
-          </CustomProperty>
-          <CustomProperty>
-            <Type>float</Type>
-            <Member>X</Member>
-            <ValueAsFloat>-4</ValueAsFloat>
-          </CustomProperty>
-          <CustomProperty>
-            <Type>float</Type>
-            <Member>Y</Member>
-            <ValueAsFloat>-0.5</ValueAsFloat>
+            <Member>TextureScale</Member>
+            <ValueAsFloat>1</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
             <Type>BlendOperation</Type>
@@ -1940,6 +1940,11 @@
         <NamedObjectSave>
           <CustomProperty>
             <Type>float</Type>
+            <Member>Z</Member>
+            <ValueAsFloat>1</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
             <Member>TextureScale</Member>
             <ValueAsFloat>1</ValueAsFloat>
           </CustomProperty>
@@ -1952,11 +1957,6 @@
             <Type>string</Type>
             <Member>CurrentChainName</Member>
             <ValueAsString>Geyser</ValueAsString>
-          </CustomProperty>
-          <CustomProperty>
-            <Type>float</Type>
-            <Member>Z</Member>
-            <ValueAsFloat>1</ValueAsFloat>
           </CustomProperty>
           <SourceType>FlatRedBallType</SourceType>
           <SourceClassType>Sprite</SourceClassType>
