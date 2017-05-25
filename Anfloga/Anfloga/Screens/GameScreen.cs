@@ -205,7 +205,10 @@ namespace Anfloga.Screens
         {
             solidCollision = new TileShapeCollection();
             solidCollision.Visible = false;
-            solidCollision.AddMergedCollisionFrom(currentLevel, (propertyList) =>
+
+            var layer = currentLevel.MapLayers.First(item =>item.Name == "ForegroundLevel");
+
+            solidCollision.AddMergedCollisionFromLayer(layer, currentLevel, (propertyList) =>
             {
                 return propertyList.Any(item => item.Name == "SolidCollision");
             });
