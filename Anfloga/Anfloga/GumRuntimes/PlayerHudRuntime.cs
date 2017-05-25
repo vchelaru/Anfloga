@@ -10,6 +10,9 @@ namespace Anfloga.GumRuntimes
     {
         public float ExplorationLimitFill;
         public int MineralText;
+        public bool IsFillingUp;
+
+        public bool IsLow;
     }
     public partial class PlayerHudRuntime
     {
@@ -19,6 +22,19 @@ namespace Anfloga.GumRuntimes
             ExplorationLimitStatusBar.UpdateFillHeight(data.ExplorationLimitFill);
             //Update currency display
             ResourceDisplayInstance.ResourceDisplayText = data.MineralText.ToString();
+
+            if(data.IsFillingUp)
+            {
+                this.ExplorationLimitStatusBar.CurrentRecoverySpendingTypeState = StatusBarRuntime.RecoverySpendingType.Charging;
+            }
+            else if(data.IsLow)
+            {
+                this.ExplorationLimitStatusBar.CurrentRecoverySpendingTypeState = StatusBarRuntime.RecoverySpendingType.DrainingLow;
+            }
+            else
+            {
+                this.ExplorationLimitStatusBar.CurrentRecoverySpendingTypeState = StatusBarRuntime.RecoverySpendingType.Draining;
+            }
         }
     }
 }
