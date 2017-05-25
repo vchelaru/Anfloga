@@ -6,12 +6,82 @@
    <terrain name="LightSand" tile="-1"/>
    <terrain name="DarkSand" tile="-1"/>
   </terraintypes>
+  <tile id="4381">
+   <properties>
+    <property name="SolidCollision" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="4382">
+   <properties>
+    <property name="SolidCollision" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="4383">
+   <properties>
+    <property name="SolidCollision" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="4384">
+   <properties>
+    <property name="SolidCollision" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="4509">
+   <properties>
+    <property name="SolidCollision" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="4510">
+   <properties>
+    <property name="SolidCollision" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="4511">
+   <properties>
+    <property name="SolidCollision" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="4512">
+   <properties>
+    <property name="SolidCollision" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="4513">
+   <properties>
+    <property name="SolidCollision" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="4514">
+   <properties>
+    <property name="SolidCollision" type="bool" value="true"/>
+   </properties>
+  </tile>
   <tile id="4636" terrain=",,,0"/>
-  <tile id="4637" terrain=",,0,0"/>
-  <tile id="4638" terrain=",,0,0"/>
-  <tile id="4639" terrain=",,0,0"/>
-  <tile id="4640" terrain=",,0,0"/>
-  <tile id="4641" terrain=",,0,0"/>
+  <tile id="4637" terrain=",,0,0">
+   <properties>
+    <property name="SolidCollision" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="4638" terrain=",,0,0">
+   <properties>
+    <property name="SolidCollision" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="4639" terrain=",,0,0">
+   <properties>
+    <property name="SolidCollision" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="4640" terrain=",,0,0">
+   <properties>
+    <property name="SolidCollision" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="4641" terrain=",,0,0">
+   <properties>
+    <property name="SolidCollision" type="bool" value="true"/>
+   </properties>
+  </tile>
   <tile id="4642" terrain=",,0,"/>
   <tile id="4736">
    <properties>
@@ -19,107 +89,354 @@
    </properties>
   </tile>
   <tile id="4764" terrain=",,,0"/>
-  <tile id="4765" terrain=",,0,0"/>
-  <tile id="4766" terrain=",,0,0"/>
-  <tile id="4767" terrain=",,0,0"/>
-  <tile id="4768" terrain=",,0,0"/>
-  <tile id="4769" terrain=",,0,0"/>
+  <tile id="4765" terrain=",,0,0">
+   <properties>
+    <property name="SolidCollision" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="4766" terrain=",,0,0">
+   <properties>
+    <property name="SolidCollision" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="4767" terrain=",,0,0">
+   <properties>
+    <property name="SolidCollision" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="4768" terrain=",,0,0">
+   <properties>
+    <property name="SolidCollision" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="4769" terrain=",,0,0">
+   <properties>
+    <property name="SolidCollision" type="bool" value="true"/>
+   </properties>
+  </tile>
   <tile id="4770" terrain=",,0,"/>
   <tile id="4889" terrain="0,0,0,"/>
   <tile id="4890" terrain="0,0,,0"/>
   <tile id="4891" terrain=",,,0"/>
-  <tile id="4892" terrain=",,,0"/>
-  <tile id="4893" terrain=",,0,0"/>
-  <tile id="4894" terrain=",,0,0"/>
-  <tile id="4895" terrain=",,0,0"/>
-  <tile id="4896" terrain=",,0,0"/>
-  <tile id="4897" terrain=",,0,0"/>
-  <tile id="4898" terrain=",,0,"/>
+  <tile id="4892" terrain=",,,0">
+   <properties>
+    <property name="SolidCollision" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="4893" terrain=",,0,0">
+   <properties>
+    <property name="SolidCollision" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="4894" terrain=",,0,0">
+   <properties>
+    <property name="SolidCollision" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="4895" terrain=",,0,0">
+   <properties>
+    <property name="SolidCollision" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="4896" terrain=",,0,0">
+   <properties>
+    <property name="SolidCollision" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="4897" terrain=",,0,0">
+   <properties>
+    <property name="SolidCollision" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="4898" terrain=",,0,">
+   <properties>
+    <property name="SolidCollision" type="bool" value="true"/>
+   </properties>
+  </tile>
   <tile id="4899" terrain=",,0,"/>
   <tile id="5017" terrain="0,,0,0"/>
   <tile id="5018" terrain=",0,0,0"/>
-  <tile id="5019" terrain=",,,0"/>
-  <tile id="5020" terrain=",,,0"/>
-  <tile id="5021" terrain=",,0,0"/>
-  <tile id="5022" terrain=",,0,0"/>
-  <tile id="5023" terrain=",,0,0"/>
-  <tile id="5024" terrain=",,0,0"/>
-  <tile id="5025" terrain=",,0,0"/>
-  <tile id="5026" terrain=",,0,"/>
-  <tile id="5027" terrain=",,0,"/>
+  <tile id="5019" terrain=",,,0">
+   <properties>
+    <property name="SolidCollision" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="5020" terrain=",,,0">
+   <properties>
+    <property name="SolidCollision" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="5021" terrain=",,0,0">
+   <properties>
+    <property name="SolidCollision" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="5022" terrain=",,0,0">
+   <properties>
+    <property name="SolidCollision" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="5023" terrain=",,0,0">
+   <properties>
+    <property name="SolidCollision" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="5024" terrain=",,0,0">
+   <properties>
+    <property name="SolidCollision" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="5025" terrain=",,0,0">
+   <properties>
+    <property name="SolidCollision" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="5026" terrain=",,0,">
+   <properties>
+    <property name="SolidCollision" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="5027" terrain=",,0,">
+   <properties>
+    <property name="SolidCollision" type="bool" value="true"/>
+   </properties>
+  </tile>
   <tile id="5031" terrain="0,0,0,1"/>
   <tile id="5032" terrain="0,0,1,1"/>
   <tile id="5033" terrain="0,0,1,0"/>
   <tile id="5145" terrain="0,0,0,"/>
   <tile id="5146" terrain="0,0,,0"/>
-  <tile id="5147" terrain=",0,,0"/>
-  <tile id="5148" terrain=",0,,0"/>
+  <tile id="5147" terrain=",0,,0">
+   <properties>
+    <property name="SolidCollision" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="5148" terrain=",0,,0">
+   <properties>
+    <property name="SolidCollision" type="bool" value="true"/>
+   </properties>
+  </tile>
   <tile id="5149" terrain="0,0,0,0"/>
   <tile id="5150" terrain="0,0,0,0"/>
   <tile id="5151" terrain="0,0,0,0"/>
   <tile id="5152" terrain="0,0,0,0"/>
   <tile id="5153" terrain="0,0,0,0"/>
-  <tile id="5154" terrain="0,,0,"/>
-  <tile id="5155" terrain="0,,0,"/>
+  <tile id="5154" terrain="0,,0,">
+   <properties>
+    <property name="SolidCollision" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="5155" terrain="0,,0,">
+   <properties>
+    <property name="SolidCollision" type="bool" value="true"/>
+   </properties>
+  </tile>
   <tile id="5159" terrain="0,1,0,1"/>
   <tile id="5160" terrain="1,1,1,1"/>
   <tile id="5161" terrain="1,0,1,0"/>
   <tile id="5273" terrain="0,,0,0"/>
   <tile id="5274" terrain=",0,0,0"/>
-  <tile id="5275" terrain=",0,,0"/>
-  <tile id="5276" terrain=",0,,0"/>
+  <tile id="5275" terrain=",0,,0">
+   <properties>
+    <property name="SolidCollision" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="5276" terrain=",0,,0">
+   <properties>
+    <property name="SolidCollision" type="bool" value="true"/>
+   </properties>
+  </tile>
   <tile id="5277" terrain="0,0,0,0"/>
   <tile id="5278" terrain="0,0,0,0"/>
   <tile id="5279" terrain="0,0,0,0"/>
   <tile id="5280" terrain="0,0,0,0"/>
   <tile id="5281" terrain="0,0,0,0"/>
-  <tile id="5282" terrain="0,,0,"/>
-  <tile id="5283" terrain="0,,0,"/>
+  <tile id="5282" terrain="0,,0,">
+   <properties>
+    <property name="SolidCollision" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="5283" terrain="0,,0,">
+   <properties>
+    <property name="SolidCollision" type="bool" value="true"/>
+   </properties>
+  </tile>
   <tile id="5287" terrain="0,1,0,0"/>
   <tile id="5288" terrain="1,1,0,0"/>
   <tile id="5289" terrain="1,0,0,0"/>
-  <tile id="5403" terrain=",0,,0"/>
-  <tile id="5404" terrain=",0,,0"/>
+  <tile id="5403" terrain=",0,,0">
+   <properties>
+    <property name="SolidCollision" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="5404" terrain=",0,,0">
+   <properties>
+    <property name="SolidCollision" type="bool" value="true"/>
+   </properties>
+  </tile>
   <tile id="5405" terrain="0,0,0,0"/>
   <tile id="5406" terrain="0,0,0,0"/>
   <tile id="5407" terrain="0,0,0,0"/>
   <tile id="5408" terrain="0,0,0,0"/>
   <tile id="5409" terrain="0,0,0,0"/>
-  <tile id="5410" terrain="0,,0,"/>
-  <tile id="5411" terrain="0,,0,"/>
+  <tile id="5410" terrain="0,,0,">
+   <properties>
+    <property name="SolidCollision" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="5411" terrain="0,,0,">
+   <properties>
+    <property name="SolidCollision" type="bool" value="true"/>
+   </properties>
+  </tile>
   <tile id="5415" terrain="1,1,1,0"/>
   <tile id="5416" terrain="1,1,0,1"/>
   <tile id="5417" terrain="1,1,1,1"/>
   <tile id="5418" terrain="1,1,1,1"/>
-  <tile id="5531" terrain=",0,,0"/>
-  <tile id="5532" terrain=",0,,0"/>
+  <tile id="5531" terrain=",0,,0">
+   <properties>
+    <property name="SolidCollision" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="5532" terrain=",0,,0">
+   <properties>
+    <property name="SolidCollision" type="bool" value="true"/>
+   </properties>
+  </tile>
   <tile id="5533" terrain="0,0,0,0"/>
   <tile id="5534" terrain="0,0,0,0"/>
   <tile id="5535" terrain="0,0,0,0"/>
   <tile id="5536" terrain="0,0,0,0"/>
   <tile id="5537" terrain="0,0,0,0"/>
-  <tile id="5538" terrain="0,,0,"/>
-  <tile id="5539" terrain="0,,0,"/>
+  <tile id="5538" terrain="0,,0,">
+   <properties>
+    <property name="SolidCollision" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="5539" terrain="0,,0,">
+   <properties>
+    <property name="SolidCollision" type="bool" value="true"/>
+   </properties>
+  </tile>
   <tile id="5543" terrain="1,0,1,1"/>
   <tile id="5544" terrain="0,1,1,1"/>
   <tile id="5545" terrain="1,1,1,1"/>
   <tile id="5546" terrain="1,1,1,1"/>
-  <tile id="5659" terrain=",0,,"/>
-  <tile id="5660" terrain=",0,,"/>
-  <tile id="5661" terrain="0,0,,"/>
-  <tile id="5662" terrain="0,0,,"/>
-  <tile id="5663" terrain="0,0,,"/>
-  <tile id="5664" terrain="0,0,,"/>
-  <tile id="5665" terrain="0,0,,"/>
-  <tile id="5666" terrain="0,,,"/>
-  <tile id="5667" terrain="0,,,"/>
-  <tile id="5788" terrain=",0,,"/>
-  <tile id="5789" terrain="0,0,,"/>
-  <tile id="5790" terrain="0,0,,"/>
-  <tile id="5791" terrain="0,0,,"/>
-  <tile id="5792" terrain="0,0,,"/>
-  <tile id="5793" terrain="0,0,,"/>
-  <tile id="5794" terrain="0,,,"/>
+  <tile id="5659" terrain=",0,,">
+   <properties>
+    <property name="SolidCollision" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="5660" terrain=",0,,">
+   <properties>
+    <property name="SolidCollision" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="5661" terrain="0,0,,">
+   <properties>
+    <property name="SolidCollision" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="5662" terrain="0,0,,">
+   <properties>
+    <property name="SolidCollision" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="5663" terrain="0,0,,">
+   <properties>
+    <property name="SolidCollision" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="5664" terrain="0,0,,">
+   <properties>
+    <property name="SolidCollision" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="5665" terrain="0,0,,">
+   <properties>
+    <property name="SolidCollision" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="5666" terrain="0,,,">
+   <properties>
+    <property name="SolidCollision" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="5667" terrain="0,,,">
+   <properties>
+    <property name="SolidCollision" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="5765">
+   <properties>
+    <property name="SolidCollision" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="5766">
+   <properties>
+    <property name="SolidCollision" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="5767">
+   <properties>
+    <property name="SolidCollision" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="5768">
+   <properties>
+    <property name="SolidCollision" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="5769">
+   <properties>
+    <property name="SolidCollision" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="5770">
+   <properties>
+    <property name="SolidCollision" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="5771">
+   <properties>
+    <property name="SolidCollision" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="5788" terrain=",0,,">
+   <properties>
+    <property name="SolidCollision" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="5789" terrain="0,0,,">
+   <properties>
+    <property name="SolidCollision" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="5790" terrain="0,0,,">
+   <properties>
+    <property name="SolidCollision" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="5791" terrain="0,0,,">
+   <properties>
+    <property name="SolidCollision" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="5792" terrain="0,0,,">
+   <properties>
+    <property name="SolidCollision" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="5793" terrain="0,0,,">
+   <properties>
+    <property name="SolidCollision" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="5794" terrain="0,,,">
+   <properties>
+    <property name="SolidCollision" type="bool" value="true"/>
+   </properties>
+  </tile>
   <tile id="6528">
    <properties>
     <property name="EntityToCreate" value="SeaLife"/>
