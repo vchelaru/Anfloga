@@ -172,6 +172,10 @@
     <Compile Include="Entities\SafeZone.Generated.cs">
       <DependentUpon>SafeZone.cs</DependentUpon>
     </Compile>
+    <Compile Include="Entities\SeaLife.cs" />
+    <Compile Include="Entities\SeaLife.Generated.cs">
+      <DependentUpon>SeaLife.cs</DependentUpon>
+    </Compile>
     <Compile Include="Entities\ShaderRenderer.cs" />
     <Compile Include="Entities\ShaderRenderer.Generated.cs">
       <DependentUpon>ShaderRenderer.cs</DependentUpon>
@@ -192,6 +196,7 @@
     <Compile Include="Factories\LightEntityFactory.Generated.cs" />
     <Compile Include="Factories\PlayerFactory.Generated.cs" />
     <Compile Include="Factories\SafeZoneFactory.Generated.cs" />
+    <Compile Include="Factories\SeaLifeFactory.Generated.cs" />
     <Compile Include="Factories\WorldObjectEntityFactory.Generated.cs" />
     <Compile Include="GlobalContent.Generated.cs" />
     <Compile Include="GumCore\AnimationFrame.cs" />

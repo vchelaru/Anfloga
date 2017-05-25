@@ -132,7 +132,13 @@ namespace Anfloga.Screens
                 }
             };
 
-
+            SeaLifeList.CollectionChanged += (sender, args) =>
+            {
+                if(args.Action == System.Collections.Specialized.NotifyCollectionChangedAction.Add)
+                {
+                    foreach (SeaLife s in args.NewItems) s.MoveToLayer(WorldLayer);
+                }
+            };
         }
 
         private void InitializeRestartVariables()
