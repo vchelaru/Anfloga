@@ -120,6 +120,36 @@
   <tile id="5792" terrain="0,0,,"/>
   <tile id="5793" terrain="0,0,,"/>
   <tile id="5794" terrain="0,,,"/>
+  <tile id="6528">
+   <properties>
+    <property name="EntityToCreate" value="SeaLife"/>
+    <property name="VisualName" value="OrangeFish"/>
+   </properties>
+  </tile>
+  <tile id="6529">
+   <properties>
+    <property name="EntityToCreate" value="SeaLife"/>
+    <property name="VisualName" value="BlueFish"/>
+   </properties>
+  </tile>
+  <tile id="6530">
+   <properties>
+    <property name="EntityToCreate" value="SeaLife"/>
+    <property name="VisualName" value="GreenFish"/>
+   </properties>
+  </tile>
+  <tile id="6531">
+   <properties>
+    <property name="EntityToCreate" value="SeaLife"/>
+    <property name="VisualName" value="Nemo"/>
+   </properties>
+  </tile>
+  <tile id="6532">
+   <properties>
+    <property name="EntityToCreate" value="SeaLife"/>
+    <property name="VisualName" value="Dolphin"/>
+   </properties>
+  </tile>
  </tileset>
  <layer name="Level design layout &quot;screens&quot;" width="800" height="350" visible="0">
   <data encoding="base64" compression="gzip">

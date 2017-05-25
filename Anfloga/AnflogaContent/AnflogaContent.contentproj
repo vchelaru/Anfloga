@@ -77,6 +77,10 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>AnimationChainListFile</Name>
     </None>
+    <None Include="Entities\SeaLife\AnimationChainListFile.achx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>AnimationChainListFile</Name>
+    </None>
     <None Include="Entities\ShaderRenderer\WavyTexture.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>WavyTexture</Name>
