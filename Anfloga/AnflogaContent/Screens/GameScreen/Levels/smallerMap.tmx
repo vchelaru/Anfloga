@@ -6,82 +6,12 @@
    <terrain name="LightSand" tile="-1"/>
    <terrain name="DarkSand" tile="-1"/>
   </terraintypes>
-  <tile id="4381">
-   <properties>
-    <property name="SolidCollision" type="bool" value="false"/>
-   </properties>
-  </tile>
-  <tile id="4382">
-   <properties>
-    <property name="SolidCollision" type="bool" value="false"/>
-   </properties>
-  </tile>
-  <tile id="4383">
-   <properties>
-    <property name="SolidCollision" type="bool" value="false"/>
-   </properties>
-  </tile>
-  <tile id="4384">
-   <properties>
-    <property name="SolidCollision" type="bool" value="false"/>
-   </properties>
-  </tile>
-  <tile id="4509">
-   <properties>
-    <property name="SolidCollision" type="bool" value="false"/>
-   </properties>
-  </tile>
-  <tile id="4510">
-   <properties>
-    <property name="SolidCollision" type="bool" value="false"/>
-   </properties>
-  </tile>
-  <tile id="4511">
-   <properties>
-    <property name="SolidCollision" type="bool" value="false"/>
-   </properties>
-  </tile>
-  <tile id="4512">
-   <properties>
-    <property name="SolidCollision" type="bool" value="false"/>
-   </properties>
-  </tile>
-  <tile id="4513">
-   <properties>
-    <property name="SolidCollision" type="bool" value="false"/>
-   </properties>
-  </tile>
-  <tile id="4514">
-   <properties>
-    <property name="SolidCollision" type="bool" value="false"/>
-   </properties>
-  </tile>
   <tile id="4636" terrain=",,,0"/>
-  <tile id="4637" terrain=",,0,0">
-   <properties>
-    <property name="SolidCollision" type="bool" value="false"/>
-   </properties>
-  </tile>
-  <tile id="4638" terrain=",,0,0">
-   <properties>
-    <property name="SolidCollision" type="bool" value="false"/>
-   </properties>
-  </tile>
-  <tile id="4639" terrain=",,0,0">
-   <properties>
-    <property name="SolidCollision" type="bool" value="false"/>
-   </properties>
-  </tile>
-  <tile id="4640" terrain=",,0,0">
-   <properties>
-    <property name="SolidCollision" type="bool" value="false"/>
-   </properties>
-  </tile>
-  <tile id="4641" terrain=",,0,0">
-   <properties>
-    <property name="SolidCollision" type="bool" value="false"/>
-   </properties>
-  </tile>
+  <tile id="4637" terrain=",,0,0"/>
+  <tile id="4638" terrain=",,0,0"/>
+  <tile id="4639" terrain=",,0,0"/>
+  <tile id="4640" terrain=",,0,0"/>
+  <tile id="4641" terrain=",,0,0"/>
   <tile id="4642" terrain=",,0,"/>
   <tile id="4736">
    <properties>
@@ -89,133 +19,53 @@
    </properties>
   </tile>
   <tile id="4764" terrain=",,,0"/>
-  <tile id="4765" terrain=",,0,0">
-   <properties>
-    <property name="SolidCollision" type="bool" value="false"/>
-   </properties>
-  </tile>
-  <tile id="4766" terrain=",,0,0">
-   <properties>
-    <property name="SolidCollision" type="bool" value="false"/>
-   </properties>
-  </tile>
-  <tile id="4767" terrain=",,0,0">
-   <properties>
-    <property name="SolidCollision" type="bool" value="false"/>
-   </properties>
-  </tile>
-  <tile id="4768" terrain=",,0,0">
-   <properties>
-    <property name="SolidCollision" type="bool" value="false"/>
-   </properties>
-  </tile>
-  <tile id="4769" terrain=",,0,0">
-   <properties>
-    <property name="SolidCollision" type="bool" value="false"/>
-   </properties>
-  </tile>
+  <tile id="4765" terrain=",,0,0"/>
+  <tile id="4766" terrain=",,0,0"/>
+  <tile id="4767" terrain=",,0,0"/>
+  <tile id="4768" terrain=",,0,0"/>
+  <tile id="4769" terrain=",,0,0"/>
   <tile id="4770" terrain=",,0,"/>
   <tile id="4889" terrain="0,0,0,"/>
   <tile id="4890" terrain="0,0,,0"/>
   <tile id="4891" terrain=",,,0"/>
-  <tile id="4892" terrain=",,,0">
-   <properties>
-    <property name="SolidCollision" type="bool" value="true"/>
-   </properties>
-  </tile>
-  <tile id="4893" terrain=",,0,0">
-   <properties>
-    <property name="SolidCollision" type="bool" value="false"/>
-   </properties>
-  </tile>
-  <tile id="4894" terrain=",,0,0">
-   <properties>
-    <property name="SolidCollision" type="bool" value="false"/>
-   </properties>
-  </tile>
-  <tile id="4895" terrain=",,0,0">
-   <properties>
-    <property name="SolidCollision" type="bool" value="false"/>
-   </properties>
-  </tile>
-  <tile id="4896" terrain=",,0,0">
-   <properties>
-    <property name="SolidCollision" type="bool" value="false"/>
-   </properties>
-  </tile>
-  <tile id="4897" terrain=",,0,0">
-   <properties>
-    <property name="SolidCollision" type="bool" value="false"/>
-   </properties>
-  </tile>
-  <tile id="4898" terrain=",,0,">
-   <properties>
-    <property name="SolidCollision" type="bool" value="true"/>
-   </properties>
-  </tile>
+  <tile id="4892" terrain=",,,0"/>
+  <tile id="4893" terrain=",,0,0"/>
+  <tile id="4894" terrain=",,0,0"/>
+  <tile id="4895" terrain=",,0,0"/>
+  <tile id="4896" terrain=",,0,0"/>
+  <tile id="4897" terrain=",,0,0"/>
+  <tile id="4898" terrain=",,0,"/>
   <tile id="4899" terrain=",,0,"/>
   <tile id="5017" terrain="0,,0,0"/>
   <tile id="5018" terrain=",0,0,0"/>
-  <tile id="5019" terrain=",,,0">
-   <properties>
-    <property name="SolidCollision" type="bool" value="false"/>
-   </properties>
-  </tile>
-  <tile id="5020" terrain=",,,0">
-   <properties>
-    <property name="SolidCollision" type="bool" value="false"/>
-   </properties>
-  </tile>
-  <tile id="5021" terrain=",,0,0">
-   <properties>
-    <property name="SolidCollision" type="bool" value="false"/>
-   </properties>
-  </tile>
-  <tile id="5022" terrain=",,0,0">
-   <properties>
-    <property name="SolidCollision" type="bool" value="false"/>
-   </properties>
-  </tile>
-  <tile id="5023" terrain=",,0,0">
-   <properties>
-    <property name="SolidCollision" type="bool" value="false"/>
-   </properties>
-  </tile>
-  <tile id="5024" terrain=",,0,0">
-   <properties>
-    <property name="SolidCollision" type="bool" value="false"/>
-   </properties>
-  </tile>
-  <tile id="5025" terrain=",,0,0">
-   <properties>
-    <property name="SolidCollision" type="bool" value="false"/>
-   </properties>
-  </tile>
-  <tile id="5026" terrain=",,0,">
+  <tile id="5019" terrain=",,,0"/>
+  <tile id="5020" terrain=",,,0"/>
+  <tile id="5021" terrain=",,0,0"/>
+  <tile id="5022" terrain=",,0,0"/>
+  <tile id="5023" terrain=",,0,0"/>
+  <tile id="5024" terrain=",,0,0"/>
+  <tile id="5025" terrain=",,0,0"/>
+  <tile id="5026" terrain=",,0,"/>
+  <tile id="5027" terrain=",,0,"/>
+  <tile id="5031" terrain="0,0,0,1">
    <properties>
     <property name="SolidCollision" type="bool" value="true"/>
    </properties>
   </tile>
-  <tile id="5027" terrain=",,0,">
+  <tile id="5032" terrain="0,0,1,1">
    <properties>
-    <property name="SolidCollision" type="bool" value="false"/>
+    <property name="SolidCollision" type="bool" value="true"/>
    </properties>
   </tile>
-  <tile id="5031" terrain="0,0,0,1"/>
-  <tile id="5032" terrain="0,0,1,1"/>
-  <tile id="5033" terrain="0,0,1,0"/>
+  <tile id="5033" terrain="0,0,1,0">
+   <properties>
+    <property name="SolidCollision" type="bool" value="true"/>
+   </properties>
+  </tile>
   <tile id="5145" terrain="0,0,0,"/>
   <tile id="5146" terrain="0,0,,0"/>
-  <tile id="5147" terrain=",0,,0">
-   <properties>
-    <property name="SolidCollision" type="bool" value="false"/>
-   </properties>
-  </tile>
-  <tile id="5148" terrain=",0,,0">
-   <properties>
-    <property name="SolidCollision" type="bool" value="false"/>
-   </properties>
-  </tile>
+  <tile id="5147" terrain=",0,,0"/>
+  <tile id="5148" terrain=",0,,0"/>
   <tile id="5149" terrain="0,0,0,0">
    <properties>
     <property name="SolidCollision" type="bool" value="true"/>
@@ -241,31 +91,27 @@
     <property name="SolidCollision" type="bool" value="true"/>
    </properties>
   </tile>
-  <tile id="5154" terrain="0,,0,">
+  <tile id="5154" terrain="0,,0,"/>
+  <tile id="5155" terrain="0,,0,"/>
+  <tile id="5159" terrain="0,1,0,1">
    <properties>
-    <property name="SolidCollision" type="bool" value="false"/>
+    <property name="SolidCollision" type="bool" value="true"/>
    </properties>
   </tile>
-  <tile id="5155" terrain="0,,0,">
+  <tile id="5160" terrain="1,1,1,1">
    <properties>
-    <property name="SolidCollision" type="bool" value="false"/>
+    <property name="SolidCollision" type="bool" value="true"/>
    </properties>
   </tile>
-  <tile id="5159" terrain="0,1,0,1"/>
-  <tile id="5160" terrain="1,1,1,1"/>
-  <tile id="5161" terrain="1,0,1,0"/>
+  <tile id="5161" terrain="1,0,1,0">
+   <properties>
+    <property name="SolidCollision" type="bool" value="true"/>
+   </properties>
+  </tile>
   <tile id="5273" terrain="0,,0,0"/>
   <tile id="5274" terrain=",0,0,0"/>
-  <tile id="5275" terrain=",0,,0">
-   <properties>
-    <property name="SolidCollision" type="bool" value="false"/>
-   </properties>
-  </tile>
-  <tile id="5276" terrain=",0,,0">
-   <properties>
-    <property name="SolidCollision" type="bool" value="false"/>
-   </properties>
-  </tile>
+  <tile id="5275" terrain=",0,,0"/>
+  <tile id="5276" terrain=",0,,0"/>
   <tile id="5277" terrain="0,0,0,0">
    <properties>
     <property name="SolidCollision" type="bool" value="true"/>
@@ -291,29 +137,25 @@
     <property name="SolidCollision" type="bool" value="true"/>
    </properties>
   </tile>
-  <tile id="5282" terrain="0,,0,">
+  <tile id="5282" terrain="0,,0,"/>
+  <tile id="5283" terrain="0,,0,"/>
+  <tile id="5287" terrain="0,1,0,0">
    <properties>
-    <property name="SolidCollision" type="bool" value="false"/>
+    <property name="SolidCollision" type="bool" value="true"/>
    </properties>
   </tile>
-  <tile id="5283" terrain="0,,0,">
+  <tile id="5288" terrain="1,1,0,0">
    <properties>
-    <property name="SolidCollision" type="bool" value="false"/>
+    <property name="SolidCollision" type="bool" value="true"/>
    </properties>
   </tile>
-  <tile id="5287" terrain="0,1,0,0"/>
-  <tile id="5288" terrain="1,1,0,0"/>
-  <tile id="5289" terrain="1,0,0,0"/>
-  <tile id="5403" terrain=",0,,0">
+  <tile id="5289" terrain="1,0,0,0">
    <properties>
-    <property name="SolidCollision" type="bool" value="false"/>
+    <property name="SolidCollision" type="bool" value="true"/>
    </properties>
   </tile>
-  <tile id="5404" terrain=",0,,0">
-   <properties>
-    <property name="SolidCollision" type="bool" value="false"/>
-   </properties>
-  </tile>
+  <tile id="5403" terrain=",0,,0"/>
+  <tile id="5404" terrain=",0,,0"/>
   <tile id="5405" terrain="0,0,0,0">
    <properties>
     <property name="SolidCollision" type="bool" value="true"/>
@@ -339,30 +181,14 @@
     <property name="SolidCollision" type="bool" value="true"/>
    </properties>
   </tile>
-  <tile id="5410" terrain="0,,0,">
-   <properties>
-    <property name="SolidCollision" type="bool" value="false"/>
-   </properties>
-  </tile>
-  <tile id="5411" terrain="0,,0,">
-   <properties>
-    <property name="SolidCollision" type="bool" value="false"/>
-   </properties>
-  </tile>
+  <tile id="5410" terrain="0,,0,"/>
+  <tile id="5411" terrain="0,,0,"/>
   <tile id="5415" terrain="1,1,1,0"/>
   <tile id="5416" terrain="1,1,0,1"/>
   <tile id="5417" terrain="1,1,1,1"/>
   <tile id="5418" terrain="1,1,1,1"/>
-  <tile id="5531" terrain=",0,,0">
-   <properties>
-    <property name="SolidCollision" type="bool" value="false"/>
-   </properties>
-  </tile>
-  <tile id="5532" terrain=",0,,0">
-   <properties>
-    <property name="SolidCollision" type="bool" value="false"/>
-   </properties>
-  </tile>
+  <tile id="5531" terrain=",0,,0"/>
+  <tile id="5532" terrain=",0,,0"/>
   <tile id="5533" terrain="0,0,0,0">
    <properties>
     <property name="SolidCollision" type="bool" value="true"/>
@@ -388,81 +214,22 @@
     <property name="SolidCollision" type="bool" value="true"/>
    </properties>
   </tile>
-  <tile id="5538" terrain="0,,0,">
-   <properties>
-    <property name="SolidCollision" type="bool" value="false"/>
-   </properties>
-  </tile>
-  <tile id="5539" terrain="0,,0,">
-   <properties>
-    <property name="SolidCollision" type="bool" value="false"/>
-   </properties>
-  </tile>
+  <tile id="5538" terrain="0,,0,"/>
+  <tile id="5539" terrain="0,,0,"/>
   <tile id="5543" terrain="1,0,1,1"/>
   <tile id="5544" terrain="0,1,1,1"/>
   <tile id="5545" terrain="1,1,1,1"/>
   <tile id="5546" terrain="1,1,1,1"/>
-  <tile id="5659" terrain=",0,,">
-   <properties>
-    <property name="SolidCollision" type="bool" value="false"/>
-   </properties>
-  </tile>
-  <tile id="5660" terrain=",0,,">
-   <properties>
-    <property name="SolidCollision" type="bool" value="false"/>
-   </properties>
-  </tile>
-  <tile id="5661" terrain="0,0,,">
-   <properties>
-    <property name="SolidCollision" type="bool" value="false"/>
-   </properties>
-  </tile>
-  <tile id="5662" terrain="0,0,,">
-   <properties>
-    <property name="SolidCollision" type="bool" value="false"/>
-   </properties>
-  </tile>
-  <tile id="5663" terrain="0,0,,">
-   <properties>
-    <property name="SolidCollision" type="bool" value="false"/>
-   </properties>
-  </tile>
-  <tile id="5664" terrain="0,0,,">
-   <properties>
-    <property name="SolidCollision" type="bool" value="false"/>
-   </properties>
-  </tile>
-  <tile id="5665" terrain="0,0,,">
-   <properties>
-    <property name="SolidCollision" type="bool" value="false"/>
-   </properties>
-  </tile>
-  <tile id="5666" terrain="0,,,">
-   <properties>
-    <property name="SolidCollision" type="bool" value="false"/>
-   </properties>
-  </tile>
-  <tile id="5667" terrain="0,,,">
-   <properties>
-    <property name="SolidCollision" type="bool" value="false"/>
-   </properties>
-  </tile>
-  <tile id="5765">
-   <properties>
-    <property name="SolidCollision" type="bool" value="true"/>
-   </properties>
-  </tile>
+  <tile id="5659" terrain=",0,,"/>
+  <tile id="5660" terrain=",0,,"/>
+  <tile id="5661" terrain="0,0,,"/>
+  <tile id="5662" terrain="0,0,,"/>
+  <tile id="5663" terrain="0,0,,"/>
+  <tile id="5664" terrain="0,0,,"/>
+  <tile id="5665" terrain="0,0,,"/>
+  <tile id="5666" terrain="0,,,"/>
+  <tile id="5667" terrain="0,,,"/>
   <tile id="5766">
-   <properties>
-    <property name="SolidCollision" type="bool" value="true"/>
-   </properties>
-  </tile>
-  <tile id="5767">
-   <properties>
-    <property name="SolidCollision" type="bool" value="true"/>
-   </properties>
-  </tile>
-  <tile id="5768">
    <properties>
     <property name="SolidCollision" type="bool" value="true"/>
    </properties>
@@ -477,46 +244,13 @@
     <property name="SolidCollision" type="bool" value="true"/>
    </properties>
   </tile>
-  <tile id="5771">
-   <properties>
-    <property name="SolidCollision" type="bool" value="true"/>
-   </properties>
-  </tile>
-  <tile id="5788" terrain=",0,,">
-   <properties>
-    <property name="SolidCollision" type="bool" value="false"/>
-   </properties>
-  </tile>
-  <tile id="5789" terrain="0,0,,">
-   <properties>
-    <property name="SolidCollision" type="bool" value="false"/>
-   </properties>
-  </tile>
-  <tile id="5790" terrain="0,0,,">
-   <properties>
-    <property name="SolidCollision" type="bool" value="false"/>
-   </properties>
-  </tile>
-  <tile id="5791" terrain="0,0,,">
-   <properties>
-    <property name="SolidCollision" type="bool" value="false"/>
-   </properties>
-  </tile>
-  <tile id="5792" terrain="0,0,,">
-   <properties>
-    <property name="SolidCollision" type="bool" value="false"/>
-   </properties>
-  </tile>
-  <tile id="5793" terrain="0,0,,">
-   <properties>
-    <property name="SolidCollision" type="bool" value="false"/>
-   </properties>
-  </tile>
-  <tile id="5794" terrain="0,,,">
-   <properties>
-    <property name="SolidCollision" type="bool" value="false"/>
-   </properties>
-  </tile>
+  <tile id="5788" terrain=",0,,"/>
+  <tile id="5789" terrain="0,0,,"/>
+  <tile id="5790" terrain="0,0,,"/>
+  <tile id="5791" terrain="0,0,,"/>
+  <tile id="5792" terrain="0,0,,"/>
+  <tile id="5793" terrain="0,0,,"/>
+  <tile id="5794" terrain="0,,,"/>
   <tile id="6528">
    <properties>
     <property name="EntityToCreate" value="SeaLife"/>
@@ -591,6 +325,11 @@
  <layer name="ForegroundDecor" width="800" height="350">
   <data encoding="base64" compression="gzip">
    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AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMB5/AO82NhgABcRAA==
+  </data>
+ </layer>
+ <layer name="SolidCollision" width="800" height="350" visible="0">
+  <data encoding="base64" compression="gzip">
+   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
   </data>
  </layer>
  <objectgroup name="Dialog" visible="0">
