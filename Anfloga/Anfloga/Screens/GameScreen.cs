@@ -19,6 +19,7 @@ using Anfloga.Logic;
 using Microsoft.Xna.Framework.Graphics;
 using FlatRedBall.Glue.StateInterpolation;
 using StateInterpolationPlugin;
+using static Anfloga.GumRuntimes.GameScreenGumRuntime;
 
 namespace Anfloga.Screens
 {
@@ -39,6 +40,8 @@ namespace Anfloga.Screens
 
         DarknessTrigger lastDarknessTriggerCollidedAgainst;
         Tweener lastDarknessTweener;
+
+        bool isRespawning = false;
 
         #endregion
 
@@ -312,8 +315,27 @@ namespace Anfloga.Screens
                 dialogLogic.Update(PlayerList[0].DialogInput.WasJustPressed, objectCollidingWith);
             }
 
+            HandleDeathActivity();
+
             ReloadScreenActivity();
 		}
+
+        private void HandleDeathActivity()
+        {
+            if(PlayerList[0].IsDead && !isRespawning)
+            {
+                isRespawning = true;
+
+                const float time = 1.5f;
+                this.GameScreenGumRuntime.InterpolateTo(FadeoutCategory.Dark, time, InterpolationType.Linear, Easing.In);
+                this.Call(() =>
+                {
+                   PlayerList[0].RespawnFromLastCheckpointPosition();
+                   this.GameScreenGumRuntime.InterpolateTo(FadeoutCategory.Light, time, InterpolationType.Linear, Easing.In);
+                   isRespawning = false;
+                }).After(time);
+            }
+        }
 
         private void ReloadScreenActivity()
         {

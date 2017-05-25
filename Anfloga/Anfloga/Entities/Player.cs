@@ -44,6 +44,8 @@ namespace Anfloga.Entities
 
         private float explorationDurationLeft;
 
+        public bool IsDead => explorationDurationLeft <= 0;
+
         private ExplorationState currentExplorationState;
 
         private Vector2 lastCheckpointPosition;
@@ -161,7 +163,7 @@ namespace Anfloga.Entities
 
             PerformLightLogic();
 
-            UpdateExplorationDurtionActivity();
+            UpdateExplorationDurationActivity();
 
             UpdateFacingDirection();
             //Perform hud update at the end. Incase we have abilities that consume oxygen.
@@ -254,7 +256,7 @@ namespace Anfloga.Entities
             lastCheckpointPosition.Y = y;
         }
 
-        private void RespawnFromLastCheckpointPosition()
+        public void RespawnFromLastCheckpointPosition()
         {
             this.X = lastCheckpointPosition.X;
             this.Y = lastCheckpointPosition.Y;
@@ -262,7 +264,7 @@ namespace Anfloga.Entities
             this.LightBeamInstance.Visible = false;
         }
 
-        private void UpdateExplorationDurtionActivity()
+        private void UpdateExplorationDurationActivity()
         {
 #if DEBUG
             if(InputManager.Keyboard.KeyPushed(Microsoft.Xna.Framework.Input.Keys.O))
@@ -291,7 +293,8 @@ namespace Anfloga.Entities
                 if (explorationDurationLeft < 0)
                 {
                     explorationDurationLeft = 0;
-                    RespawnFromLastCheckpointPosition();
+
+
                 }
             }
             else if (currentExplorationState == ExplorationState.Replenish)
