@@ -1117,7 +1117,7 @@
           </Properties>
           <Name>ShowWorldObjectCollision</Name>
           <Type>bool</Type>
-          <DefaultValue xsi:type="xsd:boolean">true</DefaultValue>
+          <DefaultValue xsi:type="xsd:boolean">false</DefaultValue>
           <IsShared>true</IsShared>
         </CustomVariable>
         <CustomVariable>
@@ -1177,7 +1177,7 @@
           </Properties>
           <Name>ShowTerrainCollision</Name>
           <Type>bool</Type>
-          <DefaultValue xsi:type="xsd:boolean">true</DefaultValue>
+          <DefaultValue xsi:type="xsd:boolean">false</DefaultValue>
           <IsShared>true</IsShared>
         </CustomVariable>
         <CustomVariable>
@@ -2001,6 +2001,10 @@
           <Name>ImplementsICollidable</Name>
           <ValueAsBool>true</ValueAsBool>
         </PropertySave>
+        <PropertySave>
+          <Name>HasAdvancedInterpolations</Name>
+          <ValueAsBool>true</ValueAsBool>
+        </PropertySave>
       </Properties>
       <Tags>
         <string>GLUE</string>
@@ -2057,7 +2061,7 @@
               <ValueAsString>float</ValueAsString>
             </PropertySave>
           </Properties>
-          <Name>PatrolRadius</Name>
+          <Name>XPatrolRange</Name>
           <Type>float</Type>
           <DefaultValue xsi:type="xsd:float">50</DefaultValue>
         </CustomVariable>
@@ -2068,7 +2072,18 @@
               <ValueAsString>float</ValueAsString>
             </PropertySave>
           </Properties>
-          <Name>ExploreVelocity</Name>
+          <Name>SwimVelocity</Name>
+          <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">20</DefaultValue>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>YPatrolRange</Name>
           <Type>float</Type>
           <DefaultValue xsi:type="xsd:float">10</DefaultValue>
         </CustomVariable>

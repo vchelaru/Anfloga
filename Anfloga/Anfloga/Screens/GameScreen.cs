@@ -131,14 +131,6 @@ namespace Anfloga.Screens
                     foreach (DarknessTrigger d in args.NewItems) d.MoveToLayer(WorldLayer);
                 }
             };
-
-            SeaLifeList.CollectionChanged += (sender, args) =>
-            {
-                if(args.Action == System.Collections.Specialized.NotifyCollectionChangedAction.Add)
-                {
-                    foreach (SeaLife s in args.NewItems) s.MoveToLayer(WorldLayer);
-                }
-            };
         }
 
         private void InitializeRestartVariables()
@@ -165,6 +157,11 @@ namespace Anfloga.Screens
             {
                 var layerToPlaceOn = item.ShouldPlaceOnUiLayer ? AboveEverythingLayer : WorldLayer;
                 item.MoveToLayer(layerToPlaceOn);
+            }
+            foreach(var item in SeaLifeList)
+            {
+                item.MoveToLayer(WorldLayer);
+                item.SetPatrolArea();
             }
         }
 
