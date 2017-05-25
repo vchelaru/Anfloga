@@ -273,6 +273,7 @@ namespace Anfloga.Entities
 
             if (currentExplorationState == ExplorationState.Consume)
             {
+                bool wasLow = (explorationDurationLeft / MaxExplorationTime) < PercentageForLowEnergyNotification / 100.0f;
                 explorationDurationLeft -= ExplorationConsumptionRate * TimeManager.SecondDifference;
                 
                 if(this.LightBeamInstance.Visible)
@@ -280,7 +281,14 @@ namespace Anfloga.Entities
                     explorationDurationLeft -= AdditionalLightConsumption * TimeManager.SecondDifference;
                 }
 
-                if(explorationDurationLeft < 0)
+                bool isLow = (explorationDurationLeft / MaxExplorationTime) < PercentageForLowEnergyNotification / 100.0f;
+
+                if(!wasLow && isLow)
+                {
+                    warningAlert.Play();
+                }
+
+                if (explorationDurationLeft < 0)
                 {
                     explorationDurationLeft = 0;
                     RespawnFromLastCheckpointPosition();
@@ -307,7 +315,7 @@ namespace Anfloga.Entities
                 ExplorationLimitFill = currentOxygenPercentage,
                 MineralText = CurrentCurrencyBalance,
                 IsFillingUp = currentExplorationState == ExplorationState.Replenish,
-                IsLow = currentOxygenPercentage < .25
+                IsLow = currentOxygenPercentage < PercentageForLowEnergyNotification/100.0f
             };
 
             PlayerHud.UpdateHud(updateValues);
