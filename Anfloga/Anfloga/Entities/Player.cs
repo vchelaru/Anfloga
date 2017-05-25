@@ -63,7 +63,6 @@ namespace Anfloga.Entities
 		{
             facingLeftLightXOffset = AlwaysOnLightSprite.RelativeX;
 
-            CurrentCurrencyBalance = 1000;
             // We may end up calling this in a screen in case we want the screen to control this assignment
             AssignInput();
 
@@ -303,7 +302,15 @@ namespace Anfloga.Entities
             //We are not worried about 
             var currentOxygenPercentage = explorationDurationLeft / MaxExplorationTime;
 
-            PlayerHud.UpdateHud(new HudUpdateData() { ExplorationLimitFill =  currentOxygenPercentage, MineralText = CurrentCurrencyBalance});
+            var updateValues = new HudUpdateData()
+            {
+                ExplorationLimitFill = currentOxygenPercentage,
+                MineralText = CurrentCurrencyBalance,
+                IsFillingUp = currentExplorationState == ExplorationState.Replenish,
+                IsLow = currentOxygenPercentage < .25
+            };
+
+            PlayerHud.UpdateHud(updateValues);
         }
 
         private void PerformMovementInput()
