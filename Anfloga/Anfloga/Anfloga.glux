@@ -2007,6 +2007,10 @@
           <Name>ImplementsICollidable</Name>
           <ValueAsBool>true</ValueAsBool>
         </PropertySave>
+        <PropertySave>
+          <Name>HasAdvancedInterpolations</Name>
+          <ValueAsBool>true</ValueAsBool>
+        </PropertySave>
       </Properties>
       <Tags>
         <string>GLUE</string>
@@ -2063,7 +2067,7 @@
               <ValueAsString>float</ValueAsString>
             </PropertySave>
           </Properties>
-          <Name>PatrolRadius</Name>
+          <Name>XPatrolRange</Name>
           <Type>float</Type>
           <DefaultValue xsi:type="xsd:float">50</DefaultValue>
         </CustomVariable>
@@ -2074,7 +2078,18 @@
               <ValueAsString>float</ValueAsString>
             </PropertySave>
           </Properties>
-          <Name>ExploreVelocity</Name>
+          <Name>SwimVelocity</Name>
+          <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">20</DefaultValue>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>YPatrolRange</Name>
           <Type>float</Type>
           <DefaultValue xsi:type="xsd:float">10</DefaultValue>
         </CustomVariable>
