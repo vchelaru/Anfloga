@@ -239,6 +239,11 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\Player\warningAlert.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>warningAlert</Name>
+    </Compile>
     <Compile Include="Screens\GameScreen\Shaders\BloomCombine.fx">
       <Importer>EffectImporter</Importer>
       <Processor>EffectProcessor</Processor>
