@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="800" height="350" tilewidth="16" tileheight="16" nextobjectid="127">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="800" height="350" tilewidth="16" tileheight="16" nextobjectid="128">
  <tileset firstgid="1" name="anflogaSprites" tilewidth="16" tileheight="16" tilecount="16384" columns="128">
   <image source="anflogaSprites.png" width="2048" height="2048"/>
   <terraintypes>
@@ -538,7 +538,7 @@
   </object>
  </objectgroup>
  <objectgroup name="PlayerStart">
-  <object id="126" name="player start" gid="6657" x="5872" y="2912" width="16" height="16">
+  <object id="127" name="player start" gid="6657" x="6624" y="1520" width="16" height="16">
    <properties>
     <property name="EntityToCreate" value="Player"/>
    </properties>
