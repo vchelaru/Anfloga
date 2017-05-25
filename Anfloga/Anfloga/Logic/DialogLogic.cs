@@ -50,7 +50,7 @@ namespace Anfloga.Logic
         public DialogBoxRuntime DialogBox { get; set; }
 
         #endregion
-
+ 
         public void Update(bool pressedDialogButton, WorldObjectEntity worldEntityCollidingWith)
         {
             switch(currentDialogShownState)
@@ -90,15 +90,15 @@ namespace Anfloga.Logic
                     break;
                 case DialogShownState.AutomaticallyShown:
                     bool shouldClose = false;
-                    if (worldEntityCollidingWith != entityShowingDialog)
-                    {
-                        // user moved out of the collision area, so hide it:
-                        shouldClose = true;
-                    }
-                    else if(entityShowingDialog.AutomaticDismissTime > 0)
+                    if(entityShowingDialog.AutomaticDismissTime > 0)
                     {
                         shouldClose = ScreenManager.CurrentScreen.PauseAdjustedSecondsSince(entityShowingDialog.TimeDialogShown) >
                             entityShowingDialog.AutomaticDismissTime;
+                    }
+                    else if (worldEntityCollidingWith != entityShowingDialog)
+                    {
+                        // user moved out of the collision area, so hide it    
+                        shouldClose = true;
                     }
 
                     if(shouldClose)
