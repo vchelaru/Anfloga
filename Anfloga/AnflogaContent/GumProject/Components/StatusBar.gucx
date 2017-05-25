@@ -56,6 +56,11 @@
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
+      <Type>RecoverySpendingTypeState</Type>
+      <Name>RecoverySpendingTypeState</Name>
+      <SetsValue>false</SetsValue>
+    </Variable>
+    <Variable>
       <Type>State</Type>
       <Name>State</Name>
       <SetsValue>true</SetsValue>
@@ -526,6 +531,36 @@
         <Type>int</Type>
         <Name>StatusBarIcon.Texture Left</Name>
         <Value xsi:type="xsd:int">2033</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+    </State>
+  </Category>
+  <Category>
+    <Name>RecoverySpendingType</Name>
+    <State>
+      <Name>Draining</Name>
+      <Variable>
+        <Type>int</Type>
+        <Name>StatusBarFill.Texture Left</Name>
+        <Value xsi:type="xsd:int">2019</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+    </State>
+    <State>
+      <Name>DrainingLow</Name>
+      <Variable>
+        <Type>int</Type>
+        <Name>StatusBarFill.Texture Left</Name>
+        <Value xsi:type="xsd:int">2027</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+    </State>
+    <State>
+      <Name>Charging</Name>
+      <Variable>
+        <Type>int</Type>
+        <Name>StatusBarFill.Texture Left</Name>
+        <Value xsi:type="xsd:int">2011</Value>
         <SetsValue>true</SetsValue>
       </Variable>
     </State>
