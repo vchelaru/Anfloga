@@ -13,6 +13,10 @@
     <ElementType>Screen</ElementType>
   </ScreenReference>
   <ScreenReference>
+    <Name>MainMenuScreenGum</Name>
+    <ElementType>Screen</ElementType>
+  </ScreenReference>
+  <ScreenReference>
     <Name>TestScreenGum</Name>
     <ElementType>Screen</ElementType>
   </ScreenReference>

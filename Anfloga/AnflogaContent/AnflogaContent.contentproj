@@ -113,6 +113,14 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>StatusBar</Name>
     </None>
+    <None Include="GumProject\FontCache\Font10Arial.fnt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Font10Arial</Name>
+    </None>
+    <None Include="GumProject\FontCache\Font10Arial_0.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Font10Arial_0</Name>
+    </None>
     <None Include="GumProject\FontCache\Font10Oxygen.fnt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>Font10Oxygen</Name>
@@ -120,6 +128,14 @@
     <None Include="GumProject\FontCache\Font10Oxygen_0.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>Font10Oxygen_0</Name>
+    </None>
+    <None Include="GumProject\FontCache\Font12Arial.fnt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Font12Arial</Name>
+    </None>
+    <None Include="GumProject\FontCache\Font12Arial_0.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Font12Arial_0</Name>
     </None>
     <None Include="GumProject\FontCache\Font12Oxygen.fnt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -144,6 +160,10 @@
     <None Include="GumProject\Screens\GameScreenGum.gusx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>GameScreenGum</Name>
+    </None>
+    <None Include="GumProject\Screens\MainMenuScreenGum.gusx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>MainMenuScreenGum</Name>
     </None>
     <None Include="GumProject\Screens\TestScreenGum.gusx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
