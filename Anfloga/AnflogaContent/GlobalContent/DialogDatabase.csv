@@ -25,3 +25,16 @@ T_WaterPlanet1,$> Water covers 95 percent of Anfloga.
 T_WaterPlanet2,$> The clay and volcanic soil lacks stability required for large-scale construction.
 T_WaterPlanet3,$> No civilizations have existed on the planet.
 T_WaterPlanet4,"$> However, Anfloga is home to over 28,000 species of fish!"
+T_Ruins1,(It looks like some sort of stonework?)
+T_Ruins2,(There's no way the fish built this...)
+T_Remains1,(There appears to be some sort of animal remains nestled along the seafloor here.)
+T_Remains2,(Is that a human skull?)
+T_ShipLog5,Log 5: This will be my final log. The bastards shut the power off. Waiting for me to die then sending the bots to pick up the crystals.
+T_ShipLog1,(There's data log buried in the sand.) Log 1:  I made it all the way to sector A2. Over 1000 nautical miles. No one's been to this sector.
+T_ShipLog3,Log 3:  I discovered the ruins of some civilization today. Why would there be ruins this far underwater? How are they preserved so well?
+T_ShipLog4,Log 4: The power stations they have me building are a horrible design. Why are they radiating this much heat? So inefficient.
+T_ShipLog2,Log 2: Something must be wrong with my equipment. The scans say these ruins are only about 50 years old?
+T_Chat1,"Computer, is it legal to purchase an inhabbited planet?"
+T_Chat2,"$> Senate Statute 117: ""No purchase of a planet harboring an active civilization shall be permitted."""
+T_PowerOff1,$> All power stations deactivating. Please remain calm and avoid damaging the Unearnum class Deep Water Exploration Vessel.
+T_Escape1,(Making it to the surface is my only chance!)
