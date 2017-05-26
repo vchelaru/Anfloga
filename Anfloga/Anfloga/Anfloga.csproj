@@ -294,6 +294,7 @@
     <Compile Include="GumRuntimes\DialogBoxRuntime.Generated.cs">
       <DependentUpon>DialogBoxRuntime.cs</DependentUpon>
     </Compile>
+    <Compile Include="GumRuntimes\EndingScreenGumRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\GameScreenGumRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\GumIdb.Generated.cs" />
     <Compile Include="GumRuntimes\MainMenuScreenGumRuntime.Generated.cs" />
@@ -319,6 +320,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Game1.cs" />
+    <Compile Include="Screens\EndingScreen.cs" />
+    <Compile Include="Screens\EndingScreen.Generated.cs">
+      <DependentUpon>EndingScreen.cs</DependentUpon>
+    </Compile>
     <Compile Include="Screens\GameScreen.cs" />
     <Compile Include="Screens\GameScreen.Generated.cs">
       <DependentUpon>GameScreen.cs</DependentUpon>
