@@ -217,6 +217,7 @@ namespace Anfloga.Screens
             if(DebuggingVariables.ShowTerrainCollision)
             {
                 solidCollision.Visible = true;
+                AboveWaterCollision.Visible = true;
             }
 #endif
         }
@@ -351,6 +352,8 @@ namespace Anfloga.Screens
             foreach(var player in PlayerList)
             {
                 solidCollision.CollideAgainstSolid(player);
+
+                player.CollideAgainstBounce(AboveWaterCollision, 0, 1, 0);
 
                 objectCollidingWith = null;
                 player.ObjectsToPerformCurrencyTransactionOn.Clear();
