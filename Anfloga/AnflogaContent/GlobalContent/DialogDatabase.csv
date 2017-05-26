@@ -23,4 +23,5 @@ T_SignalDetected5,(Could it be a distress beacon?)
 T_SignalDetected6,"$> This is your final warning, turn back now!"
 T_WaterPlanet1,$> Water covers 95 percent of Anfloga.
 T_WaterPlanet2,$> The clay and volcanic soil lacks stability required for large-scale construction.
-T_WaterPlanet3,"$> However, Anfloga is home to over 28,000 species of fish!"
+T_WaterPlanet3,$> No civilizations have existed on the planet.
+T_WaterPlanet4,"$> However, Anfloga is home to over 28,000 species of fish!"

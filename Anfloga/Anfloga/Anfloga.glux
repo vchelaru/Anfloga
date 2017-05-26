@@ -882,7 +882,7 @@
           </Properties>
           <Name>BubbleLifeTime</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">9</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">11</DefaultValue>
         </CustomVariable>
         <CustomVariable>
           <Properties>
@@ -1287,7 +1287,7 @@
           </Properties>
           <Name>StartingCurrency</Name>
           <Type>int</Type>
-          <DefaultValue xsi:type="xsd:int">100</DefaultValue>
+          <DefaultValue xsi:type="xsd:int">8</DefaultValue>
           <IsShared>true</IsShared>
         </CustomVariable>
       </CustomVariables>
@@ -1559,7 +1559,7 @@
           </Properties>
           <Name>CollisionRadius</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">8</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">12</DefaultValue>
           <CreatesEvent>true</CreatesEvent>
         </CustomVariable>
         <CustomVariable>
