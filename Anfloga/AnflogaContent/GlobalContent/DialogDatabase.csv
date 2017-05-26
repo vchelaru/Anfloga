@@ -12,11 +12,15 @@ T_Energy1,$> The Unwearnum class vessel expends battery power to maintain human 
 T_Energy2,$> Remaining near the surface allows battery recharge via solar energy.
 T_Light1,$> Authorization granted to enable high-output torch. [Torch: Right Click]
 T_Light2,$> Be aware that torch use requires additional battery drain.
+T_FreshAir1,$> Do you enjoy the fresh air? An encouraging motivation to complete your contract.
 T_Bubbles1,$> These bubbles indicate the presence of a possible power source--please investigate.
-T_PurchaseBase1,$> Use 5 minerals to create a permanent power station on this geothermal vent. [Move to source of bubbles and press Spacebar]
+T_PurchaseBase1,$> Use 8 minerals to create a permanent power station on this geothermal vent. [Move to source of bubbles and press Spacebar]
 T_SignalDetected1,(The onship instruments detect a feint signal from in this tunnel)
 T_SignalDetected2,"$> Warning, this tunnel is of considerable depth. Immediate turnabout is advised."
 T_SignalDetected3,"(The signal, though still weak, is growing in strength.)"
 T_SignalDetected4,$> Alert! Be assured your current battery does not have sufficient capacity to reach the tunnel's end. Change course now!
 T_SignalDetected5,(Could it be a distress beacon?)
 T_SignalDetected6,"$> This is your final warning, turn back now!"
+T_WaterPlanet1,$> Water covers 95 percent of Anfloga.
+T_WaterPlanet2,$> The clay and volcanic soil lacks stability required for large-scale construction.
+T_WaterPlanet3,"$> However, Anfloga is home to over 28,000 species of fish!"
