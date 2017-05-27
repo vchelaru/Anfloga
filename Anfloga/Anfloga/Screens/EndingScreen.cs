@@ -27,7 +27,11 @@ namespace Anfloga.Screens
 
 		void CustomActivity(bool firstTimeCalled)
 		{
-
+            if(InputManager.Keyboard.KeyPushed(Microsoft.Xna.Framework.Input.Keys.Space) || 
+                InputManager.Xbox360GamePads[0].ButtonPushed(Xbox360GamePad.Button.A))
+            {
+                MoveToScreen(typeof(Screens.MainMenuScreen));
+            }
 
 		}
 

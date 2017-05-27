@@ -139,6 +139,10 @@
     <Compile Include="Entities\DebuggingVariables.Generated.cs">
       <DependentUpon>DebuggingVariables.cs</DependentUpon>
     </Compile>
+    <Compile Include="Entities\EnablerEntity.cs" />
+    <Compile Include="Entities\EnablerEntity.Generated.cs">
+      <DependentUpon>EnablerEntity.cs</DependentUpon>
+    </Compile>
     <Compile Include="Entities\LightBeam.cs" />
     <Compile Include="Entities\LightBeam.Generated.cs">
       <DependentUpon>LightBeam.cs</DependentUpon>
@@ -163,6 +167,10 @@
     </Compile>
     <Compile Include="Entities\MineralDeposit.Generated.Event.cs">
       <DependentUpon>MineralDeposit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\MoveToScreenEntity.cs" />
+    <Compile Include="Entities\MoveToScreenEntity.Generated.cs">
+      <DependentUpon>MoveToScreenEntity.cs</DependentUpon>
     </Compile>
     <Compile Include="Entities\Player.cs" />
     <Compile Include="Entities\Player.Generated.cs">
@@ -192,8 +200,10 @@
     </Compile>
     <Compile Include="Factories\BubblesFactory.Generated.cs" />
     <Compile Include="Factories\DarknessTriggerFactory.Generated.cs" />
+    <Compile Include="Factories\EnablerEntityFactory.Generated.cs" />
     <Compile Include="Factories\MineralDepositFactory.Generated.cs" />
     <Compile Include="Factories\LightEntityFactory.Generated.cs" />
+    <Compile Include="Factories\MoveToScreenEntityFactory.Generated.cs" />
     <Compile Include="Factories\PlayerFactory.Generated.cs" />
     <Compile Include="Factories\SafeZoneFactory.Generated.cs" />
     <Compile Include="Factories\SeaLifeFactory.Generated.cs" />

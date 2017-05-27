@@ -145,7 +145,7 @@ namespace Anfloga.Entities
 
         private void CustomDestroy()
 		{
-
+            mainCamera.Detach();
             mainCamera = null;
 		}
 

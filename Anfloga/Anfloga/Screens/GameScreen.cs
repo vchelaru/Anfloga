@@ -41,7 +41,7 @@ namespace Anfloga.Screens
         DarknessTrigger lastDarknessTriggerCollidedAgainst;
         Tweener lastDarknessTweener;
 
-        bool isRespawning = false;
+        bool isTransitioning = false;
 
         #endregion
 
@@ -259,7 +259,19 @@ namespace Anfloga.Screens
             TileEntityInstantiator.CreateEntitiesFrom(currentLevel);
 
 #if DEBUG
-            if(DebuggingVariables.ShowWorldObjectCollision)
+            ApplyDebugInitializationValues();
+
+#endif
+
+            foreach (var item in SafeZoneList)
+            {
+                item.SetupCollision();
+            }
+        }
+
+        private void ApplyDebugInitializationValues()
+        {
+            if (DebuggingVariables.ShowWorldObjectCollision)
             {
                 foreach (var item in WorldObjectEntityList)
                 {
@@ -277,29 +289,32 @@ namespace Anfloga.Screens
 
             if (DebuggingVariables.ShowMineralDepositCollision)
             {
-                foreach(var item in MineralDepositList)
+                foreach (var item in MineralDepositList)
                 {
                     item.Collision.Visible = true;
                 }
             }
 
 
-            if(DebuggingVariables.ShowDarknessTriggerCollision)
+            if (DebuggingVariables.ShowDarknessTriggerCollision)
             {
-                foreach(var item in DarknessTriggerList)
+                foreach (var item in DarknessTriggerList)
                 {
                     item.Collision.Visible = true;
                 }
             }
 
-#endif
-            // todo: create collision:
-            
-            foreach(var item in SafeZoneList)
+            if(DebuggingVariables.ShowScreenTransitionTriggers)
             {
-                item.SetupCollision();
+                foreach(var item in MoveToScreenEntityList)
+                {
+                    item.Collision.Visible = true;
+                }
+                foreach(var item in EnablerEntityList)
+                {
+                    item.Collision.Visible = true;
+                }
             }
-            // todo: set camera bounds:
         }
 
         #endregion
@@ -323,18 +338,17 @@ namespace Anfloga.Screens
 
         private void HandleDeathActivity()
         {
-            if(PlayerList[0].IsDead && !isRespawning)
+            if(PlayerList[0].IsDead && !isTransitioning)
             {
-                isRespawning = true;
+                isTransitioning = true;
 
-                const float time = 1.5f;
-                this.GameScreenGumRuntime.InterpolateTo(FadeoutCategory.Dark, time, InterpolationType.Linear, Easing.In);
+                this.GameScreenGumRuntime.InterpolateTo(FadeoutCategory.Dark, FadeOutTime, InterpolationType.Linear, Easing.In);
                 this.Call(() =>
                 {
                    PlayerList[0].RespawnFromLastCheckpointPosition();
-                   this.GameScreenGumRuntime.InterpolateTo(FadeoutCategory.Light, time, InterpolationType.Linear, Easing.In);
-                   isRespawning = false;
-                }).After(time);
+                   this.GameScreenGumRuntime.InterpolateTo(FadeoutCategory.Light, FadeOutTime, InterpolationType.Linear, Easing.In);
+                   isTransitioning = false;
+                }).After(FadeOutTime);
             }
         }
 
@@ -370,15 +384,49 @@ namespace Anfloga.Screens
                     }
                 }
 
+                if(!isTransitioning)
+                {
+                    foreach(var enablerEntity in EnablerEntityList)
+                    {
+                        if(player.CollideAgainst(enablerEntity))
+                        {
+                            string nameToEnable = enablerEntity.ObjectToEnable;
+
+                            var foundMoveEntity = MoveToScreenEntityList.FirstOrDefault(item => item.Name == nameToEnable);
+
+                            if(foundMoveEntity != null)
+                            {
+                                foundMoveEntity.Enabled = true;
+                            }
+                            else
+                            {
+                                throw new InvalidOperationException($"Could not find a MoveToScreen entity with the name {nameToEnable}");
+                            }
+                        }
+                    }
+
+                    foreach(var moveEntity in MoveToScreenEntityList)
+                    {
+                        if(moveEntity.Enabled && player.CollideAgainst(moveEntity))
+                        {
+                            isTransitioning = true;
+
+                            this.GameScreenGumRuntime.InterpolateTo(FadeoutCategory.Dark, FadeOutTime, InterpolationType.Linear, Easing.In);
+                            this.Call(() => MoveToScreen($"Anfloga.Screens.{moveEntity.Screen}"))
+                                .After(FadeOutTime);
+                        }
+                    }
+                }
+
                 // We will assume the player is not in a replenish zone, then set to replenish if they are colliding with one.
-                player.SetExplorationState(ExplorationState.Consume);
+                player.CurrentExplorationState = ExplorationState.Consume;
                 foreach(var safeZone in SafeZoneList)
                 {
                     if(player.CollideAgainst(safeZone))
                     {
                         if (safeZone.IsActive)
                         {
-                            player.SetExplorationState(ExplorationState.Replenish);
+                            player.CurrentExplorationState = ExplorationState.Replenish;
                         }
                         else
                         {
@@ -442,11 +490,12 @@ namespace Anfloga.Screens
 
         #endregion
 
+        #region Load Static Content
         static void CustomLoadStaticContent(string contentManagerName)
         {
 
 
         }
-
-	}
+        #endregion
+    }
 }

@@ -46,7 +46,7 @@ namespace Anfloga.Entities
 
         public bool IsDead => explorationDurationLeft <= 0;
 
-        private ExplorationState currentExplorationState;
+        public ExplorationState CurrentExplorationState { get; set; }
 
         private Vector2 lastCheckpointPosition;
 
@@ -109,7 +109,7 @@ namespace Anfloga.Entities
         private void InitializeExplorationVariables()
         {
             explorationDurationLeft = MaxExplorationTime;
-            currentExplorationState = ExplorationState.Idle;
+            CurrentExplorationState = ExplorationState.Idle;
         }
 
         public void InitializeLightLayer(Layer lightLayer)
@@ -277,7 +277,7 @@ namespace Anfloga.Entities
             }
 #endif
 
-            if (currentExplorationState == ExplorationState.Consume)
+            if (CurrentExplorationState == ExplorationState.Consume)
             {
                 bool wasLow = (explorationDurationLeft / MaxExplorationTime) < PercentageForLowEnergyNotification / 100.0f;
                 explorationDurationLeft -= ExplorationConsumptionRate * TimeManager.SecondDifference;
@@ -301,7 +301,7 @@ namespace Anfloga.Entities
 
                 }
             }
-            else if (currentExplorationState == ExplorationState.Replenish)
+            else if (CurrentExplorationState == ExplorationState.Replenish)
             {
                 explorationDurationLeft += ExplorationReplenishRate * TimeManager.SecondDifference;
 
@@ -321,7 +321,7 @@ namespace Anfloga.Entities
             {
                 ExplorationLimitFill = currentOxygenPercentage,
                 MineralText = CurrentCurrencyBalance,
-                IsFillingUp = currentExplorationState == ExplorationState.Replenish,
+                IsFillingUp = CurrentExplorationState == ExplorationState.Replenish,
                 IsLow = currentOxygenPercentage < PercentageForLowEnergyNotification/100.0f
             };
 
@@ -363,11 +363,6 @@ namespace Anfloga.Entities
 		{
 
 		}
-
-        public void SetExplorationState(ExplorationState state)
-        {
-            currentExplorationState = state;
-        }
 
         private static void CustomLoadStaticContent(string contentManagerName)
         {
