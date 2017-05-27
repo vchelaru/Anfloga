@@ -21,9 +21,15 @@ namespace Anfloga.Screens
 
 		void CustomInitialize()
 		{
-
-
-		}
+            if(GlobalData.TotalCurrencyCollected > 10)
+            {
+                EndingScreenGumRuntime.EndingText = "You got so much!";
+            }
+            else
+            {
+                EndingScreenGumRuntime.EndingText = "You so poor!";
+            }
+        }
 
 		void CustomActivity(bool firstTimeCalled)
 		{

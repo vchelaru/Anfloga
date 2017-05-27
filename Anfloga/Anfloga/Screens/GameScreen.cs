@@ -410,7 +410,7 @@ namespace Anfloga.Screens
                         if(moveEntity.Enabled && player.CollideAgainst(moveEntity))
                         {
                             isTransitioning = true;
-
+                            GlobalData.TotalCurrencyCollected = player.TotalCurrencyCollected;
                             this.GameScreenGumRuntime.InterpolateTo(FadeoutCategory.Dark, FadeOutTime, InterpolationType.Linear, Easing.In);
                             this.Call(() => MoveToScreen($"Anfloga.Screens.{moveEntity.Screen}"))
                                 .After(FadeOutTime);

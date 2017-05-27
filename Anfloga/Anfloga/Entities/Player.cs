@@ -41,6 +41,7 @@ namespace Anfloga.Entities
         public List<IPerformCurrencyTransactionOn> ObjectsToPerformCurrencyTransactionOn { get; private set; }
 
         public int CurrentCurrencyBalance { get; private set; }
+        public int TotalCurrencyCollected { get; private set; }
 
         private float explorationDurationLeft;
 
@@ -372,6 +373,7 @@ namespace Anfloga.Entities
 
         public void CollectCurrency(int increase)
         {
+            TotalCurrencyCollected += increase;
             CurrentCurrencyBalance += increase;
         }
 

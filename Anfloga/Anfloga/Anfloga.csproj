@@ -209,6 +209,7 @@
     <Compile Include="Factories\SeaLifeFactory.Generated.cs" />
     <Compile Include="Factories\WorldObjectEntityFactory.Generated.cs" />
     <Compile Include="GlobalContent.Generated.cs" />
+    <Compile Include="GlobalData.cs" />
     <Compile Include="GumCore\AnimationFrame.cs" />
     <Compile Include="GumCore\Atlas.cs" />
     <Compile Include="GumCore\AtlasedTexture.cs" />

@@ -5,33 +5,34 @@
     <Name>Default</Name>
     <Variable>
       <Type>float</Type>
-      <Name>TextInstance.Height</Name>
+      <Name>EndingTextInstance.Height</Name>
       <Value xsi:type="xsd:float">72</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>string</Type>
-      <Name>TextInstance.Text</Name>
+      <Name>EndingTextInstance.Text</Name>
       <Value xsi:type="xsd:string">The snake ate the tofu bubbles.
 
 The End</Value>
+      <ExposedAsName>EndingText</ExposedAsName>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>float</Type>
-      <Name>TextInstance.Width</Name>
+      <Name>EndingTextInstance.Width</Name>
       <Value xsi:type="xsd:float">292</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>float</Type>
-      <Name>TextInstance.X</Name>
+      <Name>EndingTextInstance.X</Name>
       <Value xsi:type="xsd:float">115</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>float</Type>
-      <Name>TextInstance.Y</Name>
+      <Name>EndingTextInstance.Y</Name>
       <Value xsi:type="xsd:float">62</Value>
       <SetsValue>true</SetsValue>
     </Variable>
@@ -109,7 +110,7 @@ The End</Value>
     </Variable>
   </State>
   <Instance>
-    <Name>TextInstance</Name>
+    <Name>EndingTextInstance</Name>
     <BaseType>Text</BaseType>
   </Instance>
   <Instance>
