@@ -79,7 +79,8 @@ namespace Anfloga.Logic
                             if (shouldShow)
                             {
                                 DialogBox.Visible = true;
-                                worldEntityCollidingWith.HasBeenConsumed = true;
+                                //We will set HasBeenConsumed if it is marked as consumable.
+                                worldEntityCollidingWith.HasBeenConsumed = worldEntityCollidingWith.IsConsumable;
                                 DialogBox.Text = LocalizationManager.Translate(worldEntityCollidingWith.DialogKey);
                                 worldEntityCollidingWith.TimeDialogShown = ScreenManager.CurrentScreen.PauseAdjustedCurrentTime;
                                 entityShowingDialog = worldEntityCollidingWith;
