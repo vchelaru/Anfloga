@@ -41,16 +41,6 @@ namespace Anfloga.Entities
 
 		}
 
-        private void CheckChangePatrolPoint()
-        {
-            var posDiff = positionToMoveTo - this.Position;
-            posDiff.Z = 0;
-            if(posDiff.Length() < Velocity.Length() * TimeManager.SecondDifference)
-            {
-                SetNewTargetPosition();
-            }
-        }
-
         private void CustomDestroy()
 		{
 
