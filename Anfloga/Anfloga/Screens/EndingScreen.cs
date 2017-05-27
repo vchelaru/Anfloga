@@ -27,7 +27,7 @@ namespace Anfloga.Screens
             }
             else
             {
-                EndingScreenGumRuntime.EndingText = "You so poor!";
+                EndingScreenGumRuntime.EndingText = $"You so poor!\nCrystals Found: {GlobalData.TotalCurrencyCollected}";
             }
         }
 
