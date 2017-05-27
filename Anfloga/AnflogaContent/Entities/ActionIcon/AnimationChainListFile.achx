@@ -5,7 +5,6 @@
   <CoordinateType>Pixel</CoordinateType>
   <AnimationChain>
     <Name>CollectMineral</Name>
-    <ColorKey>0</ColorKey>
     <Frame>
       <TextureName>../../screens/gamescreen/levels/anflogasprites.png</TextureName>
       <FrameLength>0.1</FrameLength>
@@ -17,14 +16,13 @@
   </AnimationChain>
   <AnimationChain>
     <Name>PurchaseCollector</Name>
-    <ColorKey>0</ColorKey>
     <Frame>
       <TextureName>../../screens/gamescreen/levels/anflogasprites.png</TextureName>
       <FrameLength>0.1</FrameLength>
-      <LeftCoordinate>1998</LeftCoordinate>
-      <RightCoordinate>2001</RightCoordinate>
-      <TopCoordinate>136</TopCoordinate>
-      <BottomCoordinate>153</BottomCoordinate>
+      <LeftCoordinate>1960</LeftCoordinate>
+      <RightCoordinate>1976</RightCoordinate>
+      <TopCoordinate>162</TopCoordinate>
+      <BottomCoordinate>190</BottomCoordinate>
     </Frame>
   </AnimationChain>
 </AnimationChainArraySave>
