@@ -53,8 +53,8 @@ float4 DistanceBlurFunction(float2 texCoord : TEXCOORD0) : COLOR0
 		for (int y = 0; y < samples; y++)
 		{
 			float2 coord = texCoord;
-			coord.x += -blurOver2 + (blurOverSamples * x);
-			coord.y += -blurOver2 + (blurOverSamples * y);
+			coord.x = coord.x - blurOver2 + (blurOverSamples * x);
+			coord.y = coord.y - blurOver2 + (blurOverSamples * y);
 	
 			color += tex2D(DisplacedWorld, coord) / samplesSquared;
 		}
@@ -71,7 +71,6 @@ technique DistanceBlurTechnique
 
 	pass Pass2
 	{
-		//VertexShader = compile vs_3_0 SpriteVertexShader();
 		PixelShader = compile ps_2_0 DistanceBlurFunction();
 	}
 

@@ -33,6 +33,7 @@ namespace Anfloga.Entities
 
         #endregion
 
+        #region Initialize
         /// <summary>
         /// Initialization logic which is execute only one time for this Entity (unless the Entity is pooled).
         /// This method is called when the Entity is added to managers. Entities which are instantiated but not
@@ -43,6 +44,8 @@ namespace Anfloga.Entities
             spriteBatch = new SpriteBatch(FlatRedBallServices.GraphicsDevice);
             displacementOffset = DisplacementStart;
 		}
+
+        #endregion
 
         private void CustomActivity()
 		{
@@ -69,7 +72,6 @@ namespace Anfloga.Entities
         {
             Effect.Parameters["BlurStrength"].SetValue(BlurStrength);
             Effect.Parameters["DisplacementStart"].SetValue(DisplacementStart);
-            Effect.Parameters["CameraHeight"].SetValue(Camera.Main.OrthogonalHeight);
         }
 
         public void Draw(Camera camera)
@@ -90,7 +92,7 @@ namespace Anfloga.Entities
 
                 
 
-                Effect.CurrentTechnique = Effect.Techniques["DistanceBlurTechnique"];
+                Effect.Parameters["CameraHeight"].SetValue(Camera.Main.OrthogonalHeight);
             
                 float rightX = camera.AbsoluteRightXEdgeAt(Viewer.Z);
                 float leftX = camera.AbsoluteLeftXEdgeAt(Viewer.Z);
@@ -112,9 +114,13 @@ namespace Anfloga.Entities
                 FlatRedBallServices.GraphicsDevice.Textures[1] = WavyTexture;
                 FlatRedBallServices.GraphicsDevice.Textures[2] = DisplacementRenderTarget;
 
+                Effect.CurrentTechnique = Effect.Techniques["DistanceBlurTechnique"];
                 spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend,
-                                    SamplerState.LinearClamp, DepthStencilState.None, RasterizerState.CullNone,
+                                    SamplerState.PointClamp, DepthStencilState.None, RasterizerState.CullNone,
                                     Effect);
+
+                //spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend,
+                  //  SamplerState.LinearClamp, DepthStencilState.None, RasterizerState.CullNone);
 
                 FlatRedBallServices.GraphicsDevice.SetRenderTarget(DisplacementRenderTarget);
 
@@ -128,7 +134,7 @@ namespace Anfloga.Entities
 
                 FlatRedBallServices.GraphicsDevice.SetRenderTarget(null);
 
-                spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend);
+                spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, SamplerState.LinearClamp, DepthStencilState.None, RasterizerState.CullNone);
                 spriteBatch.Draw(DisplacementRenderTarget, destinationRectangle, Color.White);
                 spriteBatch.End();
 
@@ -147,7 +153,7 @@ namespace Anfloga.Entities
                 var darknessColor = new Color(1, 1, 1, DarknessAlpha);
                 BlendState blendState = GetMultiplyBlendOperation();
 
-                spriteBatch.Begin(SpriteSortMode.Immediate, blendState);
+                spriteBatch.Begin(SpriteSortMode.Immediate, blendState, SamplerState.LinearClamp, DepthStencilState.None, RasterizerState.CullNone);
                 spriteBatch.Draw(DarknessTexture, destinationRectangle, darknessColor);
 
                 spriteBatch.End();

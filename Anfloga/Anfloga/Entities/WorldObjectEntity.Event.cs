@@ -42,7 +42,7 @@ namespace Anfloga.Entities
         }
         void OnAfterVisualNameSet (object sender, EventArgs e)
         {
-            SpriteInstance.Visible = true;
+            SpriteInstance.Visible = !string.IsNullOrEmpty(VisualName);
         }
 	}
 }

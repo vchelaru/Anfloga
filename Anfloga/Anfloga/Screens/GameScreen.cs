@@ -210,7 +210,7 @@ namespace Anfloga.Screens
 
             solidCollision.AddMergedCollisionFromLayer(layer, currentLevel, (propertyList) =>
             {
-                return propertyList.Any(item => item.Name == "SolidCollision");
+                return propertyList.Any(item => item.Name == "SolidCollision" && (string)item.Value == "true" );
             });
 
 #if DEBUG
