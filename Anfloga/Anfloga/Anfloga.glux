@@ -2648,7 +2648,7 @@
     <SupportLandscape>true</SupportLandscape>
     <SupportPortrait>false</SupportPortrait>
     <RunInFullScreen>false</RunInFullScreen>
-    <AllowWindowResizing>true</AllowWindowResizing>
+    <AllowWindowResizing>false</AllowWindowResizing>
     <Scale>200</Scale>
     <ResizeBehavior>StretchVisibleArea</ResizeBehavior>
   </DisplaySettings>
