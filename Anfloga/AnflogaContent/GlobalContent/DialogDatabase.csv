@@ -34,7 +34,7 @@ T_ShipLog1,(There's data log buried in the sand.) Log 1:  I made it all the way 
 T_ShipLog3,Log 3:  I discovered the ruins of some civilization today. Why would there be ruins this far underwater? How are they preserved so well?
 T_ShipLog4,Log 4: The power stations they have me building are a horrible design. Why are they radiating this much heat? So inefficient.
 T_ShipLog2,Log 2: Something must be wrong with my equipment. The scans say these ruins are only about 50 years old?
-T_Chat1,"Computer, is it legal to purchase an inhabbited planet?"
+T_Chat1,"Computer, is it legal to purchase an inhabited planet?"
 T_Chat2,"$> Senate Statute 117: ""No purchase of a planet harboring an active civilization shall be permitted."""
 T_PowerOff1,$> All power stations deactivating. Please remain calm and avoid damaging the Unearnum class Deep Water Exploration Vessel.
 T_Escape1,(Making it to the surface is my only chance!)
