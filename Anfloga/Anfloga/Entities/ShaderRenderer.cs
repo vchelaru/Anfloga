@@ -90,10 +90,15 @@ namespace Anfloga.Entities
             {
                 var destinationRectangle = camera.DestinationRectangle;
 
-                
+                // All render targets are sized to match the camera's destination rectangle, so we don't need to perform
+                // any offsets to account for weird aspect ratios. In other words, the render target resolution matches the
+                // desired aspect ratio, guaranteed, so we 0-out the offset values (X and Y). See explanation below on when destinationRectangle
+                // is re-assigned.
+                destinationRectangle.X = 0;
+                destinationRectangle.Y = 0;
 
                 Effect.Parameters["CameraHeight"].SetValue(Camera.Main.OrthogonalHeight);
-            
+
                 float rightX = camera.AbsoluteRightXEdgeAt(Viewer.Z);
                 float leftX = camera.AbsoluteLeftXEdgeAt(Viewer.Z);
 
@@ -118,10 +123,7 @@ namespace Anfloga.Entities
                 spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend,
                                     SamplerState.PointClamp, DepthStencilState.None, RasterizerState.CullNone,
                                     Effect);
-
-                //spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend,
-                  //  SamplerState.LinearClamp, DepthStencilState.None, RasterizerState.CullNone);
-
+                
                 FlatRedBallServices.GraphicsDevice.SetRenderTarget(DisplacementRenderTarget);
 
                 spriteBatch.Draw(WorldTexture, destinationRectangle, Color.White);
@@ -134,10 +136,13 @@ namespace Anfloga.Entities
 
                 FlatRedBallServices.GraphicsDevice.SetRenderTarget(null);
 
+                // This last draw call renders to the screen (note the render target is null), so the offsets do need to 
+                // be applied. We'll just re-assign destinationRectangle, without setting the X and Ys to 0:
+                destinationRectangle = camera.DestinationRectangle;
+
                 spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, SamplerState.LinearClamp, DepthStencilState.None, RasterizerState.CullNone);
                 spriteBatch.Draw(DisplacementRenderTarget, destinationRectangle, Color.White);
                 spriteBatch.End();
-
             }
         }
         private void DrawDarkness(Camera camera)

@@ -62,7 +62,7 @@ namespace Anfloga
 
 			GlobalContent.Initialize();
 
-			FlatRedBall.Screens.ScreenManager.Start(typeof(Anfloga.Screens.MainMenuScreen));
+			FlatRedBall.Screens.ScreenManager.Start(typeof(Anfloga.Screens.GameScreen));
 
             base.Initialize();
         }

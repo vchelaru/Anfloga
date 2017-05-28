@@ -17,7 +17,7 @@
 			internal static void SetupCamera (Camera cameraToSetUp, Microsoft.Xna.Framework.GraphicsDeviceManager graphicsDeviceManager, int width = 480, int height = 270)
 			{
 				#if WINDOWS || DESKTOP_GL
-				FlatRedBall.FlatRedBallServices.Game.Window.AllowUserResizing = false;
+				FlatRedBall.FlatRedBallServices.Game.Window.AllowUserResizing = true;
 				FlatRedBall.FlatRedBallServices.GraphicsOptions.SetResolution((int)(width * Scale), (int)(height * Scale));
 				#elif IOS || ANDROID
 				FlatRedBall.FlatRedBallServices.GraphicsOptions.SetFullScreen(FlatRedBall.FlatRedBallServices.GraphicsOptions.ResolutionWidth, FlatRedBall.FlatRedBallServices.GraphicsOptions.ResolutionHeight);
