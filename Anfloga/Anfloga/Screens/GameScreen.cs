@@ -433,9 +433,12 @@ namespace Anfloga.Screens
                 {
                     if(player.CollideAgainst(safeZone))
                     {
-                        if (safeZone.IsActive && (arePlayerBuiltSafeZonesEnabled || safeZone.BuiltByPlayer == false))
+                        if (safeZone.IsActive)
                         {
-                            player.CurrentExplorationState = ExplorationState.Replenish;
+                            if(arePlayerBuiltSafeZonesEnabled || safeZone.BuiltByPlayer == false)
+                            {
+                                player.CurrentExplorationState = ExplorationState.Replenish;
+                            }
                         }
                         else
                         {

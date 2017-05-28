@@ -13,4 +13,4 @@ If RegRead('HKEY_LOCAL_MACHINE\Software\Microsoft\XNA\Framework\v4.0', 'Installe
     Exit 1
 EndIf
  
-Exit RunWait('Anfloga.exe')
+Exit RunWait('Data\Anfloga.exe')
