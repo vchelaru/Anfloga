@@ -189,6 +189,52 @@
         </NamedObjectSave>
         <NamedObjectSave>
           <CustomProperty>
+            <Type>float</Type>
+            <Member>Z</Member>
+            <ValueAsFloat>-10</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Width</Member>
+            <ValueAsFloat>9999999</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Height</Member>
+            <ValueAsFloat>9999999</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>ColorOperation</Type>
+            <Member>ColorOperation</Member>
+            <ValueAsInt>6</ValueAsInt>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Red</Member>
+            <ValueAsFloat>0.059</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Green</Member>
+            <ValueAsFloat>0.5412</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Blue</Member>
+            <ValueAsFloat>0.624</ValueAsFloat>
+          </CustomProperty>
+          <SourceType>FlatRedBallType</SourceType>
+          <SourceFile />
+          <SourceName />
+          <SourceClassType>Sprite</SourceClassType>
+          <InstanceName>BackgroundColorSprite</InstanceName>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IndependentOfCamera>true</IndependentOfCamera>
+          <LayerOn>WorldLayer</LayerOn>
+        </NamedObjectSave>
+        <NamedObjectSave>
+          <CustomProperty>
             <Type>int</Type>
             <Member>Width</Member>
             <ValueAsInt>960</ValueAsInt>
