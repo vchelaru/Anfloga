@@ -180,6 +180,10 @@
     <Compile Include="Entities\SafeZone.Generated.cs">
       <DependentUpon>SafeZone.cs</DependentUpon>
     </Compile>
+    <Compile Include="Entities\SafeZoneDisabler.cs" />
+    <Compile Include="Entities\SafeZoneDisabler.Generated.cs">
+      <DependentUpon>SafeZoneDisabler.cs</DependentUpon>
+    </Compile>
     <Compile Include="Entities\SeaLife.cs" />
     <Compile Include="Entities\SeaLife.Generated.cs">
       <DependentUpon>SeaLife.cs</DependentUpon>
@@ -205,6 +209,7 @@
     <Compile Include="Factories\LightEntityFactory.Generated.cs" />
     <Compile Include="Factories\MoveToScreenEntityFactory.Generated.cs" />
     <Compile Include="Factories\PlayerFactory.Generated.cs" />
+    <Compile Include="Factories\SafeZoneDisablerFactory.Generated.cs" />
     <Compile Include="Factories\SafeZoneFactory.Generated.cs" />
     <Compile Include="Factories\SeaLifeFactory.Generated.cs" />
     <Compile Include="Factories\WorldObjectEntityFactory.Generated.cs" />

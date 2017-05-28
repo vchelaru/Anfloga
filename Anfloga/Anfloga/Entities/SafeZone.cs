@@ -64,6 +64,7 @@ namespace Anfloga.Entities
                 toReturn = true;
                 PerformActivation();
                 player.SpendCurrency(ActivationCost);
+                BuiltByPlayer = true;
                 var thePlayer = player as Player;
                 thePlayer.UpdateLastCheckpointPosition(this.X, this.Y); 
             }

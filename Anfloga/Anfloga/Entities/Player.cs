@@ -358,6 +358,16 @@ namespace Anfloga.Entities
             }
         }
 
+        public void CollectCurrency(int increase)
+        {
+            TotalCurrencyCollected += increase;
+            CurrentCurrencyBalance += increase;
+        }
+
+        public void SpendCurrency(int cost)
+        {
+            CurrentCurrencyBalance -= cost;
+        }
         #endregion
 
         private void CustomDestroy()
@@ -371,15 +381,5 @@ namespace Anfloga.Entities
 
         }
 
-        public void CollectCurrency(int increase)
-        {
-            TotalCurrencyCollected += increase;
-            CurrentCurrencyBalance += increase;
-        }
-
-        public void SpendCurrency(int cost)
-        {
-            CurrentCurrencyBalance -= cost;
-        }
     }
 }

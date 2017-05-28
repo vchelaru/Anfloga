@@ -43,6 +43,8 @@ namespace Anfloga.Screens
 
         bool isTransitioning = false;
 
+        bool arePlayerBuiltSafeZonesEnabled = true;
+
         #endregion
 
         #region Initialize Methods
@@ -418,13 +420,20 @@ namespace Anfloga.Screens
                     }
                 }
 
+                foreach(var disabler in this.SafeZoneDisablerList)
+                {
+                    if(player.CollideAgainst(disabler))
+                    {
+                        arePlayerBuiltSafeZonesEnabled = false;
+                    }
+                }
                 // We will assume the player is not in a replenish zone, then set to replenish if they are colliding with one.
                 player.CurrentExplorationState = ExplorationState.Consume;
                 foreach(var safeZone in SafeZoneList)
                 {
                     if(player.CollideAgainst(safeZone))
                     {
-                        if (safeZone.IsActive)
+                        if (safeZone.IsActive && (arePlayerBuiltSafeZonesEnabled || safeZone.BuiltByPlayer == false))
                         {
                             player.CurrentExplorationState = ExplorationState.Replenish;
                         }
