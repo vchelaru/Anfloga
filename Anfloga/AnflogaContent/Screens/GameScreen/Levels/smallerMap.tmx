@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="800" height="350" tilewidth="16" tileheight="16" nextobjectid="332">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="800" height="350" tilewidth="16" tileheight="16" nextobjectid="334">
  <tileset firstgid="1" name="anflogaSprites" tilewidth="16" tileheight="16" tilecount="16384" columns="128">
   <image source="anflogaSprites.png" width="2048" height="2048"/>
   <terraintypes>
@@ -422,17 +422,6 @@
     <property name="VisualName" value="PlaceOfInterest"/>
    </properties>
   </object>
-  <object id="99" name="Test Place of Interest" x="731.5" y="776.95" width="31.7965" height="26.4971">
-   <properties>
-    <property name="AutomaticDialogDisplay" type="bool" value="true"/>
-    <property name="DialogKey" value="T_Intro1"/>
-    <property name="EntityToCreate" value="WorldObjectEntity"/>
-    <property name="IsConsumable" type="bool" value="true"/>
-    <property name="ShouldPlaceOnUiLayer" type="bool" value="true"/>
-    <property name="ShouldToggleVisibility" type="bool" value="true"/>
-    <property name="VisualName" value="PlaceOfInterest"/>
-   </properties>
-  </object>
   <object id="102" name="Mineral Place of Interest" x="200.94" y="776.576" width="33.0079" height="30.1313">
    <properties>
     <property name="AutomaticDialogDisplay" type="bool" value="true"/>
@@ -691,9 +680,9 @@
     <property name="DialogKey" value="T_PowerOff1"/>
     <property name="EntityToCreate" value="WorldObjectEntity"/>
     <property name="IsConsumable" type="bool" value="true"/>
-    <property name="ShouldPlaceOnUiLayer" type="bool" value="false"/>
-    <property name="ShouldToggleVisibility" type="bool" value="false"/>
-    <property name="VisualName" value=""/>
+    <property name="ShouldPlaceOnUiLayer" type="bool" value="true"/>
+    <property name="ShouldToggleVisibility" type="bool" value="true"/>
+    <property name="VisualName" value="PlaceOfInterest"/>
    </properties>
   </object>
   <object id="234" name="T_Escape1" x="6048" y="4512" width="288" height="368">
@@ -702,9 +691,9 @@
     <property name="DialogKey" value="T_Escape1"/>
     <property name="EntityToCreate" value="WorldObjectEntity"/>
     <property name="IsConsumable" type="bool" value="true"/>
-    <property name="ShouldPlaceOnUiLayer" type="bool" value="false"/>
-    <property name="ShouldToggleVisibility" type="bool" value="false"/>
-    <property name="VisualName" value=""/>
+    <property name="ShouldPlaceOnUiLayer" type="bool" value="true"/>
+    <property name="ShouldToggleVisibility" type="bool" value="true"/>
+    <property name="VisualName" value="PlaceOfInterest"/>
    </properties>
   </object>
   <object id="235" name="T_ShipLog4" x="7648" y="5392" width="48" height="32">
@@ -807,18 +796,18 @@
     <property name="IsVisible" type="bool" value="true"/>
    </properties>
   </object>
- </objectgroup>
- <objectgroup name="PlayerStart">
-  <object id="329" name="player start" gid="6657" x="9850.04" y="5511.23" width="16" height="16">
-   <properties>
-    <property name="EntityToCreate" value="Player"/>
-   </properties>
-  </object>
-  <object id="330" name="power station 5" x="6250.07" y="5308.24" width="1873.64" height="132.296">
+  <object id="332" name="power station 5" x="6247.96" y="5313.28" width="1873.64" height="132.296">
    <properties>
     <property name="ActivationCost" type="int" value="1"/>
     <property name="EntityToCreate" value="SafeZone"/>
     <property name="IsVisible" type="bool" value="true"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup name="PlayerStart">
+  <object id="333" name="player start" gid="6657" x="232" y="531.13" width="16" height="16">
+   <properties>
+    <property name="EntityToCreate" value="Player"/>
    </properties>
   </object>
  </objectgroup>
@@ -860,7 +849,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="EndLevelTriggers">
+ <objectgroup name="EndLevelTriggers" visible="0">
   <object id="239" name="EndingScreen" x="6018.14" y="389.312" width="2453.36" height="144">
    <properties>
     <property name="EntityToCreate" value="MoveToScreenEntity"/>
