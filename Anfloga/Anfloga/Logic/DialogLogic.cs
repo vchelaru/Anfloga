@@ -63,7 +63,7 @@ namespace Anfloga.Logic
 
                         bool shouldShow = false;
 
-                        if (!shouldSkipConsumedDialog)
+                        if (!shouldSkipConsumedDialog && worldEntityCollidingWith.Enabled)
                         {
                             if (worldEntityCollidingWith.AutomaticDialogDisplay)
                             {

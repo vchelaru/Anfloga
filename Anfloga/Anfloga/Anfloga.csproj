@@ -139,6 +139,10 @@
     <Compile Include="Entities\DebuggingVariables.Generated.cs">
       <DependentUpon>DebuggingVariables.cs</DependentUpon>
     </Compile>
+    <Compile Include="Entities\DisablerEntity.cs" />
+    <Compile Include="Entities\DisablerEntity.Generated.cs">
+      <DependentUpon>DisablerEntity.cs</DependentUpon>
+    </Compile>
     <Compile Include="Entities\EnablerEntity.cs" />
     <Compile Include="Entities\EnablerEntity.Generated.cs">
       <DependentUpon>EnablerEntity.cs</DependentUpon>
@@ -204,6 +208,7 @@
     </Compile>
     <Compile Include="Factories\BubblesFactory.Generated.cs" />
     <Compile Include="Factories\DarknessTriggerFactory.Generated.cs" />
+    <Compile Include="Factories\DisablerEntityFactory.Generated.cs" />
     <Compile Include="Factories\EnablerEntityFactory.Generated.cs" />
     <Compile Include="Factories\MineralDepositFactory.Generated.cs" />
     <Compile Include="Factories\LightEntityFactory.Generated.cs" />

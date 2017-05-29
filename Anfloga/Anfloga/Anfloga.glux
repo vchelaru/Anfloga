@@ -545,6 +545,17 @@
           <GenerateTimedEmit>true</GenerateTimedEmit>
           <IndependentOfCamera>true</IndependentOfCamera>
         </NamedObjectSave>
+        <NamedObjectSave>
+          <SourceType>FlatRedBallType</SourceType>
+          <SourceFile />
+          <SourceName />
+          <SourceClassType>PositionedObjectList&lt;T&gt;</SourceClassType>
+          <SourceClassGenericType>Entities\DisablerEntity</SourceClassGenericType>
+          <InstanceName>DisablerEntityList</InstanceName>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
       </NamedObjects>
     </ScreenSave>
     <ScreenSave>
@@ -1460,6 +1471,64 @@
               <ValueAsString>string</ValueAsString>
             </PropertySave>
           </Properties>
+          <Name>ObjectToDisable</Name>
+          <Type>string</Type>
+        </CustomVariable>
+      </CustomVariables>
+      <ImplementsIDrawableBatch>false</ImplementsIDrawableBatch>
+      <Name>Entities\DisablerEntity</Name>
+      <CreatedByOtherEntities>true</CreatedByOtherEntities>
+      <Is2D>true</Is2D>
+    </EntitySave>
+    <EntitySave>
+      <Properties>
+        <PropertySave>
+          <Name>ImplementsICollidable</Name>
+          <ValueAsBool>true</ValueAsBool>
+        </PropertySave>
+      </Properties>
+      <Tags>
+        <string>GLUE</string>
+      </Tags>
+      <Source>GLUE</Source>
+      <CustomVariables>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>X</Name>
+          <Type>float</Type>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>Y</Name>
+          <Type>float</Type>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>Z</Name>
+          <Type>float</Type>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>string</ValueAsString>
+            </PropertySave>
+          </Properties>
           <Name>ObjectToEnable</Name>
           <Type>string</Type>
           <DefaultValue xsi:type="xsd:string">EndingScreen</DefaultValue>
@@ -1926,7 +1995,7 @@
           </Properties>
           <Name>MaxSpeed</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">85</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">70</DefaultValue>
         </CustomVariable>
         <CustomVariable>
           <Properties>
@@ -1937,7 +2006,7 @@
           </Properties>
           <Name>AccelerationTime</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">2.5</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">1</DefaultValue>
         </CustomVariable>
         <CustomVariable>
           <Properties>
@@ -1959,7 +2028,7 @@
           </Properties>
           <Name>ExplorationConsumptionRate</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">0.45</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">0.4</DefaultValue>
         </CustomVariable>
         <CustomVariable>
           <Properties>
@@ -1970,7 +2039,7 @@
           </Properties>
           <Name>ExplorationReplenishRate</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">6</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">10</DefaultValue>
         </CustomVariable>
         <CustomVariable>
           <Properties>
@@ -1981,7 +2050,7 @@
           </Properties>
           <Name>AdditionalLightConsumption</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">0.25</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">0.2</DefaultValue>
         </CustomVariable>
         <CustomVariable>
           <Properties>
@@ -2792,6 +2861,17 @@
           <Name>AutomaticDismissTime</Name>
           <Type>float</Type>
         </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>bool</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>Enabled</Name>
+          <Type>bool</Type>
+          <DefaultValue xsi:type="xsd:boolean">true</DefaultValue>
+        </CustomVariable>
       </CustomVariables>
       <ImplementsIVisible>true</ImplementsIVisible>
       <ImplementsIDrawableBatch>false</ImplementsIDrawableBatch>
@@ -2929,6 +3009,14 @@
   <TranslatedFiles>
     <TranslatedFileSave>
       <FileName>Screens/TestScreen.cs</FileName>
+      <TranslationStyle>PerformTranslate</TranslationStyle>
+    </TranslatedFileSave>
+    <TranslatedFileSave>
+      <FileName>Screens/GameScreen.Event.cs</FileName>
+      <TranslationStyle>PerformTranslate</TranslationStyle>
+    </TranslatedFileSave>
+    <TranslatedFileSave>
+      <FileName>Screens/GameScreen.cs</FileName>
       <TranslationStyle>PerformTranslate</TranslationStyle>
     </TranslatedFileSave>
   </TranslatedFiles>

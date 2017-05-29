@@ -386,6 +386,25 @@ namespace Anfloga.Screens
                     }
                 }
 
+                foreach(var disablerEntity in DisablerEntityList)
+                {
+                    if (player.CollideAgainst(disablerEntity))
+                    {
+                        string nameToDisable = disablerEntity.ObjectToDisable;
+
+                        var matchingWorldObjectEntity = WorldObjectEntityList.FirstOrDefault(item => item.Name == nameToDisable);
+
+                        if (matchingWorldObjectEntity !=null)
+                        {
+                            matchingWorldObjectEntity.Enabled = false;
+                        }
+                        else
+                        {
+                            throw new InvalidOperationException($"Could not find a MoveToScreen entity with the name {nameToDisable}");
+                        }
+                    }
+                }
+
                 if(!isTransitioning)
                 {
                     foreach(var enablerEntity in EnablerEntityList)
