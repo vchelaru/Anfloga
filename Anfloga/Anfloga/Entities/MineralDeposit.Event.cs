@@ -15,23 +15,28 @@ namespace Anfloga.Entities
 {
 	public partial class MineralDeposit
 	{
+        bool hasRadiusBeenSet = false;
         void OnAfterCollisionRadiusSet (object sender, EventArgs e)
         {
-            Circle circle = Collision.Circles.FirstOrDefault();
-            if (circle == null)
+            if (hasRadiusBeenSet == false)
             {
-                circle = new Circle();
-                circle.AttachTo(this, false);
-                this.Collision.Circles.Add(circle);
-#if DEBUG
-                if (DebuggingVariables.ShowMineralDepositCollision)
+                Circle circle = Collision.Circles.FirstOrDefault();
+                if (circle == null)
                 {
-                    circle.Visible = true;
-                }
+                    circle = new Circle();
+                    circle.AttachTo(this, false);
+                    this.Collision.Circles.Add(circle);
+#if DEBUG
+                    if (DebuggingVariables.ShowMineralDepositCollision)
+                    {
+                        circle.Visible = true;
+                    }
 #endif
-            }
+                }
 
-            circle.Radius = this.CollisionRadius;
+                circle.Radius = this.CollisionRadius;
+                hasRadiusBeenSet = true;
+            }
         }
 		
 	}
