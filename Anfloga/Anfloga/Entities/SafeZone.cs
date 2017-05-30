@@ -66,7 +66,10 @@ namespace Anfloga.Entities
                 player.SpendCurrency(ActivationCost);
                 BuiltByPlayer = true;
                 var thePlayer = player as Player;
-                thePlayer.UpdateLastCheckpointPosition(this.X, this.Y); 
+
+                // magic number so the player spawns a bit above the bottom of the safe zone
+                float yPositionJustAbovePolygonBottom = this.Y + SpriteInstance.RelativeY + 20;
+                thePlayer.UpdateLastCheckpointPosition(this.X, yPositionJustAbovePolygonBottom); 
             }
 
             return toReturn;

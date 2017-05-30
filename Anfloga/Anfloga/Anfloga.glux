@@ -1413,6 +1413,16 @@
       </CustomVariables>
       <ImplementsIDrawableBatch>false</ImplementsIDrawableBatch>
       <Name>Entities\DebuggingVariables</Name>
+      <NamedObjects>
+        <NamedObjectSave>
+          <SourceType>Entity</SourceType>
+          <SourceClassType>Entities\DisablerEntity</SourceClassType>
+          <InstanceName>DisablerEntityInstance</InstanceName>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
+      </NamedObjects>
       <Is2D>true</Is2D>
     </EntitySave>
     <EntitySave>
@@ -2021,7 +2031,7 @@
           </Properties>
           <Name>ExplorationConsumptionRate</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">0.4</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">0.5</DefaultValue>
         </CustomVariable>
         <CustomVariable>
           <Properties>
@@ -2381,6 +2391,17 @@
           </Properties>
           <Name>BuiltByPlayer</Name>
           <Type>bool</Type>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>bool</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>Enabled</Name>
+          <Type>bool</Type>
+          <DefaultValue xsi:type="xsd:boolean">true</DefaultValue>
         </CustomVariable>
       </CustomVariables>
       <ImplementsIDrawableBatch>false</ImplementsIDrawableBatch>
