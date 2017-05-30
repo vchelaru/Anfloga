@@ -415,13 +415,19 @@ namespace Anfloga.Screens
 
                             var foundMoveEntity = MoveToScreenEntityList.FirstOrDefault(item => item.Name == nameToEnable);
 
+                            var foundMatchingSafeZoneEntity = SafeZoneList.FirstOrDefault(item => item.Name == nameToEnable);
+
                             if(foundMoveEntity != null)
                             {
                                 foundMoveEntity.Enabled = true;
                             }
+                            else if(foundMatchingSafeZoneEntity != null)
+                            {
+                                foundMatchingSafeZoneEntity.Enabled = true;
+                            }
                             else
                             {
-                                throw new InvalidOperationException($"Could not find a MoveToScreen entity with the name {nameToEnable}");
+                                throw new InvalidOperationException($"Could not find a MoveToScreen or SafeZone entity with the name {nameToEnable}");
                             }
                         }
                     }
@@ -454,7 +460,7 @@ namespace Anfloga.Screens
                     {
                         if (safeZone.IsActive)
                         {
-                            if(arePlayerBuiltSafeZonesEnabled || safeZone.BuiltByPlayer == false)
+                            if(arePlayerBuiltSafeZonesEnabled || safeZone.BuiltByPlayer == false && safeZone.Enabled)
                             {
                                 player.CurrentExplorationState = ExplorationState.Replenish;
                             }
