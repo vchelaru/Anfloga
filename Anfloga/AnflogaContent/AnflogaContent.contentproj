@@ -245,10 +245,6 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>anflogaSprites</Name>
     </None>
-    <None Include="Screens\GameScreen\Levels\anflogaTest.tmx">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>anflogaTest</Name>
-    </None>
     <None Include="Screens\GameScreen\Levels\smallerMap.tmx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>smallerMap</Name>

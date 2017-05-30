@@ -63,13 +63,6 @@
       <Name>Screens\GameScreen</Name>
       <ReferencedFiles>
         <ReferencedFileSave>
-          <Name>Screens/GameScreen/Levels/anflogaTest.tmx</Name>
-          <IsSharedStatic>true</IsSharedStatic>
-          <LoadedOnlyWhenReferenced>true</LoadedOnlyWhenReferenced>
-          <RuntimeType>FlatRedBall.TileGraphics.LayeredTileMap</RuntimeType>
-          <ProjectsToExcludeFrom />
-        </ReferencedFileSave>
-        <ReferencedFileSave>
           <Name>Screens/GameScreen/Levels/theMap.tmx</Name>
           <IsSharedStatic>true</IsSharedStatic>
           <LoadedOnlyWhenReferenced>true</LoadedOnlyWhenReferenced>
