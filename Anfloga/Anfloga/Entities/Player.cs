@@ -403,7 +403,7 @@ namespace Anfloga.Entities
                 }
                 if(EngineVolume == 0)
                 {
-                    this.Tween(nameof(EngineVolume), 1, EngineFadeTime, InterpolationType.Linear, Easing.In);
+                    this.Tween(nameof(EngineVolume), MaxEngineSfxVolume, EngineFadeTime, InterpolationType.Linear, Easing.In);
                 }
             }
             else 
@@ -425,7 +425,8 @@ namespace Anfloga.Entities
                 {
                     SubLoop.Play();
                 }
-                SubLoop.Volume = currentVelocityLength / MaxSpeed;
+
+                SubLoop.Volume = MaxEngineSfxVolume * currentVelocityLength / MaxSpeed;
             }
             else
             {
