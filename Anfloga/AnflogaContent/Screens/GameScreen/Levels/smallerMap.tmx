@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="800" height="350" tilewidth="16" tileheight="16" nextobjectid="347">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="800" height="350" tilewidth="16" tileheight="16" nextobjectid="349">
  <tileset firstgid="1" name="anflogaSprites" tilewidth="16" tileheight="16" tilecount="16384" columns="128">
   <image source="anflogaSprites.png" width="2048" height="2048"/>
   <terraintypes>
@@ -796,14 +796,14 @@
     <property name="IsVisible" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="332" name="power station 5" x="6240.06" y="5321.18" width="1881.55" height="124.388">
+  <object id="332" name="power station 5" x="6243.06" y="5316.18" width="1881.55" height="124.388">
    <properties>
     <property name="ActivationCost" type="int" value="1"/>
     <property name="EntityToCreate" value="SafeZone"/>
     <property name="IsVisible" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="334" name="FreeEndingSafeZone" x="4895.46" y="4224" width="1591.32" height="1101.9">
+  <object id="334" name="FreeEndingSafeZone" x="336" y="3376" width="7344" height="1949.9">
    <properties>
     <property name="ActivationCost" type="int" value="0"/>
     <property name="Enabled" type="bool" value="false"/>
@@ -813,7 +813,7 @@
   </object>
  </objectgroup>
  <objectgroup name="PlayerStart">
-  <object id="339" name="player start" gid="2147490305" x="241.708" y="511.86" width="16" height="16">
+  <object id="348" name="player start" gid="2147490305" x="240" y="512" width="16" height="16">
    <properties>
     <property name="EntityToCreate" value="Player"/>
    </properties>
@@ -882,7 +882,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Darkness Triggers">
+ <objectgroup name="Darkness Triggers" visible="0">
   <object id="36" x="-48" y="768" width="19456" height="32">
    <properties>
     <property name="DarknessValue" type="float" value="0.5"/>
@@ -1441,7 +1441,7 @@
     <property name="EntityToCreate" value="DarknessTrigger"/>
    </properties>
   </object>
-  <object id="346" x="7280" y="5440" width="192" height="160" rotation="180">
+  <object id="346" x="7281" y="5488" width="192" height="210" rotation="180">
    <properties>
     <property name="DarknessValue" type="float" value="0.2"/>
     <property name="EntityToCreate" value="DarknessTrigger"/>
