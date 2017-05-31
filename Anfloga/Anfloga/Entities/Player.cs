@@ -412,11 +412,7 @@ namespace Anfloga.Entities
                 {
                     this.Tween(nameof(EngineVolume), 0, EngineFadeTime, InterpolationType.Linear, Easing.In);
                 }
-                else
-                {
-                    // Calling stop or pause here seems to make the sound "pop"
-                    //EngineLoop.Stop();
-                }
+
             }
 
             if((desiredXVelocity == 0 && desiredYVelocity == 0) && Velocity.LengthSquared() > 0)
