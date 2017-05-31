@@ -522,7 +522,7 @@
       <Type>string</Type>
       <Name>TextInstance.Text</Name>
       <Value xsi:type="xsd:string">Vic Chelaru - Engine and Tools, David Antognoli - Game Design, 
-Rick Blaylock - Programming, Justin Johnson - Art</Value>
+Rick Blaylock - Programming, Justin Johnson - Art, Marc Carlton - Sound and Music</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
