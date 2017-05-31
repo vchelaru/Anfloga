@@ -12,6 +12,8 @@ using Anfloga.GumRuntimes;
 using FlatRedBall.Graphics;
 using Anfloga.Interfaces;
 using Microsoft.Xna.Framework;
+using FlatRedBall.Audio;
+using Microsoft.Xna.Framework.Audio;
 
 namespace Anfloga.Entities
 {
@@ -53,6 +55,8 @@ namespace Anfloga.Entities
 
         private float actionIconOffset;
 
+        private bool didPlayEngineLoop;
+
         #endregion
 
         #region Initialize
@@ -82,6 +86,7 @@ namespace Anfloga.Entities
             InitializeEmitter();
 
             InitializeAcionIcon();
+
 		}
 
         private void InitializeAcionIcon()
@@ -355,6 +360,24 @@ namespace Anfloga.Entities
             else if (BubblesInstance.ThrustVector.Length() != 0)
             {
                 BubblesInstance.ThrustVector = Microsoft.Xna.Framework.Vector3.Zero;
+            }
+
+            if(desiredXVelocity != 0 || desiredYVelocity != 0)
+            {
+                EngineLoop.Play();
+            }
+            else
+            {
+                EngineLoop.Pause();
+            }
+
+            if((desiredXVelocity == 0 && desiredYVelocity == 0) && Velocity.LengthSquared() > 0)
+            {
+                SubLoop.Play();
+            }
+            else
+            {
+                SubLoop.Pause();
             }
         }
 

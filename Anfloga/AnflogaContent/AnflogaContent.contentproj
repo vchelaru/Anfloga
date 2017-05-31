@@ -259,6 +259,16 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\Player\sub_move_engine_loop.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>sub_move_engine_loop</Name>
+    </Compile>
+    <Compile Include="Entities\Player\sub_move_loop_short.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>sub_move_loop_short</Name>
+    </Compile>
     <Compile Include="Entities\Player\warningAlert.wav">
       <Importer>WavImporter</Importer>
       <Processor>SoundEffectProcessor</Processor>
