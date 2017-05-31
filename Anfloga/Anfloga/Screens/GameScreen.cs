@@ -493,7 +493,7 @@ namespace Anfloga.Screens
                     {
                         if (safeZone.IsActive)
                         {
-                            if(arePlayerBuiltSafeZonesEnabled || safeZone.BuiltByPlayer == false && safeZone.Enabled)
+                            if((arePlayerBuiltSafeZonesEnabled || safeZone.BuiltByPlayer == false) && safeZone.Enabled)
                             {
                                 player.CurrentExplorationState = ExplorationState.Replenish;
                             }
