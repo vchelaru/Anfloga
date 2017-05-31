@@ -74,7 +74,15 @@ namespace Anfloga.Screens
             MoveObjectsToCorrectRenderLayer();
 
             InitializeRestartVariables();
+
+            InitializeSfx();
 		}
+
+        private void InitializeSfx()
+        {
+            ShallowAmbience.Play();
+            DeepAmbience.Play();
+        }
 
         private void AdjustLayerOrthoValues()
         {
@@ -336,7 +344,17 @@ namespace Anfloga.Screens
             HandleDeathActivity();
 
             ReloadScreenActivity();
+
+            UpdateSfxVolumeActivity();
 		}
+
+        private void UpdateSfxVolumeActivity()
+        {
+            float shallowVolume = 1 - ShaderRendererInstance.DarknessAlpha;
+
+            ShallowAmbience.Volume = shallowVolume;
+            DeepAmbience.Volume = ShaderRendererInstance.DarknessAlpha;
+        }
 
         private void HandleDeathActivity()
         {

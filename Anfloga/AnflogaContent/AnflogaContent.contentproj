@@ -274,6 +274,16 @@
       <Processor>SoundEffectProcessor</Processor>
       <Name>warningAlert</Name>
     </Compile>
+    <Compile Include="Screens\GameScreen\amb_depth_deep.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>amb_depth_deep</Name>
+    </Compile>
+    <Compile Include="Screens\GameScreen\amb_depth_shallow.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>amb_depth_shallow</Name>
+    </Compile>
     <Compile Include="Screens\GameScreen\Shaders\BloomCombine.fx">
       <Importer>EffectImporter</Importer>
       <Processor>EffectProcessor</Processor>
