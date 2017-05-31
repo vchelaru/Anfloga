@@ -1445,7 +1445,7 @@
           </Properties>
           <Name>StartingCurrency</Name>
           <Type>int</Type>
-          <DefaultValue xsi:type="xsd:int">8</DefaultValue>
+          <DefaultValue xsi:type="xsd:int">7</DefaultValue>
           <IsShared>true</IsShared>
         </CustomVariable>
         <CustomVariable>
