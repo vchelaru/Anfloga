@@ -290,6 +290,11 @@
       <Processor>SoundEffectProcessor</Processor>
       <Name>warningAlert</Name>
     </Compile>
+    <Compile Include="Entities\SafeZone\prop_bubbles_loop.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>prop_bubbles_loop</Name>
+    </Compile>
     <Compile Include="Screens\GameScreen\amb_depth_deep.wav">
       <Importer>WavImporter</Importer>
       <Processor>SoundEffectProcessor</Processor>

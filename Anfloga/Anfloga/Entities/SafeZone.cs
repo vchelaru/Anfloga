@@ -21,6 +21,10 @@ namespace Anfloga.Entities
 
         private LightEntity lightEntity;
 
+        public PositionedObject ObjectToPlaySoundAgainst;
+
+        private float minSfxDistanceSquared;
+
         /// <summary>
         /// Initialization logic which is execute only one time for this Entity (unless the Entity is pooled).
         /// This method is called when the Entity is added to managers. Entities which are instantiated but not
@@ -34,15 +38,38 @@ namespace Anfloga.Entities
             lightEntity.AttachTo(this, false);
             lightEntity.VisualName = "HarvesterLight";
             lightEntity.Visible = false;
+
+            BubbleSfx.Play();
+            BubbleSfx.Volume = 0;
+
+            minSfxDistanceSquared = MinSfxVolumeDistance * MinSfxVolumeDistance;
 		}
 
 		private void CustomActivity()
 		{
-
+            if(this.ActivationCost > 0)
+            {
+                PerformSfxActivity();
+            }
 
 		}
 
-		private void CustomDestroy()
+        private void PerformSfxActivity()
+        {
+            var distance = BubblesInstance.Position - ObjectToPlaySoundAgainst.Position;
+            distance.Z = 0;
+
+            //To save some perf we will use the distance squared.
+            var distanceSquared = distance.LengthSquared();
+            if (distanceSquared <= minSfxDistanceSquared)
+            {
+                BubbleSfx.Volume = (minSfxDistanceSquared - distanceSquared) / minSfxDistanceSquared;
+            }
+            distance.Normalize();
+            BubbleSfx.Pan = distance.X;
+        }
+
+        private void CustomDestroy()
 		{
             lightEntity?.Destroy();
             lightEntity = null;
