@@ -118,11 +118,14 @@ namespace Anfloga.Entities
             CurrentExplorationState = ExplorationState.Idle;
         }
 
-        public void InitializeLightLayer(Layer lightLayer)
+        public void MoveContainedObjectsToLayers(Layer darknessLayer, Layer topLayer)
         {
-            this.LightBeamInstance.MoveToLayer(lightLayer);
+            this.LightBeamInstance.MoveToLayer(darknessLayer);
 
-            SpriteManager.AddToLayer(AlwaysOnLightSprite, lightLayer);
+            this.LayerProvidedByContainer?.Remove(this.AlwaysOnLightSprite);
+            SpriteManager.AddToLayer(AlwaysOnLightSprite, darknessLayer);
+
+            ActionIconInstance.MoveToLayer(topLayer);
         }
 
         private void AssignInput()
