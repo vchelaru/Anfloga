@@ -192,7 +192,12 @@ namespace Anfloga.Entities
                 }
                 else
                 {
-                    ActionIconInstance.VisualName = "PurchaseCollector";
+                    SafeZone safeZone = ObjectsToPerformCurrencyTransactionOn[0] as SafeZone;
+
+                    if (CurrentCurrencyBalance >= safeZone?.ActivationCost)
+                        ActionIconInstance.VisualName = "PurchaseCollector";
+                    else
+                        ActionIconInstance.VisualName = "CannotAffordCollector";
                 }
 
                 ActionIconInstance.RelativeY = actionIconOffset + ActionIconInstance.SpriteInstanceHeight / 2;
