@@ -1441,7 +1441,7 @@
     <property name="EntityToCreate" value="DarknessTrigger"/>
    </properties>
   </object>
-  <object id="346" x="7296" y="5472" width="192" height="160" rotation="180">
+  <object id="346" x="7280" y="5440" width="192" height="160" rotation="180">
    <properties>
     <property name="DarknessValue" type="float" value="0.2"/>
     <property name="EntityToCreate" value="DarknessTrigger"/>
