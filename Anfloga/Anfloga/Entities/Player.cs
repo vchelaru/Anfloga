@@ -397,7 +397,10 @@ namespace Anfloga.Entities
 
             if(desiredXVelocity != 0 || desiredYVelocity != 0)
             {
-                EngineLoop.Play();
+                if(EngineLoop.State != SoundState.Playing)
+                {
+                    EngineLoop.Play();
+                }
                 if(EngineVolume == 0)
                 {
                     this.Tween(nameof(EngineVolume), 1, EngineFadeTime, InterpolationType.Linear, Easing.In);
@@ -411,18 +414,23 @@ namespace Anfloga.Entities
                 }
                 else
                 {
-                    EngineLoop.Pause();
+                    // Calling stop or pause here seems to make the sound "pop"
+                    //EngineLoop.Stop();
                 }
             }
 
             if((desiredXVelocity == 0 && desiredYVelocity == 0) && Velocity.LengthSquared() > 0)
             {
-                SubLoop.Play();
-                SubLoop.Volume = Velocity.Length() / MaxSpeed;
+                if(SubLoop.State != SoundState.Playing)
+                {
+                    SubLoop.Play();
+                }
+                SubLoop.Volume = currentVelocityLength / MaxSpeed;
             }
             else
             {
-                SubLoop.Pause();
+                // Calling stop or pause here seems to make the sound "pop"
+                //SubLoop.Stop();
             }
         }
 
