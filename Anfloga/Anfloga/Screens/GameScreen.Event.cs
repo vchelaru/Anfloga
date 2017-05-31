@@ -25,7 +25,12 @@ namespace Anfloga.Screens
 
             isTransitioning = true;
             this.GameScreenGumRuntime.InterpolateTo(FadeoutCategory.Dark, FadeOutTime, InterpolationType.Linear, Easing.In);
-            this.Call(() => MoveToScreen(typeof(MainMenuScreen )))
+            this.Call(() =>
+            {
+                UnpauseThisScreen();
+                MoveToScreen(typeof(MainMenuScreen));
+
+            })
                 .After(FadeOutTime);
         }
         void OnOkCancelWindowInstanceNoButtonClick (FlatRedBall.Gui.IWindow window)
