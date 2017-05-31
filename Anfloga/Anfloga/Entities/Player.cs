@@ -374,6 +374,7 @@ namespace Anfloga.Entities
             if((desiredXVelocity == 0 && desiredYVelocity == 0) && Velocity.LengthSquared() > 0)
             {
                 SubLoop.Play();
+                SubLoop.Volume = Velocity.Length() / MaxSpeed;
             }
             else
             {
