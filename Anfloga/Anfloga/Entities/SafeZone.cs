@@ -60,13 +60,20 @@ namespace Anfloga.Entities
             distance.Z = 0;
 
             //To save some perf we will use the distance squared.
-            var distanceSquared = distance.LengthSquared();
-            if (distanceSquared <= minSfxDistanceSquared)
+            var length = distance.Length();
+            if (length <= MinSfxVolumeDistance)
             {
-                BubbleSfx.Volume = (minSfxDistanceSquared - distanceSquared) / minSfxDistanceSquared;
+                BubbleSfx.Volume = (MinSfxVolumeDistance - length) / MinSfxVolumeDistance;
             }
-            distance.Normalize();
-            BubbleSfx.Pan = distance.X;
+            if (length > MinPanDistance)
+            {
+                distance.Normalize();
+                BubbleSfx.Pan = distance.X;
+            }
+            else
+            {
+                BubbleSfx.Pan = 0;
+            }
         }
 
         private void CustomDestroy()
