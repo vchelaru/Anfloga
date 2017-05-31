@@ -153,6 +153,14 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>Font12Oxygen_0</Name>
     </None>
+    <None Include="GumProject\FontCache\Font14Arial.fnt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Font14Arial</Name>
+    </None>
+    <None Include="GumProject\FontCache\Font14Arial_0.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Font14Arial_0</Name>
+    </None>
     <None Include="GumProject\FontCache\Font18Arial.fnt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>Font18Arial</Name>
@@ -264,10 +272,6 @@
     <None Include="Screens\GameScreen\Levels\smallerMap.tmx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>smallerMap</Name>
-    </None>
-    <None Include="Screens\GameScreen\Levels\theMap.tmx">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>theMap</Name>
     </None>
     <None Include="Screens\TestScreen\TextureFile.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
