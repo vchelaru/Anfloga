@@ -157,12 +157,24 @@
           <ProjectsToExcludeFrom />
         </ReferencedFileSave>
         <ReferencedFileSave>
+          <Properties>
+            <PropertySave>
+              <Name>UseContentPipeline</Name>
+              <ValueAsBool>true</ValueAsBool>
+            </PropertySave>
+          </Properties>
           <Name>Screens/GameScreen/amb_depth_deep.wav</Name>
           <IsSharedStatic>true</IsSharedStatic>
           <RuntimeType>Microsoft.Xna.Framework.Audio.SoundEffect</RuntimeType>
           <ProjectsToExcludeFrom />
         </ReferencedFileSave>
         <ReferencedFileSave>
+          <Properties>
+            <PropertySave>
+              <Name>UseContentPipeline</Name>
+              <ValueAsBool>true</ValueAsBool>
+            </PropertySave>
+          </Properties>
           <Name>Screens/GameScreen/amb_depth_shallow.wav</Name>
           <IsSharedStatic>true</IsSharedStatic>
           <RuntimeType>Microsoft.Xna.Framework.Audio.SoundEffect</RuntimeType>
@@ -590,7 +602,6 @@
           <IndependentOfCamera>true</IndependentOfCamera>
           <LayerOn>AboveEverythingLayer</LayerOn>
         </NamedObjectSave>
-		
         <NamedObjectSave>
           <CustomProperty>
             <Type>bool</Type>
@@ -642,6 +653,13 @@
           <Name>GumProject/Screens/MainMenuScreenGum.gusx</Name>
           <IsSharedStatic>true</IsSharedStatic>
           <RuntimeType>FlatRedBall.Gum.GumIdb</RuntimeType>
+          <ProjectsToExcludeFrom />
+        </ReferencedFileSave>
+        <ReferencedFileSave>
+          <Name>Screens/MainMenuScreen/MainMenuSong.mp3</Name>
+          <IsSharedStatic>true</IsSharedStatic>
+          <DestroyOnUnload>false</DestroyOnUnload>
+          <RuntimeType>Microsoft.Xna.Framework.Media.Song</RuntimeType>
           <ProjectsToExcludeFrom />
         </ReferencedFileSave>
       </ReferencedFiles>
@@ -2033,6 +2051,10 @@
           <Name>ImplementsICollidable</Name>
           <ValueAsBool>true</ValueAsBool>
         </PropertySave>
+        <PropertySave>
+          <Name>HasAdvancedInterpolations</Name>
+          <ValueAsBool>true</ValueAsBool>
+        </PropertySave>
       </Properties>
       <Tags>
         <string>GLUE</string>
@@ -2146,6 +2168,17 @@
           <Type>float</Type>
           <DefaultValue xsi:type="xsd:float">33</DefaultValue>
           <IsShared>true</IsShared>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>EngineFadeTime</Name>
+          <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">0.1</DefaultValue>
         </CustomVariable>
       </CustomVariables>
       <ImplementsIVisible>true</ImplementsIVisible>
@@ -3120,7 +3153,7 @@
     <RecordLockContention>false</RecordLockContention>
   </GlobalContentSettingsSave>
   <SyncedProjects />
-  <StartUpScreen>Screens\GameScreen</StartUpScreen>
+  <StartUpScreen>Screens\MainMenuScreen</StartUpScreen>
   <ResolutionPresets />
   <PerformanceSettingsSave>
     <ThrowExceptionOnPostInitializeContentLoad>false</ThrowExceptionOnPostInitializeContentLoad>

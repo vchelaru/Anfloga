@@ -325,6 +325,11 @@
       <Processor>EffectProcessor</Processor>
       <Name>TestShader</Name>
     </Compile>
+    <Compile Include="Screens\MainMenuScreen\MainMenuSong.mp3">
+      <Importer>Mp3Importer</Importer>
+      <Processor>SongProcessor</Processor>
+      <Name>MainMenuSong</Name>
+    </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\$(XnaFrameworkVersion)\Microsoft.Xna.GameStudio.ContentPipeline.targets" />
   <!--  To modify your build process, add your task inside one of the targets below and uncomment it. 
