@@ -655,6 +655,19 @@
           <RuntimeType>FlatRedBall.Gum.GumIdb</RuntimeType>
           <ProjectsToExcludeFrom />
         </ReferencedFileSave>
+        <ReferencedFileSave>
+          <Properties>
+            <PropertySave>
+              <Name>UseContentPipeline</Name>
+              <ValueAsBool>true</ValueAsBool>
+            </PropertySave>
+          </Properties>
+          <Name>Screens/MainMenuScreen/MainMenuSong.mp3</Name>
+          <IsSharedStatic>true</IsSharedStatic>
+          <DestroyOnUnload>false</DestroyOnUnload>
+          <RuntimeType>Microsoft.Xna.Framework.Media.Song</RuntimeType>
+          <ProjectsToExcludeFrom />
+        </ReferencedFileSave>
       </ReferencedFiles>
       <NamedObjects>
         <NamedObjectSave>
@@ -2172,6 +2185,17 @@
           <Name>EngineFadeTime</Name>
           <Type>float</Type>
           <DefaultValue xsi:type="xsd:float">0.1</DefaultValue>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>MaxEngineSfxVolume</Name>
+          <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">0.45</DefaultValue>
         </CustomVariable>
       </CustomVariables>
       <ImplementsIVisible>true</ImplementsIVisible>
