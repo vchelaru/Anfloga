@@ -82,6 +82,12 @@ namespace Anfloga.Screens
         {
             ShallowAmbience.Play();
             DeepAmbience.Play();
+
+            foreach(var safezone in SafeZoneList)
+            {
+                //We only have single player use the first object in the list.
+                safezone.ObjectToPlaySoundAgainst = PlayerList[0];
+            }
         }
 
         private void AdjustLayerOrthoValues()
