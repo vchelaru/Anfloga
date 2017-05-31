@@ -42,7 +42,7 @@
     <property name="AdditionalLightConsumption" type="float" default="0.2" />
     <property name="PercentageForLowEnergyNotification" type="float" default="33" />
     <property name="EngineFadeTime" type="float" default="0.1" />
-    <property name="MaxEngineSfxVolume" type="float" default="0.45" />
+    <property name="MaxEngineSfxVolume" type="float" default="1" />
   </objecttype>
   <objecttype name="SafeZone">
     <property name="ActivationCost" type="int" />
@@ -52,6 +52,7 @@
     <property name="BubbleYOffsetForDestroy" type="float" default="-76" />
     <property name="BuiltByPlayer" type="bool" />
     <property name="Enabled" type="bool" default="true" />
+    <property name="MinSfxVolumeDistance" type="float" default="500" />
   </objecttype>
   <objecttype name="SafeZoneDisabler" />
   <objecttype name="SeaLife">
