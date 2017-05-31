@@ -46,6 +46,20 @@
           <BeforeOrAfter>Before</BeforeOrAfter>
           <DelegateType />
         </EventResponseSave>
+        <EventResponseSave>
+          <EventName>OkCancelWindowInstanceYesButtonClick</EventName>
+          <SourceObject>OkCancelWindowInstance</SourceObject>
+          <SourceObjectEvent>YesButtonClick</SourceObjectEvent>
+          <BeforeOrAfter>Before</BeforeOrAfter>
+          <DelegateType />
+        </EventResponseSave>
+        <EventResponseSave>
+          <EventName>OkCancelWindowInstanceNoButtonClick</EventName>
+          <SourceObject>OkCancelWindowInstance</SourceObject>
+          <SourceObjectEvent>NoButtonClick</SourceObjectEvent>
+          <BeforeOrAfter>Before</BeforeOrAfter>
+          <DelegateType />
+        </EventResponseSave>
       </Events>
       <CustomVariables>
         <CustomVariable>
@@ -143,12 +157,24 @@
           <ProjectsToExcludeFrom />
         </ReferencedFileSave>
         <ReferencedFileSave>
+          <Properties>
+            <PropertySave>
+              <Name>UseContentPipeline</Name>
+              <ValueAsBool>true</ValueAsBool>
+            </PropertySave>
+          </Properties>
           <Name>Screens/GameScreen/amb_depth_deep.wav</Name>
           <IsSharedStatic>true</IsSharedStatic>
           <RuntimeType>Microsoft.Xna.Framework.Audio.SoundEffect</RuntimeType>
           <ProjectsToExcludeFrom />
         </ReferencedFileSave>
         <ReferencedFileSave>
+          <Properties>
+            <PropertySave>
+              <Name>UseContentPipeline</Name>
+              <ValueAsBool>true</ValueAsBool>
+            </PropertySave>
+          </Properties>
           <Name>Screens/GameScreen/amb_depth_shallow.wav</Name>
           <IsSharedStatic>true</IsSharedStatic>
           <RuntimeType>Microsoft.Xna.Framework.Audio.SoundEffect</RuntimeType>
@@ -560,6 +586,21 @@
           <AttachToContainer>true</AttachToContainer>
           <GenerateTimedEmit>true</GenerateTimedEmit>
           <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
+        <NamedObjectSave>
+          <CustomProperty>
+            <Type>bool</Type>
+            <Member>Visible</Member>
+            <ValueAsBool>false</ValueAsBool>
+          </CustomProperty>
+          <SourceType>File</SourceType>
+          <SourceFile>GumProject/Screens/GameScreenGum.gusx</SourceFile>
+          <SourceName>OkCancelWindowInstance (Anfloga.GumRuntimes.OkCancelWindowRuntime)</SourceName>
+          <InstanceName>OkCancelWindowInstance</InstanceName>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IndependentOfCamera>true</IndependentOfCamera>
+          <LayerOn>AboveEverythingLayer</LayerOn>
         </NamedObjectSave>
         <NamedObjectSave>
           <CustomProperty>
@@ -2373,12 +2414,24 @@
           <ProjectsToExcludeFrom />
         </ReferencedFileSave>
         <ReferencedFileSave>
+          <Properties>
+            <PropertySave>
+              <Name>UseContentPipeline</Name>
+              <ValueAsBool>true</ValueAsBool>
+            </PropertySave>
+          </Properties>
           <Name>Entities/Player/sub_move_engine_loop.wav</Name>
           <IsSharedStatic>true</IsSharedStatic>
           <RuntimeType>Microsoft.Xna.Framework.Audio.SoundEffect</RuntimeType>
           <ProjectsToExcludeFrom />
         </ReferencedFileSave>
         <ReferencedFileSave>
+          <Properties>
+            <PropertySave>
+              <Name>UseContentPipeline</Name>
+              <ValueAsBool>true</ValueAsBool>
+            </PropertySave>
+          </Properties>
           <Name>Entities/Player/sub_move_loop_short.wav</Name>
           <IsSharedStatic>true</IsSharedStatic>
           <RuntimeType>Microsoft.Xna.Framework.Audio.SoundEffect</RuntimeType>
@@ -3093,7 +3146,7 @@
     <RecordLockContention>false</RecordLockContention>
   </GlobalContentSettingsSave>
   <SyncedProjects />
-  <StartUpScreen>Screens\GameScreen</StartUpScreen>
+  <StartUpScreen>Screens\MainMenuScreen</StartUpScreen>
   <ResolutionPresets />
   <PerformanceSettingsSave>
     <ThrowExceptionOnPostInitializeContentLoad>false</ThrowExceptionOnPostInitializeContentLoad>

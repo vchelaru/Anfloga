@@ -12,5 +12,19 @@ namespace Anfloga.Screens
 {
 	public partial class GameScreen
 	{
+		void OnOkCancelWindowInstanceYesButtonClickTunnel (FlatRedBall.Gui.IWindow window)
+		{
+			if (this.OkCancelWindowInstanceYesButtonClick != null)
+			{
+				OkCancelWindowInstanceYesButtonClick(window);
+			}
+		}
+		void OnOkCancelWindowInstanceNoButtonClickTunnel (FlatRedBall.Gui.IWindow window)
+		{
+			if (this.OkCancelWindowInstanceNoButtonClick != null)
+			{
+				OkCancelWindowInstanceNoButtonClick(window);
+			}
+		}
 	}
 }

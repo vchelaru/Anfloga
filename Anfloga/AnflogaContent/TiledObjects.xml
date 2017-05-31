@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+<objecttypes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <objecttype name="Bubbles">
+    <property name="BubbleSpawnFrequency" type="float" default="0.1" />
+    <property name="BubbleLifeTime" type="float" default="11" />
+    <property name="BubbleInitialVelocity" type="float" default="100" />
+    <property name="RandomSpawnOffset" type="float" default="5" />
+    <property name="AccellerationCoefficient" type="float" default="5" />
+    <property name="RandomLifeTimeOffset" type="float" default="1" />
+    <property name="DragCoefficient" type="float" default="1" />
+    <property name="RandomXVelocityAdjustments" type="float" default="4.5" />
+    <property name="YToDestroyAt" type="float" default="-497" />
+  </objecttype>
+  <objecttype name="DarknessTrigger">
+    <property name="DarknessValue" type="float" default="0.5" />
+    <property name="DarknessInterpolationTime" type="float" default="2.5" />
+  </objecttype>
+  <objecttype name="DisablerEntity">
+    <property name="ObjectToDisable" type="string" />
+  </objecttype>
+  <objecttype name="EnablerEntity">
+    <property name="ObjectToEnable" type="string" default="EndingScreen" />
+  </objecttype>
+  <objecttype name="LightEntity">
+    <property name="VisualName" type="string" default="TestAnimation" />
+  </objecttype>
+  <objecttype name="MineralDeposit">
+    <property name="CurrencyValue" type="int" />
+    <property name="CollisionRadius" type="float" default="12" />
+    <property name="VisualName" type="string" />
+  </objecttype>
+  <objecttype name="MoveToScreenEntity">
+    <property name="Screen" type="string" default="EndingScreen" />
+    <property name="Enabled" type="bool" default="false" />
+  </objecttype>
+  <objecttype name="Player">
+    <property name="MaxSpeed" type="float" default="70" />
+    <property name="AccelerationTime" type="float" default="1" />
+    <property name="MaxExplorationTime" type="float" default="100" />
+    <property name="ExplorationConsumptionRate" type="float" default="0.5" />
+    <property name="ExplorationReplenishRate" type="float" default="10" />
+    <property name="AdditionalLightConsumption" type="float" default="0.2" />
+    <property name="PercentageForLowEnergyNotification" type="float" default="33" />
+  </objecttype>
+  <objecttype name="SafeZone">
+    <property name="ActivationCost" type="int" />
+    <property name="GeyserCollisionRadius" type="float" default="16" />
+    <property name="IsVisible" type="bool" default="true" />
+    <property name="EmitterYOffset" type="float" />
+    <property name="BubbleYOffsetForDestroy" type="float" default="-76" />
+    <property name="BuiltByPlayer" type="bool" />
+    <property name="Enabled" type="bool" default="true" />
+  </objecttype>
+  <objecttype name="SafeZoneDisabler" />
+  <objecttype name="SeaLife">
+    <property name="VisualName" type="string" default="Dolphin" />
+    <property name="XPatrolRange" type="float" default="50" />
+    <property name="SwimVelocity" type="float" default="20" />
+    <property name="YPatrolRange" type="float" default="10" />
+  </objecttype>
+  <objecttype name="WorldObjectEntity">
+    <property name="QuestAward" type="string" />
+    <property name="VisualName" type="string" />
+    <property name="DialogKey" type="string" />
+    <property name="IsConsumable" type="bool" />
+    <property name="AutomaticDialogDisplay" type="bool" />
+    <property name="CircleCollisionRadius" type="float" />
+    <property name="ShouldToggleVisibility" type="bool" />
+    <property name="ShouldPlaceOnUiLayer" type="bool" />
+    <property name="AutomaticDismissTime" type="float" />
+    <property name="Enabled" type="bool" default="true" />
+  </objecttype>
+</objecttypes>
