@@ -14,6 +14,8 @@ using Anfloga.Interfaces;
 using Microsoft.Xna.Framework;
 using FlatRedBall.Audio;
 using Microsoft.Xna.Framework.Audio;
+using StateInterpolationPlugin;
+using FlatRedBall.Glue.StateInterpolation;
 
 namespace Anfloga.Entities
 {
@@ -56,6 +58,20 @@ namespace Anfloga.Entities
         private float actionIconOffset;
 
         private bool didPlayEngineLoop;
+
+        private float engineVolume;
+        public float EngineVolume
+        {
+            get
+            {
+                return engineVolume;
+            }
+            set
+            {
+                engineVolume = value;
+                EngineLoop.Volume = engineVolume;
+            }
+        }
 
         #endregion
 
@@ -361,6 +377,15 @@ namespace Anfloga.Entities
                 YVelocity = desiredYVelocity;
             }
 
+            float currentVelocityLength = Velocity.Length();
+            if(currentVelocityLength > MaxSpeed)
+            {
+                Velocity.Normalize();
+                Velocity = Velocity * MaxSpeed;
+
+                currentVelocityLength = MaxSpeed;
+            }
+
             if (desiredYVelocity != 0 || desiredXVelocity != 0)
             {
                 BubblesInstance.ThrustVector = new Microsoft.Xna.Framework.Vector3(desiredXVelocity, desiredYVelocity, 0);
@@ -373,10 +398,21 @@ namespace Anfloga.Entities
             if(desiredXVelocity != 0 || desiredYVelocity != 0)
             {
                 EngineLoop.Play();
+                if(EngineVolume == 0)
+                {
+                    this.Tween(nameof(EngineVolume), 1, EngineFadeTime, InterpolationType.Linear, Easing.In);
+                }
             }
-            else
+            else 
             {
-                EngineLoop.Pause();
+                if(engineVolume > 0 && TweenerManager.Self.IsObjectReferencedByTweeners(this) == false)
+                {
+                    this.Tween(nameof(EngineVolume), 0, EngineFadeTime, InterpolationType.Linear, Easing.In);
+                }
+                else
+                {
+                    EngineLoop.Pause();
+                }
             }
 
             if((desiredXVelocity == 0 && desiredYVelocity == 0) && Velocity.LengthSquared() > 0)
