@@ -336,7 +336,18 @@ namespace Anfloga.Screens
             HandleDeathActivity();
 
             ReloadScreenActivity();
+
+            ExitGameActivity();
 		}
+
+        private void ExitGameActivity()
+        {
+            if(OkCancelWindowInstance.Visible == false && InputManager.Keyboard.KeyPushed(Microsoft.Xna.Framework.Input.Keys.Escape))
+            {
+                PauseThisScreen();
+                OkCancelWindowInstance.Visible = true;
+            }
+        }
 
         private void HandleDeathActivity()
         {

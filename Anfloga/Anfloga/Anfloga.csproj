@@ -308,6 +308,7 @@
     <Compile Include="GumCore\VariableSave.cs" />
     <Compile Include="GumCore\VariableSaveExtensionMethods.cs" />
     <Compile Include="GumRuntimes\ActionPromptRuntime.Generated.cs" />
+    <Compile Include="GumRuntimes\ButtonRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\CircleRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\ColoredRectangleRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\ContainerRuntime.Generated.cs" />
@@ -320,6 +321,7 @@
     <Compile Include="GumRuntimes\GumIdb.Generated.cs" />
     <Compile Include="GumRuntimes\MainMenuScreenGumRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\NineSliceRuntime.Generated.cs" />
+    <Compile Include="GumRuntimes\OkCancelWindowRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\PlayerHudRuntime.cs" />
     <Compile Include="GumRuntimes\PlayerHudRuntime.Generated.cs">
       <DependentUpon>PlayerHudRuntime.cs</DependentUpon>
