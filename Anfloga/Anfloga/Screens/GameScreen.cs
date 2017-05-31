@@ -158,7 +158,7 @@ namespace Anfloga.Screens
         {
             foreach(var item in PlayerList)
             {
-                item.InitializeLightLayer(DarknessRenderTargetLayer);
+                item.MoveContainedObjectsToLayers(DarknessRenderTargetLayer, AboveEverythingLayer);
             }
 
             foreach(var item in this.LightEntityList)
@@ -231,8 +231,6 @@ namespace Anfloga.Screens
             }
 #endif
         }
-
-
 
         private void InitializeCamera()
         {
@@ -345,7 +343,18 @@ namespace Anfloga.Screens
 
             ReloadScreenActivity();
 
+            ExitGameActivity();
+
             UpdateSfxVolumeActivity();
+		}
+
+        private void ExitGameActivity()
+        {
+            if(OkCancelWindowInstance.Visible == false && InputManager.Keyboard.KeyPushed(Microsoft.Xna.Framework.Input.Keys.Escape))
+            {
+                PauseThisScreen();
+                OkCancelWindowInstance.Visible = true;
+            }
 		}
 
         private void UpdateSfxVolumeActivity()
