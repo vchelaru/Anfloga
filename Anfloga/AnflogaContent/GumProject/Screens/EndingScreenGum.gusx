@@ -4,6 +4,12 @@
   <State>
     <Name>Default</Name>
     <Variable>
+      <Type>int</Type>
+      <Name>EndingTextInstance.FontSize</Name>
+      <Value xsi:type="xsd:int">14</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
       <Type>float</Type>
       <Name>EndingTextInstance.Height</Name>
       <Value xsi:type="xsd:float">72</Value>
@@ -12,28 +18,99 @@
     <Variable>
       <Type>string</Type>
       <Name>EndingTextInstance.Text</Name>
-      <Value xsi:type="xsd:string">The snake ate the tofu bubbles.
-
-The End</Value>
+      <Value xsi:type="xsd:string">You made it to the surface. You wish to share the secrets of Anfloga to prevent others from falling into this death trap. \n\nYou are resourceful. You fashion a distress beacon from parts of your ship. You hope a nearby trader notices it before the Mining Corporation sends a cleanup crew. \n\nIn the meantime, you hone your fishing skills. </Value>
       <ExposedAsName>EndingText</ExposedAsName>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>float</Type>
       <Name>EndingTextInstance.Width</Name>
-      <Value xsi:type="xsd:float">292</Value>
+      <Value xsi:type="xsd:float">416</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>float</Type>
       <Name>EndingTextInstance.X</Name>
-      <Value xsi:type="xsd:float">115</Value>
+      <Value xsi:type="xsd:float">35</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>float</Type>
       <Name>EndingTextInstance.Y</Name>
-      <Value xsi:type="xsd:float">62</Value>
+      <Value xsi:type="xsd:float">59</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>int</Type>
+      <Name>MineralCountTextInstance.FontSize</Name>
+      <Value xsi:type="xsd:int">12</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>MineralCountTextInstance.Height</Name>
+      <Value xsi:type="xsd:float">22</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>HorizontalAlignment</Type>
+      <Name>MineralCountTextInstance.HorizontalAlignment</Name>
+      <Value xsi:type="xsd:int">1</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>string</Type>
+      <Name>MineralCountTextInstance.Text</Name>
+      <Value xsi:type="xsd:string">Minerals obtained: </Value>
+      <ExposedAsName>MineralCountText</ExposedAsName>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>VerticalAlignment</Type>
+      <Name>MineralCountTextInstance.VerticalAlignment</Name>
+      <Value xsi:type="xsd:int">2</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>MineralCountTextInstance.Width</Name>
+      <Value xsi:type="xsd:float">477</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>MineralCountTextInstance.X</Name>
+      <Value xsi:type="xsd:float">0</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>HorizontalAlignment</Type>
+      <Name>MineralCountTextInstance.X Origin</Name>
+      <Value xsi:type="xsd:int">1</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>PositionUnitType</Type>
+      <Name>MineralCountTextInstance.X Units</Name>
+      <Value xsi:type="xsd:int">6</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>MineralCountTextInstance.Y</Name>
+      <Value xsi:type="xsd:float">-225</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>VerticalAlignment</Type>
+      <Name>MineralCountTextInstance.Y Origin</Name>
+      <Value xsi:type="xsd:int">2</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>PositionUnitType</Type>
+      <Name>MineralCountTextInstance.Y Units</Name>
+      <Value xsi:type="xsd:int">5</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -57,7 +134,7 @@ The End</Value>
     <Variable>
       <Type>string</Type>
       <Name>TextInstance1.Text</Name>
-      <Value xsi:type="xsd:string">Press space to restart...</Value>
+      <Value xsi:type="xsd:string">Press Space to return to Main Menu.</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -115,6 +192,10 @@ The End</Value>
   </Instance>
   <Instance>
     <Name>TextInstance1</Name>
+    <BaseType>Text</BaseType>
+  </Instance>
+  <Instance>
+    <Name>MineralCountTextInstance</Name>
     <BaseType>Text</BaseType>
   </Instance>
 </ScreenSave>

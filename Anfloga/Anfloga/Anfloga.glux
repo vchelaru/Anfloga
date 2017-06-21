@@ -77,13 +77,6 @@
       <Name>Screens\GameScreen</Name>
       <ReferencedFiles>
         <ReferencedFileSave>
-          <Name>Screens/GameScreen/Levels/theMap.tmx</Name>
-          <IsSharedStatic>true</IsSharedStatic>
-          <LoadedOnlyWhenReferenced>true</LoadedOnlyWhenReferenced>
-          <RuntimeType>FlatRedBall.TileGraphics.LayeredTileMap</RuntimeType>
-          <ProjectsToExcludeFrom />
-        </ReferencedFileSave>
-        <ReferencedFileSave>
           <Name>GumProject/Screens/GameScreenGum.gusx</Name>
           <IsSharedStatic>true</IsSharedStatic>
           <RuntimeType>FlatRedBall.Gum.GumIdb</RuntimeType>
@@ -1499,7 +1492,7 @@
           </Properties>
           <Name>StartingCurrency</Name>
           <Type>int</Type>
-          <DefaultValue xsi:type="xsd:int">7</DefaultValue>
+          <DefaultValue xsi:type="xsd:int">0</DefaultValue>
           <IsShared>true</IsShared>
         </CustomVariable>
         <CustomVariable>
