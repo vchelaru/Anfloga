@@ -367,8 +367,8 @@ namespace Anfloga.Screens
         {
             float shallowVolume = 1 - ShaderRendererInstance.DarknessAlpha;
 
-            ShallowAmbience.Volume = shallowVolume;
-            DeepAmbience.Volume = ShaderRendererInstance.DarknessAlpha;
+            ShallowAmbience.Volume = System.Math.Max(0, shallowVolume);
+            DeepAmbience.Volume = System.Math.Max(0, ShaderRendererInstance.DarknessAlpha);
         }
 
         private void HandleDeathActivity()
